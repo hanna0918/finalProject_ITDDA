@@ -1,0 +1,486 @@
+@charset "UTF-8";
+
+/*
+	스타일 주석
+  폰트 구글 폰트 사용
+	
+*/
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+* {
+  font-family: "IBMPlexSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* 전역 */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* 네비게이션 start */
+.mainHeader {
+  margin: 0 auto;
+  width: 1100px;
+}
+.topMenu {
+  /* overflow: auto; */
+  /* width: 1100px; */
+  text-align: center;
+}
+
+.topMenu > li {
+  float: left;
+  padding: 0 15px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 20px;
+}
+.topMenu > li > img {
+  width: 110px;
+  text-align: center;
+  cursor: pointer;
+}
+.wrapper {
+  background-color: white;
+}
+.topMenu > li:first-child {
+  font-size: 4em;
+  font-weight: 900;
+  /* font-family: "바탕체"; */
+  font-family: "Nanum Pen Script", cursive;
+  /* font-family: "Jua", sans-serif; */
+}
+.topMenu > li:nth-child(n + 9) {
+  font-size: 1.5em;
+}
+
+.topMenu a:link,
+.topMenu a:visited,
+.topMenu a:active {
+  text-decoration: none;
+  color: black;
+}
+.topMenu a:hover {
+  /* color: rgba(131, 125, 125, 0.952); */
+}
+.topMenu_r {
+  text-align: center;
+  line-height: 80px;
+  font-size: 14px;
+}
+.topMenu_r a {
+  padding: 0 10px;
+}
+.loginBtnBox {
+  float: right;
+}
+/* 네비게이션 end */
+
+/* 실제 content 들어가는 영역 스타일 */
+.mainContent {
+  flex: 1;
+  width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+/* 메인페이지 베스트 게시물 표기 스타일 */
+.bestBoardContent {
+  overflow: auto;
+  margin: 0 auto;
+}
+.bestBoardContent h1:nth-child(1) {
+  border-bottom: 1px solid black;
+}
+.bestBoard {
+  overflow: auto;
+}
+.bestBoard > li {
+  float: left;
+  overflow: hidden;
+  height: 120px;
+}
+.bestBoard > li:nth-child(1) {
+  width: 20%;
+}
+.bestBoard > li:nth-child(2) {
+  width: 50%;
+}
+.bestBoard > li:nth-child(3) {
+  width: 15%;
+}
+.bestBoard > li:nth-child(4) {
+  width: 15%;
+}
+
+/* 베스트 게시판 이미지 설정 start*/
+.bestBoardImgBox1 {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  margin: 0;
+}
+.bestBoardImgBox1 > img {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+/* 베스트 게시판 이미지 설정 end*/
+
+/* 베스트 게시판 글자 설정 start*/
+.bestBoard > li:nth-child(2) > div {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 120px;
+  padding-left: 20px;
+}
+.bestBoard > li:nth-child(2) > div > span:nth-child(1) {
+  color: blue;
+}
+/* 베스트 게시판 글자 설정 end */
+
+/* 베스트 게시판 추천 수& 추천 이미지 */
+.bestBoard > li:nth-child(3) {
+  text-align: center;
+}
+
+.bestBoard > li:nth-child(3) > div {
+  line-height: 120px;
+}
+
+.bestBoard > li:nth-child(3) > div > img {
+  width: 30px;
+}
+
+/* 추천게시판 댓글이미지 댓글수 */
+.bestBoard > li:nth-child(4) {
+  text-align: center;
+}
+
+.bestBoard > li:nth-child(4) > div {
+  line-height: 120px;
+}
+
+.bestBoard > li:nth-child(4) > div > img {
+  width: 30px;
+}
+
+/* 매칭게시판 설정 ----------------------------------------------- */
+/* section 설정 */
+.matchingBoard {
+  /* width: 1100px; */
+}
+.matchingBoard h1:nth-child(1) {
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+}
+.matchingBoard > ul > li {
+  float: left;
+  padding: 10px;
+}
+
+/* 매칭 게시물 1개 폭 높이등...- */
+.matchinBoardContent {
+  width: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: rgba(209, 203, 203, 0.25);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+.matchinBoardContent:hover {
+  cursor: pointer;
+}
+/* 매칭게시물 이미지 설정 */
+.matchingImgBox {
+  overflow: hidden;
+  width: 100%;
+  height: 140px;
+}
+.machingImg {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* 매칭게시물 텍스트 박스 */
+.matchingBoardTextBox {
+}
+.matchingBoardTextBox > div {
+  padding: 2px;
+}
+/* 매칭게시물 제목 */
+.matchingTitle {
+  color: #2196f3;
+  font-size: 1.2em;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px;
+}
+/* 매칭게시물 태그 */
+.matchingTga {
+  color: rgb(0, 55, 107);
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+/* 매칭게시물 위치 날짜 */
+.matchingLocationDate {
+  color: #9fa5a8;
+  font-size: 0.7em;
+}
+/* 매칭 현황 */
+.matchingStatus {
+  font-weight: bold;
+  background-color: #dfe0df;
+  width: 150px;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+/* 매칭 footer */
+.matchingFooter {
+  border-top: 1.5px solid #575a80;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+.matchingFooter > img {
+  height: 13px;
+}
+/* footer 바닥면 */
+.footer {
+  /* 높이를 지정하지 않도록 한다. */
+  padding: 30px 0;
+  color: white;
+  background: blue;
+  text-align: center;
+}
+
+/* 회원가입 & 로그인 모달창 관련 -----------------------------*/
+.asterisk {
+  color: red;
+  font-weight: bolder;
+}
+/*모달창*/
+.loginJoinModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+.loginJoinModal::-webkit-scrollbar {
+  display: none;
+}
+
+/* 모달창 배경 */
+.modalOverlay {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y: auto;
+  position: fixed;
+}
+
+.joinModalContent {
+  position: relative;
+  margin: 100px auto;
+  width: 400px;
+  padding: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow-y: auto;
+}
+
+.joinInputBox {
+  text-align: left;
+  width: 100%;
+  padding: 10px 0;
+  overflow: auto;
+  cursor: pointer;
+}
+
+.jointextarea {
+  height: 100px;
+  border: 1px solid #dfe0df;
+  border-radius: 5px;
+  overflow-y: auto;
+  background: #fff;
+  color: #000;
+}
+
+.jointextarea pre {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* 약관 취소,다음 버튼 스타일 */
+.btnBlock {
+  width: 49%;
+  height: 48px;
+  line-height: 46px;
+  padding: 0;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+}
+#joinNextBtn {
+  background-color: #0e3775;
+  color: #fff;
+}
+
+/* 회원가입 정보 입력 창 기본 설정 */
+.joinDataInputModal {
+  display: none;
+  background-color: #fff;
+}
+/* 아이디, 비밀번호, 확인 인풋박스 */
+.joinDataInputModal input[type="text"],
+.joinDataInputModal input[type="password"],
+.joinDataInputModal input[type="tel"],
+.joinDataInputModal input[type="email"] {
+  width: 390px;
+  height: 25px;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+
+.joinDataInputModal label {
+  text-align: left;
+  float: left;
+  width: 100%;
+  padding-left: 5px;
+}
+
+/* 아이디, 비밀번호, 확인 인풋박스 */
+#joinUserid,
+#joinUserpwd,
+#joinUserpwdChk {
+  margin: 0;
+  height: 30px;
+}
+
+/* 회원가입 정보입력창 ===*/
+.joinCautionText {
+  text-align: left;
+  border-left: 5px solid #2196f3;
+  background-color: #fafafa;
+  width: 378px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 0.8em;
+}
+/* 회원가입 주의사항 텍스트 */
+.joinCautionText p {
+  margin: 0;
+  padding: 5px 0;
+  color: #757575;
+}
+
+/* 생일 셀렉트박스 ====*/
+.selectBox {
+  padding-bottom: 10px;
+}
+
+.selectBox select {
+  width: 32%;
+  height: 25px;
+}
+
+.joinSubmitBtn {
+  width: 100%;
+  background-color: #0e3775;
+  color: #fff;
+  margin-top: 15px;
+}
+
+/* 로그인 관련 스타일
+ */
+.loginModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.loginForm {
+  position: relative;
+  margin: 100px auto;
+  width: 400px;
+  padding: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow: auto;
+}
+.userid,
+.userpwd {
+  border: none;
+  box-shadow: none;
+  padding: 12px 16px;
+  width: 370px;
+  line-height: 1.2;
+}
+.loginForm input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+}
+.autoLoginLabel {
+  float: left;
+  padding: 10px 0;
+}
+
+.joinBtn2 {
+  float: left;
+}
+.findId {
+  float: right;
+}
+.autoLoginLabel {
+  overflow: auto;
+}
+
+/* 메인페이지 스타일 정의 */
+/* 베스트게시판 */
