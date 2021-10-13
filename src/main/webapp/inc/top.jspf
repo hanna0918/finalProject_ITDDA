@@ -28,6 +28,7 @@
           <li><a href="#">Q&A</a></li>
           <li><a href="#">베스트</a></li>
           <li><a href="#">인증</a></li>
+          <li><a href="/itda/test">test중인파일</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">
