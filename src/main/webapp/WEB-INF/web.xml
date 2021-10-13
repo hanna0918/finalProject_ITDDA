@@ -55,12 +55,15 @@
       <jsp-property-group>
          <url-pattern>*.jsp</url-pattern>
          <include-prelude>/inc/top.jspf</include-prelude>
-      </jsp-property-group>
-      
-      <jsp-property-group>
-         <url-pattern>*.jsp</url-pattern>
          <include-coda>/inc/bottom.jspf</include-coda>
       </jsp-property-group>
+
+     
+      
+   
+      
+      
+    
    </jsp-config>
    
 </web-app>

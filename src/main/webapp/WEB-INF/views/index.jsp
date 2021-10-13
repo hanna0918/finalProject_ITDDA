@@ -11,7 +11,7 @@
           <ul class="bestBoard">
             <li>
               <div class="bestBoardImgBox1">
-                <img src="/img/bk2.jpg" alt="" />
+                <img src="img/bk2.jpg" alt="" />
               </div>
             </li>
             <li>
@@ -23,13 +23,13 @@
             </li>
             <li>
               <div>
-                <img src="/img/recommend.png" alt="" />
+                <img src="img/recommend.png" alt="" />
                 <label>80</label>
               </div>
             </li>
             <li>
               <div>
-                <img src="/img/replImg.png" alt="" />
+                <img src="img/replImg.png" alt="" />
                 <label>22</label>
               </div>
             </li>
@@ -42,7 +42,8 @@
           <ul class="bestBoard">
             <li>
               <div class="bestBoardImgBox1">
-                <img src="/img/bk2.jpg" alt="" />
+                <img src="img/bk2.jpg" alt="" />
+                
               </div>
             </li>
             <li>
@@ -54,13 +55,13 @@
             </li>
             <li>
               <div>
-                <img src="/img/recommend4.png" alt="" />
+                <img src="img/recommend4.png" alt="" />
                 <label>80</label>
               </div>
             </li>
             <li>
               <div>
-                <img src="/img/replImg.png" alt="" />
+                <img src="img/replImg.png" alt="" />
 
                 <label>22</label>
               </div>
@@ -76,7 +77,7 @@
             <li>
               <div class="matchinBoardContent" onclick="location.href='#'">
                 <div class="matchingImgBox">
-                  <img src="/img/bk3.jpg" class="machingImg" />
+                  <img src="img/bk3.jpg" class="machingImg" />
                 </div>
                 <div class="matchingBoardTextBox">
                   <div class="matchingTitle">weekenasdfdsdfsdfdfsdfsd</div>
@@ -85,9 +86,9 @@
                   <div class="matchingStatus"><a href="#"></a>매칭현황(1/5)</div>
 
                   <div class="matchingFooter">
-                    <img src="/img/count_view.png" alt="" />
+                    <img src="img/count_view.png" alt="" />
                     <span>조회 44</span>
-                    <img src="/img/replImg.png" alt="" />
+                    <img src="img/replImg.png" alt="" />
                     <span>댓글 12</span>
                   </div>
                 </div>
@@ -96,7 +97,7 @@
             <li>
               <div class="matchinBoardContent" onclick="location.href='#'">
                 <div class="matchingImgBox">
-                  <img src="/img/bk3.jpg" class="machingImg" />
+                  <img src="img/bk3.jpg" class="machingImg" />
                 </div>
                 <div class="matchingBoardTextBox">
                   <div class="matchingTitle"><a href="#">weekend Running</a></div>
@@ -105,9 +106,9 @@
                   <div class="matchingStatus"><a href="#"></a>매칭현황(1/5)</div>
 
                   <div class="matchingFooter">
-                    <img src="/img/count_view.png" alt="" />
+                    <img src="img/count_view.png" alt="" />
                     <span>조회 44</span>
-                    <img src="/img/replImg.png" alt="" />
+                    <img src="img/replImg.png" alt="" />
                     <span>댓글 12</span>
                   </div>
                 </div>
@@ -116,18 +117,18 @@
             <li>
               <div class="matchinBoardContent" onclick="location.href='#'">
                 <div class="matchingImgBox">
-                  <img src="/img/bk3.jpg" class="machingImg" />
+                  <img src="img/bk3.jpg" class="machingImg" />
                 </div>
                 <div class="matchingBoardTextBox">
                   <div class="matchingTitle"><a href="#">weekend Running</a></div>
-                  <div class="matchingTga" style="color: rgb(236, 73, 149)">#런닝 #건강 #20대</div>
+                  <div class="matchingTga">#런닝 #건강 #20대</div>
                   <div class="matchingLocationDate">서울 마포구 | 9월26일 시작</div>
                   <div class="matchingStatus"><a href="#"></a>매칭현황(1/5)</div>
 
                   <div class="matchingFooter">
-                    <img src="/img/count_view.png" alt="" />
+                    <img src="img/count_view.png" alt="" />
                     <span>조회 44</span>
-                    <img src="/img/replImg.png" alt="" />
+                    <img src="img/replImg.png" alt="" />
                     <span>댓글 12</span>
                   </div>
                 </div>
@@ -136,7 +137,7 @@
             <li>
               <div class="matchinBoardContent" onclick="location.href='#'">
                 <div class="matchingImgBox">
-                  <img src="/img/bk3.jpg" class="machingImg" />
+                  <img src="img/bk3.jpg" class="machingImg" />
                 </div>
                 <div class="matchingBoardTextBox">
                   <div class="matchingTitle"><a href="#">weekend Running</a></div>
@@ -145,9 +146,9 @@
                   <div class="matchingStatus"><a href="#"></a>매칭현황(1/5)</div>
 
                   <div class="matchingFooter">
-                    <img src="/img/count_view.png" alt="" />
+                    <img src="img/count_view.png" alt="" />
                     <span>조회 44</span>
-                    <img src="/img/replImg.png" alt="" />
+                    <img src="img/replImg.png" alt="" />
                     <span>댓글 12</span>
                   </div>
                 </div>
@@ -156,7 +157,7 @@
             <li>
               <div class="matchinBoardContent" onclick="location.href='#'">
                 <div class="matchingImgBox">
-                  <img src="/img/bk3.jpg" class="machingImg" />
+                  <img src="img/bk3.jpg" class="machingImg" />
                 </div>
                 <div class="matchingBoardTextBox">
                   <div class="matchingTitle"><a href="#">weekend Running</a></div>
@@ -165,7 +166,7 @@
                   <div class="matchingStatus"><a href="#"></a>매칭현황(1/5)</div>
 
                   <div class="matchingFooter">
-                    <img src="/img/count_view.png" alt="" />
+                    <img src="img/count_view.png" alt="" />
                     <span>조회 44</span>
                     <img src="https://cdn4.iconfinder.com/data/icons/essential-part-5/32/435-Speech_Bubble_Communication-256.png" alt="" />
                     <span>댓글 12</span>
@@ -242,9 +243,9 @@
               <p>-생년월일: 만14세미만은 가입이 제한되며, 가입시 확인하여 탈퇴처리합니다.</p>
             </div>
             <!-- 아이디 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
-            <div><input class="joinTextBox" type="text" name="joinUserid" id="joinUserid" placeholder="아이디" /></div>
-            <div><input class="joinTextBox" type="password" name="joinUserpwd" id="joinUserpwd" placeholder="비밀번호" /></div>
-            <div><input class="joinTextBox" type="password" name="joinUserpwdChk" id="joinUserpwdChk" placeholder="비밀번호확인" /></div>
+            <div><input class="joinTextBox" type="text" name="userid" placeholder="아이디" /></div>
+            <div><input class="joinTextBox" type="password" name="userpwd" placeholder="비밀번호" /></div>
+            <div><input class="joinTextBox" type="password" name="userpwdChk" placeholder="비밀번호확인" /></div>
 
             <!-- 이메일 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
             <div>
@@ -289,10 +290,10 @@
       <div class="loginModal" id="loginModal">
         <div class="modalOverlay"></div>
         <article class="loginForm">
-          <form method="post" action="" id="logFrm">
+          <form method="post" action="/itda/loginOk" id="logFrm">
             <h2>로그인</h2>
-            <input type="text" class="userid" name="userid" id="userid" placeholder="아이디" /><br />
-            <input type="password" class="userpwd" name="userpwd" id="userpwd" placeholder="비밀번호" /><br />
+            <input type="text" class="userid" name="userid" placeholder="아이디" /><br />
+            <input type="password" class="userpwd" name="userpwd" placeholder="비밀번호" /><br />
             <label class="autoLoginLabel">
               <input type="checkbox" name="autoLogin" id="autoLogin" class="autoLogin" />
               <span>로그인상태유지</span>

@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<div id='myPageTop'>
+  <div id='myPageContentDiv'>
+    <div id='profileBox'><!-- 프로필박스 -->
+      <div><!-- 사진, 매너점수div -->
+        <div>
+          <ul id='introDiv'>
+            <li><img style="width:127px; height: 20px; " src='../img/testadmin.png' name='profileImg'/></li>
+            <li>
+              <div>
+                sunchan123(내가순찬)님 <br/>
+                안녕하세요 : )<br/>
+                등급 : bronze
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div id='myPageAlertDiv'><!-- 알림 div -->
+        <ul>
+          <li>내가 쓴 글<br/> --회</li>
+          <li>내가 쓴 댓글 <br/> --회</li>
+          <li>구독 <br/> --명</li>
+          <li>북마크 <br/> --개</li>
+          <li>쪽지  <br/> 1/10</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id='tab'><!-- tab -->
+      <ul>
+        <li class="menu"><a href="AdminMember.html">유저관리</a></li>
+        <li class="menu"><a href="AdminAllBoardView.html">모든 게시판</a></li>
+        <li class="menu"><a>신고 게시판 </a></li>
+        <li class="menu"><a href="AdminBlackBoardView.html">블럭 게시판</a></li>
+        <li class="menu"><a href="AdminQna(Waiting).html">1:1 문의 관리</a></li>
+        <li class="menu"><a href="AdminAMember.html">관리자 관리</a></li>
+        <li class="menu"><a href="AdminInsert.html">관리자 추가</a></li>
+        <li class="menu"><a href="AdminInsert.html">로그인 기록</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 
+<script>
+  $(()=>{
+    $('#tab li').click(function(){
+      $('#tab li').css('font-weight', 'normal').css('color', 'black');
+      $(this).css('font-weight', 'bold').css('color', 'coral');
+    });
+  });
+</script>
+ -->

@@ -9,6 +9,7 @@
     <title>Home</title>
 
     <link rel="stylesheet" type="text/css" href="css/mainStyle.css?a" />
+    <link rel="stylesheet" type="text/css" href="css/adminTop.css?a" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script defer type="text/javascript" src="js/mainScript.js"></script>
   </head>
@@ -28,6 +29,7 @@
           <li><a href="#">Q&A</a></li>
           <li><a href="#">베스트</a></li>
           <li><a href="#">인증</a></li>
+          <li><a href="/itda/test">test</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">
