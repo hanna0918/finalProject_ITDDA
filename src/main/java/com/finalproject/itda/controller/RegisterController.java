@@ -20,24 +20,23 @@ public class RegisterController {
 	public String login() {
 		return "register/login"; 
 	}
-	//로그인
-	@RequestMapping(value="/loginOk", method=RequestMethod.POST)
-	public ModelAndView loginOk(RegisterVO vo, HttpSession session) {
-		RegisterVO resultVO = registerService.login(vo);
-		ModelAndView mav = new ModelAndView();
+		@RequestMapping(value="/loginOk", method=RequestMethod.POST)
+		public ModelAndView loginOk(RegisterVO vo, HttpSession session) {
+			RegisterVO resultVO = registerService.login(vo);
+			ModelAndView mav = new ModelAndView();
+			System.out.println("test"+resultVO);
 
-		if(resultVO==null) {//로그인 실패
-			mav.setViewName("redirect:login");
-		}else {//로그인 성공
-			session.setAttribute("login", resultVO.getUserid());
-			session.setAttribute("logname", resultVO.getUsername());
-			mav.setViewName("redirect:/");
+			if(resultVO==null) {//로그인 실패
+				mav.setViewName("redirect:login");
+				System.out.println("잘안들어와짐");
+			}else {//로그인 성공
+				session.setAttribute("login", resultVO.getUserid());
+				session.setAttribute("logname", resultVO.getUsername());
+				mav.setViewName("redirect:/");
+			}
+			return mav;
 		}
-		
-		
-		
-		return mav;
-	}
+
 	//로그아웃
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession s) {

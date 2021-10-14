@@ -92,6 +92,8 @@ $('.allJoinCheckbox').click(function () {
   $('.joinCheckbox').prop('checked', this.checked);
 });
 
+//아이디 정규식
+
 
 //이메일
 function email_check( email ) {    
