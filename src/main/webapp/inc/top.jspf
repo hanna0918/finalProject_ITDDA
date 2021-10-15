@@ -9,9 +9,15 @@
     <title>Home</title>
 
     <link rel="stylesheet" type="text/css" href="css/mainStyle.css?2" />
-    <link rel="stylesheet" type="text/css" href="css/adminTop.css?a" />
+     <link rel="stylesheet" type="text/css" href="css/adminTop.css?a" />
+    <link rel="stylesheet" type="text/css" href="css/mypageTop.css?a" />
+    <link rel="stylesheet" type="text/css" href="css/mypage.css" />
+    <link rel="stylesheet" type="text/css" href="css/injeung.css" />
+    <link rel="stylesheet" type="text/css" href="css/postView.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/question.css" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script defer type="text/javascript" src="js/mainScript.js"></script>
+    <script defer type="text/javascript" src="js/mypageScript.js"></script>
   </head>
 
   <body>
@@ -26,13 +32,14 @@
           <li><a href="#">매칭게시판</a></li>
           <li><a href="#">장터</a></li>
           <li><a href="#">자유게시판</a></li>
-          <li><a href="#">Q&A</a></li>
+          <li><a href="/itda/questionBoard">Q&A</a></li>
           <li><a href="#">베스트</a></li>
-          <li><a href="/itda/login">인증</a></li>
+          <li><a href="/itda/injeungBoard">인증</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">
-          	<label class="loginBtn" id="loginBtn">${logname}로그인</label>
+          	<label><a href="/itda/mypage">${logname}</a></label>
+          	<label class="loginBtn" id="loginBtn">로그인</label>
           	<a href="/itda/logout" class="logOutBtn" id="logOutBtn">로그아웃</a>
             <label class="joinBtn" id="joinBtn">회원가입</label>
           </div>

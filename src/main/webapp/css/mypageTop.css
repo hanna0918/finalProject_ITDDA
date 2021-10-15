@@ -1,0 +1,279 @@
+@charset "UTF-8";
+
+
+#myPageTop {
+	width: 100%;
+	/* background-color:#f7afaf6b; */
+	height: 300px;
+}
+	
+
+#myPageContentDiv {
+	margin: 0 auto;
+	width: 900px;
+	height: 300px;
+}
+
+#profileBox {
+	margin: 0 auto;
+	width: 100%;
+	height: 250px;
+	background-color: white;
+}
+
+#profileBox>div {
+	width: 100%;
+	height: 50%;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ddd;
+}
+
+#profileBox>div:first-child>div {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+#introDiv {
+	display: flex;
+	align-items: center;
+}
+#profileImg{
+	
+}
+#introDiv>li:first-child {
+	width: 30%;
+	margin: 15px;
+	margin-left: 130px;
+	height: 100%
+}
+
+#introDiv>li:last-child {
+	width: 70%;
+	height: 100%
+}
+
+#myRating, #myRating+div {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#myRating {
+	box-sizing: border-box;
+}
+
+#myRating span {
+	font-size: 1.8em;
+}
+
+#myRating p {
+	text-align: center;
+}
+
+#myPageAlertDiv {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#myPageAlertDiv>ul {
+	display: flex;
+	flex-direction: row;
+}
+
+#myPageAlertDiv li {
+	text-align: center;
+	line-height: 35px;
+	margin: 0px 50px;
+}
+
+#tab {
+	margin: 0 auto;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	background-color: white;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+#tab>ul {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#tab li {
+	float: left;
+	cursor: pointer;
+}
+
+#tab li:hover {
+	color: coral;
+	font-weight: bold;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/*------------------------------내 정보 수정--------------------------------------*/
+@charset "UTF-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+
+
+/* 회원가입 & 로그인 모달창 관련 */
+.asterisk {
+	color: red;
+	font-weight: bolder;
+	padding-left: 2px;
+}
+/*모달창*/
+.loginJoinModal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-ms-overflow-style: none;
+}
+
+.loginJoinModal::-webkit-scrollbar {
+	display: none;
+}
+
+/* 모달창 배경 */
+.modalOverlay {
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	overflow-y: auto;
+	position: fixed;
+}
+
+.joinModalContent {
+	position: relative;
+	margin: 100px auto;
+	width: 400px;
+	padding: 20px;
+	background-color: #fafafa;
+	text-align: center;
+	border-radius: 10px;
+	border: 2px solid #666;
+	overflow-y: auto;
+}
+
+.joinInputBox {
+	text-align: left;
+	width: 100%;
+	padding: 10px 0;
+	overflow: auto;
+	cursor: pointer;
+}
+
+.jointextarea {
+	height: 100px;
+	border: 1px solid #dfe0df;
+	border-radius: 5px;
+	overflow-y: auto;
+	background: #fff;
+	color: #000;
+}
+
+.jointextarea pre {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+/* 약관 취소,다음 버튼 스타일 */
+.btnBlock {
+	width: 89%;
+	height: 48px;
+	line-height: 46px;
+	padding: 0;
+	letter-spacing: 0.1em;
+	font-size: 14px;
+	color: white;
+	background: darkblue;
+	border: none;
+}
+
+
+/* 회원가입 정보 입력 창 기본 설정 */
+.joinDataInputModal {
+	display: none;
+	background-color: #fff;
+}
+/* 아이디, 비밀번호, 확인 인풋박스 */
+.joinDataInputModal input[type="text"], .joinDataInputModal input[type="password"],
+	.joinDataInputModal input[type="email"] {
+	width: 350px;
+	height: 30px;
+	margin-bottom: 25px;
+	font-size: 12px;
+}
+
+.joinDataInputModal label {
+	text-align: left;
+	float: left;
+	width: 100%;
+	padding-left: 20px;
+	margin-bottom: 7px;
+}
+
+/* 아이디, 비밀번호, 확인 인풋박스 */
+#joinUserid {
+	margin: 0;
+	height: 30px;
+}
+
+
+/* 생일 셀렉트박스 ====*/
+.selectBox {
+	padding-bottom: 10px;
+}
+
+.selectBox select {
+	width: 29%;
+	height: 30px;
+}
+
+.userid, .userpwd {
+	border: none;
+	box-shadow: none;
+	padding: 12px 16px;
+	width: 370px;
+	line-height: 1.2;
+}
+
+#addrdetail {
+	margin-top: 10px;
+}
+
+/* 모달에 관련된 css*/
+body, ul, li, img, a {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: black;
+	text-decoration: none;
+}
