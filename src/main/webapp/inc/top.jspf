@@ -47,4 +47,5 @@
               <li><a href="#"> 로그아웃</a></li>
             </c:if> -->
       	</header>
+
       	<div class="mainContent">
