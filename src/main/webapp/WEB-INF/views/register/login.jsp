@@ -3,7 +3,7 @@
 
 <h1>로그인</h1>
 <form method="post" action="/itda/loginOk">
-	<input type="text" name="userid" placeholder="아이디입력">
-	<input type="password" name="userpwd" placeholder="비밀번호입력"/>
+	<input type="text" name="muserid" placeholder="아이디입력">
+	<input type="password" name="muserpwd" placeholder="비밀번호입력"/>
 	<input type="submit" value="로그인">
 </form>

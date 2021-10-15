@@ -8,10 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?2" />
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?3" />
     <link rel="stylesheet" type="text/css" href="css/adminTop.css?a" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script defer type="text/javascript" src="js/mainScript.js"></script>
+
+    <!-- 카카오주소록 -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </head>
 
   <body>
@@ -22,7 +25,7 @@
           <li>
             <a href="/itda"><img src="img/itdaLogo.png"/></a>
           </li>
-          <li><a href="#">추천게시판</a></li>
+          <li><a href="/itda/test.jsp">추천게시판</a></li>
           <li><a href="#">매칭게시판</a></li>
           <li><a href="#">장터</a></li>
           <li><a href="#">자유게시판</a></li>

@@ -4,11 +4,13 @@
 <div class="loginModal" id="loginModal">
   <div class="modalOverlay"></div>
   <article class="loginForm">
-    <form method="post" action="/itda/loginOk" id="logFrm">
+
+    <form method="post" action="/itda/loginOk">
       <h2>로그인</h2>
-      <input type="text" class="userid" name="userid" placeholder="아이디" /><br />
-      <input type="password" class="userpwd" name="userpwd" placeholder="비밀번호" /><br />
+      <input type="text" class="userid" name="muserid" placeholder="아이디" /><br />
+      <input type="password" class="userpwd" name="muserpwd" placeholder="비밀번호" /><br />
       <input type="submit" value="로그인" />
+      
     </form>
       <label class="autoLoginLabel">
         <input type="checkbox" name="autoLogin" id="autoLogin" class="autoLogin" />
