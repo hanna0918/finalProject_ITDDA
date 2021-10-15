@@ -1,0 +1,125 @@
+.TopContent
+{
+    width:1100px;
+    min-height: 40px;
+    margin: 0 auto;
+    text-align: center;
+}
+.TopSubContent
+{
+    font-size: 40px; border-bottom: 1px solid wheat;
+}
+
+.MainContent
+{
+    width:1000px; height: 800px; margin: 0 auto;
+}
+
+.BarMeunSelect{
+    list-style-type: none;
+    width: 10%;
+    min-height: 800px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    background-color: #fafafa;
+}
+
+.BarMeun
+{
+    border: 1px solid blanchedalmond; width: 90%;  margin: 0 auto; font-size: 25px; text-align: center;
+}
+.BarMeunSelect>div /* 왼쪽 메뉴 글씨 크기*/
+{
+    font-size: 18px;
+}
+
+.MainConTentBox/*수정하기*/
+{
+    height: 800px; width:90%; float: left;"
+}
+
+/*사용자 관리사항 수정사항 css*/
+ul,li{
+    list-style: none;
+}
+.SerchBox
+{
+    width:100%; height: 10%;
+}
+
+
+/* Member */
+  #MemberList {
+      width: 95%;
+      height: 600px;
+    }
+
+    /*페이징버튼 버튼*/
+    #MemberList > li {
+      float: left;
+      height: 40px;
+      width: 11%;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .MemberListButtonBox>ul>:nth-child(n){padding-left: 10px;}
+
+    .MemberListButton
+    {
+      width: 100%;
+      height: 55px;
+    }
+
+    .MemberListButton>li
+    {
+      float: left;
+      width: 50px;
+      height: 50px;
+      font-size: 30px;
+      margin-left: 60px;
+    }
+
+    #MemberList > li:nth-of-type(9n+1) {
+      width: 5%;
+    }
+
+    #MemberList > li:nth-of-type(9n+2) {
+      width: 14%;
+    }
+
+    #MemberList > li:nth-of-type(9n+4) {
+      width: 15%;
+    }
+
+/* Member */
+
+
+/* QnA */
+
+
+/* QnA */
+
+
+/*BoardBlackList*/
+
+.AdminBoardButtonBox>ul>:nth-child(n){padding-left: 10px;}
+
+    .AdminBoardListButton
+    {
+      width: 100%;
+      height: 55px;
+    }
+
+    .AdminBoardListButton>li
+    {
+      float: left;
+      width: 50px;
+      height: 50px;
+      font-size: 30px;
+      margin-left: 60px;
+    }
+
+
+/*BoardBlackList*/
