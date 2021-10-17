@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- 회원 가입창 -->
+
 <div class="loginJoinModal" id="loginJoinModal">
   <div class="modalOverlay"></div>
   <!-- 약관동의 창 -->
@@ -51,6 +52,7 @@
   <!-- 회원가입 정보 입력 창 -->
   <article class="joinModalContent joinDataInputModal">
     <form method="post" id="joinOk" action="joinOk">
+      <div class="closeBtn">close</div>
       <h2>회원가입</h2>
       <div><img src="img/member.png" style="width: 50px" alt="" srcset="" /></div>
       <div class="joinCautionText">
@@ -60,13 +62,15 @@
         <p>-생년월일: 만14세미만은 가입이 제한되며, 가입시 확인하여 탈퇴처리합니다.</p>
       </div>
       <!-- 아이디 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
-      <div>
+      <div class="joinIdBox">
         <label>아이디<span class="asterisk">*</span></label>
-        <input class="joinTextBox" type="text" name="userid" placeholder="아이디" />
+        <input type="text" class="m_userid" name="m_userid" placeholder="아이디" />
+        <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+        <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
       </div>
       <div>
         <label>비밀번호<span class="asterisk">*</span></label>
-        <input class="joinTextBox" type="password" name="userpwd" placeholder="비밀번호" id="joinUserpwd" />
+        <input class="m_userpwd" type="password" name="m_userpwd" placeholder="비밀번호" id="joinUserpwd" />
         <div id="error_password" class="result-password result-check"></div>
       </div>
       <div>
@@ -77,22 +81,22 @@
       <!-- 이메일 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
       <div>
         <label>이메일<span class="asterisk">*</span></label>
-        <div><input class="joinTextBox" type="email" name="userEmail" id="userEmail" placeholder="이메일 예시) itda@itda.com" /></div>
+        <div><input class="joinTextBox" type="email" name="m_email" id="userEmail" placeholder="ex) itda@itda.com" /></div>
         <div id="error_mail" class="result-email result-check"></div>
       </div>
       <!-- 닉네임 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정-->
       <div>
         <label>닉네임<span class="asterisk">*</span></label>
-        <div><input class="joinTextBox" type="text" name="userNick" id="userNick" /></div>
+        <div><input class="joinTextBox" type="text" name="m_nickname" /></div>
       </div>
       <div>
         <label>핸드폰번호<span class="asterisk">*</span></label>
-        <div><input class="joinTextBox" type="tel" name="userTel" id="userTel" /></div>
+        <div><input class="joinTextBox" type="tel" name="m_tel" /></div>
       </div>
       <div>
         <label>주소<span class="asterisk">*</span></label>
         <!-- 카카오주소 api 사용 -->
-        <div><input class="joinTextBox" type="text" name="joinAddr" id="joinAddr" readonly /></div>
+        <div><input class="joinTextBox" type="text" name="m_addr" id="joinAddr" readonly /></div>
         <div><input class="joinTextBox" type="text" name="addrDetail" id="addrDetail" /></div>
       </div>
       <div>
@@ -100,21 +104,18 @@
           <label>생년월일 <span class="asterisk">*</span> </label>
         </div>
         <div class="selectBox">
-          <select class="joinSelectBox" name="birthY" id="birthY"></select>
-          <select class="joinSelectBox" name="birthM" id="birthM"></select>
-          <select class="joinSelectBox" name="birthD" id="birthD"></select>
+          <input type="date" name="m_bith" class="m_bith" />
         </div>
       </div>
       <div>
         <label>이름(실명)<span class="asterisk">*</span></label>
-        <div><input class="joinTextBox" type="text" name="username" id="username" /></div>
+        <div><input class="joinTextBox" type="text" name="m_username" id="m_username" /></div>
       </div>
       <div class="gender">
         <label>성별<span class="asterisk">*</span></label>
-        <div><input class="joinTextBox" type="radio" name="gender" checked="checked" />남자</div>
-        <div><input class="joinTextBox" type="radio" name="gender" />여자</div>
+        <input type="radio" name="m_gender" value="1" checked />남자 <input type="radio" name="m_gender" value="2" />여자
       </div>
-      <input type="submit" value="회원가입" class="btnBlock joinSubmitBtn" />
+      <input type="submit" value="회원가입" class="btnBlock joinSubmitBtn" onclick="f_action()" />
     </form>
   </article>
 </div>

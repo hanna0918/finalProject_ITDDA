@@ -386,12 +386,25 @@ a:visited {
   /* margin-bottom: 25px; */
   font-size: 12px;
 }
-
+.joinIdBox input {
+  width: 300px;
+}
 .joinDataInputModal label {
   text-align: left;
   float: left;
   width: 100%;
   padding-left: 5px;
+}
+/************************************* 아이디 체크 */
+/* 중복아이디 존재하지 않는경우 */
+.id_input_re_1 {
+  color: green;
+  display: none;
+}
+/* 중복아이디 존재하는 경우 */
+.id_input_re_2 {
+  color: red;
+  display: none;
 }
 
 /* 아이디, 비밀번호, 확인 인풋박스 */
@@ -424,8 +437,8 @@ a:visited {
   padding-bottom: 10px;
 }
 
-.selectBox select {
-  width: 32%;
+.m_bith {
+  width: 98%;
   height: 25px;
 }
 
@@ -436,8 +449,19 @@ a:visited {
   margin-top: 15px;
 }
 
-/* 로그인 관련 스타일
+.gender {
+  float: left;
+}
+
+/* 
+로그인 관련 스타일
  */
+.closeBtn {
+  position: relative;
+  top: -30px;
+  float: right;
+  cursor: pointer;
+}
 .loginModal {
   display: none;
   position: fixed;
@@ -462,8 +486,8 @@ a:visited {
   border: 2px solid #666;
   overflow: auto;
 }
-.userid,
-.userpwd {
+.login_userid,
+.login_userpwd {
   border: none;
   box-shadow: none;
   padding: 12px 16px;

@@ -13,6 +13,18 @@ public class MemberVO {
 	private String m_info;
 	private String m_tag;
 
+	private String m_gender;
+
+	
+	
+	public String getM_gender() {
+		return m_gender;
+	}
+
+	public void setM_gender(String m_gender) {
+		this.m_gender = m_gender;
+	}
+
 	public String getM_userid() {
 		return m_userid;
 	}
