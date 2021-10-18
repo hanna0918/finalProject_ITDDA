@@ -13,4 +13,6 @@ public interface MemberService {
 	//아이디 체크
 	public int idCheck(String m_userid);
 	
+	//닉 체크
+	public int nickCheck(String m_nickname);
 }

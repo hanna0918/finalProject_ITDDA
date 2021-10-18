@@ -3,8 +3,8 @@
 <div class="loginModal" id="loginModal">
   <div class="modalOverlay"></div>
   <article class="loginForm">
+    <div class="closeBtn">close</div>
     <form method="post" action="/itda/loginOk">
-      <div class="closeBtn">close</div>
       <h2>로그인</h2>
       <input type="text" class="login_userid" name="m_userid" placeholder="아이디" /><br />
       <input type="password" class="login_userpwd" name="m_userpwd" placeholder="비밀번호" /><br />

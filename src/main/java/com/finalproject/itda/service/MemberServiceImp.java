@@ -27,4 +27,9 @@ public class MemberServiceImp implements MemberService {
 		return memberDAO.idCheck(m_userid);
 	}
 
+	@Override
+	public int nickCheck(String m_nickname) {
+		return memberDAO.nickCheck(m_nickname);
+	}
+
 }

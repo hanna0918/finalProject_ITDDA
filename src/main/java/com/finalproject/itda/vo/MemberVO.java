@@ -1,6 +1,7 @@
 package com.finalproject.itda.vo;
 
 public class MemberVO {
+	private int m_seq;
 
 	private String m_userid;
 	private String m_userpwd;
@@ -15,6 +16,13 @@ public class MemberVO {
 
 	private String m_gender;
 
+	public int getM_seq() {
+		return m_seq;
+	}
+	
+	public void setM_seq(int m_seq) {
+		this.m_seq = m_seq;
+	}
 	
 	
 	public String getM_gender() {
