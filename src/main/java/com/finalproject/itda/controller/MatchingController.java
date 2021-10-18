@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class MatchingController {
 		mav.setViewName("matching/matchingList");
 		mav.addObject("pVo", matchingService.page(pVo));
 		mav.addObject("list", matchingService.matchingList(pVo));
-		return mav;
+		return mav; 
 	}
 //	@RequestMapping(value="/matchingListTagSearch", method=RequestMethod.POST)
 //	@ResponseBody
@@ -39,22 +40,39 @@ public class MatchingController {
 	public Map<String, Object> tagSearch(MatchingPagingVO pVo){
 		Map<String, Object> map = new HashMap<String, Object>();
 		MatchingPagingVO ppVo = matchingService.page(pVo);
-		System.out.println("ppVo.getNowPage() => " + ppVo.getNowPage());
-		System.out.println("¿©±ä-------------------------------------------------------------------------------------ÂïÈû");
+		ppVo.setNowPage(pVo.getNowPage());
+		
 		map.put("pVo", ppVo);
 		map.put("vo", matchingService.matchingList(pVo));
 		return map;
 	}
+//	@RequestMapping("/calendarAjax")
+//	@ResponseBody
+//	public String calendarAjax() {
+//		List<CalendarVO> list = matchingService.dataForJson();
+//		String json = new Gson().toJson(list);
+//		json.split("\"mc_state\": 0,");
+//		System.out.println(json);
+//		return json;
+//	}
+	
 	@RequestMapping(value="matchingView")
-	public ModelAndView matchingView(int b_id) {
+	public ModelAndView matchingView(int board_seq) {
 		ModelAndView mav = new ModelAndView();
-		int cnt = matchingService.countHit(b_id);
-		mav.addObject("vo", matchingService.matchingView(b_id));
+		int cnt = matchingService.countHit(board_seq);
+		
+		mav.addObject("vo", matchingService.matchingView(board_seq));
 		mav.setViewName("matching/matchingView");
 		return mav;
 	}
 	@RequestMapping("/matchingUpload")
 	public String matchingUpload() {
 		return "matching/matchingUpload";
+	}
+	@RequestMapping("/matchingEdit")
+	public ModelAndView matchingEdit(int board_seq, HttpSession ses) {
+		ModelAndView mav = new ModelAndView();
+		matchingService.matchingEdit(board_seq, (int)ses.getAttribute("logseq"));
+		return mav;
 	}
 }

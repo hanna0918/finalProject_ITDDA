@@ -11,52 +11,13 @@ function dateInsert(dataTest){
     searchingDate = dataTest;
     selectedDate.style.display = "block";
 }
-
 // 달력 api
 document.addEventListener('DOMContentLoaded', function() {
+	// calendarAjax();
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             events: [
-                { // this object will be "parsed" into an Event Object
-                    title: '러닝', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
-                { // this object will be "parsed" into an Event Object
-                    title: '맛집탐방', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
-                { // this object will be "parsed" into an Event Object
-                    title: '혼밥이 싫어', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
-                { // this object will be "parsed" into an Event Object
-                    title: '같이 뛰싧분', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
-                { // this object will be "parsed" into an Event Object
-                    title: '같이 먹어요', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
-                { // this object will be "parsed" into an Event Object
-                    title: '클라이밍 해봅시다', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
-                { // this object will be "parsed" into an Event Object
-                    title: '그냥 놀자', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
-                { // this object will be "parsed" into an Event Object
-                    title: 'event8', // a property!
-                    start: '2021-10-24', // a property!
-                    end: '2021-10-24' // a property! ** see important note below about 'end' **
-                },
+
             ],
             aspectRatio: 3,
             height: 650,
@@ -83,6 +44,25 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.setOption('height', 700);
 });
 
+function calendarAjax(){
+	data = '';
+	var rUrl = "/itda/calendarAjax";
+	$.ajax({
+		type : "GET",
+		url: rUrl,
+		contentType: "application/json; charset:UTF-8", 
+		dataType: "json",
+		success: function(result){
+			console.log("성공까지는함");
+			delete result.mc_state;
+			console.log(result);			
+			
+		},error: function(){
+			console.log('어림도없지!!!!!');
+		}
+	});
+}
+
 // 달력 버튼 이벤트
 const calendarBtnId = document.querySelector("#calendarBtn");
 const calendarId = document.querySelector("#calendar");
@@ -90,6 +70,7 @@ const selectedDateDiv = document.querySelector("#selectedDateDiv");
 function calendarShow(){
     if(calendarId.style.visibility != "hidden"){
         calendarId.style.visibility = "hidden";
+        //     calendarAjax();
     }else if(calendarId.style.visibility == "hidden"){
         calendarId.style.visibility = "";
     }
@@ -104,7 +85,7 @@ selectedDateDiv.addEventListener("click", function(){
 });
 
 // 리스트 뷰 글씨크기
-let frequency = "allGroup"; ////// 이 값을 활용해서 db 데이터 값 조건 설정
+let frequency = 0; ////// 이 값을 활용해서 db 데이터 값 조건 설정
 const viewByGroupLi1 = document.querySelector("#viewByGroup>li:nth-child(1)");
 const viewByGroupLi3 = document.querySelector("#viewByGroup>li:nth-child(3)");
 const viewByGroupLi5 = document.querySelector("#viewByGroup>li:nth-child(5)");
@@ -113,8 +94,7 @@ function groupFontChange(){
     groupFontReset();
     this.style.fontSize = "1.1em";
     this.style.fontWeight = "bold";
-    frequency = this.id;
-    console.log(frequency);
+    frequency = this.id.slice(9);
     sendWithAjax();
 }
 function groupFontReset(){
@@ -127,7 +107,7 @@ viewByGroupLi1.addEventListener("click", groupFontChange);
 viewByGroupLi3.addEventListener("click", groupFontChange);
 viewByGroupLi5.addEventListener("click", groupFontChange);
 
-let selectedViewByTime = "recentTime"; ////// 이 값을 활용해서 db 데이터 값 조건 설정
+let selectedViewByTime = 0; ////// 이 값을 활용해서 db 데이터 값 조건 설정
 const viewByTimeLi1 = document.querySelector("#viewByTime>li:nth-child(1)");
 const viewByTimeLi3 = document.querySelector("#viewByTime>li:nth-child(3)");
 const viewByTimeLiAll = document.querySelectorAll("#viewByTime>li:nth-child(2n+1)");
@@ -135,8 +115,7 @@ function groupTimeFontChange(){
     groupTimeFontReset();
     this.style.fontSize = "1.1em";
     this.style.fontWeight = "bold";
-    selectedViewByTime = this.id;
-    console.log(selectedViewByTime);
+    selectedViewByTime = this.id.slice(6);
     sendWithAjax();
 }
 function groupTimeFontReset(){
@@ -177,9 +156,8 @@ function keyupTest(e){
     }
 }
 var data = "";
-var nowPage;
+var nowPage = 1;
 function sendWithAjax(){
-	console.log(tag);
 	data = ""
 	if(tag != null && tag != "") {
 		data += "tag="+tag;
@@ -189,15 +167,12 @@ function sendWithAjax(){
 	}else {
 		data +="selectedDate=" + searchingDate;
 	}
-	if(nowPage != ""){
-		data += "&nowPage=" + nowPage;
-	}
+	data += "&nowPage=" + nowPage;
 	data += "&frequency=" + frequency;
 	data += "&listup=" + selectedViewByTime;
-	console.log(data);
 	var data = data;
 	var rUrl = "/itda/matchingListTagSearch";
-	console.log("ajax 들어옴");
+	console.log(data);
 	$.ajax({
 		type : "POST",
 		url: rUrl,
@@ -211,21 +186,27 @@ function sendWithAjax(){
 				if(vo == null) {
 					newList += '<h1>데이터가 없습니다</h1>';
 				}
-				var splitTag = vo.b_select.split('/');
-				newList += `<a href="/itda/matchingView?b_id=${vo.b_id}"><div class="matchingBox" id="matchingBox">`;
+				var splitTag = vo.board_select.split('/');
+				newList += `<a href="/itda/matchingView?board_seq=${vo.board_seq}"><div class="matchingBox" id="matchingBox">`;
 				newList += `<div class="photo">`;
 				newList += `<img src="/itda/img/quoka.png" alt="매칭1" width="100%"/>`;
-				newList += `<div class="endSoon">${vo.b_frequency}</div>`;
+				newList += `<div class="endSoon">`
+				if(vo.mc_state==1){
+					newList += '비정기매칭';
+				} else if(vo.mc_state==2) {
+					newList += '정기매칭';
+				}
+				newList += `</div>`;
 				newList += `</div>`;
 				newList += `<div class="hashTag">`;
 				for(i=0;i<splitTag.length;i++){
 					newList += `#${splitTag[i]} `;
 				}
 				newList += `</div>`;
-				newList += `<div class="where">${vo.b_where}</div>`;
+				newList += `<div class="where">${vo.mc_where}</div>`;
 				newList += `<div class="writer">${vo.m_userid }</div>`;
-				newList += `<div class="matchingDate">${vo.b_matchingdate}</div>`;
-				newList += `<div class="matchingStatus">${vo.b_nowpart} / ${vo.b_maxpart}</div>`;
+				newList += `<div class="matchingDate">${vo.mc_start_date}</div>`;
+				newList += `<div class="matchingStatus">Hmmm / ${vo.mc_max}</div>`;
 				newList += `</div></a>`;
 			});
 			pageResult.each(function(idx, pVo){
@@ -233,7 +214,7 @@ function sendWithAjax(){
 					newPageNum += "<li class='page-item'><a href='javascript:matchingPagingPrev()' class='page-link'>Prev</a></li>"
 				}
 				if(pVo.nowPage == 1){
-					newPageNum += "<li class='page-item'><a href='' class='page-link'>Prev</a></li>"
+					newPageNum += "<li class='page-item'><a class='page-link'>Prev</a></li>"
 				}
 				for(i=pVo.startPage;i<=pVo.startPage + pVo.onePageNumCount-1;i++){
 					if(i <= pVo.totalPage){
@@ -251,11 +232,10 @@ function sendWithAjax(){
 				}
 				
 			});
-			console.log(newList);
 			$("#matchingSection").html(newList);
 			$("#matchingPagingUl").html(newPageNum);
 		}, error: function(){
-			console.log("넌 역시 됨 한번 시도해봐 제발로....~!~!~~!!~ ")
+			console.log("ajax error!!!!!!!!!!!!!")
 		}
 	});
 }
@@ -302,7 +282,7 @@ function tagInValue(){
 // 페이징
 function matchingPaging(pageNumber) {
 	this.nowPage = pageNumber;
-	sendWithAjax(pageNumber);	
+	sendWithAjax();	
 }
 // 페이징 Next
 function matchingPagingNext() {

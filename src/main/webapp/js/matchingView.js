@@ -21,9 +21,8 @@ $('#bannerBtn').click(function () {
 });
 
     
-$('#participateBtn').click(function () {
-    $('.matchingModal').css('display', 'none');
-    $('#regForm').submit();
+$('#participateBtn').one("click", function () {
+    $(".joinModalContent").append("<label style='color: red; font-size: 0.8em'>로그인 후 참가버튼을 눌러주세요</label>");
 });
 
 $('#closeBtn').click(function () {

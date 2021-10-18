@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="/itda/css/matchingView.css">
+<link rel="stylesheet" href="/itda/css/matchingView.css?version=111">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <aside id="matchingDetailBanner">
         <div id="hostIntro">
@@ -10,17 +10,16 @@
             <img src="/itda/img/retriever.jpg" alt="강아지">
         </div>
         <div id="hostUserid">
-            <b>${vo.m_userid }</b><br />
+            <b>${vo.m_nickname}</b><br />
         </div>
         <div id="hostComment">
-            안녕하세요.<br /> 런닝맨입니다.<br /> 달리기 위해 사는<br /> 강아지입니다.<br /> 하루종일 달리실 분<br />
-            환영<br />
+            ${vo.m_info }
         </div>
         <div id="hostMatchingInfo">
-            ${vo.b_where}<br /> 매월 네번째 일요일<br /> ${vo.b_matchingdate }<br /> 15:00~18:00<br />
+            ${vo.mc_where}<br /> 매월 네번째 일요일<br />${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date }<br />
         </div>
         <div>
-            <input type="button" id="bannerBtn" value="신청하기 ( ${vo.b_nowpart} / ${vo.b_maxpart} )" /><br />
+            <input type="button" id="bannerBtn" value="신청하기 ( hmmm / ${vo.mc_max} )" /><br />
         </div>
 
         <div id="partUserIntro">참가중인유저목록</div>
@@ -30,23 +29,26 @@
         <div class="partUsers">(공란)</div>
         <div class="partUsers">(공란)</div>
     </aside>
-    <h1>매칭게시판</h1>
+    
 
     <div id='postViewDiv'><!-- 게시글뷰 페이지 -->
         <form>
             <div class='contentTitle'><!-- 카테고리,제목 -->
-                <div>카테고리</div>
-                <div>${vo.b_subject }</div>
+                <div>매칭게시판</div>
+                <div>${vo.board_subject }</div>
             </div>
             <div class='contentWriter'><!-- 작성자 -->
-                <div><img src='/itda/img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
+                <div><img src='/itda/img/user.png' name='profileShot' /></div><!-- 프로필이미지 -->
                 <div>
-                    <div class='userid'>${vo.m_userid }</div>
+                    <div class='userid'>${vo.m_nickname}(${vo.m_userid})</div>
                     <div>
                         <ul>
-                            <li>${vo.b_writedate}</li>
-                            <li>조회수 ${vo.b_hit}</li>
+                            <li>${vo.board_writedate}</li>
+                            <li>조회수 ${vo.board_hit}</li>
                             <li>신고</li>
+                            <c:if test='${vo.m_userid==logid }'>
+                            	<li><a href='/itda/matchingEdit?m_seq=${vo.board_seq}'>글수정</a></li>
+                            </c:if>
                         </ul>
                     </div>
                 </div>
@@ -58,31 +60,19 @@
 	                </c:forEach>
    	           </div>
                 <!-- 글내용박스 -->
-                Uluru is an inselberg, meaning "island mountain". An
-                inselberg is a prominent isolated residual knob or hill that rises
-                abruptly from and is surrounded by extensive and relatively flat
-                erosion lowlands in a hot, dry region. 
-                <img src='https://apod.nasa.gov/apod/image/2105/UluruOrion_Liu_1080.jpg' style='width: 900px;' />
-                Uluru is also often
-                referred to as a monolith, although this is an ambiguous term that
-                is generally avoided by geologists. The remarkable feature of
-                Uluru is its homogeneity and lack of jointing and parting at bedding
-                surfaces, leading to the lack of development of scree slopes and
-                soil. These characteristics led to its survival, while the
-                surrounding rocks were eroded. For the purpose of mapping and
-                describing the geological history of the area, geologists refer to
-                the rock strata making up Uluru as the Mutitjulu Arkose, and it is
-                one of many sedimentary formations filling the Amadeus Basin. 
-                
+                ${vo.b_content}
+                <br/>
+                <hr/>
             </div>
             <div class='contentReply'>
                 <div><!-- 1 좋아요/댓글수 -->
-                    <img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> 15&nbsp;&nbsp;
+                    <img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit }&nbsp;&nbsp;
+                    <!-- 해야함 -->
                     <img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
-                    <span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> 2</span>
+                    <span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_call}</span>
                 </div>
                 <div><!-- 2 댓글박스 -->
-                    <div><img src='/itda/img/circle.png' name='profileShot'></div>
+                    <div><img src='/itda/img/user.png' name='profileShot'></div>
                     <div>
                         <div id='userid' class='userid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
                         <div class='replyView'>내글에 내가 댓글달기</div>
@@ -99,16 +89,38 @@
             <div id='otherContent'><!-- 이전글/다음글 -->
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/up-arrow.png' name='prevPost'/></div>
-                    <div><a>이전글도 순찬이글 </a></div>
+                    <c:choose>
+                    <c:when test="${vo.board_next_subject=='다음 글이 없습니다'}">
+	                    <div class='nextPrevDiv' style="color: gray">${vo.board_next_subject}</div>
+                    </c:when>
+                    <c:otherwise>
+	                    <div class='nextPrevDiv'><a href="/itda/matchingView?board_seq=${vo.board_next_seq}"><span class='nextPrevWord'>다음글</span> ${vo.board_next_subject}
+	                    	<c:forEach var='nextTag' items='${vo.nextTags}'>
+	                    		<span class='nextPrevTag'>#${nextTag}</span>
+	                    	</c:forEach>
+	                    </a></div>
+                    </c:otherwise>
+                    </c:choose>
                 </div>
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/down-arrow.png' name='nextPost'/></div>
-                    <div><a>다음글도 순찬이글 </a></div>
+                    <c:choose>
+                    <c:when test="${vo.board_prev_subject=='이전 글이 없습니다'}">
+	                    <div class='nextPrevDiv' style="color: gray">${vo.board_prev_subject}</div>
+                    </c:when>
+                    <c:otherwise>
+	                    <div class='nextPrevDiv'><a href="/itda/matchingView?board_seq=${vo.board_prev_seq}"><span class='nextPrevWord'>이전글</span> ${vo.board_prev_subject}
+	                    	<c:forEach var='prevTag' items='${vo.prevTags}'>
+	                    		<span class='nextPrevTag'>#${prevTag}</span>
+	                    	</c:forEach>
+	                    </a></div>
+                    </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
             <div id='bottomBtn'>
-                <input type='button' name='postListBtn' value='목록'/>
-                <input type='button' name='postWriteBtn' value='글쓰기'/>
+                <a href='/itda/matchingList'><input type='button' name='postListBtn' value='목록'/></a>
+                <a href='/itda/matchingUpload'><input type='button' name='postWriteBtn' value='글쓰기'/></a>
             </div>
 
         </form>
@@ -119,14 +131,17 @@
         <div class="matchingModalOverlay"></div>
         <article class="joinModalContent">
             <form method="post" id="regForm" action="formOk">
-                <h1>무서운호랑이님 정말 참가하시겠습니까?</h1>
-                <input type="button" id="participateBtn" value="참가">
+                <h1>${logname}님 정말 참가하시겠습니까?</h1>
+                <c:choose>
+                <c:when test='${logname!=null}'>
+                	<input type="submit" value="참가">
+                </c:when>
+                <c:otherwise>
+                	<input type="button" id="participateBtn" value="참가">
+                </c:otherwise>
+                </c:choose>
                 <input type="button" id="closeBtn" value="취소">
             </form>
         </article>
     </div>
-		
-
-
-
-<script src="/itda/js/matchingView.js?version=1"></script>
+<script src="/itda/js/matchingView.js?version=111"></script>

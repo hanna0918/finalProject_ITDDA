@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.finalproject.itda.dao.MatchingDAO;
+import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
 
@@ -26,12 +27,22 @@ public class MatchingServiceImp implements MatchingService {
 	}
 
 	@Override
-	public MatchingVO matchingView(int b_id) {
-		return matchingDAO.matchingView(b_id);
+	public MatchingVO matchingView(int board_seq) {
+		return matchingDAO.matchingView(board_seq);
 	}
 
 	@Override
-	public int countHit(int b_id) {
-		return matchingDAO.countHit(b_id);
+	public int countHit(int board_seq) {
+		return matchingDAO.countHit(board_seq);
 	}
+
+	@Override
+	public int matchingEdit(int board_seq, int m_seq) {
+		return matchingDAO.matchingEdit(board_seq, m_seq);
+	}
+
+//	@Override
+//	public List<CalendarVO> dataForJson() {
+//		return matchingDAO.dataForJson();
+//	}
 }

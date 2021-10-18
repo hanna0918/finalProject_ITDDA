@@ -16,7 +16,7 @@ public class MemberController {
 	@Inject
 	MemberService memberService;
 
-	// 로그인폼
+	// 濡쒓렇�씤�뤌
 	@RequestMapping("/login")
 	public String login() {
 		return "register/login";
@@ -27,17 +27,20 @@ public class MemberController {
 		MemberVO resultVO = memberService.login(vo);
 		ModelAndView mav = new ModelAndView();
 		
-		if (resultVO == null) {// 로그인 실패
+		if (resultVO == null) {// 濡쒓렇�씤 �떎�뙣
 			mav.setViewName("redirect:login");
-		} else {// 로그인 성공
-			session.setAttribute("login", resultVO.getM_userid());
+		} else {// 濡쒓렇�씤 �꽦怨�
+			
+			session.setAttribute("lognick", resultVO.getM_nickname());
+			session.setAttribute("logseq", resultVO.getM_seq());
+			session.setAttribute("logid", resultVO.getM_userid());
 			session.setAttribute("logname", resultVO.getM_username());
 			mav.setViewName("redirect:/");
 		}
 		return mav;
 	}
 
-	// 로그아웃
+	// 濡쒓렇�븘�썐
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession s) {
 		s.invalidate();
@@ -46,7 +49,7 @@ public class MemberController {
 		return mav;
 	}
 
-	// 회원가입
+	// �쉶�썝媛��엯
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
 	public ModelAndView joinOk(MemberVO vo) {
 		MemberVO resultVO = memberService.join(vo);

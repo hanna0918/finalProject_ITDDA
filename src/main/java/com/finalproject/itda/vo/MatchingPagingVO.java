@@ -83,7 +83,6 @@ public class MatchingPagingVO {
 	public void setSelectedDate(String selectedDate) {
 		if(selectedDate!="") {
 			this.selectedDate = selectedDate;
-			System.out.println("³¯Â¥ ³Ñ¾î¿È" + selectedDate);
 		}
 	}
 	public int getOnePageNumCount() {
