@@ -164,7 +164,7 @@ $(document).ready(function () {
     new daum.Postcode({
       oncomplete: function (data) {
         document.getElementById("joinAddr").value = data.address;
-        document.querySelector("input[name=m_addrDetail]").focus();
+        document.querySelector("input[name=addrDetail]").focus();
       },
     }).open();
   });

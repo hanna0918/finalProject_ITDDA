@@ -10,24 +10,11 @@ public class MemberVO {
 	private String m_tel;
 	private String m_email;
 	private String m_addr;
-	private String m_addrDetail;
-	private String m_birth;
+	private String m_bith;
 	private String m_info;
 	private String m_tag;
 
 	private String m_gender;
-
-	
-
-	
-	
-	public String getM_addrDetail() {
-		return m_addrDetail;
-	}
-
-	public void setM_addrDetail(String m_addrDetail) {
-		this.m_addrDetail = m_addrDetail;
-	}
 
 	public int getM_seq() {
 		return m_seq;
@@ -102,12 +89,12 @@ public class MemberVO {
 		this.m_addr = m_addr;
 	}
 
-	public String getM_birth() {
-		return m_birth;
+	public String getM_bith() {
+		return m_bith;
 	}
 
-	public void setM_birth(String m_birth) {
-		this.m_birth = m_birth;
+	public void setM_bith(String m_bith) {
+		this.m_bith = m_bith;
 	}
 
 	public String getM_info() {
