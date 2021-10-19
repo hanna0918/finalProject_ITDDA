@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-
+    <!--  문영 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/mainStyle.css?7" />
+	<!--  순찬 스타일  -->
+    
     <link rel="stylesheet" type="text/css" href="css/adminTop.css?3" />
-
-    <!-- 카카오주소록 -->
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/adminModal.css"/>
+    <link rel="stylesheet" type="text/css" href="css/admin.css" />
   </head>
 
   <body>
@@ -23,12 +24,13 @@
             <a href="/itda"><img src="img/itdaLogo.png" /></a>
           </li>
           <li><a href="/itda/test.jsp">추천게시판</a></li>
-          <li><a href="/itda/matchingList">매칭게시판</a></li>
-          <li><a href="/itda/marketList">장터</a></li>
+          <li><a href="#">매칭게시판</a></li>
+          <li><a href="#">장터</a></li>
           <li><a href="#">자유게시판</a></li>
           <li><a href="#">Q&A</a></li>
           <li><a href="#">베스트</a></li>
           <li><a href="/itda/login">인증</a></li>
+          <li><a href="/itda/admin">test</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">

@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+/* qna 모달 */
+.AdminSendQnqModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.AdminQnqModal {
+  position: relative;
+  margin: 100px auto;
+  width: 450px;
+  padding: 20px;
+  background-color: #fafafa;
+  /* text-align: center; */
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow-y: auto;
+  background-color: white;
+}
+/* qna 모달 */
+
+
+/* AllBoard 모달 */
+.AllSelectBoardModal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.BoardModal {
+  position: relative;
+  margin: 100px auto;
+  width: 450px;
+  padding: 20px;
+  background-color: #fafafa;
+  /* text-align: center; */
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow-y: auto;
+  background-color: white;
+}
+/* AllBoard 모달 */
+
+
+/**/
+/*모달창*/
+.MemberChageModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.AdminMemberModal {
+  position: relative;
+  margin: 100px auto;
+  width: 450px;
+  padding: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow-y: auto;
+  background-color: white;
+}
+
+label
+{
+  font-size: 20px;
+  width: 100px;
+  height: 20px;
+}
+
+.BoardViewModal
+{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+
+/*AdminMember*/
+.AdminInsertModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.AdminMemberModal { /*모달창*/
+  position: relative;
+  margin: 100px auto;
+  width: 450px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow-y: auto;
+  background-color: white;
+}
+/*AdminMember*/
+
+/*AdminAMember*/
+
+.AdminModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.AdminAMember { /*모달창*/
+   position: relative;
+   margin: 100px auto;
+   width: 450px;
+   padding: 20px;
+   text-align: center;
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow-y: auto;
+  background-color: white;
+}
+
+
+/*AdminAMember*/
+
+/* BoardBlack 모달 */
+.BlackBoardSelectModal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.BlackModal {
+  position: relative;
+  margin: 100px auto;
+  width: 450px;
+  padding: 20px;
+  background-color: #fafafa;
+  /* text-align: center; */
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow-y: auto;
+  background-color: white;
+}
+/* BoardBlack 모달 */
+
+/*공통 모달*/
+.ModalInput
+{
+  width:200px;
+  height: 50px;
+  text-align: left;
+}
+
+.ModalInput:focus
+{
+  outline: none;
+}
+
+.Modalselect
+{
+  width:200px;
+  height: 50px;
+  text-align: left;
+}
+.Modallabel
+{
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
+  float: left;
+
+}
+
+.modalOverlay {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y: auto;
+  position: fixed;
+}
+/*공통 모달*/

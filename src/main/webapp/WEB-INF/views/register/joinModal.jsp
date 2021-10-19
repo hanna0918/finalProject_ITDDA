@@ -108,7 +108,7 @@
         <label>주소<span class="asterisk">*</span></label>
         <!-- 카카오주소 api 사용 -->
         <input class="joinTextBox m_addr" type="text" name="m_addr" id="joinAddr" readonly />
-        <input class="joinTextBox" type="text" name="addrDetail" id="addrDetail" />
+        <input class="joinTextBox" type="text" name="m_addrDetail" id="m_addrDetail" />
         <span class="final_addr_ck">주소를 입력해주세요.</span>
       </div>
       <div>
@@ -116,7 +116,7 @@
           <label>생년월일 <span class="asterisk">*</span> </label>
         </div>
         <div class="selectBox">
-          <input type="date" name="m_bith" class="m_birth" />
+          <input type="date" name="m_birth" class="m_birth" />
           <span class="final_birth_ck">생일을 입력해주세요.</span>
         </div>
       </div>
@@ -127,7 +127,7 @@
       </div>
       <div class="gender">
         <label>성별<span class="asterisk">*</span></label>
-        <div><input type="radio" name="m_gender" value="1" />남자 <input type="radio" name="m_gender" value="2" />여자</div>
+        <div><input type="radio" name="m_gender" value="남자" />남자 <input type="radio" name="m_gender" value="여자" />여자</div>
         <span class="final_gender_ck">성별을 선택해주세요.</span>
       </div>
       <input type="button" value="회원가입" class="btnBlock joinSubmitBtn" />
