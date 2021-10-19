@@ -44,6 +44,7 @@ public class MemberController {
     			session.setAttribute("logseq", lvo.getM_seq());
     			session.setAttribute("lognick", lvo.getM_nickname());
 
+<<<<<<< HEAD
                 return "redirect:/";        // 메인페이지 이동
             } 
         }
@@ -62,9 +63,33 @@ public class MemberController {
 //		}
 //		return mav;
 		
+=======
+	// 濡쒓렇�씤�뤌
+	@RequestMapping("/login")
+	public String login() {
+		return "register/login";
 	}
 
-	// 로그아웃
+	@RequestMapping(value="/loginOk",method=RequestMethod.POST)
+	public ModelAndView loginOk(MemberVO vo, HttpSession session) {
+		MemberVO resultVO = memberService.login(vo);
+		ModelAndView mav = new ModelAndView();
+		
+		if (resultVO == null) {// 濡쒓렇�씤 �떎�뙣
+			mav.setViewName("redirect:login");
+		} else {// 濡쒓렇�씤 �꽦怨�
+			
+			session.setAttribute("lognick", resultVO.getM_nickname());
+			session.setAttribute("logseq", resultVO.getM_seq());
+			session.setAttribute("logid", resultVO.getM_userid());
+			session.setAttribute("logname", resultVO.getM_username());
+			mav.setViewName("redirect:/");
+		}
+		return mav;
+>>>>>>> origin/hyuntae
+	}
+
+	// 濡쒓렇�븘�썐
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession s) {
 		s.invalidate();
@@ -73,6 +98,7 @@ public class MemberController {
 		return mav;
 	}
 
+<<<<<<< HEAD
 	// 아이디 중복 검사
 	@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
 	@ResponseBody
@@ -102,6 +128,9 @@ public class MemberController {
 	
 	
 	// 회원가입
+=======
+	// �쉶�썝媛��엯
+>>>>>>> origin/hyuntae
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
 	public String joinOk(MemberVO vo, Model model) {
 

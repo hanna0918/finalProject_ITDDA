@@ -2,7 +2,10 @@ package com.finalproject.itda.vo;
 
 public class MemberVO {
 	private int m_seq;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/hyuntae
 	private String m_userid;
 	private String m_userpwd;
 	private String m_username;
@@ -14,6 +17,7 @@ public class MemberVO {
 	private String m_info;
 	private String m_tag;
 
+<<<<<<< HEAD
 	private String m_gender;
 
 	public int getM_seq() {
@@ -32,6 +36,16 @@ public class MemberVO {
 	public void setM_gender(String m_gender) {
 		this.m_gender = m_gender;
 	}
+=======
+	
+	public int getM_seq() {
+		return m_seq;
+	}
+
+	public void setM_seq(int m_seq) {
+		this.m_seq = m_seq;
+	}
+>>>>>>> origin/hyuntae
 
 	public String getM_userid() {
 		return m_userid;
