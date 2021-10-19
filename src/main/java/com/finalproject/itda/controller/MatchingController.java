@@ -72,7 +72,9 @@ public class MatchingController {
    @RequestMapping("/matchingEdit")
    public ModelAndView matchingEdit(int board_seq, HttpSession ses) {
       ModelAndView mav = new ModelAndView();
-      matchingService.matchingEdit(board_seq, (int)ses.getAttribute("logseq"));
+      Object test = ses.getAttribute("logseq");
+      
+      matchingService.matchingEdit(board_seq, Integer.valueOf((String)test) );
       return mav;
    }
 }

@@ -49,29 +49,6 @@ public class MemberController {
         }
         return "redirect:/";
 	}
-	// 濡쒓렇�씤�뤌
-	@RequestMapping("/login")
-	public String login() {
-		return "register/login";
-	}
-
-	@RequestMapping(value="/loginOk",method=RequestMethod.POST)
-	public ModelAndView loginOk(MemberVO vo, HttpSession session) {
-		MemberVO resultVO = memberService.login(vo);
-		ModelAndView mav = new ModelAndView();
-		
-		if (resultVO == null) {// 濡쒓렇�씤 �떎�뙣
-			mav.setViewName("redirect:login");
-		} else {// 濡쒓렇�씤 �꽦怨�
-			
-			session.setAttribute("lognick", resultVO.getM_nickname());
-			session.setAttribute("logseq", resultVO.getM_seq());
-			session.setAttribute("logid", resultVO.getM_userid());
-			session.setAttribute("logname", resultVO.getM_username());
-			mav.setViewName("redirect:/");
-		}
-		return mav;
-	}
 
 	// 로그아웃
 	@RequestMapping("/logout")
