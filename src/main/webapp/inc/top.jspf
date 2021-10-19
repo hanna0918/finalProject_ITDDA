@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -7,45 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?3" />
-    <link rel="stylesheet" type="text/css" href="css/adminTop.css?a" />
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script defer type="text/javascript" src="js/mainScript.js"></script>
-
-    <!-- 카카오주소록 -->
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
+    <!--  index 스타일  -->
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?7" />
+	
+    <!--  추천게시판 스타일  -->
+    <link rel="stylesheet" type="text/css" href="css/board.css?" />
+	
+	<!--  관리자 스타일  -->
+    <link rel="stylesheet" type="text/css" href="css/adminTop.css?3" />
+    <link rel="stylesheet" type="text/css" href="css/adminModal.css"/>
+    <link rel="stylesheet" type="text/css" href="css/admin.css" />
   </head>
 
   <body>
-	<div class="wrapper">
+    <div class="wrapper">
       <!-- header and navigation-->
       <header class="mainHeader">
         <ul class="topMenu">
           <li>
-            <a href="/itda"><img src="img/itdaLogo.png"/></a>
+            <a href="/itda"><img src="img/itdaLogo.png" /></a>
           </li>
-          <li><a href="/itda/test.jsp">추천게시판</a></li>
+          <li><a href="/itda/recommendList">추천게시판</a></li>
           <li><a href="/itda/matchingList">매칭게시판</a></li>
-          <li><a href="/itda/marketList">장터</a></li>
+          <li><a href="#">장터</a></li>
           <li><a href="#">자유게시판</a></li>
           <li><a href="#">Q&A</a></li>
           <li><a href="#">베스트</a></li>
           <li><a href="/itda/login">인증</a></li>
+          <li><a href="/itda/admin">test</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">
-          	<label class="loginBtn" id="loginBtn">${logname}로그인</label>
-          	<a href="/itda/logout" class="logOutBtn" id="logOutBtn">로그아웃</a>
-            <label class="joinBtn" id="joinBtn">회원가입</label>
+            <c:if test="${logname == null}">
+              <label class="loginBtn" id="loginBtn">${logname}로그인</label>
+              <label class="joinBtn" id="joinBtn">회원가입</label>
+            </c:if>
+            <c:if test="${logname != null}">
+              <label class="" id="">${logname}</label>
+              <a href="/itda/logout" class="logOutBtn" id="logOutBtn">로그아웃</a>
+            </c:if>
           </div>
         </div>
-        <!-- <c:if test="${logStatus != 'Y' }"> -->
-        <!-- </c:if> -->
-        <!-- <c:if test="${logStatus == 'Y' }">
-              <li><a href="#">${logName}님 </a></li>
-              <li><a href="#"> 로그아웃</a></li>
-            </c:if> -->
-      	</header>
+      </header>
+      <div class="mainContent">
 
-      	<div class="mainContent">

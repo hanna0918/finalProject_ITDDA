@@ -10,7 +10,7 @@ import com.finalproject.itda.vo.MemberVO;
 @Service
 public class MemberServiceImp implements MemberService {
 	@Inject
-	MemberDAO memberDAO;
+	MemberDAO memberDAO;				
 
 	@Override
 	public MemberVO login(MemberVO vo){
@@ -18,8 +18,18 @@ public class MemberServiceImp implements MemberService {
 	}
 
 	@Override
-	public MemberVO join(MemberVO vo){
+	public int join(MemberVO vo){
 		return memberDAO.join(vo);
+	}
+
+	@Override
+	public int idCheck(String m_userid) {
+		return memberDAO.idCheck(m_userid);
+	}
+
+	@Override
+	public int nickCheck(String m_nickname) {
+		return memberDAO.nickCheck(m_nickname);
 	}
 
 }
