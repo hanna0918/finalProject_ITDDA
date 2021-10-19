@@ -53,7 +53,7 @@ public interface MatchingDAO {
 	@Select({" <script> ",
 		" select * from ",
 		" (select * from ",
-		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, board_black, b_content, ",
+		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, b_content, ",
 		" mc_state, mc_max, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, mc_where, board_select ",
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
@@ -129,13 +129,13 @@ public interface MatchingDAO {
 		" </script> "})
 	public List<MatchingVO> matchingList(MatchingPagingVO pVo);
 	
-	@Select(" select * from (select a.board_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, board_black, b_content, "
+	@Select(" select * from (select a.board_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
 			+ "	mc_max, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select, "
 			+ " lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, "
-			+ " lag(board_subject, 1, 'ÀÌÀü ±ÛÀÌ ¾ø½À´Ï´Ù') over(order by a.board_seq) board_prev_subject, "
+			+ " lag(board_subject, 1, 'ì´ì „ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.') over(order by a.board_seq) board_prev_subject, "
 			+ " lag(board_select, 1) over(order by a.board_seq) board_prev_select, "
 			+ " lead(a.board_seq, 1) over(order by a.board_seq) board_next_seq, "
-			+ " lead(board_subject, 1, '´ÙÀ½ ±ÛÀÌ ¾ø½À´Ï´Ù') over(order by a.board_seq) board_next_subject, "
+			+ " lead(board_subject, 1, 'ë‹¤ìŒ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.') over(order by a.board_seq) board_next_subject, "
 			+ " lead(board_select) over(order by a.board_seq) board_next_select "
 			+ "	from boardbase a inner join memberbase b on a.m_seq=b.m_seq "
 			+ "	inner join mc_table c on a.board_seq=c.board_seq "
