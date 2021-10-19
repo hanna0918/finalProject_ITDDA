@@ -5,12 +5,8 @@ public class CalendarVO {
 	private String url;
 	private String title;
 	private String start;
-	public int getBoard_seq() {
-		return board_seq;
-	}
 	public void setBoard_seq(int board_seq) {
-		this.board_seq = board_seq;
-		url = "/itda/matchingView?no=" + board_seq;
+		url = "/itda/matchingView?board_seq=" + board_seq;
 	}
 	public String getUrl() {
 		return url;

@@ -1,6 +1,7 @@
 package com.finalproject.itda.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.MatchingService;
+import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
+import com.google.gson.Gson;
 
 @Controller
 public class MatchingController {
@@ -40,21 +43,18 @@ public class MatchingController {
    public Map<String, Object> tagSearch(MatchingPagingVO pVo){
       Map<String, Object> map = new HashMap<String, Object>();
       MatchingPagingVO ppVo = matchingService.page(pVo);
+      System.out.println(pVo.getNowPage());
       ppVo.setNowPage(pVo.getNowPage());
       
       map.put("pVo", ppVo);
       map.put("vo", matchingService.matchingList(pVo));
       return map;
    }
-//   @RequestMapping("/calendarAjax")
-//   @ResponseBody
-//   public String calendarAjax() {
-//      List<CalendarVO> list = matchingService.dataForJson();
-//      String json = new Gson().toJson(list);
-//      json.split("\"mc_state\": 0,");
-//      System.out.println(json);
-//      return json;
-//   }
+   @RequestMapping("/calendarAjax")
+   @ResponseBody
+   public List<CalendarVO> calendarAjax() {
+      return matchingService.dataForJson();
+   }
    
    @RequestMapping(value="matchingView")
    public ModelAndView matchingView(int board_seq) {

@@ -1,5 +1,3 @@
 eclipse.preferences.version=1
-encoding//src/main/java/com/finalproject/itda/controller/AdminController.java=UTF-8
-encoding//src/main/java/com/finalproject/itda/dao/AdminDAO.java=UTF-8
-encoding//src/main/java/com/finalproject/itda/dao/MatchingDAO.java=UTF-8
-encoding//src/main/webapp/css/admin.css=UTF-8
+encoding//src/main/java/com/finalproject/itda/controller/MatchingController.java=UTF-8
+encoding//src/main/java/com/finalproject/itda/controller/MemberController.java=UTF-8

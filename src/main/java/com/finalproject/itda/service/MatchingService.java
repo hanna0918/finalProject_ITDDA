@@ -12,5 +12,5 @@ public interface MatchingService {
 	public MatchingVO matchingView(int board_seq);
 	public int countHit(int board_seq);
 	public int matchingEdit(int board_seq, int m_seq);
-//	public List<CalendarVO> dataForJson();
+	public List<CalendarVO> dataForJson();
 }

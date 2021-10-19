@@ -41,8 +41,8 @@ public class MatchingServiceImp implements MatchingService {
 		return matchingDAO.matchingEdit(board_seq, m_seq);
 	}
 
-//	@Override
-//	public List<CalendarVO> dataForJson() {
-//		return matchingDAO.dataForJson();
-//	}
+	@Override
+	public List<CalendarVO> dataForJson() {
+		return matchingDAO.dataForJson();
+	}
 }

@@ -90,7 +90,7 @@
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/up-arrow.png' name='prevPost'/></div>
                     <c:choose>
-                    <c:when test="${vo.board_next_subject=='다음 글이 없습니다'}">
+                    <c:when test="${vo.board_next_subject=='다음글이 없습니다'}">
 	                    <div class='nextPrevDiv' style="color: gray">${vo.board_next_subject}</div>
                     </c:when>
                     <c:otherwise>
@@ -105,7 +105,7 @@
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/down-arrow.png' name='nextPost'/></div>
                     <c:choose>
-                    <c:when test="${vo.board_prev_subject=='이전 글이 없습니다'}">
+                    <c:when test="${vo.board_prev_subject=='이전글이 없습니다'}">
 	                    <div class='nextPrevDiv' style="color: gray">${vo.board_prev_subject}</div>
                     </c:when>
                     <c:otherwise>

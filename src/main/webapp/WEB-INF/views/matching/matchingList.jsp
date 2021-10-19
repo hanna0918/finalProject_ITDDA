@@ -19,7 +19,7 @@
 					<div id="hiddenTag3" style="display: none;"></div>
 					<div id="hiddenTag4" style="display: none;"></div>
 				</div>
-				<a href="#" class="button" id="calendarBtn">달력</a>
+				<a class="button" id="calendarBtn">달력</a>
 			<div id="selectedDateDiv" style="display: none;"></div>
 			</form>
 		</div>
@@ -87,4 +87,4 @@
 		<a href="/itda/matchingUpload" class="button" id="calendarBtn" id="matchingUploadBtn">글쓰기</a>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=3333333333333333333333333333333"></script>
+<script src="/itda/js/matchingList.js?version=333333333333333333333333333333333"></script>
