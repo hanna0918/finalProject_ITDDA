@@ -143,11 +143,14 @@ searchTextArea.addEventListener('keyup', keyupTest);
 // 태그 배열에 값 넣기
 function keyupTest(e){
     const keyCode = e.keyCode;
-    var text="";
     if(tag.length<5){
         if(keyCode==32 || keyCode==13){
             text = searchTextArea.value;
             searchTextArea.value = "";
+            if(text=="" || text==" ") {
+				// 여기에 그............ 그....... 버블? 로 글을 쓰라고 말하기(태그를 입력하고 엔터나 스페이스를 누르세요)
+				return;
+        	}
             tag.push(text.trim());
             eraseAllTag();
         	tagInValue();

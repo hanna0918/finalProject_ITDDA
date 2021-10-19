@@ -8,7 +8,7 @@
 <div id="matchingFrame">
 	<header>
 		<div id="searchAndCalendar">
-			<form method="post" id="tagTranfer" action="<%=request.getContextPath()%>/matchingList">
+			<form method="post" id="tagTranfer" onsubmit="return false">
 				<div>
 					<input type="text" name="searchText" id="searchText"/>
 				</div>
@@ -87,4 +87,4 @@
 		<a href="/itda/matchingUpload" class="button" id="calendarBtn" id="matchingUploadBtn">글쓰기</a>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=333333333333333333333333333"></script>
+<script src="/itda/js/matchingList.js?version=3333333333333333333333333333333"></script>
