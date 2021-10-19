@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?2" />
-     <link rel="stylesheet" type="text/css" href="css/adminTop.css?a" />
-    <link rel="stylesheet" type="text/css" href="css/mypageTop.css?a" />
-    <link rel="stylesheet" type="text/css" href="css/mypage.css" />
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?a" />
+    <link rel="stylesheet" type="text/css" href="css/adminTop.css?a" />
+    <link rel="stylesheet" type="text/css" href="css/mypageTop.css?a1" />
+    <link rel="stylesheet" type="text/css" href="css/mypage.css?a1" />
     <link rel="stylesheet" type="text/css" href="css/injeung.css" />
     <link rel="stylesheet" type="text/css" href="css/postView.css" /> 
-    <link rel="stylesheet" type="text/css" href="css/question.css" />
+    <link rel="stylesheet" type="text/css" href="css/board.css" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script defer type="text/javascript" src="js/mainScript.js"></script>
     <script defer type="text/javascript" src="js/mypageScript.js"></script>
@@ -28,7 +28,7 @@
           <li>
             <a href="/itda"><img src="img/itdaLogo.png"/></a>
           </li>
-          <li><a href="#">추천게시판</a></li>
+          <li><a href="/itda/chucheonBoard">추천게시판</a></li>
           <li><a href="#">매칭게시판</a></li>
           <li><a href="#">장터</a></li>
           <li><a href="#">자유게시판</a></li>

@@ -3,7 +3,7 @@
 
 	<div class='boardContainer'>
 		<!-- 게시판제목 -->
-		<h1>Q&A</h1>
+		<h1>추천</h1>
 		<!-- 검색창 -->
 		<div class='allSearch'>
 			<form>
@@ -19,7 +19,7 @@
 		</div>
 		<!-- 인증게시판/QnA 리스트 -->
 		<div class='boardList'>
-			<ul id='quesTitle'>
+			<ul id='chucheonTitle'>
 				<li>NO</li>
 				<li>제목</li>
 				<li>작성자</li>
@@ -29,21 +29,24 @@
 			</ul>
 			<hr/>
 		</div>	
-		<div class='questionList'>
-			<c:forEach var="questionVo" items="${list}">
-				<div class='quesContent'> 
-					<div>${questionVo.board_seq}</div>
+		<div class='chucheonList'>
+			<form>
+				<div class='chucheonContent'>
+					<div>100</div>
+					<div><img src='https://pbs.twimg.com/profile_images/1164662334888898560/hzpBtULq_400x400.jpg' id='chucheonImg'></div>
 					<div>
-						<div><a href='/itda/questionView?board_seq=${questionVo.board_seq}'>${questionVo.board_subject}</a></div>
+						<div><a href='/itda/questionView'>산에서 곰을 만났을때 어떻게 해야하나요..?</a></div>
+						<span>#곰#살려쥬</span>
 					</div>
 					<div>
-						<div>${questionVo.m_nickname}</div>
+						<div>위기탈출넘버원</div>
+						<div><span>(numberone)</span></div>
 					</div>
-					<div>${questionVo.board_writedate}</div>
-					<div>${questionVo.board_hit}</div>
-					<div>${questionVo.br_count}</div>
+					<div>2021-07-01</div>
+					<div>50</div>
+					<div>19</div>
 				</div>
-			</c:forEach>
+			</form>
 		</div>
 		
 		<!-- 글쓰기 버튼 -->

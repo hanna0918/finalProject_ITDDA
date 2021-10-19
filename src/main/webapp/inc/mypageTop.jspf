@@ -2,14 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-
 <div id='myPageTop'>
 	<div id='myPageContentDiv'>
 		<div id='profileBox'><!-- 프로필박스 -->
 			<div><!-- 사진, 매너점수div -->
 				<div>
 					<ul id='introDiv'>
-						<li><img src='img/circle.png' name='profileImg' id='profileImg'/></li>
+						<li><img src='img/circle.png' name='1' id='profileImg'/></li>
 						<li>
 							<div>
 							 sunchan123(내가순찬)님 <br/>
@@ -48,22 +47,22 @@
 		</div>
 	</div>
 	<!-- ------------------------------------------------------------내정보수정 모달창------------------------------------------------------- -->
-	<div class="loginJoinModal" id="loginJoinModal">
+	<div class="loginJoinModal" id="loginEidtModal">
 			<div class="modalOverlay"></div>
 				<article class="joinModalContent joinDataInputModal">
 					<form method="post" id="regForm" action="formOk">
 				    	<h2>정보 수정</h2>
-				        <a> <img src="img/close1.png" class="close" 
+				        <a> <img src="img/close1.png" class="close" name="1"
 				        style="position: absolute; top: 10px; right: 10px;"/></a>
 				                
-				        <div><img src="img/circle.png" style="width: 100px; padding-bottom:40px" alt="" srcset="" /></div>
+				        <div><img src="img/circle.png" style="width: 100px; padding-bottom:40px"/></div>
 				        <!-- 아이디 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
-				        <div style="height:77.33px;"><input class="joinTextBox" type="text" name="joinUserid" id="joinUserid" placeholder="아이디" /></div>
+				        <div style="height:77.33px;"><input class="joinTextBox" type="text" name="userid" id="joinUserid" placeholder="아이디" /></div>
 				         
 				        <!-- 이메일 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
 				        <div>
 				        	<label>이메일<span class="asterisk">*</span></label>
-				            <div><input class="joinTextBox" type="email" name="userEmail" id="userEmail" /></div>
+				            <div><input class="joinTextBox" type="email" name=userEmail" id="userEmail" /></div>
 				            <div id="error_mail" class="result-email result-check"></div>
 				        </div>
 				        <!-- 닉네임 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
@@ -84,11 +83,7 @@
 				        	<div>
 				            	<label>생년월일<span class="asterisk">*</span> </label>
 				            </div>
-				            <div class="selectBox">
-				            	<select class="joinSelectBox" name="birthY" id="birthY"></select>
-				                <select class="joinSelectBox" name="birthM" id="birthM"></select>
-				                <select class="joinSelectBox" name="birthD" id="birthD"></select>
-				       		</div>
+				            <input type='date' class='m_birth' name='m_birth'/>
 				       </div>
 				       <div>
 				              <label>이름(실명)<span class="asterisk">*</span></label>
@@ -111,18 +106,3 @@
 		</div>
 </div>
 
-<script>	
-	$('#profileImg').click(function () {
-	     $('.joinDataInputModal').css('display', 'block');
-	     $('.loginJoinModal').css('display', 'block');
-	  });
-	
-		      
-	$('#joinCancelBtn').click(function () {
-		  $('.loginJoinModal').css('display', 'none');
-		});
-	
-	$('.close').click(function () {
-		  $('.loginJoinModal').css('display', 'none');
-		});
-</script>

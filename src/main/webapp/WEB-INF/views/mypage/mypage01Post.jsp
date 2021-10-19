@@ -26,7 +26,7 @@
 	<div class='list'>
 		<ul class='content'>
 			<c:forEach var="vo" items="${list}">
-				<li class='selectLi'>${vo.board_code}</li>
+				<li class='selectList'>${vo.board_code}</li>
 				<li><a href=''>${vo.board_subject}</a></li>
 				<li>${vo.board_writedate}</li>
 				<li>${vo.board_hit}</li>
@@ -35,7 +35,7 @@
 		</ul>
 	</div>
 	<div>
-		<div id='page'>
+		<div class='page'>
 			<ul>
 				<li><a href='#'>＜</a></li>
 				<li><a href='#'>1</a></li>

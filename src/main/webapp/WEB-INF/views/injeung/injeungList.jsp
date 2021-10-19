@@ -29,11 +29,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- 페이지 -->
-		<div class='writeBtnDiv'>
+		<!-- 글쓰기 버튼 -->
+		<div class='boardBtnDiv'>
 			<input type='button' name='writeBtn' value='글쓰기' />
 		</div>
-		<div id='page'>
+		<!-- 페이지 -->
+		<div class='pagingDiv'>
 			<ul>
 				<li><a href='#'><</a></li>
 				<li><a href='#'>1</a></li>

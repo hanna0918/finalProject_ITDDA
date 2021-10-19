@@ -71,7 +71,7 @@
 			</ul>
 		</form>
 	</div>
-	<div id='page'>
+	<div class='page'>
 		<ul>
 			<li><a href='#'><</a></li>
 			<li><a href='#'>1</a></li>

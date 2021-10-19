@@ -15,6 +15,7 @@ import com.finalproject.itda.vo.RegisterVO;
 public class RegisterController {
 	@Inject
 	RegisterService registerService;
+	
 	//로그인폼
 	@RequestMapping("/login")
 	public String login() {

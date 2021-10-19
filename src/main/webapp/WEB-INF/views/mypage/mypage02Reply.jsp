@@ -9,57 +9,19 @@
 	<div>댓글</div>
 	<hr />
 	<div>
-		<form method='get' action='#'>
-			<ul class='replyList'>
-				<li><input type='checkbox' name='replyChk' /></li>
-				<li>
-					<div>
-						<div>평일 낮에 가면 대시간 많이
-							걸릴까요?---------------------------------------------------1111111111111111111111111---------------------</div>
-						<div>이구역백종원 &nbsp;&nbsp; 2021.08.16</div>
+		<form method='post' action=''>
+			<c:forEach var="vo" items="${replyList}">
+				<ul class='replyList'>
+					<li><input type='checkbox' name='replyChk' value='${vo.br_id}'/></li>
+					<li>
 						<div>
-							제목이될수도<a href='#'>#맛집</a> <a href='#'>#이태원</a> <a href='#'>#치킨</a><a
-								href='#'>#탄두리</a> <a href='#'>#이색맛집</a>
+							<div>${vo.br_content}</div>
+							<div>${vo.m_nickname} &nbsp;&nbsp; ${vo.br_writedate}</div>
+							<div>${vo.board_subject}</div>
 						</div>
-					</div>
-				</li>
-				<li><input type='checkbox' name='replyChk' /></li>
-				<li>
-					<div>
-						<div>평일 낮에 가면 대시간 많이
-							걸릴까요?---------------------------------------------------1111111111111111111111111---------------------</div>
-						<div>이구역백종원 &nbsp;&nbsp; 2021.08.16</div>
-						<div>
-							제목이될수도<a href='#'>#맛집</a> <a href='#'>#이태원</a> <a href='#'>#치킨</a><a
-								href='#'>#탄두리</a> <a href='#'>#이색맛집</a>
-						</div>
-					</div>
-				</li>
-				<li><input type='checkbox' name='replyChk' /></li>
-				<li>
-					<div>
-						<div>평일 낮에 가면 대시간 많이
-							걸릴까요?---------------------------------------------------1111111111111111111111111---------------------</div>
-						<div>이구역백종원 &nbsp;&nbsp; 2021.08.16</div>
-						<div>
-							제목이될수도<a href='#'>#맛집</a> <a href='#'>#이태원</a> <a href='#'>#치킨</a><a
-								href='#'>#탄두리</a> <a href='#'>#이색맛집</a>
-						</div>
-					</div>
-				</li>
-				<li><input type='checkbox' name='replyChk' /></li>
-				<li>
-					<div>
-						<div>평일 낮에 가면 대시간 많이
-							걸릴까요?---------------------------------------------------1111111111111111111111111---------------------</div>
-						<div>이구역백종원 &nbsp;&nbsp; 2021.08.16</div>
-						<div>
-							제목이될수도<a href='#'>#맛집</a> <a href='#'>#이태원</a> <a href='#'>#치킨</a><a
-								href='#'>#탄두리</a> <a href='#'>#이색맛집</a>
-						</div>
-					</div>
-				</li>
-			</ul>
+					</li>
+				</ul>
+			</c:forEach>
 			<div class='chkAndDel'>
 				<div>
 					<label><input type='checkbox' name='replyAllCheck'
@@ -72,7 +34,7 @@
 			</div>
 		</form>
 	</div>
-	<div id='page'>
+	<div class='page'>
 		<ul>
 			<li><a href='#'><</a></li>
 			<li><a href='#'>1</a></li>
@@ -87,7 +49,7 @@
 	<div class="deleteModal" id="deleteModal">
 		<div class="deleteModalOverlay"></div>
 		<article class="deleteContent">
-			<form method="post" id="regForm" action="formOk">
+			<form method="post" id="regForm" >
 				<div>이 댓글을 삭제하시겠습니까?</div>
 				<input type='button' name='confirmDelete' id='confirmDelete'
 					class='btnClass' value='삭제' /> <input type='button'
