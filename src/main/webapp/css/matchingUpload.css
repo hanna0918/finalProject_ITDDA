@@ -21,12 +21,14 @@
     overflow: auto;
     margin: 10px auto;
     padding: 0;
+    
 }
 #titleAndMap>li {
     float: left;
     margin: 5px 0;
     padding: 0;
     font-size: 1.2em;
+    font-size: large;
 }
 #titleAndMap>li>input:focus {
     outline: none !important;
@@ -39,6 +41,47 @@
 #titleAndMap>li:nth-of-type(2) {
     width: 8%;
 }
+#titleAndMap>li:nth-of-type(4), #titleAndMap>li:nth-of-type(6), #titleAndMap>li:nth-of-type(8) {
+    width: 10%;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+#titleAndMap>li:nth-of-type(5) {
+    width: 20%;
+    margin-right: 10px;
+}
+#titleAndMap>li:nth-of-type(5) input {
+    width: 80%;
+    margin-right: 10px;
+}
+#titleAndMap>li:nth-of-type(7), #titleAndMap>li:nth-of-type(9){
+    width: 15%;
+    margin-right: 10px;
+}
+#titleAndMap>li:nth-of-type(7) input, #titleAndMap>li:nth-of-type(7) input {
+    margin-right: 10px;
+}
+#titleAndMap>li:nth-of-type(10) {
+    width: 22%;
+}
+#titleAndMap>li:nth-of-type(11) {
+    width: 30%;
+    margin-left: 20px;
+}
+#titleAndMap>li:nth-of-type(12) {
+	height: 40px;
+	line-height: 40px;
+}
+#titleAndMap>li>input[type=radio] {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+}
+#titleAndMap>li>label {
+	font-size: 1em;
+}
+
 #titleAndMap>li>input {
     width: 98%;
     height: 50px;
@@ -48,11 +91,13 @@
 }
 #titleAndMap>li>select {
     height: 100%;
+    margin-top: 5px;
     margin-right: 10px;
     padding: 5px;
     border-radius: 6px;
-    
+    border: 1px solid;
 }
+
 
 /* �깭洹� 湲곕뒫 */
 #addTag{
@@ -67,6 +112,11 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 15px;
+}
+#hiddenTagAllDone {
+    color: red;
+    border-radius: 0px;
+
 }
 /* ---------------------------------------------------------- */
 /*紐⑤떖李�*/
@@ -124,13 +174,31 @@
     border: 1px solid rgba(255, 99, 72, 0.2);
 }
 #matchingCancelBtn {
-    float: left;
+    text-align: center;
+    text-decoration: none;
+    color: black;
     background-color: rgba(192, 98, 82, 0.2);
     border: 1px solid rgba(255, 99, 72, 0.2);
+
 }
 #matchingSubmitBtn:hover {
     background-color: rgba(42, 135, 197, 0.25);
 }
 #matchingCancelBtn:hover {
     background-color: rgba(192, 98, 82, 0.25);
+}
+
+
+
+/* remove arrows from input type: number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

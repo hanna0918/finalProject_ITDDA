@@ -41,7 +41,7 @@ public class MemberController {
                 lvo.setM_userpwd("");                    // 인코딩된 비밀번호 정보 지움
     			session.setAttribute("login", lvo.getM_userid());
     			session.setAttribute("logname", lvo.getM_username());
-    			session.setAttribute("logseq", lvo.getM_seq());
+    			session.setAttribute("logseq", (int)lvo.getM_seq());
     			session.setAttribute("lognick", lvo.getM_nickname());
 
                 return "redirect:/";        // 메인페이지 이동

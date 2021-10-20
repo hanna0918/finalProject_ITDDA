@@ -47,6 +47,7 @@ function calendarAjax(){
 	                var eventObj = info.event;
 	          
 	                if (eventObj.title) {
+	                	
 	                }
 	            }
 		    });

@@ -16,6 +16,12 @@ public class MatchingVO {
 	private String board_next_subject;
 	private String board_prev_select;
 	private String board_next_select;
+	private String startDate;
+	private String startTime;
+	private String endTime;
+	private String sido;
+	private String gugun;
+	
 	private int board_prev_seq;
 	private int board_next_seq;
 	private int mc_state;
@@ -72,22 +78,62 @@ public class MatchingVO {
 		Board_writedate = board_writedate;
 	}
 	public String getMc_start_date() {
+		System.out.println("startDate" + startDate);
+		System.out.println("startTime " + startTime);
+		mc_start_date = startDate + " " + startTime;
 		return mc_start_date;
 	}
 	public void setMc_start_date(String mc_start_date) {
 		this.mc_start_date = mc_start_date;
 	}
 	public String getMc_end_date() {
+		mc_end_date = startDate + " " + endTime;
 		return mc_end_date;
 	}
 	public void setMc_end_date(String mc_end_date) {
 		this.mc_end_date = mc_end_date;
 	}
+	
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+		System.out.println("startDate = " + startDate);
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		System.out.println("startTime = " + startTime);
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	public String getSido() {
+		return sido;
+	}
+	public void setSido(String sido) {
+		this.sido = sido;
+	}
+	
+	public String getGugun() {
+		return gugun;
+	}
+	public void setGugun(String gugun) {
+		this.gugun = gugun;
+	}
 	public String getMc_where() {
+		mc_where = sido + " " + gugun;
 		return mc_where;
 	}
 	public void setMc_where(String mc_where) {
 		this.mc_where = mc_where;
+		mc_where = sido + " " + gugun;
 	}
 	public String getM_info() {
 		return m_info;
@@ -142,8 +188,8 @@ public class MatchingVO {
 	public int getMc_max() {
 		return mc_max;
 	}
-	public void setMc_max(int mc_max) {
-		this.mc_max = mc_max;
+	public void setMc_max(String mc_max) {
+		this.mc_max = Integer.parseInt(mc_max);
 	}
 	public int getBoard_hit() {
 		return board_hit;

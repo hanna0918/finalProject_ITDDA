@@ -80,11 +80,11 @@
 	    	</c:if>
 		</c:forEach>
 		<c:if test="${pVo.nowPage<pVo.totalPage}">
-	    	<li class='page-item'><a href="javascript:matchingPaging(${pVo.onePageNumCount+1})">Next</a></li>
+	    	<li class='page-item'><a href="javascript:matchingPaging(${pVo.nowPage+1})">Next</a></li>
 	    </c:if>
 	</ul>
 </div>
 		<a href="/itda/matchingUpload" class="button" id="calendarBtn" id="matchingUploadBtn">글쓰기</a>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=333333333333333333333333333333333"></script>
+<script src="/itda/js/matchingList.js?version=3333333333333333333333333333333333"></script>

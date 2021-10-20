@@ -1,7 +1,10 @@
 package com.finalproject.itda.dao;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -118,6 +121,12 @@ public interface MatchingDAO {
 	@Select(" select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", "
 			+ " board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq")
 	public List<CalendarVO> dataForJson();
+	
+	@Insert(" insert all "
+			+ "     into boardbase (board_seq,m_seq,board_code,board_subject, b_content) values (BOARD_SEQ.nextval, ${logseq}, 2, ${vo.board_subject}, ${vo.b_content}) "
+			+ "     into mc_table values (BOARD_SEQ.CURRVAL, ${logseq}, ${vo.mc_max}, ${vo.mc_state}, to_date(${vo.mc_start_date},'YYYY-MM-DD HH24:MI') mc_start_date, to_date(${vo.mc_end_date},'YYYY-MM-DD HH24:MI') mc_end_date, ${vo.mc_where}) "
+			+ " select * from dual ")
+	public int matchingWriteOk(Map<String, Object> map);
 }
 
 

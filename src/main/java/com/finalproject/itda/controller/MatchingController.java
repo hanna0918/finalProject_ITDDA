@@ -17,7 +17,6 @@ import com.finalproject.itda.service.MatchingService;
 import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
-import com.google.gson.Gson;
 
 @Controller
 public class MatchingController {
@@ -43,9 +42,7 @@ public class MatchingController {
    public Map<String, Object> tagSearch(MatchingPagingVO pVo){
       Map<String, Object> map = new HashMap<String, Object>();
       MatchingPagingVO ppVo = matchingService.page(pVo);
-      System.out.println(pVo.getNowPage());
       ppVo.setNowPage(pVo.getNowPage());
-      
       map.put("pVo", ppVo);
       map.put("vo", matchingService.matchingList(pVo));
       return map;
@@ -69,6 +66,21 @@ public class MatchingController {
    public String matchingUpload() {
       return "matching/matchingUpload";
    }
+   
+   @RequestMapping("/matchingWriteOk")
+   public ModelAndView matchingWriteOk(MatchingVO vo, HttpSession ses) {
+	   ModelAndView mav = new ModelAndView();
+	   System.out.println("여기까진가요");
+	   Map<String, Object> map = new HashMap<String, Object>();
+	   map.put("logseq", (Integer)ses.getAttribute("logseq"));
+	   map.put("vo", vo);
+	   int result = matchingService.matchingWriteOk(map);
+	   System.out.println("과연 여기 오나" + result);
+	   
+	   mav.setViewName("redirect:matchingList");
+	   return mav;
+   }
+   
    @RequestMapping("/matchingEdit")
    public ModelAndView matchingEdit(int board_seq, HttpSession ses) {
       ModelAndView mav = new ModelAndView();
