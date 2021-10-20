@@ -20,9 +20,9 @@ public class MemberVO {
    private String m_content;
    private String m_rank;
    
-   private String board_seq;// º¸´õ ½ÃÄö½º
-   private String m_name;   // µî±ŞÀÌ¸§;
-   private String m_state;  // È°µ¿»óÅÂ
+   private String board_seq;// ë³´ë” ì‹œí€€ìŠ¤
+   private String m_name;   // ë“±ê¸‰ì´ë¦„;
+   private String m_state;  // í™œë™ìƒíƒœ
    
    public int getM_seq() {
       return m_seq;

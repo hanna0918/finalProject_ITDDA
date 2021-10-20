@@ -7,34 +7,33 @@ import org.apache.ibatis.annotations.Select;
 
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
-import com.finalproject.itda.vo.MemberVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 public interface MypageDAO {
 	
-	//³»Á¤º¸¼öÁ¤ Á¤º¸°¡Áö°í¿À±â
+	//ë‚´ì •ë³´ìˆ˜ì • ì •ë³´ê°€ì§€ê³ ì˜¤ê¸°
 	/*
 	 * @Select("select m_userid, m_email, m_nickname, m_tel, m_addr, m_birth, m_username, m_info, m_tag "
 	 * + " from memberbase where m_seq=1") public MemberVO editMyInfo(MemberVO vo);
 	 */
-	//³»°¡¾´±Û
+	//ë‚´ê°€ì“´ê¸€
 	@Select("select bc.board_content, b.board_subject, to_char(b.board_writedate, 'YYYY-MM-DD'), b.board_hit, count(br.br_id) br_count "
 			+ " from boardbase b full outer join board_code bc on b.board_code=bc.board_code "
 			+ " join board_comment br on b.m_seq=br.m_seq where br.m_seq=1 "
 			+ " group by bc.board_content, b.board_subject, b.board_writedate, b.board_hit")
 	public List<BoardVO> mypagePostList();
 	
-	//³»°¡ ¾´ ´ñ±Û
+	//ë‚´ê°€ ì“´ ëŒ“ê¸€
 	@Select("select bc.br_id, b.board_subject, bc.board_seq, m.m_nickname, bc.br_content, to_char(bc.br_writedate, 'YYYY-MM-DD') br_writedate "
 			+ " from board_comment bc join boardbase b on bc.board_seq=b.board_seq "
 			+ " join memberbase m on m.m_seq=bc.m_seq where m.m_seq=1")
 	public List<BoardCommentVO>myReplyList();
 	
-	//1:1¹®ÀÇ´Â ±ÛÀ» »Ñ¸®¸é¼­ ½ÃÀÛÇÕ´Ï´Ù.
+	//1:1ë¬¸ì˜ëŠ” ê¸€ì„ ë¿Œë¦¬ë©´ì„œ ì‹œì‘í•©ë‹ˆë‹¤.
 	@Select("select q_number, q_title, q_date, m_seq, q_result_state from question where m_seq=1 order by q_date desc")
 	public List<QuestionVO> MypageQnA();
 	
-	//1:1¹®ÀÇ ±Û ½áº¾´Ï´Ù.
+	//1:1ë¬¸ì˜ ê¸€ ì¨ë´…ë‹ˆë‹¤.
 	@Insert("insert into question(q_number, q_category, q_title, m_seq) "
 			+ " values(3, #{q_category}, #{q_title}, 1)")
 	public int QuestionInsert(QuestionVO quesVo);

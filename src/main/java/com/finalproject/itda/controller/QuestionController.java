@@ -23,4 +23,10 @@ public class QuestionController {
 	public String questionView() {
 		return "question/questionView";
 	}
+	
+	//글쓰기폼
+	@RequestMapping(value="/writeQuestion")
+	public String writeQuestion() {
+		return "question/questionWriteForm";
+	}
 }

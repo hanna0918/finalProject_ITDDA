@@ -6,7 +6,7 @@
 		<h1>Q&A</h1>
 		<!-- 검색창 -->
 		<div class='allSearch'>
-			<form>
+			<form method="get" action="">
 				<select name='searchSelec'>
 					<option>전체</option>
 					<option>글제목</option>
@@ -14,7 +14,7 @@
 					<option>내용</option>
 					<option>제목+내용</option>
 				</select> &nbsp; &nbsp; <input type='text' id='search' name='search' placeholder='검색어를 입력하세요' />&nbsp;&nbsp;
-										<input type='button' name='searchContent'/>
+										<input type='submit' name='searchContent' />
 			</form>
 		</div>
 		<!-- 인증게시판/QnA 리스트 -->
@@ -29,7 +29,7 @@
 			</ul>
 			<hr/>
 		</div>	
-		<div class='questionList'>
+		<div class="questionList">
 			<c:forEach var="questionVo" items="${list}">
 				<div class='quesContent'> 
 					<div>${questionVo.board_seq}</div>
@@ -47,8 +47,8 @@
 		</div>
 		
 		<!-- 글쓰기 버튼 -->
-		<div class='boardBtnDiv'>
-			<input type='submit' value='글쓰기' class='writeBtn'/>
+		<div class="boardBtnDiv">
+			<input type="button" value="글쓰기" class="writeBtn" onclick="location.href='/itda/writeQuestion'"/>
 		</div>
 		<!-- 페이지번호 -->
 		<div class='pagingDiv'>

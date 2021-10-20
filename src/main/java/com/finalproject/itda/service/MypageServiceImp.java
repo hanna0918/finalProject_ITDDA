@@ -9,35 +9,34 @@ import org.springframework.stereotype.Service;
 import com.finalproject.itda.dao.MypageDAO;
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
-import com.finalproject.itda.vo.MemberVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 @Service
 public class MypageServiceImp implements MypageService {
 	@Inject
 	MypageDAO mypageDao;
-	//¸¶ÀÌÆäÀÌÁö ³»±Û »Ñ·ÁÁÖ´Â°Ç ¼¼¼Ç¿¡¼­ °¡Á®¿Í¾ßÇÔ ¤·¤µ¤·
+	//ë§ˆì´í˜ì´ì§€ ë‚´ê¸€ ë¿Œë ¤ì£¼ëŠ”ê±´ ì„¸ì…˜ì—ì„œ ê°€ì ¸ì™€ì•¼í•¨ ã…‡ã……ã…‡
 	/*
 	 * @Override public MemberVO editMyInfo(MemberVO vo) { return
 	 * mypageDao.editMyInfo(vo); }
 	 */
-	//¸¶ÀÌÆäÀÌÁö ³»°¡¾´±Û ¸®½ºÆ®
+	//ë§ˆì´í˜ì´ì§€ ë‚´ê°€ì“´ê¸€ ë¦¬ìŠ¤íŠ¸
 	@Override
 	public List<BoardVO> mypagePostList() {
 		return  mypageDao.mypagePostList();
 	}
-	//³»°¡¾´´ñ±Û »Ñ¸®°í ½ÃÀÛ
+	//ë‚´ê°€ì“´ëŒ“ê¸€ ë¿Œë¦¬ê³  ì‹œì‘
 	@Override
 	public List<BoardCommentVO> myReplyList() {
 		
 		return null;
 	}
-	//1:1¹®ÀÇ ±Û»Ñ¸®¸é¼­ ½ÃÀÛ
+	//1:1ë¬¸ì˜ ê¸€ë¿Œë¦¬ë©´ì„œ ì‹œì‘
 	@Override
 	public int QuestionInsert(QuestionVO quesVo) {
 		return  mypageDao.QuestionInsert(quesVo);
 	}
-	//1:1¹®ÀÇ 
+	//1:1ë¬¸ì˜ 
 	@Override
 	public List<QuestionVO> MypageQnA() {
 		return  mypageDao.MypageQnA();

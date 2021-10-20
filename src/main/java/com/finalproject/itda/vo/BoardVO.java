@@ -14,30 +14,30 @@ public class BoardVO {
 	private int board_black;
 	private String b_content;
 
-	//´ñ±Û ¼ö 
+	//ëŒ“ê¸€ ìˆ˜ 
 	private int br_count;
 
-	//--´Ğ³×ÀÓ °ü¸®--
+	//--ë‹‰ë„¤ì„ ê´€ë¦¬--
 	private String m_nickname;
-	//--´Ğ³×ÀÓ °ü¸®--
-	//--Ä«Å×°í¸® °ü¸®--
+	//--ë‹‰ë„¤ì„ ê´€ë¦¬--
+	//--ì¹´í…Œê³ ë¦¬ ê´€ë¦¬--
 	private String board_content;
-	//--Ä«Å×°í¸® °ü¸®--
+	//--ì¹´í…Œê³ ë¦¬ ê´€ë¦¬--
 
-	//--ÀåÅÍ °ü¸®--
+	//--ì¥í„° ê´€ë¦¬--
 	private String board_shopcontent;
-	//--ÀåÅÍ °ü¸®--
+	//--ì¥í„° ê´€ë¦¬--
 
 
-	//--ÅÂ±× °ü¸®--
+	//--íƒœê·¸ ê´€ë¦¬--
 	private String board_select;
-	//--ÅÂ±× °ü¸®--
+	//--íƒœê·¸ ê´€ë¦¬--
 
 
-	//--ÀÌ¹ÌÁö °ü¸®--
+	//--ì´ë¯¸ì§€ ê´€ë¦¬--
 	private int imageseq;
 	private String l_Url;
-	//--ÀÌ¹ÌÁö °ü¸®--
+	//--ì´ë¯¸ì§€ ê´€ë¦¬--
 
 
 

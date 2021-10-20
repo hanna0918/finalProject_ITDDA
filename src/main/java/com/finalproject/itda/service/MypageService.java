@@ -4,24 +4,23 @@ import java.util.List;
 
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
-import com.finalproject.itda.vo.MemberVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 public interface MypageService {
 	/*
-	 * //³»Á¤º¸¼öÁ¤ ÀúÀåµÈ Á¤º¸ °¡Áö°í¿À±â public MemberVO editMyInfo(MemberVO vo);
+	 * //ë‚´ì •ë³´ìˆ˜ì • ì €ì¥ëœ ì •ë³´ ê°€ì§€ê³ ì˜¤ê¸° public MemberVO editMyInfo(MemberVO vo);
 	 */ 
 	
-	//¸¶ÀÌÆäÀÌÁö ³»°¡¾´±Û ¸®½ºÆ®
+	//ë§ˆì´í˜ì´ì§€ ë‚´ê°€ì“´ê¸€ ë¦¬ìŠ¤íŠ¸
 	public List<BoardVO> mypagePostList();
 	
-	//³»°¡¾´´ñ±Û »Ñ¸®°í ½ÃÀÛ
+	//ë‚´ê°€ì“´ëŒ“ê¸€ ë¿Œë¦¬ê³  ì‹œì‘
 	public List<BoardCommentVO>myReplyList();
 	
-	//1:1¹®ÀÇ 
+	//1:1ë¬¸ì˜ 
 	public int QuestionInsert(QuestionVO quesVo);
 	
-	//1:1¹®ÀÇ ±Û»Ñ¸®¸é¼­ ½ÃÀÛ
+	//1:1ë¬¸ì˜ ê¸€ë¿Œë¦¬ë©´ì„œ ì‹œì‘
 	public List<QuestionVO> MypageQnA();
 	
 	

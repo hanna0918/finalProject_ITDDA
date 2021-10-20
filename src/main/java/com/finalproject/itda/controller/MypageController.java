@@ -32,62 +32,62 @@ public class MypageController {
 		
 		return mav;
 	}
-	//³»°¡ ¾´ ±Û--------------------------------------------------------------------------------------
+	//ë‚´ê°€ ì“´ ê¸€--------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypagePostList")
 	public String myPostList(Model model) {
 		model.addAttribute("list", mypageService.mypagePostList());
 		return "mypage/mypage01Post";
 	}
-	//³»°¡ ¾´ ´ñ±Û--------------------------------------------------------------------------------------------
+	//ë‚´ê°€ ì“´ ëŒ“ê¸€--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageReplyList")
 	public String mypageReplyList(Model model) {
 		model.addAttribute("replyList", mypageService.myReplyList());
 		return "mypage/mypage02Reply";
 	}
-	//¸ÅÄª--------------------------------------------------------------------------------------------
+	//ë§¤ì¹­--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageMatching")
 	public String mypageMatching() {
 		return "mypage/mypage03Matching";
 	}
-	//ºÏ¸¶Å©--------------------------------------------------------------------------------------------
+	//ë¶ë§ˆí¬--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageBookmark")
 	public String mypageBookmark() {
 		return "mypage/mypage04Bookmark";
 	}
-	//±¸µ¶--------------------------------------------------------------------------------------------
+	//êµ¬ë…--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageSubscribe")
 	public String mypageSubscribe() {
 		return "mypage/mypage05Subscribe";
 	}
-	//Â÷´Ü--------------------------------------------------------------------------------------------
+	//ì°¨ë‹¨--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageCutout")
 	public String mypageCutout() {
 		return "mypage/mypage06Cutout";
 	}
-	//1:1¹®ÀÇ--------------------------------------------------------------------------------------------
+	//1:1ë¬¸ì˜--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageQnA")
 	public String mypageQnA(Model model) {
 		model.addAttribute("list",mypageService.MypageQnA());
-		System.out.println("testÁßÀÔ´Ï´Ù");	
+		System.out.println("testì¤‘ì…ë‹ˆë‹¤");	
 		return "mypage/mypage07Question";
 	}
 	
 	
-	//1:1¹®ÀÇ ±Ûµî·Ï
+	//1:1ë¬¸ì˜ ê¸€ë“±ë¡
 	@RequestMapping(value="/askSomething", method=RequestMethod.POST)
 	public ModelAndView AskSomething(QuestionVO quesVo) {
 		ModelAndView mav = new ModelAndView();
 		
 		int cnt = mypageService.QuestionInsert(quesVo);
-		if(cnt>0) {//±Ûµî·ÏÇÔ!!!
+		if(cnt>0) {//ê¸€ë“±ë¡í•¨!!!
 			mav.setViewName("redirect:mypageQnA");
-		}else {//±Û¿Öµî·Ï¾ÈµÆ´ã.... ¤Ğ¤Ğ
+		}else {//ê¸€ì™œë“±ë¡ì•ˆëë‹´.... ã… ã… 
 			mav.setViewName("redirect:mypage");
 		}
 		return mav;
 	}
 	
-	//ÂÊÁöÇÔ--------------------------------------------------------------------------------------------
+	//ìª½ì§€í•¨--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageMsg")
 	public String mypageMsg() {
 		return "mypage/mypage08Message";

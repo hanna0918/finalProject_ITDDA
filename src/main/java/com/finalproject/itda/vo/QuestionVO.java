@@ -1,13 +1,13 @@
 package com.finalproject.itda.vo;
 
 public class QuestionVO {
-	private int q_number;	//¹®ÀÇ¹øÈ£
-	private String q_category;	//¹®ÀÇ Ä«Å×°í¸®	
-	private String q_title;	//¹®ÀÇ³»¿ë
-	private String q_date;	//µî·ÏÀÏ
-	private String q_result;	//´äº¯
-	private int q_result_state;	//´äº¯»óÅÂ
-	private int m_seq;	//È¸¿ø¹øÈ£
+	private int q_number;	//ë¬¸ì˜ë²ˆí˜¸
+	private String q_category;	//ë¬¸ì˜ ì¹´í…Œê³ ë¦¬	
+	private String q_title;	//ë¬¸ì˜ë‚´ìš©
+	private String q_date;	//ë“±ë¡ì¼
+	private String q_result;	//ë‹µë³€
+	private int q_result_state;	//ë‹µë³€ìƒíƒœ
+	private int m_seq;	//íšŒì›ë²ˆí˜¸
 	
 	
 	public int getQ_number() {

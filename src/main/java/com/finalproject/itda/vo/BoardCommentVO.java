@@ -7,11 +7,11 @@ public class BoardCommentVO {
 	private String br_content;
 	private String br_writedate;
 	
-	//±ÛÁ¦¸ñ
+	//ê¸€ì œëª©
 	private String board_subject;
-	//´Ð³Û
+	//ë‹‰ë„´
 	private String m_nickname;
-	//´ñ±Û «n¹Ú ¹è¿­
+	//ì³Œë°• ë°°ì—´
 	private int[] br_id_Array;
 	
 	
