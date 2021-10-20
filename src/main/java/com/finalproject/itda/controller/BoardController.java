@@ -134,11 +134,6 @@ public class BoardController {
 	}
 	
 	
-	@RequestMapping("/freeBoard2") //,  value=    method = RequestMethod.GET
-	public String freeBoard2(PagingVO pVo, Model model){
-		model.addAttribute("list", boardService.boardList(pVo));
-		return "/board/freeBoard2";
-	}
 
 	
 	//댓글 쓰기

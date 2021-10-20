@@ -109,6 +109,11 @@
         <label>이름(실명)<span class="asterisk">*</span></label>
         <div><input class="joinTextBox" type="text" name="username" id="username" /></div>
       </div>
+      <div class="gender">
+        <label>성별<span class="asterisk">*</span></label>
+        <div><input class="joinTextBox" type="radio" name="gender" checked="checked" />남자</div>
+        <div><input class="joinTextBox" type="radio" name="gender" />여자</div>
+      </div>
       <input type="submit" value="회원가입" class="btnBlock joinSubmitBtn" />
     </form>
   </article>
