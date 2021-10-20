@@ -255,7 +255,7 @@
 						 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
        					 <!-- <div id="summernote" name="content"></div> -->
        					 
-  						<textarea id="freeSummernote" name="board_content"></textarea>
+  						<textarea id="freeSummernote" name="b_content"></textarea>
 					
        					 
 

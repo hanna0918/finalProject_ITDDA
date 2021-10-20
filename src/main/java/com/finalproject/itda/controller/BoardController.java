@@ -1,9 +1,6 @@
 package com.finalproject.itda.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -12,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.finalproject.itda.service.BoardService;
 import com.finalproject.itda.vo.BoardVO;
-import com.finalproject.itda.vo.Board_CommentVO;
 import com.finalproject.itda.vo.PagingVO;
 
 @Controller
@@ -59,14 +56,14 @@ public class BoardController {
 
 	@RequestMapping(value="/freeWriteOk",method=RequestMethod.POST ) 
 	public ModelAndView freeWriteOk(BoardVO vo, HttpSession ses) {
-		System.out.println(Integer.parseInt((String)ses.getAttribute("logseq")));
+		System.out.println("subject" + ses.getAttribute("logseq"));
 		System.out.println("subject" + vo.getBoard_subject());
 		System.out.println("content" +vo.getB_content());
-		vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq")));
 		System.out.println("sessiong"+ vo.getM_seq());
-		int result = boardService.freeboardWrite(vo);
-		ModelAndView mav = new ModelAndView();
 
+		vo.setM_seq(Integer.parseInt(ses.getAttribute("logseq").toString()));
+		ModelAndView mav = new ModelAndView();
+		int result = boardService.freeboardWrite(vo);
 		if(result>0) { //글쓰기 성공시 리스트로
 			mav.setViewName("redirect:freeBoard2");
 		}else {//글쓰기 폼으로

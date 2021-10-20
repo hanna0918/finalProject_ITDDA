@@ -41,8 +41,7 @@ public interface BoardDAO {
 	
 	public List<BoardVO> boardList(PagingVO pVo); // list로 받고 안에는 vo가
 	
-	
-	
+
 	
 	
 	
