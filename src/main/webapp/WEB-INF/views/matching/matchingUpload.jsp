@@ -45,6 +45,7 @@
                     <div id="hiddenTag8" style="display: none;">#</div>
                     <div id="hiddenTag9" style="display: none;">#</div>
                     <input type="hidden" id="board_select" name="board_select"/>
+                    <input type="hidden" id="m_seq" name="m_seq" value="${logseq}"/>
                     <br>
                     <div id="hiddenTagAllDone" style="display: none;"></div>
                 </div>

@@ -29,6 +29,7 @@ public class MatchingVO {
 	private int board_hit;
 	private int b_goodhit;
 	private int board_call;
+	private int m_seq;
 	
 	private String tags[];
 	private String prevTags[];
@@ -208,6 +209,12 @@ public class MatchingVO {
 	}
 	public void setBoard_call(int board_call) {
 		this.board_call = board_call;
+	}
+	public int getM_seq() {
+		return m_seq;
+	}
+	public void setM_seq(String m_seq) {
+		this.m_seq = Integer.parseInt(m_seq);
 	}
 	public String[] getTags() {
 		return tags;
