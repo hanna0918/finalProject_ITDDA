@@ -58,6 +58,41 @@
         <div>2021-07-01</div>
         <div>50</div>
         <div>19</div>
+        <!-- 추천 리스트 start-------------------------------------------------->
+        <c:forEach var="vo" items="${list}">
+          <div>${vo.board_seq}</div>
+          <script>
+            console.log(${vo.board_seq});
+            // console.log(${vo.i_url});
+            // console.log(${vo.board_subject});
+            console.log(${vo.board_hit});
+            console.log('${vo.board_writedate}');
+
+          </script>
+          <div class="recommendContent">
+            <div><img src="/itda/img/${vo.i_url}" class="chucheonImg" /></div>
+            <div class="">
+              <div><a href="/itda/questionView">${vo.board_subject}</a></div>
+              <span>${vo.board_select}</span>
+              <div>
+                <img src="img/recommend.png" class="recommendImg" />
+                <span>${vo.board_hit}</span>
+                <img src="img/replImg.png" class="commentImg" />
+                <span>${vo.board_call}</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              ${vo.m_nickname}<br/>
+              <span>(${vo.m_userid})</span>
+            </div>
+          </div>
+          <div>${vo.board_writedate}</div>
+          <div>${vo.board_hit}</div>
+          <div>${vo.br_cnt}</div>
+        </c:forEach>
+        <!-- 추천 리스트 end-------------------------------------------------->
       </div>
     </form>
   </div>
