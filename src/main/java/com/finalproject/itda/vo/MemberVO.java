@@ -1,7 +1,11 @@
 package com.finalproject.itda.vo;
 
 public class MemberVO {
-
+	
+	//로그인여부
+	private String logStatus = "N";
+	   
+	private String m_seq; 
 	private String m_userid;
 	private String m_userpwd;
 	private String m_username;
@@ -13,6 +17,16 @@ public class MemberVO {
 	private String m_info;
 	private String m_tag;
 
+	
+	public String getLogStatus() {
+		return logStatus;
+	}
+
+	public void setLogStatus(String logStatus) {
+		this.logStatus = logStatus;
+	}
+
+	
 	public String getM_userid() {
 		return m_userid;
 	}
@@ -93,4 +107,13 @@ public class MemberVO {
 		this.m_tag = m_tag;
 	}
 
+	public String getM_seq() {
+		return m_seq;
+	}
+
+	public void setM_seq(String m_seq) {
+		this.m_seq = m_seq;
+	}
+	
+	
 }

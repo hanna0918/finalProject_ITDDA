@@ -7,6 +7,5 @@ import com.finalproject.itda.vo.MemberVO;
 
 public interface MemberService {
 	public MemberVO login(MemberVO vo);
-
 	public MemberVO join(MemberVO vo);
 }

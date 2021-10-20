@@ -21,7 +21,7 @@ public class MemberController {
 	public String login() {
 		return "register/login";
 	}
-
+	
 	@RequestMapping(value="/loginOk",method=RequestMethod.POST)
 	public ModelAndView loginOk(MemberVO vo, HttpSession session) {
 		MemberVO resultVO = memberService.login(vo);
@@ -31,7 +31,8 @@ public class MemberController {
 			mav.setViewName("redirect:login");
 		} else {// 로그인 성공
 			session.setAttribute("login", resultVO.getM_userid());
-			session.setAttribute("logname", resultVO.getM_username());
+			session.setAttribute("lognickname", resultVO.getM_nickname());
+			session.setAttribute("logseq", resultVO.getM_seq());
 			mav.setViewName("redirect:/");
 		}
 		return mav;
@@ -61,4 +62,8 @@ public class MemberController {
 		return mav;
 
 	}
+	
+	
+	
+	
 }

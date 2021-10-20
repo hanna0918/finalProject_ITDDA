@@ -25,17 +25,17 @@
           <li>
             <a href="/itda"><img src="img/itdaLogo.png"/></a>
           </li>
-          <li><a href="/itda/test.jsp">추천게시판</a></li>
+          <li><a href="/itda/test">추천게시판</a></li>
           <li><a href="#">매칭게시판</a></li>
           <li><a href="#">장터</a></li>
-          <li><a href="#">자유게시판</a></li>
+          <li><a href="/itda/freeBoard2">자유게시판</a></li>
           <li><a href="#">Q&A</a></li>
-          <li><a href="#">베스트</a></li>
+          <li><a href="#">베스트</a></li> 
           <li><a href="/itda/login">인증</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">
-          	<label class="loginBtn" id="loginBtn">${logname}로그인</label>
+          	<label class="loginBtn" id="loginBtn">${lognickname}로그인</label>
           	<a href="/itda/logout" class="logOutBtn" id="logOutBtn">로그아웃</a>
             <label class="joinBtn" id="joinBtn">회원가입</label>
           </div>
