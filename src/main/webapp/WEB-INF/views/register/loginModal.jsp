@@ -7,8 +7,8 @@
 
     <form method="post" action="/itda/loginOk">
       <h2>로그인</h2>
-      <input type="text" class="userid" name="muserid" placeholder="아이디" /><br />
-      <input type="password" class="userpwd" name="muserpwd" placeholder="비밀번호" /><br />
+      <input type="text" class="userid" name="m_userid" placeholder="아이디" /><br />
+      <input type="password" class="userpwd" name="m_userpwd" placeholder="비밀번호" /><br />
       <input type="submit" value="로그인" />
       
     </form>
