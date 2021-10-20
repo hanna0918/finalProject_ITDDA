@@ -7,7 +7,7 @@
       <div><!-- 사진, 매너점수div -->
         <div>
           <ul id='introDiv'>
-            <li><img style="width:127px; height: 20px; " src='../img/testadmin.png' name='profileImg'/></li>
+            <li><img style="width:127px; height: 20px; "name='profileImg'/></li>
             <li>
               <div>
                 sunchan123(내가순찬)님 <br/>
@@ -32,14 +32,14 @@
 
     <div id='tab'><!-- tab -->
       <ul>
-        <li class="menu"><a href="AdminMember.html">유저관리</a></li>
-        <li class="menu"><a href="AdminAllBoardView.html">모든 게시판</a></li>
-        <li class="menu"><a>신고 게시판 </a></li>
-        <li class="menu"><a href="AdminBlackBoardView.html">블럭 게시판</a></li>
+        <li class="menu"><a href="/itda/MemberList">유저관리</a></li>
+        <li class="menu"><a href="/itda/BoardAllView">모든 게시판</a></li>
+        <li class="menu"><a href="/itda/BoardCallList">신고 게시판 </a></li>
+        <li class="menu"><a href="/itda/BoardBlackList">블럭 게시판</a></li>
         <li class="menu"><a href="AdminQna(Waiting).html">1:1 문의 관리</a></li>
         <li class="menu"><a href="AdminAMember.html">관리자 관리</a></li>
-        <li class="menu"><a href="AdminInsert.html">관리자 추가</a></li>
-        <li class="menu"><a href="AdminInsert.html">로그인 기록</a></li>
+        <li class="menu"><a href="/itda/MemberInsert">관리자 추가</a></li>
+        <li class="menu"><a href="#">로그인 기록</a></li>
       </ul>
     </div>
   </div>
