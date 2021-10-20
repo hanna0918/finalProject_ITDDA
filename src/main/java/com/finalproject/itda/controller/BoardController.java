@@ -61,7 +61,7 @@ public class BoardController {
 	public ModelAndView freeWriteOk(BoardVO vo, HttpSession ses) {
 		System.out.println(Integer.parseInt((String)ses.getAttribute("logseq")));
 		System.out.println("subject" + vo.getBoard_subject());
-		System.out.println("content" +vo.getBoard_content());
+		System.out.println("content" +vo.getB_content());
 		vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq")));
 		System.out.println("sessiong"+ vo.getM_seq());
 		int result = boardService.freeboardWrite(vo);

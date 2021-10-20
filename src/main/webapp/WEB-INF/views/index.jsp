@@ -43,7 +43,6 @@
     <li>
       <div class="bestBoardImgBox1">
         <img src="img/bk2.jpg" alt="" />
-        
       </div>
     </li>
     <li>
@@ -193,6 +192,3 @@
 
 
       
-
-
-
