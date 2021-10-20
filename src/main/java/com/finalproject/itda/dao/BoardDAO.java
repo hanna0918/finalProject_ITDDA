@@ -20,7 +20,7 @@ public interface BoardDAO {
 	 * " from (SELECT b.BOARD_Seq, b.BOARD_SUBJECT ,m.m_seq, m.m_userid, to_char(b.BOARD_WRITEDATE,'YY-MM-DD')b.BOARD_WRITEDATE, b.board_hit "
 	 * +
 	 * "        from boardbase b join MEMBERBASE m on(b.M_SEQ=m.M_SEQ) where board_subject like '%${searchKeyword}%' or "
-	 * + "   board_content like '%${searchKeyword}%' order by no desc) b full join "
+	 * + "   b_content like '%${searchKeyword}%' order by no desc) b full join "
 	 * +
 	 * "        (select board_seq, count(br_id) cnt from board_comment group by board_seq) bm on b.board_seq=bm.board_seq) "
 	 * + "        where<=#{nowPage}*#{onePageRecord} order by board_Seq asc ) " +
@@ -31,11 +31,11 @@ public interface BoardDAO {
 	@Select("select * from "
 			+ "(select * from "
 			+ "(select b.m_seq, b.board_seq,b.BOARD_SUBJECT,BOARD_WRITEDATE, M_USERID ,b.board_hit ,nvl(cnt,0) count "
-			+ "from (SELECT b.BOARD_Seq, b.BOARD_SUBJECT ,m.m_seq,m.m_userid ,b.BOARD_WRITEDATE, b.board_hit, b.board_content "
-			+ "        from boardbase b join MEMBERBASE m on(b.M_SEQ=m.M_SEQ) where board_black=0 ) b full join "
+			+ "from (SELECT b.BOARD_Seq, b.BOARD_SUBJECT ,m.m_seq,m.m_userid ,b.BOARD_WRITEDATE, b.board_hit, b.b_content "
+			+ "        from boardbase b join MEMBERBASE m on(b.M_SEQ=m.M_SEQ) where board_block=0 ) b full join "
 			+ "        (select board_seq,count(br_id) cnt from board_comment group by board_seq) bm on b.board_seq=bm.board_seq "
 			+ "        where board_subject like '%${searchKeyword}%' or "
-			+ "        board_content like '%${searchKeyword}%' order by board_seq desc) "
+			+ "        b_content like '%${searchKeyword}%' order by board_seq desc) "
 			+ "        where rownum<=#{nowPage}*#{onePageRecord} order by board_seq asc) "
 			+ "        where rownum<=#{lastPage} order by board_seq desc")
 	
@@ -79,19 +79,19 @@ public interface BoardDAO {
 	
 	//글쓰기 등록 //게시물 번호(시퀀스) //회원번호 //카테고리 //제목 //글내용 //default값 있는건 굳이 X
 		  
-		 @Insert("insert into boardbase(board_seq, m_seq, board_code, board_subject, board_content) values "
-		  + " (board_seq.nextval, #{m_seq} ,5, #{board_subject}, #{board_content}) ")
+		 @Insert("insert into boardbase(board_seq, m_seq, board_code, board_subject, b_content) values "
+		  + " (board_seq.nextval, #{m_seq} ,5, #{board_subject}, #{b_content}) ")
 		 public int freeboardWrite(BoardVO vo); 
 	
 	//글내용보기 
 
-		 @Select(" select board_code, board_seq, m_seq, board_subject, board_content, board_hit, b_goodhit, (select count(br_id) "
+		 @Select(" select board_code, board_seq, m_seq, board_subject, b_content, board_hit, b_goodhit, (select count(br_id) "
 		 		+ " from board_comment where board_seq=${param1}) commentcount "
 		  + " from boardbase where board_code=5 and board_seq=${param1} ")
 		 public BoardVO freeView(int board_seq); 
 		 
 	//수정
-		 @Update(" update boardbase set board_subject=#{board_subject}, board_content=#{board_content} "
+		 @Update(" update boardbase set board_subject=#{board_subject}, b_content=#{b_content} "
 		 		+ "  where board_seq=#{board_seq} and m_seq=(select m_seq from memberbase where m_userid=#{m_userid} )"
 		 		+ " and board_code=5")
 		 public int freeUpdate(BoardVO vo);
@@ -138,21 +138,21 @@ public interface BoardDAO {
 	 * 
 	 * //글쓰기 등록 //게시물 번호(시퀀스) //회원번호 //카테고리 //제목 //글내용 //default값 있는건 굳이 X
 	 * 
-	 * @Insert("insert into boardbase(board_seq, m_seq, board_code, board_subject, board_content) values "
+	 * @Insert("insert into boardbase(board_seq, m_seq, board_code, board_subject, b_content) values "
 	 * +
-	 * " (board_seq.nextval, #{m_seq} ,#{board_code}, #{board_subject}, #{board_content}"
+	 * " (board_seq.nextval, #{m_seq} ,#{board_code}, #{board_subject}, #{b_content}"
 	 * ) public int freeboardWrite(BoardVO vo);
 	 * 
 	 * 
 	 * //글내용보기 //
 	 * 
-	 * @Select("select board_code, board_seq, m_seq, board_content, board_hit, (select count(br_id) from board_comment where board_seq=#{board_seq}) commentcount"
+	 * @Select("select board_code, board_seq, m_seq, b_content, board_hit, (select count(br_id) from board_comment where board_seq=#{board_seq}) commentcount"
 	 * + "from boardbase where board_code=5;")
 	 * 
 	 * 
 	 * //수정
 	 * 
-	 * @Update("update boardbase set board_subject=#{subject}, board_content=#{content}"
+	 * @Update("update boardbase set board_subject=#{subject}, b_content=#{content}"
 	 * ) <![CDATA[ < ]]>
 	 * 
 	 * //글내용보기

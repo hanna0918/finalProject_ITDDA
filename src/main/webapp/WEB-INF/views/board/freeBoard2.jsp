@@ -68,11 +68,11 @@ body{
 		width:10%;
 		text-align:center;
 	}
-	#title{
+	#freeTitle{
 		height:40px;
 		line-height:40px;
 	}
-	#title>li:nth-child(2){
+	#freeTitle>li:nth-child(2){
 		width:50%;
 	}
 	.content{
@@ -391,7 +391,7 @@ body{
 		<!-- 자유게시판 리스트 -->
 		
 		<div class='list'>
-			<ul id='title'>
+			<ul id='freeTitle'>
 				<li>NO</li>
 				<li>제목</li>
 				<li>작성자</li>
