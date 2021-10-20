@@ -1,4 +1,244 @@
 @charset "UTF-8";
+	@font-face {
+	    font-family: 'IBMPlexSansKR-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	body, div, ul, li{
+		margin:0;
+		padding:0;
+		box-sizing:border-box;
+		font-family: 'IBMPlexSansKR-Regular';
+	}
+	
+	h1{/*제목*/
+		margin-left:20px;
+	}
+	hr{
+		color:black;
+	}
+	.boardContainer{/*컨테이너*/
+		width:1100px;
+		overflow:auto;
+		margin:0 auto;
+	}
+	a{
+		text-decoration:none;
+		color:black;
+	}
+	a:hover{
+		color:#5e83d1;
+	}
+	span{
+		color:blue;
+		font-size:0.85em;
+	}
+	
+	.allSearch{/*검색창 div*/
+		width: 100%;
+	    height: 60px;
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: flex-end;
+	}
+	select{
+		height:36px;
+		border:none;
+		outline:none;
+	}
+	#search, #search:focus{
+		height:30px;
+		line-height:30px;
+		border:none;
+		outline:none;
+		border-bottom:1.5px solid #4c4646;
+	}
+	input[name=searchContent]{
+		width:32px;
+		height:32px;
+		border:none;
+		margin-bottom:-10px;
+		background:url('img/magnifier.png') no-repeat;
+		cursor:pointer;
+	}
+	.boardList{
+		width:100%;
+		overflow:auto;
+		text-align:right;
+	}
+	.boardList li{
+		float:left;
+		width:10%;
+		text-align:center;
+	}
+	/*------------QnA-----------------------------------*/
+	#quesTitle{
+		height:40px;
+		line-height:40px;
+		font-size:1.05em;
+	}
+	#quesTitle li{
+		width:10%;
+		float:left;
+		text-align:center;
+	}
+	#quesTitle>li:nth-child(2){
+		width:50%;
+	}
+	#quesTitle>li:nth-child(3), #quesTitle>li:nth-child(4){
+		width:13%;
+	}
+	#quesTitle>li:nth-child(5), #quesTitle>li:nth-child(6){
+		width:7%;
+	}	
+	.quesContent{
+		width:100%;
+		height:50px;
+	}
+	.quesContent>div{
+		float:left;
+		height:50px;
+		line-height:50px;
+		text-align:center;
+		box-sizing:border-box;
+	}
+	.quesContent>div:nth-of-type(6n+1){
+		width:10%;
+	}
+	.quesContent>div:nth-of-type(6n+2){
+		width:50%;
+		display: table-cell;
+  		vertical-align: middle;
+		text-align:left;
+		overflow:hidden; 
+		text-overflow:ellipsis;
+	}
+ 	.quesContent>div:nth-of-type(6n+3){
+ 		width:13%; 
+/*  		display: table-cell; */
+  		vertical-align: middle;
+	}
+	.quesContent>div:nth-of-type(6n+4){
+		width:13%;
+	}
+	.quesContent>div:nth-of-type(6n+5), .quesContent>div:nth-of-type(6n+6){
+		width:7%;
+	}
+	/*------------인증----------------------------------------*/
+	#container{/*컨테이너*/
+		width:1100px;
+		min-width:400px;
+		margin:0 auto;
+		overflow:auto;
+	}
+	#searchDiv{/*검색창div*/
+		margin-left:10px;
+		height:80px;
+		line-height:60px;
+		width:900px;
+	}
+	input[name=searchTag]{
+		border:none;
+		border-bottom:1px solid black;
+	}
+	input[name=searchTag]:focus{
+		outline:none;
+	}
+	#pic{/*컨텐츠 이미지 div*/
+		width: 100%;
+		overflow: auto;
+		margin: 0 auto;
+		padding:0 9px;
+		box-sizing:border-box;
+	}
+	#pic::-webkit-scrollbar{
+		display:none;
+	}
+	.mainImg{/*이미지 사이즈*/
+		width:260px;
+		height:265px;
+	}
+	#pic>div{/*게시물 각각 사이즈*/
+		width:260px;
+		height:395px;
+		float: left;
+   		margin: 5px;
+	}
+	#pic>div>div:nth-of-type(2){
+		overflow:hidden; 
+		text-overflow:ellipsis;
+		white-space: nowrap;
+		margin-top:13px;
+		padding-left:3px;
+		font-size:0.9em;
+	}
+	#pic>div>div:nth-of-type(3){
+		margin-top:15px;
+		padding-left:3px;
+		font-size:0.8em;
+	}
+	img[name=profileShot]{
+		width:32px;
+		height:32px;
+		margin:5px 0;
+	}
+	img[name=bubbleIcon], img[name=heartIcon]{
+		width:16px;
+		height:16px;
+	}
+	.injeungContentWriter{
+		width:100%;
+		overflow:auto;
+		margin-top:3%;
+	}
+	.injeungContentWriter>div:first-child{
+		width:20%;
+		float:left;
+	}
+	.injeungContentWriter>div:last-child{
+		width:70%;
+		margin-top:4%;
+		overflow:auto;
+		font-size:0.7em;
+	}
+	.injeungContentWriter li{
+		float:left;
+		/* margin-right:1%; */
+	}
+	/*-------------------------------------------------------*/
+	.boardBtnDiv{
+		height:50px;
+	}
+	.writeBtn{/*글쓰기 버튼*/
+		float:right;
+		margin-top:10px;
+		margin-right:20px;
+		width:70px;
+		height:30px;
+		background-color:#0e08a7;
+		color:white;
+		border:none;
+		border-radius:5px;
+		cursor:pointer;
+	}
+	.pagingDiv {
+		width:100%;
+		height:50px;
+	}
+	.pagingDiv ul{/*페이지 div*/
+		width:250px;
+		height:50px;
+		line-height:25px;
+		margin:0 auto;
+	}
+	.pagingDiv li{/*페이지 1,2,3,4*/
+		float:left;
+		margin:10px 10px;
+	}
+	
+	
+=======
 @font-face {
   font-family: "IBMPlexSansKR-Regular";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff") format("woff");
@@ -242,35 +482,4 @@ input[name="searchContent"] {
 }
 
 /*-------------------------------------------------------*/
-.boardBtnDiv {
-  height: 50px;
-}
-.writeBtn {
-  /*글쓰기 버튼*/
-  float: right;
-  margin-top: 10px;
-  margin-right: 20px;
-  width: 70px;
-  height: 30px;
-  background-color: #0e08a7;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.pagingDiv {
-  width: 100%;
-  height: 50px;
-}
-.pagingDiv ul {
-  /*페이지 div*/
-  width: 250px;
-  height: 50px;
-  line-height: 25px;
-  margin: 0 auto;
-}
-.pagingDiv li {
-  /*페이지 1,2,3,4*/
-  float: left;
-  margin: 10px 10px;
-}
+

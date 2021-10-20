@@ -8,7 +8,7 @@ import com.finalproject.itda.vo.MemberVO;
 public interface MemberDAO {
 	//로그인
 //	@Select("select m_userid, m_username from memberbase where m_userid=#{m_userid} and m_userpwd=#{m_userpwd}")
-	@Select("select m_seq, m_userid,m_userpwd, m_username from memberbase where m_userid=#{m_userid}")
+	@Select("select m_seq, m_userid, m_userpwd, m_username from memberbase where m_userid=#{m_userid}")
 	public MemberVO login(MemberVO vo);
 
 	
@@ -27,5 +27,4 @@ public interface MemberDAO {
 	//닉 중복 확인
 	@Select("select count(m_nickname) from memberbase where m_nickname=#{m_nickname}")
 	public int nickCheck(String m_nickname);
-	
 }

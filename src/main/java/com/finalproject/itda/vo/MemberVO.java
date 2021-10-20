@@ -13,6 +13,7 @@ public class MemberVO {
 	private String m_birth;
 	private String m_info;
 	private String m_tag;
+	
 	private String m_gender;
 	private String m_img;
 	
@@ -152,10 +153,5 @@ public class MemberVO {
 		this.m_state = m_state;
 	}
 	
-	
-	
-	
-
-
 	
 }

@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    
+
+    <link rel="stylesheet" type="text/css" href="css/mypageTop.css?a1" />
+    <link rel="stylesheet" type="text/css" href="css/mypage.css?a1" />
+    <link rel="stylesheet" type="text/css" href="css/injeung.css" />
+    <link rel="stylesheet" type="text/css" href="css/postView.css" /> 
     <!--  index 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/mainStyle.css?7" />
 	
@@ -18,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="css/adminModal.css"/>
     <link rel="stylesheet" type="text/css" href="css/admin.css" />
   </head>
-
   <body>
     <div class="wrapper">
       <!-- header and navigation-->
@@ -30,20 +33,19 @@
           <li><a href="/itda/recommendList">추천게시판</a></li>
           <li><a href="/itda/matchingList">매칭게시판</a></li>
           <li><a href="#">장터</a></li>
-          <li><a href="#">자유게시판</a></li>
-          <li><a href="#">Q&A</a></li>
+          <li><a href="/itda/freeBoard2">자유게시판</a></li>
+          <li><a href="/itda/questionBoard">Q&A</a></li>
           <li><a href="#">베스트</a></li>
-          <li><a href="/itda/login">인증</a></li>
-          <li><a href="/itda/admin">test</a></li>
+          <li><a href="/itda/injeungBoard">인증</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">
             <c:if test="${logname == null}">
-              <label class="loginBtn" id="loginBtn">${logname}로그인</label>
+              <label class="loginBtn" id="loginBtn">로그인</label>
               <label class="joinBtn" id="joinBtn">회원가입</label>
             </c:if>
             <c:if test="${logname != null}">
-              <label class="" id="">${logname}</label>
+              <label class="" id=""><a href="/itda/mypage">${logname}</a></label>
               <a href="/itda/logout" class="logOutBtn" id="logOutBtn">로그아웃</a>
             </c:if>
           </div>

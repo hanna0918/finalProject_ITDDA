@@ -109,6 +109,9 @@ a:visited {
   margin: 0 auto;
   overflow: auto;
 }
+.mainContent::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
 
 /* 메인페이지 베스트 게시물 표기 스타일 */
 .bestBoardContent {
