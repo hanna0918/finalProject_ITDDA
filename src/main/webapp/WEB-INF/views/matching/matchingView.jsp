@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="/itda/css/matchingView.css?version=111">
+<link rel="stylesheet" href="/itda/css/matchingView.css?version=1111">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <aside id="matchingDetailBanner">
         <div id="hostIntro">
@@ -81,6 +81,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class='contentView'>
 	            <div>
 		            <c:forEach var='item' items='${vo.tags}'>
@@ -99,12 +100,14 @@
                     <img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
                     <span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_call}</span>
                 </div>
-                <div><!-- 2 댓글박스 -->
-                    <div><img src='/itda/img/user.png' name='profileShot'></div>
-                    <div>
-                        <div id='userid' class='userid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
-                        <div class='replyView'>내글에 내가 댓글달기</div>
-                        <div><span>댓글 / 수정 / 지우기</span></div>
+                <div id='replyList'><!-- 2 댓글박스 -->
+                	<div class="replyDiv">
+	                    <div><img src='/itda/img/user.png' name='profileShot'></div>
+	                    <div>
+	                        <div id='userid' class='userid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
+	                        <div class='replyView'>내글에 내가 댓글달기</div>
+	                        <div><span>댓글 / 수정 / 지우기</span></div>
+	                    </div>
                     </div>
                 </div>
                 <div><!-- 3 댓글 텍스트박스 -->
@@ -114,6 +117,8 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" id="board_seq" value="${vo.board_seq}"/>
+            <input type="hidden" id="hiddenuserid" value="${vo.m_userid}"/>
             <div id='otherContent'><!-- 이전글/다음글 -->
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/up-arrow.png' name='prevPost'/></div>
@@ -173,5 +178,5 @@
         </article>
     </div>
     
-    
-<script src="/itda/js/matchingView.js?version=111111"></script>
+
+<script src="/itda/js/matchingView.js?version=1111111111111111"></script>

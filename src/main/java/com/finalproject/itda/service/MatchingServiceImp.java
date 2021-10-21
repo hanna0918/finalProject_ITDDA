@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.finalproject.itda.dao.MatchingDAO;
+import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
@@ -65,5 +66,10 @@ public class MatchingServiceImp implements MatchingService {
 	@Override
 	public int matchingIn(int m_seq, int mc_seq) {
 		return matchingDAO.matchingIn(m_seq, mc_seq);
+	}
+
+	@Override
+	public List<BoardCommentVO> matchingReply(int board_seq) {
+		return matchingDAO.matchingReply(board_seq);
 	}
 }

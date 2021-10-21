@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
@@ -175,6 +176,9 @@ public interface MatchingDAO {
 	public int matchingIn(int m_seq, int mc_seq);
 	
 	
-	
+	@Select(" select board_seq, m_nickname, m_userid, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate "
+			+ " from board_comment a join memberbase b on a.m_seq=b.m_seq where board_seq=${param1} "
+			+ " order by br_writedate asc ")
+	public List<BoardCommentVO> matchingReply(int board_seq);
 	
 }

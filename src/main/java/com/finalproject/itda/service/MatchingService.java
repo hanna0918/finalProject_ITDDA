@@ -1,8 +1,8 @@
 package com.finalproject.itda.service;
 
 import java.util.List;
-import java.util.Map;
 
+import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
@@ -18,4 +18,5 @@ public interface MatchingService {
 	public int matchingDelete(int board_seq);
 	public List<MatchingVO> matchingUser(int board_seq);
 	public int matchingIn(int m_seq, int mc_seq);
+	public List<BoardCommentVO> matchingReply(int board_seq);
 }

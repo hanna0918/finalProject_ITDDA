@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.MatchingService;
+import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
@@ -107,7 +108,10 @@ public class MatchingController {
 		matchingService.matchingIn(m_seq, mc_seq);
 		return "redirect:matchingView";
 	}
-//	@RequestMapping("/matchingReply")
-//	@ResponseBody
-//	public List<>
+	
+	@RequestMapping("/matchingReply")
+	@ResponseBody
+	public List<BoardCommentVO> matchingReply(int board_seq){
+		return matchingService.matchingReply(board_seq);
+	}
 }
