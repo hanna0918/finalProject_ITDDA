@@ -51,4 +51,19 @@ public class MatchingServiceImp implements MatchingService {
 	public int matchingWriteOk(MatchingVO vo) {
 		return matchingDAO.matchingWriteOk(vo);
 	}
+
+	@Override
+	public int matchingDelete(int board_seq) {
+		return matchingDAO.matchingDelete(board_seq);
+	}
+
+	@Override
+	public List<MatchingVO> matchingUser(int board_seq) {
+		return matchingDAO.matchingUser(board_seq);
+	}
+
+	@Override
+	public int matchingIn(int m_seq, int mc_seq) {
+		return matchingDAO.matchingIn(m_seq, mc_seq);
+	}
 }

@@ -15,8 +15,16 @@ function bannerLeft(){
 bannerTop();
 bannerLeft();
 
+
+/* Modal */
 /* ----------------------------------------------------------------- */
 $('#bannerBtn').click(function () {
+	bannerBtnValue = this.value;
+	bannerValue = bannerBtnValue.slice(7,12);
+	valueBan = bannerValue.split(" / ");
+	if(valueBan[0] == valueBan[1]){
+		return false;
+	}
     $('.matchingModal').css('display', 'block');
 });
 
@@ -32,3 +40,4 @@ $('#closeBtn').click(function () {
 $('.matchingModalOverlay').click(function () {
     $('.matchingModal').css('display', 'none');
 });
+

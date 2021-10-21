@@ -56,8 +56,9 @@ public class MatchingController {
 	@RequestMapping(value="matchingView")
 	public ModelAndView matchingView(int board_seq) {
 		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
 		int cnt = matchingService.countHit(board_seq);
-		
+		mav.addObject("part", matchingService.matchingUser(board_seq));
 		mav.addObject("vo", matchingService.matchingView(board_seq));
 		mav.setViewName("matching/matchingView");
 		return mav;
@@ -76,13 +77,12 @@ public class MatchingController {
 	@RequestMapping(value="/matchingWriteOk", method = RequestMethod.POST)
 	public ModelAndView matchingWriteOk(MatchingVO vo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
-//			Map<String, Object> map = new HashMap<String, Object>();
-//			map.put("vo", vo);
-//			map.put("m_seq", (Integer)ses.getAttribute("logseq"));
-			int result = matchingService.matchingWriteOk(vo);
-			System.out.println("너 뭐냐"+result);
-//			mav.setViewName("redirect:matchingList");
+		int result = matchingService.matchingWriteOk(vo);
+		if(result > 0) {
 			mav.setViewName("redirect:matchingList");
+		} else {
+			mav.setViewName("matching/result");
+		}
 		return mav;
 	}
 
@@ -90,11 +90,23 @@ public class MatchingController {
 	public ModelAndView matchingEdit(int board_seq, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
 		Object test = ses.getAttribute("logseq");
-
+		
 		matchingService.matchingEdit(board_seq, Integer.valueOf((String)test) );
 		return mav;
 	}
 	
+	// -----------------------------------글삭제
+	@RequestMapping("/matchingDelete")
+	public String matchingDelete(int board_seq) {
+		matchingService.matchingDelete(board_seq);
+		return "";
+	}
+	
+	@RequestMapping("/matchingIn")
+	public String matchingIn(int m_seq, int mc_seq) {
+		matchingService.matchingIn(m_seq, mc_seq);
+		return "redirect:matchingView";
+	}
 //	@RequestMapping("/matchingReply")
 //	@ResponseBody
 //	public List<>

@@ -1,10 +1,9 @@
 package com.finalproject.itda.dao;
 
 import java.util.List;
-import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -43,7 +42,7 @@ public interface MatchingDAO {
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
-		" where board_block=0 ",
+		" where board_block in (0, 2) ",
 		" <if test='tag != null and tag != \"\"'> ",
 		" <foreach item='item' collection='tag' open='' separator='' close=''> ",
 		" and board_select like '%${item}%' ",
@@ -95,7 +94,7 @@ public interface MatchingDAO {
 		" </script> "})
 	public List<MatchingVO> matchingList(MatchingPagingVO pVo);
 	
-	@Select(" select * from (select a.board_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
+	@Select(" select * from (select a.board_seq, mc_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
 			+ "	mc_max, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select, "
 			+ " lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, "
 			+ " lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject, "
@@ -137,6 +136,7 @@ public interface MatchingDAO {
 			+ "			#{b_content}) "
 			
 			+ "into mc_table("
+			+ "			mc_seq, "
 			+ "			board_seq, "
 			+ "			m_seq, "
 			+ "			mc_max, "
@@ -144,7 +144,8 @@ public interface MatchingDAO {
 			+ "			mc_start_date, "
 			+ "			mc_end_date, "
 			+ "			mc_where) "
-			+ "		values ("
+			+ "		values ( "
+			+ "			mc_seq.nextval, "
 			+ "			board_seq.currval, "
 			+ "			${m_seq}, "
 			+ "			${mc_max}, "
@@ -161,42 +162,19 @@ public interface MatchingDAO {
 			+ ""
 			+ " select * from dual ")
 	public int matchingWriteOk(MatchingVO vo);
+	
+	@Delete("")
+	public int matchingDelete(int board_seq);
+	
+	
+	@Select(" select m_nickname, m_rank from mc_part a join mc_table b on a.mc_seq = b.mc_seq join memberbase c on a.m_seq=c.m_seq where board_seq=${param1} ")
+	public List<MatchingVO> matchingUser(int board_seq);
+	
+	
+	@Insert(" insert into mc_part values(${param2}, ${param1}) ")
+	public int matchingIn(int m_seq, int mc_seq);
+	
+	
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
