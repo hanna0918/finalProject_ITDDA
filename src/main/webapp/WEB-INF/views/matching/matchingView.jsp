@@ -48,6 +48,7 @@
                             <li>신고</li>
                             <c:if test='${vo.m_userid==logid }'>
                             	<li><a href='/itda/matchingEdit?m_seq=${vo.board_seq}'>글수정</a></li>
+                            	<li><a href='/itda/matchingErase?m_seq${vo.board_seq}'>글삭제</li>
                             </c:if>
                         </ul>
                     </div>
@@ -76,7 +77,7 @@
                     <div>
                         <div id='userid' class='userid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
                         <div class='replyView'>내글에 내가 댓글달기</div>
-                        <div><span>댓글 / 수정 / 지우기</span></div>				
+                        <div><span>댓글 / 수정 / 지우기</span></div>
                     </div>
                 </div>
                 <div><!-- 3 댓글 텍스트박스 -->
@@ -90,7 +91,7 @@
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/up-arrow.png' name='prevPost'/></div>
                     <c:choose>
-                    <c:when test="${vo.board_next_subject=='다음 글이 없습니다'}">
+                    <c:when test="${vo.board_next_subject=='다음글이 없습니다'}">
 	                    <div class='nextPrevDiv' style="color: gray">${vo.board_next_subject}</div>
                     </c:when>
                     <c:otherwise>
@@ -105,7 +106,7 @@
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/down-arrow.png' name='nextPost'/></div>
                     <c:choose>
-                    <c:when test="${vo.board_prev_subject=='이전 글이 없습니다'}">
+                    <c:when test="${vo.board_prev_subject=='이전글이 없습니다'}">
 	                    <div class='nextPrevDiv' style="color: gray">${vo.board_prev_subject}</div>
                     </c:when>
                     <c:otherwise>

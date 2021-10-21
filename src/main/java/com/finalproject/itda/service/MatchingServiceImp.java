@@ -1,6 +1,7 @@
 package com.finalproject.itda.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -41,8 +42,13 @@ public class MatchingServiceImp implements MatchingService {
 		return matchingDAO.matchingEdit(board_seq, m_seq);
 	}
 
-//	@Override
-//	public List<CalendarVO> dataForJson() {
-//		return matchingDAO.dataForJson();
-//	}
+	@Override
+	public List<CalendarVO> dataForJson() {
+		return matchingDAO.dataForJson();
+	}
+
+	@Override
+	public int matchingWriteOk(Map<String, Object> map) {
+		return matchingDAO.matchingWriteOk(map);
+	}
 }
