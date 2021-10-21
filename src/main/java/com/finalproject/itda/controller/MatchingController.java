@@ -57,7 +57,7 @@ public class MatchingController {
 	public ModelAndView matchingView(int board_seq) {
 		ModelAndView mav = new ModelAndView();
 		int cnt = matchingService.countHit(board_seq);
-
+		
 		mav.addObject("vo", matchingService.matchingView(board_seq));
 		mav.setViewName("matching/matchingView");
 		return mav;
