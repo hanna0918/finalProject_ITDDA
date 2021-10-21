@@ -22,7 +22,7 @@ public class RecommendController {
 	public ModelAndView recommendList(RecommendVO vo) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", recommendService.recommendList(vo));
-		System.out.println(vo.getBoard_seq());
+		
 		mav.setViewName("/recommend/recommendList");
 		return mav;
 	}

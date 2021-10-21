@@ -61,14 +61,6 @@
         <!-- 추천 리스트 start-------------------------------------------------->
         <c:forEach var="vo" items="${list}">
           <div>${vo.board_seq}</div>
-          <script>
-            console.log(${vo.board_seq});
-            // console.log(${vo.i_url});
-            // console.log(${vo.board_subject});
-            console.log(${vo.board_hit});
-            console.log('${vo.board_writedate}');
-
-          </script>
           <div class="recommendContent">
             <div><img src="/itda/img/${vo.i_url}" class="chucheonImg" /></div>
             <div class="">
