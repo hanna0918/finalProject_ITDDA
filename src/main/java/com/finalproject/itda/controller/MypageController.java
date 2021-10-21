@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ModelAndViewDefiningException;
 
 import com.finalproject.itda.service.MypageService;
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 @Controller
@@ -27,7 +27,7 @@ public class MypageController {
 	
 	@RequestMapping(value="/editMyInfo", method=RequestMethod.POST)
 	@ResponseBody 
-	public ModelAndView editMyInfo(MemberVO vo) {
+	public ModelAndView editMyInfo(MemberBaseVO vo) {
 		ModelAndView mav = new ModelAndView();
 		
 		return mav;

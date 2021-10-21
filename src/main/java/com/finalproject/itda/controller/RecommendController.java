@@ -27,9 +27,15 @@ public class RecommendController {
 		return mav;
 	}
 	
-//	//멤버리스트 출력
-//		@RequestMapping(value = "/MemberList")
-//		public String AdminMember(Model model) {
-//			//model.addAttribute("list", adminService.MemberList());
-//			return "admin/MemberList";}
+//	@RequestMapping(value="recommendView")
+//	public ModelAndView recommentView(int board_seq) {
+//		ModelAndView mav = new ModelAndView();
+//		int cnt = recommendService.countHit(board_seq);
+//		
+//		mav.addObject("vo", recommendService.countHit(board_seq));
+//		mav.setViewName("recommend/recommendView");
+//		return mav;
+//		
+//	}
+	
 }

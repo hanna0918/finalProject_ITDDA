@@ -39,5 +39,7 @@ public interface RecommendDAO {
 			+ " FROM BOARDBASE B "
 			+ " JOIN MEMBERBASE M ON B.M_SEQ = M.M_SEQ"
 			+ " WHERE BOARD_CODE=1 ORDER BY BOARD_SEQ")
-	public List<RecommendVO> RecommendList(RecommendVO vo);
+	public List<RecommendVO> recommendList(RecommendVO vo);
+	
+//	public recommendVO recommendView(int board )
 }

@@ -107,9 +107,10 @@
       <div>
         <label>주소<span class="asterisk">*</span></label>
         <!-- 카카오주소 api 사용 -->
-        <input class="joinTextBox m_addr" type="text" name="m_addr" id="joinAddr" readonly />
-        <input class="joinTextBox" type="text" name="m_addrDetail" id="m_addrDetail" />
+        <input class="joinTextBox m_addr" type="text" class="m_addr" name="m_addr" id="joinAddr" readonly />
+        <input class="joinTextBox" type="text" class="m_addrdetail" name="m_addrdetail" id="m_addrdetail" />
         <span class="final_addr_ck">주소를 입력해주세요.</span>
+        <span class="final_addrdetail_ck">상세주소를 입력해주세요.</span>
       </div>
       <div>
         <div>

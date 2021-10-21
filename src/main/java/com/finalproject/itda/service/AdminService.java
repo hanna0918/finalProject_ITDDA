@@ -3,16 +3,16 @@ package com.finalproject.itda.service;
 import java.util.List;
 
 
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 
 public interface AdminService {
 
-	public List<MemberVO> MemberList();
+	public List<MemberBaseVO> MemberList();
 	
-	public MemberVO MemberView(MemberVO vo);
+	public MemberBaseVO MemberView(MemberBaseVO vo);
 	
-	public int MemberInsert(MemberVO vo);
+	public int MemberInsert(MemberBaseVO vo);
 	
-	public int MemberUpdate(MemberVO vo);
+	public int MemberUpdate(MemberBaseVO vo);
 	
 }

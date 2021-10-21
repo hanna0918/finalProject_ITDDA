@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.finalproject.itda.dao.MemberDAO;
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 
 @Service
 public class MemberServiceImp implements MemberService {
@@ -13,12 +13,12 @@ public class MemberServiceImp implements MemberService {
 	MemberDAO memberDAO;				
 
 	@Override
-	public MemberVO login(MemberVO vo){
+	public MemberBaseVO login(MemberBaseVO vo){
 		return memberDAO.login(vo);
 	}
 
 	@Override
-	public int join(MemberVO vo){
+	public int join(MemberBaseVO vo){
 		return memberDAO.join(vo);
 	}
 
