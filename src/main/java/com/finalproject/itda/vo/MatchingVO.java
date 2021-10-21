@@ -79,9 +79,9 @@ public class MatchingVO {
 		Board_writedate = board_writedate;
 	}
 	public String getMc_start_date() {
-		System.out.println("startDate" + startDate);
-		System.out.println("startTime " + startTime);
-		mc_start_date = startDate + " " + startTime;
+		if(startDate != null) {
+			mc_start_date = startDate + " " + startTime;
+		}
 		return mc_start_date;
 	}
 	public void setMc_start_date(String mc_start_date) {
@@ -129,12 +129,13 @@ public class MatchingVO {
 		this.gugun = gugun;
 	}
 	public String getMc_where() {
-		mc_where = sido + " " + gugun;
+		if(sido != null && gugun != null) {
+			mc_where = sido + " " + gugun;
+		}
 		return mc_where;
 	}
 	public void setMc_where(String mc_where) {
 		this.mc_where = mc_where;
-		mc_where = sido + " " + gugun;
 	}
 	public String getM_info() {
 		return m_info;

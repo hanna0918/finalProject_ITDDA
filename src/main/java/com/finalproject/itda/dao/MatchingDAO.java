@@ -123,8 +123,8 @@ public interface MatchingDAO {
 	public List<CalendarVO> dataForJson();
 	
 	@Insert(" insert all "
-			+ "     into boardbase (board_seq,m_seq,board_code,board_subject, b_content) values (BOARD_SEQ.nextval, ${vo.m_seq}, 2, ${vo.board_subject}, ${vo.b_content}) "
-			+ "     into mc_table values (BOARD_SEQ.CURRVAL, ${vo.m_seq}, ${vo.mc_max}, ${vo.mc_state}, to_date(${vo.mc_start_date},'YYYY-MM-DD HH24:MI'), to_date(${vo.mc_end_date},'YYYY-MM-DD HH24:MI'), ${vo.mc_where}) "
+			+ "     into boardbase (board_seq, m_seq, board_code, board_subject, b_content) values (BOARD_SEQ.nextval, ${vo.m_seq}, 2, ${vo.board_subject}, ${vo.b_content}) "
+			+ "     into mc_table(board_seq, m_seq, mc_max, mc_start_date, mc_end_date, mc_where) values (BOARD_SEQ.CURRVAL, ${vo.m_seq}, ${vo.mc_max}, ${vo.mc_state}, to_date(${vo.mc_start_date},'YYYY-MM-DD HH24:MI'), to_date(${vo.mc_end_date},'YYYY-MM-DD HH24:MI'), ${vo.mc_where}) "
 			+ " select * from dual ")
 	public int matchingWriteOk(Map<String, Object> map);
 }

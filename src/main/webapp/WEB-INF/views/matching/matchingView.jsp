@@ -48,6 +48,7 @@
                             <li>신고</li>
                             <c:if test='${vo.m_userid==logid }'>
                             	<li><a href='/itda/matchingEdit?m_seq=${vo.board_seq}'>글수정</a></li>
+                            	<li><a href='/itda/matchingErase?m_seq${vo.board_seq}'>글삭제</li>
                             </c:if>
                         </ul>
                     </div>
@@ -76,7 +77,7 @@
                     <div>
                         <div id='userid' class='userid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
                         <div class='replyView'>내글에 내가 댓글달기</div>
-                        <div><span>댓글 / 수정 / 지우기</span></div>				
+                        <div><span>댓글 / 수정 / 지우기</span></div>
                     </div>
                 </div>
                 <div><!-- 3 댓글 텍스트박스 -->
