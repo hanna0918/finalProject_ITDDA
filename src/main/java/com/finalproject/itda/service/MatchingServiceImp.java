@@ -48,7 +48,7 @@ public class MatchingServiceImp implements MatchingService {
 	}
 
 	@Override
-	public int matchingWriteOk(Map<String, Object> map) {
-		return matchingDAO.matchingWriteOk(map);
+	public int matchingWriteOk(MatchingVO vo) {
+		return matchingDAO.matchingWriteOk(vo);
 	}
 }

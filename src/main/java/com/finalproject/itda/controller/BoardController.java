@@ -56,10 +56,6 @@ public class BoardController {
 
 	@RequestMapping(value="/freeWriteOk",method=RequestMethod.POST ) 
 	public ModelAndView freeWriteOk(BoardVO vo, HttpSession ses) {
-		System.out.println("subject" + ses.getAttribute("logseq"));
-		System.out.println("subject" + vo.getBoard_subject());
-		System.out.println("content" +vo.getB_content());
-		System.out.println("sessiong"+ vo.getM_seq());
 
 		vo.setM_seq(Integer.parseInt(ses.getAttribute("logseq").toString()));
 		ModelAndView mav = new ModelAndView();

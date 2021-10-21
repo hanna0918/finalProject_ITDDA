@@ -14,5 +14,6 @@ public interface MatchingService {
 	public int countHit(int board_seq);
 	public int matchingEdit(int board_seq, int m_seq);
 	public List<CalendarVO> dataForJson();
-	public int matchingWriteOk(Map<String, Object> map);
+//	public int matchingWriteOk(Map<String, Object> map);
+	public int matchingWriteOk(MatchingVO vo);
 }

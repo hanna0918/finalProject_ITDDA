@@ -73,12 +73,15 @@ public class MatchingController {
 		}
 	}
 
-	@RequestMapping("/matchingWriteOk")
+	@RequestMapping(value="/matchingWriteOk", method = RequestMethod.POST)
 	public ModelAndView matchingWriteOk(MatchingVO vo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("vo", vo);
-			int result = matchingService.matchingWriteOk(map);
+//			Map<String, Object> map = new HashMap<String, Object>();
+//			map.put("vo", vo);
+//			map.put("m_seq", (Integer)ses.getAttribute("logseq"));
+			int result = matchingService.matchingWriteOk(vo);
+			System.out.println("너 뭐냐"+result);
+//			mav.setViewName("redirect:matchingList");
 			mav.setViewName("redirect:matchingList");
 		return mav;
 	}
