@@ -190,8 +190,8 @@ public class MatchingVO {
 	public int getMc_max() {
 		return mc_max;
 	}
-	public void setMc_max(String mc_max) {
-		this.mc_max = Integer.parseInt(mc_max);
+	public void setMc_max(int mc_max) {
+		this.mc_max = mc_max;
 	}
 	public int getBoard_hit() {
 		return board_hit;
