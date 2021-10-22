@@ -28,8 +28,6 @@ public class MemberBaseVO {
 	private String m_state;
 	
 	
-	
-	
 	public String getM_addrdetail() {
 		return m_addrdetail;
 	}

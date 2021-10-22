@@ -44,7 +44,7 @@
             <div>
               <img src="img/recommend.png" class="recommendImg" />
               <span>10</span>
-              <img src="img/replImg.png" class="commentImg" />
+              <img src="/img/siren3.png" class="commentImg" />
               <span>10</span>
             </div>
           </div>
@@ -69,14 +69,14 @@
               <div>
                 <img src="img/recommend.png" class="recommendImg" />
                 <span>${vo.board_hit}</span>
-                <img src="img/replImg.png" class="commentImg" />
+                <img src="img/siren3.png" class="commentImg" />
                 <span>${vo.board_call}</span>
               </div>
             </div>
           </div>
           <div>
             <div>
-              ${vo.m_nickname}<br/>
+              ${vo.m_nickname}<br />
               <span>(${vo.m_userid})</span>
             </div>
           </div>
@@ -91,7 +91,7 @@
 
   <!-- 글쓰기 버튼 -->
   <div class="boardBtnDiv">
-    <input type="submit" value="글쓰기" class="writeBtn" />
+    <input type="button" value="글쓰기" class="writeBtn recommendBtn" onclick="location.href='/itda/recommendWrite'" />
   </div>
   <!-- 페이지번호 -->
   <div class="pagingDiv">

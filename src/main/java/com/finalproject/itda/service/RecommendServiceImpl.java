@@ -20,13 +20,14 @@ public class RecommendServiceImpl implements RecommendService {
 
 	@Override
 	public RecommendVO countHit(int board_seq) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-//	@Override
-//	public RecommendVO countHit(int board_seq) {
-//		return recommendDAO.RecommendView(board_seq);
-//	}
+	@Override
+	public int recommendWriteOk(RecommendVO vo) {
+		return recommendDAO.recommendWriteOk(vo);
+	}
+
+
 
 }

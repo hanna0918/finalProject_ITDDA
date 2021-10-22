@@ -22,7 +22,6 @@ public class RecommendVO {
 	private String br_writedate;		//댓글등록일
 	private String br_cnt;				//댓글 갯수 - 서브쿼리문용(select문)
 	
-	
 	//이미지
 	private int imageseq;				//이미지번호
 	private String i_url;				//이미지제목? 경로?
