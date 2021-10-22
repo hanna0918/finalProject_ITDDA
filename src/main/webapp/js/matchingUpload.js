@@ -116,7 +116,9 @@ $("#matchingSubmitBtn").click(function(){
         $("#hiddenTagAllDone").text('태그를 5개 이상 작성해주세요');
         return false;
     }
-    
+    if( $("#mc_state2").val() == "구/군 선택" ) {
+    	return false;
+    }
     $("#searchText").prop("disabled", true);
     $("#matchingUploadForm").attr("onsubmit", "");
     

@@ -30,6 +30,11 @@ public class MatchingVO {
 	private int b_goodhit;
 	private int board_call;
 	private int m_seq;
+	private int m_rank;
+	private int partCnt;
+	private int mc_seq;
+	private int matchingCount;
+	private int replyCount;
 	
 	private String tags[];
 	private String prevTags[];
@@ -88,7 +93,9 @@ public class MatchingVO {
 		this.mc_start_date = mc_start_date;
 	}
 	public String getMc_end_date() {
-		mc_end_date = startDate + " " + endTime;
+		if(startDate != null) {
+			mc_end_date = startDate + " " + endTime;
+		}
 		return mc_end_date;
 	}
 	public void setMc_end_date(String mc_end_date) {
@@ -100,14 +107,12 @@ public class MatchingVO {
 	}
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
-		System.out.println("startDate = " + startDate);
 	}
 	public String getStartTime() {
 		return startTime;
 	}
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
-		System.out.println("startTime = " + startTime);
 	}
 	public String getEndTime() {
 		return endTime;
@@ -211,11 +216,41 @@ public class MatchingVO {
 	public void setBoard_call(int board_call) {
 		this.board_call = board_call;
 	}
+	public int getPartCnt() {
+		return partCnt;
+	}
+	public void setPartCnt(int partCnt) {
+		this.partCnt = partCnt;
+	}
 	public int getM_seq() {
 		return m_seq;
 	}
 	public void setM_seq(String m_seq) {
 		this.m_seq = Integer.parseInt(m_seq);
+	}
+	public int getM_rank() {
+		return m_rank;
+	}
+	public int getMc_seq() {
+		return mc_seq;
+	}
+	public void setMc_seq(int mc_seq) {
+		this.mc_seq = mc_seq;
+	}
+	public int getMatchingCount() {
+		return matchingCount;
+	}
+	public void setMatchingCount(int matchingCount) {
+		this.matchingCount = matchingCount;
+	}
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
+	public void setM_rank(int m_rank) {
+		this.m_rank = m_rank;
 	}
 	public String[] getTags() {
 		return tags;
