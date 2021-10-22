@@ -1,18 +1,21 @@
 package com.finalproject.itda.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.vo.BoardVO;
 import com.finalproject.itda.vo.Board_CommentVO;
+import com.finalproject.itda.vo.MemberbaseVO;
 import com.finalproject.itda.vo.PagingVO;
 
 public interface BoardDAO {
-	// 게시판 목록
+	// 게시판 목록 origin 
 	/*
 	 * @Select(" select * from " + "( select * from " +
 	 * "( select b.board_seq,b.BOARD_SUBJECT,b.BOARD_WRITEDATE, M_USERID ,b.board_hit ,nvl(cnt,0) count "
@@ -27,25 +30,35 @@ public interface BoardDAO {
 	 * "        where rownum<=#{lastPage} order by board_seq desc")
 	 */
 	
-	//게시판 목록 
-	@Select("select * from "
-			+ "(select * from "
-			+ "(select b.m_seq, b.board_seq,b.BOARD_SUBJECT,BOARD_WRITEDATE, M_USERID ,b.board_hit ,nvl(cnt,0) count "
-			+ "from (SELECT b.BOARD_Seq, b.BOARD_SUBJECT ,m.m_seq,m.m_userid ,b.BOARD_WRITEDATE, b.board_hit, b.b_content "
-			+ "        from boardbase b join MEMBERBASE m on(b.M_SEQ=m.M_SEQ) where board_block=0 ) b full join "
-			+ "        (select board_seq,count(br_id) cnt from board_comment group by board_seq) bm on b.board_seq=bm.board_seq "
-			+ "        where board_subject like '%${searchKeyword}%' or "
-			+ "        b_content like '%${searchKeyword}%' order by board_seq desc) "
-			+ "        where rownum<=#{nowPage}*#{onePageRecord} order by board_seq asc) "
-			+ "        where rownum<=#{lastPage} order by board_seq desc")
-	
-	public List<BoardVO> boardList(PagingVO pVo); // list로 받고 안에는 vo가
-	
-	
-	
-	
-	
-	
+	/*
+	 * //게시판 목록
+	 * 
+	 * @Select("select * from " + "(select * from " +
+	 * "(select b.m_seq, b.board_seq,b.BOARD_SUBJECT,to_char(b.board_writedate, 'YYYY-MM-DD HH24:MI') board_writedate, M_USERID ,b.board_hit ,nvl(cnt,0) count "
+	 * +
+	 * "from (SELECT b.BOARD_Seq, b.BOARD_SUBJECT ,m.m_seq,m.m_userid ,b.BOARD_WRITEDATE, b.board_hit, b.b_content "
+	 * +
+	 * "        from boardbase b join MEMBERBASE m on(b.M_SEQ=m.M_SEQ) where b.board_block=0) b full join "
+	 * +
+	 * "        (select board_seq,count(br_id) cnt from board_comment group by board_seq) bm on b.board_seq=bm.board_seq "
+	 * + "        where board_subject like '%${searchKeyword}%' or " +
+	 * "        b_content like '%${searchKeyword}%' order by board_seq desc) " +
+	 * "        where rownum<=#{nowPage}*#{onePageRecord} order by board_seq asc) "
+	 * + "        where rownum<=#{lastPage} order by board_seq desc")
+	 * 
+	 * public List<BoardVO> boardList(PagingVO pVo); // list로 받고 안에는 vo가
+	 */	
+	//게시판 목록!!!!!!!!!!!!!!!!!!!!!!!
+	@Select
+//	(" select * from "
+		//	("	select * from "
+			 	("select distinct b.m_seq, b.board_seq,b.board_subject,to_char(b.board_writedate, 'YYYY-MM-DD HH24:MI') board_writedate, m.m_userid, m.m_nickname ,b.board_hit, "
+			+ " (select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count "
+			+ "	 from boardbase b join memberbase m on b.m_seq=m.m_seq full join board_comment bc on b.board_seq=bc.board_seq "
+			+ "	 where b.board_code=5 and b.board_block=0 order by board_writedate desc ") 
+		/*	+ "  where rownum<=#{nowPage}*#{onePageRecord} order by board_writedate desc ")*/
+//			+ "	 where rownum<=#{lastPage} order by board_seq desc ")
+	public List<BoardVO> boardList(PagingVO pVo);
 	
 	/*
 	 * @Select("     \"select * from \"\r\n" + "      \"(select * from\"\r\n" +
@@ -64,7 +77,6 @@ public interface BoardDAO {
 	 * " where rownum<![CDATA[ < ]]>= #{nowPage} * #{onePageRecord} order by board_seq asc)"
 	 * + " where rownum<![CDATA[ < ]]>= #{totalPage} order by board_seq desc")
 	 */
-	   
 	
 	//검색 
 	@Select({" <script> ",
@@ -80,7 +92,7 @@ public interface BoardDAO {
 	//글쓰기 등록 //게시물 번호(시퀀스) //회원번호 //카테고리 //제목 //글내용 //default값 있는건 굳이 X
 		  
 		 @Insert("insert into boardbase(board_seq, m_seq, board_code, board_subject, b_content) values "
-		  + " (board_seq.nextval, #{m_seq} ,5, #{board_subject}, #{b_content}) ")
+		  + " (board_seq.nextval, ${m_seq} ,5, #{board_subject}, #{b_content}) ")
 		 public int freeboardWrite(BoardVO vo); 
 	
 	//글내용보기 
@@ -98,9 +110,9 @@ public interface BoardDAO {
 		 
 		 
 		 
-	//삭제 //댓글있는 거 아직 삭제 안됨 
-		 @Delete("delete from boardbase where board_seq=64 and m_seq=(select m_seq from memberbase where m_userid='test')")
-		 public int freeDelete(int board_seq, String m_userid);
+	//삭제 
+		 @Delete("delete from boardbase where board_seq=${board_seq} and m_seq=(select m_seq from memberbase where m_userid=#{userid})")
+		 public int freeDelete(Map<String, Object> map);
 		 
 			/*
 			 * delete boardbase, board_comment from boardbase b join board_comment bc on
@@ -113,8 +125,16 @@ public interface BoardDAO {
 		 		+ " from board_comment b join memberbase m on b.m_seq = m.m_seq where board_seq=#{board_seq}")
 		 public List<Board_CommentVO> commentList(int board_seq);	
 		 
-		 
-		 
+	//댓글 쓰기 
+		@Insert("insert into board_comment( br_id, m_seq, board_seq, br_content values "
+				+ " (br_id.nextval, ${m_seq}, #{board_seq}, #{br_content}" )
+		public int commentInsert(Board_CommentVO commentVo);
+	
+	// 프로필 모달창 
+		
+		@Select("select b.m_nickname, b.m_gender, r.m_name, b.m_info, b.m_tag from memberbase b join member_rank r on r.m_rank= b.m_rank where m_nickname=#{m_nickname}")
+		/* @Select("select * from memberbase where m_nickname = #{m_nickname}") */
+		 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo);
 	
 	/*
 	 * //페이징

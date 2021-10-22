@@ -33,21 +33,21 @@
 	
 	.freeboardWrite{
 		max-width:1250px;   /*대표 이미지 설정 없을 경우 max-width:1100px; padding-left: 0; */
-		padding-left:250px; 
+		/* padding-left:250px;  */
 		padding-right:10px; 
 		width:100%;
 		margin:90px auto 80px;
 		box-sizing: border-box;
 	}
 	.freeWriteHeader{
-		border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    	position: fixed;
+		/* border-bottom: 1px solid rgba(128, 128, 128, 0.3); */
+    	/* position: fixed; */
    	 	left: 0;
     	top: 0;
    	 	width: 100%;
     	background: #fff;
    	 	z-index: 111200;
-   	 	padding: 17px 15px;
+   	/*  	padding: 17px 15px; */
 	}
 	.freeWriteHeaderLine{
 		margin:0 auto;
@@ -60,6 +60,16 @@
     	padding-left: 4px;
     	font-weight: bolder;
 	}
+	
+	.freeWriteHeaderLine>div:nth-child(2){
+		width:80%;
+		float: left;
+		font-size:1.1em;
+		color:gray;
+		padding:14px 0 0 18px;
+	}
+	
+	
 	.freeWriteHeaderLine input[type="submit"]{
 		float:right;
 	}
@@ -206,7 +216,7 @@
 	<div class="freeboardWrite">
 		<div class="freeWriteHeader"> 
 			<div class="freeWriteHeaderLine">
-				<div>아무말 대잔치</div>
+				<div>아무말 대잔치</div><div></div>
 				<!-- <div>
 					<a href="#"><input type="submit" value="취소" /></a>
 					<a href="#"><input type="submit" value="등록" /></a>
@@ -217,12 +227,12 @@
 		
 		<form method="post" action="/itda/freeWriteOk" style="width:100%; overflow:auto;">
 		<!-- 대표 이미지 설정(넣을지 뺄지 잘 모르겠지만 일단 넣어봅니다) -->
-		<div id="freezImage">
+		<!-- <div id="freezImage">
 			<div>
 				<label >대표 이미지 설정</label>
 			
 			</div>
-		</div>
+		</div> -->
 		
 		<!-- --------------------------------------------- -->
 		
@@ -255,7 +265,7 @@
 						 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
        					 <!-- <div id="summernote" name="content"></div> -->
        					 
-  						<textarea id="freeSummernote" name="board_content"></textarea>
+  						<textarea id="freeSummernote" name="b_content"></textarea>
 					
        					 
 

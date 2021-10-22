@@ -11,12 +11,21 @@ public class MemberbaseVO {
 	private String m_addr;
 	private String m_bith;
 	private String m_info;
-	private int m_gender;
+	private String m_gender;
 	private String m_tag;
 	private String m_regdate;
 	private int m_statecode;
 	private int m_rank;
+	private String m_name;
 	
+	
+	
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
 	public int getM_seq() {
 		return m_seq;
 	}
@@ -77,10 +86,10 @@ public class MemberbaseVO {
 	public void setM_info(String m_info) {
 		this.m_info = m_info;
 	}
-	public int getM_gender() {
+	public String getM_gender() {
 		return m_gender;
 	}
-	public void setM_gender(int m_gender) {
+	public void setM_gender(String m_gender) {
 		this.m_gender = m_gender;
 	}
 	public String getM_tag() {

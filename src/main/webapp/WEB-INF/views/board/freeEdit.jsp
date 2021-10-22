@@ -209,7 +209,7 @@
 	<div class="freeboardWrite">
 		<div class="freeWriteHeader"> 
 			<div class="freeWriteHeaderLine">
-				<div>아무말 대잔치</div>
+				<div>자유게시판</div><div>아무말 대잔치</div>
 				<!-- <div>
 					<a href="#"><input type="submit" value="취소" /></a>
 					<a href="#"><input type="submit" value="등록" /></a>
@@ -258,8 +258,8 @@
 						 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
        					 <!-- <div id="summernote" name="content"></div> -->
        					 
-  						<textarea id="freeSummernote" name="board_content">
-  						${vo.board_content }
+  						<textarea id="freeSummernote" name="b_content">
+  						${vo.b_content }
   						
   						</textarea>
 						<input type="hidden" name="board_seq" value="${vo.board_seq }"/>

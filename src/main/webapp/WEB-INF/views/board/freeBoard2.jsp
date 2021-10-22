@@ -1,18 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
-		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="css/quesCss.css" type="text/css"/>
-
-
-</head>
 <style>
 @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
 @font-face {
@@ -338,12 +326,13 @@ body{
     font-weight:bold;
 	}
 	
-	.profileinfo img{
+	
+	 .profileinfo img{
 	width: 100%;
     height: 100%;
     margin: 0 auto;
     border-radius: 50px;
-	}
+	} 
 	
 	/*인사말 관심분야*/
 	#profileHi { 
@@ -369,10 +358,13 @@ body{
 	height: 30px; 
 	line-height: 30px; 
 	width: 300px; 
+	background: white;
 	}
 	
 </style>
+<script>
 
+</script>
 <body>
 	<div id='qNaContainer'>
 		<!-- 게시판제목 -->
@@ -403,19 +395,21 @@ body{
 		</div>	
 		
 		<c:forEach var="vo" items="${list}">
+			
 			<div class='list'>
 			<ul class='content'> 
 				<li>${vo.board_seq}</li>
 				<li><a href="/itda/freeview?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
 				<%--  /itda/view?no=${vo.board_seq --%>
 				<div class="dropdown">
-				<li><a href='#'>${vo.m_userid} </a><br/><label onclick="myFunction(${vo.m_seq})" class="dropbtn" id="dropbtn">${vo.m_userid}</label></li>
+				<li> <label onclick="myFunction('${vo.m_nickname}');" class ="dropbtn">${vo.m_nickname} <input type="hidden" class="idtest" value="${vo.m_seq}"/></label></li>
+					
 					<!-- ---------------------------------------------------------------------- -->
-					<div id="myDropdown" class="dropdown-content">
-	    				<a id="profil">프로필</a>
-	    				<a id="chadan">차단하기</a>
-	    				<a id="gudok">구독하기</a>
-	    				<a id="sendMail">쪽지보내기</a>
+					<div id="myDropdown${vo.m_nickname}" class="dropdown-content">
+	    				<a class="profil" name="${vo.m_nickname}">프로필</a>
+	    				<a class="chadan" name="${vo.m_nickname}">차단하기</a>
+	    				<a class="gudok" name="${vo.m_nickname}">구독하기</a>
+	    				<a class="sendMail" name="${vo.m_nickname}">쪽지보내기</a>
 	    				<a href="/itda/writeList">게시글보기</a>
   					</div>
 				</div>
@@ -425,85 +419,7 @@ body{
 			</ul>
 			</div>
 		</c:forEach>
-		
-		
 			
-			<!-- 
-			 <ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-			<ul class='content'>
-				<li>100</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?dddddddddddddddddddddddddddddddlllllllllll</a><br/><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br/><span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li>50</li>
-				<li>19</li>
-			</ul>
-		</div> -->
-		
 		<!-- 글쓰기 버튼 -->
 		<div>
 			<a href="/itda/freeboardWrite"><input type='submit' value='글쓰기' id='writeBtn'/></a>
@@ -541,6 +457,8 @@ body{
 		 
 		<div class="blockJoinModal2" id="blockJoinModal2">
 				<article class="blockModalContent2 blockDataInputModal2" style="width: 300px; padding:0;">
+					
+					<%-- 
 					<div>
 						<div style="background: cornflowerblue; height: 25px;"></div>
 						<h4>" ${m_userid } "님이 차단되었습니다.</h4>
@@ -548,10 +466,12 @@ body{
 						<a><img src="/itda/img/close1.png" class="close2" 
 				        style="position:absolute;top: 0px; right: 1px;;"/></a>
 				     
-				        <!-- <div><input type="button" value="확인"/></div> -->
+				       <!-- <div><input type="button" value="확인"/></div> -->
 					</div>
+					 --%>
 				</article>
 		</div>
+		
 		 
 		<!-- ----------쪽지보내기 모달창------------------> 
 		
@@ -624,19 +544,19 @@ body{
 	<!-- ---------------프로필 모달창-------------- -->
 		 <div class="profilJoinModal" id="profilJoinModal">
 				<article class="profilModalContent profilDataInputModal" style="box-shadow: 5px 5px 5px lightgrey; width:320px;">
-					<div>
-						<form>
+					<div id="test">
+					<h1>PROFILE</h1>
 							<h4 id="profileTop">🍊&nbsp;프로필</h4>
+				<%-- 	<form>
 						<!-- 	<a><img src="..//itda/img/close1.png" class="close7" 
 					        style="position:absolute;top: 10px; right: 16px;;"/></a> -->
-					     	
 					     	<div class="profileinfo">
 					     		<div>
 						     		<div style="width:100px; height:100px; margin:0 auto;"> <!-- padding -->
 						     			<img src="/itda/img/moveprofile.gif"/>
 						     		</div>
 					     		</div>
-					     		<div>${m_username } &nbsp;( ${m_userid} )</div>
+					     		<div>${vo.m_username } &nbsp;( ${vo.m_userid} )</div>
 					     		<div>Female</div>
 					     		<div>브론즈</div>
 					     	</div>
@@ -652,95 +572,229 @@ body{
 					     	</div>
 					     		
 					        <!-- <div><input type="button" value="확인"/></div> -->
-				        </form>
+				        </form>  --%>
+				        
+				        
 					</div>
 				</article>
 		</div>   
 		 
 	</div>
-	<script>
-		/* 메뉴 드롭다운 */
-		function myFunction(m_seq){
-		  // 해야할일
-		  // 누른 li의 좌표값을 구한다. ->  //x좌표:1073, y좌표:288
-		  
-		  // 좌표값을 구하면, javascript로 드롭다운 메뉴의 좌상단부분의 좌표를 li좌표로 변경한다.
-		  // 기존 메소드에 토글 show가 있으니 위에까지만 하면 될거에요
-		  
-		  //받아온 값을 ajax로 db에 보내서 필요한 정보를 select해서 ajax(sucess시 필요한 곳에 넣어준다.)
-		 
-		 /*  const selectedDiv = this.getBoundingClientRect();
-		  const selectedDivTop = selectedDiv.top;
-		  console.log(selectedDivTop);
-		  console.log(getBoundingClientRect()); */
-		  
-		 
-		  
-		  
-		  var test = $('#myDropdown');
-		  test.click(function (event) {
-		     x = event.pageX;
-		     y = event.pageY; 
-		     
-		     /* alert('x좌표:' +x + ', y좌표:' + y); */
-		  })
-		  
-		  
-		  
-		 
-		  
-		  document.getElementById("myDropdown").classList.toggle("show");
-		  console.log(m_seq);
-		}
 	
-		window.onclick = function(event) {
-		  if (!event.target.matches('.dropbtn')) {
-		    var dropdowns = document.getElementsByClassName("dropdown-content");
-		    var i;
-		    for (i = 0; i < dropdowns.length; i++) {
-		      var openDropdown = dropdowns[i];
-		      if (openDropdown.classList.contains('show')) {
-		        openDropdown.classList.remove('show');
-		   		
-		      }
-		    }
-		  } 
-		}
+	
+	<script>
+	
+	   // 해야할일
+    // 누른 li의 좌표값을 구한다. ->  //x좌표:1073, y좌표:288
+    // 좌표값을 구하면, javascript로 드롭다운 메뉴의 좌상단부분의 좌표를 li좌표로 변경한다.
+    // 기존 메소드에 토글 show가 있으니 위에까지만 하면 될거에요
+    //받아온 값을 ajax로 db에 보내서 필요한 정보를 select해서 ajax(sucess시 필요한 곳에 넣어준다.)
+	   
+    /*드롭다운 보여주기*/
+		/* 메뉴 드롭다운 */
+	function myFunction(nickname) { /////////////////1
+        document.getElementById("myDropdown" + nickname).classList.toggle("show");
+        console.log(nickname);
+        
+        /*///////////////////////////////프로필 모달창//////////////////////////////////////////////////*/
+          nickname1 = "m_nickname=" + nickname;
+          console.log("-----------------");
+		  console.log("jj:"+nickname);
+		  
+        $('.profil').click(function (){ ////////////////////////2
+          $('.profilDataInputModal').css('display', 'block');
+          $('.profilJoinModal').css('display', 'block');
 		
-		/* 차단 모달창 */
-		$('#chadan').click(function () {
-			   $('.blockDataInputModal').css('display', 'block');
+            $.ajax({ /////////////////////////////////3
+            url:'/itda/freeBoardmodal', 
+            data: nickname1,
+            type: 'POST',
+            success: function (result) { ///////////////////4
+              var result = $(result);
+              console.log(result);
+              var tag = "";
+              
+            
+          	 		tag += `<h4 id='profileTop'> 🍊  프로필 </h4>`; 
+          	 		tag += `<form>`;
+          	 			tag += `<div class="profileinfo">`;
+          	 			tag += `<div style='width:100px; height:100px; margin:0 auto;'>`;
+				        tag += `</div>`;
+				       				 
+	          	 				  tag += "<div>" +"닉네임 : "+ result[0].m_nickname + "</div>";
+				                  tag += "<div>" +"F:"+ result[0].m_gender + "</div>"; 
+				                  tag += "<div>" + result[0].m_name + "</div>";
+				                  
+				        tag += `</div>`;     
+				        
+				                  tag += `<div class='profilFoot' style='padding:10px;'>`;
+					                  tag += "<li id='profileHi'>" + "인사말" + "</li>";
+					                  tag += "<input type='text' name='m_info' placeholder='인사말' value='"+result[0].m_info+"'disabled/>"; 
+					                  tag += "<li id='profileLike'>" + " 관심분야" + "</li>";
+					                  tag += "<input type='text' name='m_tag 'placeholder='관심분야' value='" + result[0].m_tag + "'disabled/>" + "</tag>";
+					                  tag += "<input type='button' value='확인' id='profilebtn' style='margin-top: 20px; width: 100%;'/>";
+					              tag += `</div>`;
+          	 		 tag += `</form>`;	  
+			             	  /*  tag += "<h4 id="profileTop">"+"프로필"+"</h4>"; 
+			                  tag += `<div class="profileinfo">`;
+			                  
+				                  tag += `<div>`;
+					                  tag += `<div style='width:100px; height:100px; margin:0 auto;'>`;
+					                  // tag+= "<img src="/itda/img/moveprofile.gif"/>"; 
+					                  tag += `</div>`;
+					               
+					                  tag += "<div>" + result[0].m_nickname + "</div>";
+					                  tag += "<div>" + result[0].m_gender + "</div>"; //
+					                  tag += "<div>" + result[0].m_name + "</div>"; //m_name?,  m_rank
+					                  tag += `<div class='profilFoot' style='padding:10px;'>`;
+					                  tag += "<li id='profileHi'>" + "인사말" + "</li>";
+					                  tag += "<input type='text' name='m_info' placeholder='인사말' value='"+result[0].m_info+"'/>"; 
+					                  tag += "<li id='profileLike'>" + " 관심분야" + "</li>";
+					                  tag += "<input type='text' name='m_tag 'placeholder='관심분야' value='" + result[0].m_tag + "'>" + "</tag>";
+					                  tag += "<input type='button' value='확인' id='profilebtn' style='margin-top: 20px; width: 100%;'>" + "</tag>";
+					
+					                  tag += `</div>`; 
+					                  
+					                  
+					                  
+				                  tag += `</div>`;
+
+                  			  tag += `</div>`;
+               			
+                  	tag+=`</form> `;
+                  	 
+           	tag+=`</div> `;
+         	 tag+=`</article>`;
+      	tag += `</div>`;   */
+              
+              console.log(tag);
+              $('#test').html(tag);
+              console.log(tag);
+           
+              
+
+            }, error: function () {  //////////////4 
+              console.log("싰빠이");
+            }
+
+          });////////////////3 ajax
+          nickname="";
+		  console.log("초기화후:"+nickname);
+          
+		    //x버튼
+		    
+		    $(document).on("click", "#profilebtn", function(){
+		    	console.log("버튼 클릭 이벤트 안들어감");
+	        	  $('.profilJoinModal').css('display', 'none');
+		    });
+		    
+       /*    $('#profilebtn').click(function () {
+            console.log("버튼 클릭 이벤트 안들어감");
+        	  $('.profilJoinModal').css('display', 'none');
+          }); */
+
+          /*드롭다운 다른 곳 누를경우 */
+          
+          window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+                }
+              }
+            }
+          }
+          
+     var test1 = $('.dropbtn');
+          test1.click(function (event) {
+            x = (event.pageX - 270) + 'px';
+            y = (event.pageY - 300) + 'px';
+            $('.dropdown-content').css('left', x).css('top', y);
+       //alert('x좌표:' +x + ', y좌표:' + y);
+          });
+
+        }); ////////////////2
+            
+		/*////////////////////////////////차단 모달창//////////////////////////////////////////// */
+		
+		  $(document).on("click", ".chadan", function(){
+			  $('.blockDataInputModal').css('display', 'block');
 			   $('.blockJoinModal').css('display', 'block');
+	     ///////////////////////////////////////////////////////////////////////
+		 $.ajax({ /////////////////////////////////3
+            url:'/itda/freeBoardmodalChadan', 
+            data: nickname1,
+            type: 'POST',
+            success: function (result) { ///////////////////4
+              var result = $(result);
+              console.log(result);
+              var tag = "";	
+	      		
+              
+        
+         
+        
+          
 			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   /////////////////////////////////////////////////////////////
 			   //취소
-			   $('#noChadan').click(function () {
-					  $('.blockJoinModal').css('display', 'none');
-					});
-			   
-			   //x버튼
-			   $('.close1').click(function () {
-					  $('.blockJoinModal').css('display', 'none');  
-					});  
-			   
-			   //차단 예쓰
-			   $('#yesChadan').click(function(){
-			       $('.blockJoinModal').css('display', 'none');  
-			       
-			       //차단 yes 모달창
-			       $('.blockDataInputModal2').css('display', 'block');
-				   $('.blockJoinModal2').css('display', 'block');
-			       
-				   //x버튼
-				   $('.close2').click(function () {
-						  $('.blockJoinModal2').css('display', 'none');  
-						});  
-			   });
-			   
-			   
-			 }); 
+			  $(document).on("click", "#noChadan ", function(){
+				  $('.blockJoinModal').css('display', 'none');
+			    });
+	        
+			//x버튼
+			  $(document).on("click", ".close1 ", function(){
+				  $('.blockJoinModal').css('display', 'none');  
+		        	
+			    });
+			
+	        //차단 예쓰
+			  $(document).on("click", "#yesChadan ", function(){
+				    $('.blockJoinModal').css('display', 'none');  
+		   
+				//차단 yes 모달창
+				$('.blockDataInputModal2').css('display', 'block');
+				$('.blockJoinModal2').css('display', 'block');
+			
+					//x버튼
+					$(document).on("click", ".close2 ", function(){	   
+						 $('.blockJoinModal2').css('display', 'none'); 
+				   
+					});  //x버튼
+			 }); //차단 예쓰
 		
+		  });  //.chadan document 이벤트 
+        
+        
+        
+      
+    
+    
+    
+    
+    
+    
+    }///////////////1
+	
+	 ///////////////////////////////////////////////////////////////////////////
+
+	  
 			/*쪽지보내기 모달창*/
-			$('#sendMail').click(function () {
+			$('.sendMail').click(function () {
 			   $('.mailDataInputModal').css('display', 'block');
 			   $('.mailJoinModal').css('display', 'block');
 			   
@@ -771,7 +825,7 @@ body{
 			}); 
 			
 			/*구독하기 모달창*/
-			$('#gudok').click(function () {
+			$('.gudok').click(function () {
 			   $('.gudokDataInputModal').css('display', 'block');
 			   $('.gudokJoinModal').css('display', 'block');
 			   
@@ -800,19 +854,21 @@ body{
 				   });
 				 
 				}); 
-			
-			/*프로필 모달창*/
+		
+	/* 		//프로필 모달창
 			 $('#profil').click(function () {
 			   $('.profilDataInputModal').css('display', 'block');
 			   $('.profilJoinModal').css('display', 'block');
+			   
+			   var test =$(this).attr("");
+			      const testInt = "m_seq=" + parseInt(test);
+			         console.log(testInt);
 			   
 			 //x버튼
 			    $('#profilebtn').click(function () {
 					  $('.profilJoinModal').css('display', 'none');  
 				}); 
-			 });
+			 
+			 }); */
 		
 		</script>
-</body>
-
-</html>

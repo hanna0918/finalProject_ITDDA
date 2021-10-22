@@ -16,7 +16,7 @@ public class PagingVO {
 	   
 	   
 	   //페이지
-	   private int onePageNumCount=5; // 한페이지당 출력할 페이지 수
+	   private int onePageNumCount=100; // 한페이지당 출력할 페이지 수
 	   private int startPage=1; //스타트 페이지
 	   private int lastPage=6;
 	   
@@ -39,6 +39,7 @@ public class PagingVO {
 	   
 	   
 	   public int getNowPage() {
+		   System.out.println("nowPage = " + nowPage);
 	      return nowPage;
 	   }
 	   public void setNowPage(int nowPage) {
@@ -57,6 +58,7 @@ public class PagingVO {
 	      this.totalPage = totalPage;
 	   }
 	   public int getOnePageRecord() {
+		   System.out.println("onePageRecord = " + onePageRecord);
 	      return onePageRecord;
 	   }
 	   public void setOnePageRecord(int onePageRecord) {
@@ -77,6 +79,7 @@ public class PagingVO {
 			this.searchKeyword = searchKeyword;
 		}
 		public int getLastPage() {
+			System.out.println("lastPage = " + lastPage);
 			return lastPage;
 		}
 		public void setLastPage(int lastPage) {

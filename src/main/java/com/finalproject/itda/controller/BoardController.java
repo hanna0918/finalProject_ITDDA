@@ -1,20 +1,21 @@
 package com.finalproject.itda.controller;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.BoardService;
 import com.finalproject.itda.vo.BoardVO;
-import com.finalproject.itda.vo.Board_CommentVO;
+import com.finalproject.itda.vo.MemberbaseVO;
 import com.finalproject.itda.vo.PagingVO;
 
 @Controller
@@ -32,15 +33,39 @@ public class BoardController {
 	 * }
 	 */
 
-	//자유게시판 리스트
-
-	@RequestMapping("/freeBoard2") //,  value=    method = RequestMethod.GET
-	public String freeBoard2(PagingVO pVo, Model model){
-		model.addAttribute("list", boardService.boardList(pVo));
-		return "/board/freeBoard2";
-	}
-
-
+	//자유게시판 리스트 /////////////////////////origin
+	
+	 @RequestMapping("/freeBoard2") //, value= method = RequestMethod.GET public
+	 public String freeBoard2(PagingVO pVo, Model model){
+		 model.addAttribute("list",boardService.boardList(pVo));
+		 return "board/freeBoard2"; 
+	 }
+	 
+	////////////////////////////////////////////////////////////
+	
+	 //프로필 모달 
+	 @RequestMapping(value="/freeBoardmodal" , method=RequestMethod.POST )
+	 @ResponseBody
+	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo) {
+		 System.out.println(mbVo.getM_nickname());
+		 System.out.println("들어온거 맞니? 여기?");
+		 System.out.println(mbVo.getM_name());
+		 System.out.println(mbVo.getM_gender());
+		 System.out.println(mbVo.getM_info());
+		 System.out.println(mbVo.getM_tag());
+		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		return resultvo;
+	
+	 }
+	 
+	 
+	/*
+	 * @RequestMapping(value="/freeBoard2") public String freeBoard2(Model model) {
+	 * model.addAttribute("list", boardService.boardList()); return
+	 * "/board/freeBoard2"; }
+	 */
+	
+	
 	//글내용보기
 	@RequestMapping("/freeview")
 	public String boardView(Model model, int board_seq) {
@@ -57,24 +82,36 @@ public class BoardController {
 
 	//자유게시판 글쓰기 등록
 
+	/*
+	 * @RequestMapping(value="/freeWriteOk",method=RequestMethod.POST ) public
+	 * ModelAndView freeWriteOk(BoardVO vo, HttpSession ses, HttpServletRequest req)
+	 * { vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq"))); int
+	 * result = boardService.freeboardWrite(vo); ModelAndView mav = new
+	 * ModelAndView();
+	 * 
+	 * if(result>0) { //글쓰기 성공시 리스트로 mav.setViewName("redirect:freeBoard2"); }else
+	 * {//글쓰기 폼으로 mav.setViewName("redirect:freeboardWrite"); } return mav; }
+	 */
+	
 	@RequestMapping(value="/freeWriteOk",method=RequestMethod.POST ) 
-	public ModelAndView freeWriteOk(BoardVO vo, HttpSession ses) {
-		System.out.println(Integer.parseInt((String)ses.getAttribute("logseq")));
-		System.out.println("subject" + vo.getBoard_subject());
-		System.out.println("content" +vo.getB_content());
-		vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq")));
-		System.out.println("sessiong"+ vo.getM_seq());
-		int result = boardService.freeboardWrite(vo);
-		ModelAndView mav = new ModelAndView();
+	   public ModelAndView freeWriteOk(BoardVO vo, HttpSession ses) {
+	      System.out.println("subject" + ses.getAttribute("logseq"));
+	      System.out.println("subject" + vo.getBoard_subject());
+	      System.out.println("content" +vo.getB_content());
+	      System.out.println("sessiong"+ vo.getM_seq());
 
-		if(result>0) { //글쓰기 성공시 리스트로
-			mav.setViewName("redirect:freeBoard2");
-		}else {//글쓰기 폼으로
-			mav.setViewName("redirect:freeboardWrite");
-		}
-		return mav;
-	}		
-
+	      vo.setM_seq(Integer.parseInt(ses.getAttribute("logseq").toString()));
+	      ModelAndView mav = new ModelAndView();
+	      int result = boardService.freeboardWrite(vo);
+	      if(result>0) { //글쓰기 성공시 리스트로
+	         mav.setViewName("redirect:freeBoard2");
+	      }else {//글쓰기 폼으로
+	         mav.setViewName("redirect:freeboardWrite");
+	      }
+	      return mav;
+	   }      
+	
+	
 	// vo.setIp(req.getRemoteAddr());*/
 	//vo.setM_userid((String)ses.getAttribute("login"));
 	/* vo.setM_nickname((String)ses.getAttribute("lognickname")); */
@@ -95,7 +132,8 @@ public class BoardController {
 	@RequestMapping(value="/freeEditOk", method=RequestMethod.POST)
 	public ModelAndView boardEditOk(BoardVO vo, HttpSession session){
 		vo.setM_userid((String)session.getAttribute("login"));
-		vo.setM_seq(Integer.parseInt((String)session.getAttribute("logseq"))); 
+		vo.setM_seq(Integer.parseInt(session.getAttribute("logseq").toString()));
+		/* vo.setM_seq(Integer.parseInt((String)session.getAttribute("logseq"))); */
 		/* vo.setM_nickname((String)session.getAttribute("lognickname")); */
 //		 vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq"))); 
 		System.out.println(vo.getM_userid());
@@ -121,8 +159,10 @@ public class BoardController {
 		
 		/* vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq"))); */
 		String userid= (String)ses.getAttribute("login"); //세션에 있는 아이디 필요
-		
-		int result = boardService.freeDelete(board_seq, userid);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userid", (String)ses.getAttribute("login"));
+		map.put("board_seq", board_seq);
+		int result = boardService.freeDelete(map);
 		ModelAndView mav = new ModelAndView();
 		if(result>0) {//삭제가 되면 리스트로
 			mav.setViewName("redirect:freeBoard2");
@@ -135,9 +175,17 @@ public class BoardController {
 	
 	
 
-	
+	/*
 	//댓글 쓰기
-	
+	@RequestMapping(value="/commentWrite", method=RequestMethod.POST) //view페이지에서 받아서 success로 리턴
+	public int commentWrite(Model model,Board_CommentVO commentVo, HttpSession ses) {
+		//댓글 작성자를 session 얻어오기
+		model.addAttribute("commentVo",boardService.commentInsert(commentVo));
+		commentVo.setM_seq((String)ses.getAttribute("logseq")); //object이니까 string으로 바꿔서
+		return "board/freeview";
+			
+	}
+	*/
 	
 	//댓글 목록
 	@RequestMapping(value="/commentList")
@@ -149,7 +197,18 @@ public class BoardController {
 		mav.setViewName("/board/freeview");
 		return mav;
 	}
+	
+	//게시물보기
+	@RequestMapping("/writeList")
+	public String writeList() {
+		return "/board/writeList";
+	}
 
+	@RequestMapping("/test")
+	public String test() {
+		System.out.print("ASfsadf");
+		return null;
+	}
 
 	/*
 	 * @RequestMapping("/freeBoard2") public String freeboardWrite() { return
