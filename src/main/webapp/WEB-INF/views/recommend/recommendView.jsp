@@ -71,7 +71,9 @@
         <!-- 3 댓글 텍스트박스 -->
         <textarea name="replyCommentTextarea" id="replyCommentTextarea"></textarea>
         <div>
-          <input type="button" name="writeReplyBtn" value="작성" />
+          <c:if test="${logname != null}">
+            <input type="button" name="writeReplyBtn" value="작성" />
+          </c:if>
         </div>
       </div>
     </div>
@@ -117,8 +119,10 @@
       </div>
     </div>
     <div id="bottomBtn">
-      <a href="/itda/matchingList"><input type="button" name="postListBtn" value="목록" /></a>
-      <a href="/itda/matchingUpload"><input type="button" name="postWriteBtn" value="글쓰기" /></a>
+      <a href="/itda/recommendList"><input type="button" name="postListBtn" value="목록" /></a>
+      <c:if test="${logname != null}">
+        <a href="/itda/recommendWrite"><input type="button" name="postWriteBtn" value="글쓰기" /></a>
+      </c:if>
     </div>
   </form>
 </div>

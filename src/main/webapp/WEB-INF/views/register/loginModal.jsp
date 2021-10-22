@@ -15,8 +15,8 @@
       <span>로그인상태유지</span>
     </label>
     <div class="loginBottumBtn">
-      <a href="" class="joinBtn2">회원가입</a>
-      <a href="" class="findId">아이디&비밀번호 찾기</a>
+      <a class="joinBtn2" id="joinBtn2">회원가입</a>
+      <a class="findId">아이디&비밀번호 찾기</a>
     </div>
   </article>
 </div>

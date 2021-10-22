@@ -45,7 +45,7 @@ img[name=profileShot]{
     margin-bottom:2%;
 }
 .contentWriter>div:first-child, .contentReply>div:nth-child(2)>div:first-child{
-    width:7%;
+    width: 100%;
     float:left;
 }
 .contentWriter>div:last-child{
@@ -228,7 +228,7 @@ input[name=postWriteBtn]{
 
 
 /* ---------------------------------------------------------- */
-/*¸ð´ÞÃ¢*/
+/*ï¿½ï¿½ï¿½Ã¢*/
 .matchingModal {
     display: none;
     position: fixed;
@@ -245,7 +245,7 @@ input[name=postWriteBtn]{
     display: none;
 }
 
-/* ¸ð´ÞÃ¢ ¹è°æ */
+/* ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ */
 .matchingModalOverlay {
     background: rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -255,7 +255,7 @@ input[name=postWriteBtn]{
     position: fixed;
 }
 
-/* ¸ð´ÞÃ¢ */
+/* ï¿½ï¿½ï¿½Ã¢ */
 .joinModalContent {
     position: relative;
     margin: 230px auto;
@@ -268,7 +268,7 @@ input[name=postWriteBtn]{
     overflow-y: auto;
 }
 
-/* ¸ð´ÞÃ¢ ¹öÆ° */
+/* ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½Æ° */
 .joinModalContent input {
     width: 100px;
     height: 40px;
@@ -290,7 +290,7 @@ input[name=postWriteBtn]{
 .joinModalContent input:nth-of-type(2):hover {
     background-color: rgba(192, 98, 82, 0.25);
 }
-/* ¹è³Ê */
+/* ï¿½ï¿½ï¿½ */
 #matchingDetailBanner{
     border-radius: 4px;
     position: absolute;

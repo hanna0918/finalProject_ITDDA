@@ -160,7 +160,12 @@ public interface MatchingDAO {
 	         + "      values ( "
 	         + "         board_seq.currval, "
 	         + "         #{board_select} )"
-	         + ""
+	         + " into mc_part ( "
+	         + "         mc_seq, "
+	         + "         m_seq ) "
+	         + "	  values ( "
+	         + "         mc_seq.currval, "
+	         + "         ${m_seq}) "
 	         + " select * from dual ")
 	public int matchingWriteOk(MatchingVO vo);
 }
