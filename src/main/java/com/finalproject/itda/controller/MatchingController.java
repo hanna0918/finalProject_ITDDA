@@ -59,8 +59,7 @@ public class MatchingController {
 	@RequestMapping(value="matchingView")
 	public ModelAndView matchingView(int board_seq) {
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> map = new HashMap<String, Object>();
-		int cnt = matchingService.countHit(board_seq);
+		matchingService.countHit(board_seq);
 		mav.addObject("part", matchingService.matchingUser(board_seq));
 		mav.addObject("vo", matchingService.matchingView(board_seq));
 		mav.setViewName("matching/matchingView");
@@ -97,13 +96,6 @@ public class MatchingController {
 		
 		matchingService.matchingEdit(board_seq, Integer.valueOf((String)test) );
 		return mav;
-	}
-	
-	// -----------------------------------글삭제
-	@RequestMapping("/matchingDelete")
-	public String matchingDelete(int board_seq) {
-		matchingService.matchingDelete(board_seq);
-		return "";
 	}
 	
 	@RequestMapping("/matchingConfirm")

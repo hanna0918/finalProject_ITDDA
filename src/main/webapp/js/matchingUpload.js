@@ -105,11 +105,6 @@ function tagInValue(){
 }
 
 
-function preventDefaultFunction(event){
-    console.log("왜되는거야");
-    event.preventDefault();
-}
-
 $("#matchingSubmitBtn").click(function(){
     if( tag.length <5 ) {
         $("#hiddenTagAllDone").css('display', 'block');

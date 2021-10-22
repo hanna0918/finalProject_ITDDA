@@ -70,13 +70,14 @@
                         <ul>
                             <li>${vo.board_writedate}</li>
                             <li>조회수 ${vo.board_hit}</li>
-                            <c:if test='${login != null && login != vo.m_userid}'>
+                            <c:choose>
+                            <c:when test='${login != null && login != vo.m_userid}'>
                             	<li>신고</li>
-                            </c:if>
-                            <c:if test='${vo.m_userid==login }'>
+                            </c:when>
+                            <c:when test='${vo.m_userid==login }'>
                             	<li><a href='/itda/matchingEdit?board_seq_seq=${vo.board_seq}&m_seq=${vo.m_seq}'>글수정</a></li>
-                            	<li><a href='/itda/matchingDelete?board_seq=${vo.board_seq}&m_seq=${vo.m_seq}'>글삭제</a></li>
-                            </c:if>
+                            </c:when>
+                            </c:choose>
                         </ul>
                     </div>
                 </div>
@@ -162,4 +163,4 @@
     </div>
     
 
-<script src="/itda/js/matchingView.js?version=111111111111111111111111111"></script>
+<script src="/itda/js/matchingView.js?version=11111111111111111111111111111111"></script>

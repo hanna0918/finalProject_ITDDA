@@ -1,7 +1,6 @@
 package com.finalproject.itda.service;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -51,11 +50,6 @@ public class MatchingServiceImp implements MatchingService {
 	@Override
 	public int matchingWriteOk(MatchingVO vo) {
 		return matchingDAO.matchingWriteOk(vo);
-	}
-
-	@Override
-	public int matchingDelete(int board_seq) {
-		return matchingDAO.matchingDelete(board_seq);
 	}
 
 	@Override

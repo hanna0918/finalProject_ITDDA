@@ -19,6 +19,14 @@ bannerLeft();
 /* Modal */
 /* ----------------------------------------------------------------- */
 $('#bannerBtn').click(function () {
+	if($("#logseq").val()=="") {
+		let tag = "";
+		tag += "<h1>로그인 후 이용해주세요</h1>";
+		tag += "<input type='button' id='closeBtn' value='확인'>";
+		$(".joinModalContent").html(tag);
+		$('.matchingModal').css('display', 'block');
+		return false;
+	}
 	bannerBtnValue = this.value;
 	bannerValue = bannerBtnValue.slice(7,12);
 	valueBan = bannerValue.split(" / ");
@@ -88,7 +96,8 @@ $(function(){
     function replyList(){
     	var m_seq = $("#logseq").val();
     	board_seq = $("#board_seq").val();
-        var rParam = `board_seq=${board_seq}`;
+    	console.log("board_seq = " + board_seq);
+        var rParam = `board_seq=${board_seq}&m_seq=${m_seq}`;
         var rUrl = "/itda/matchingReply";
         $.ajax({
             url: rUrl,
@@ -171,4 +180,5 @@ $(function(){
 		$("#modifyEditForm").submit();
 	});*/
 	replyList();
+	console.log("댓글 replyList() 호출했음?");
 });

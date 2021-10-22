@@ -11,6 +11,24 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <section id="matchingUploadFrame">
     <h1>매칭게시판</h1>
+    
+    
+    
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+    
+    <script>
+        function My_Date() {
+            document.getElementById("Test_Date").value = "2019-02-04";
+        }
+    </script>
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    
+    
+    
+    
+    
+    
+    
         <form method="post" action="#">
         <div id="matchingBasicInfoArea">
                 <div>

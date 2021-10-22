@@ -13,6 +13,8 @@ import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
 
 public interface MatchingDAO {
+	
+	// 매칭 리스트 조회하는 미친 쿼리 페이징하는 쿼리
 	@Select({"<script>",
 		" select count(b.board_seq) totalRecord ",
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
@@ -36,6 +38,8 @@ public interface MatchingDAO {
 		" </script>" })
 	public MatchingPagingVO page(MatchingPagingVO pVo);
 	
+	
+	// 매칭 리스트 조회하는 미친쿼리
 	@Select({" <script> ",
 		" select * from ",
 		" (select * from ",
@@ -97,6 +101,8 @@ public interface MatchingDAO {
 		" </script> "})
 	public List<MatchingVO> matchingList(MatchingPagingVO pVo);
 	
+	
+	// 매칭 글보기
 	@Select(" select * from (select a.board_seq, mc_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
 			+ "	mc_max, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select,"
 			+ " (select count(board_seq) from board_comment e where a.board_seq=e.board_seq) replyCount, "
@@ -113,18 +119,19 @@ public interface MatchingDAO {
 			+ " where board_seq=${param1}")
 	public MatchingVO matchingView(int b_id);
 	
+	
+	// 매칭 글 조회수 증가
 	@Update("update boardbase set board_hit=board_hit+1 where board_seq=${param1}")
 	public int countHit(int b_id);
 	
-	@Select("select a.board_seq, m_seq, m_board_subject, ")
-	public int matchingEdit(int board_seq, int m_seq);
 	
-	
-	
+	// 캘린더에 들어갈 값
 	@Select(" select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", "
 			+ " board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq")
 	public List<CalendarVO> dataForJson();
 	
+	
+	// 매칭 글등록
 	@Insert(" insert all "
 			+ "into boardbase ("
 			+ "			board_seq,"
@@ -138,7 +145,6 @@ public interface MatchingDAO {
 			+ "			2, "
 			+ "			#{board_subject}, "
 			+ "			#{b_content}) "
-			
 			+ "into mc_table("
 			+ "			mc_seq, "
 			+ "			board_seq, "
@@ -171,28 +177,40 @@ public interface MatchingDAO {
 			+ "			${m_seq}) "
 			+ " select * from dual ")
 	public int matchingWriteOk(MatchingVO vo);
+
 	
-	@Delete("")
-	public int matchingDelete(int board_seq);
+	// 매칭 글 수정
+	@Select(" select a.board_seq, board_subject, a.m_seq, mc_max, mc_state, mc_start_date, mc_end_date, mc_where, board_select "
+			+ " from boardbase a join mc_table b on a.board_seq=b.board_seq "
+			+ " join board_content c on a.board_seq=c.board_seq "
+			+ " where a.board_seq=${param1} and a.m_seq=${param2}")
+	public int matchingEdit(int board_seq, int m_seq);
 	
+	
+	// 매칭 인원 불러오는 쿼리문
 	@Select(" select m_nickname, m_rank from mc_part a join mc_table b on a.mc_seq = b.mc_seq join memberbase c on a.m_seq=c.m_seq where board_seq=${param1} ")
 	public List<MatchingVO> matchingUser(int board_seq);
 	
+	// 댓글 불러오기
 	@Select(" select board_seq, m_nickname, m_userid, a.m_seq, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate "
 			+ " from board_comment a join memberbase b on a.m_seq=b.m_seq where board_seq=${param1} "
 			+ " order by br_writedate asc ")
 	public List<BoardCommentVO> matchingReply(int board_seq);
 	
+	// 매칭 참가중인지 확인하는 쿼리문
 	@Select(" select m_seq from mc_part where mc_seq=${param1} and m_seq=${param2} ")
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq);
 	
+	// 매칭 참가 쿼리문
 	@Insert(" insert into mc_part values(${param2}, ${param1}) ")
 	public int matchingIn(int m_seq, int mc_seq);
 	
+	// 매칭 취소 쿼리문
 	@Delete(" delete from mc_part where m_seq=${param2} and mc_seq=${param1} ")
 	public int matchingCancel(int m_seq, int mc_seq);
 	
-	@Insert(" insert into board_comment (br_id, board_seq, br_content) "
-			+ " values(br_id.nextval, ${board_seq}, #{br_content}) ")
+	// 댓글 입력
+	@Insert(" insert into board_comment (br_id, board_seq, br_content, m_seq) "
+			+ " values(br_id.nextval, ${board_seq}, #{br_content}, ${m_seq}) ")
 	public int matchingReplyWrite(BoardCommentVO vo);
 }

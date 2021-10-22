@@ -2,15 +2,9 @@
 <<<<<<<=HEAD
 >>>>>>>=origin/hyuntae
 eclipse.preferences.version=1
-<<<<<<< HEAD
 encoding//src/main/java/com/finalproject/itda/controller/BoardController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/MatchingController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/MemberController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/dao/MatchingDAO.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/vo/BoardCommentVO.java=UTF-8
-=======
-encoding//src/main/java=UTF-8
-encoding//src/main/java/com/finalproject/itda/controller/BoardController.java=UTF-8
-encoding//src/main/java/com/finalproject/itda/controller/MatchingController.java=UTF-8
-encoding//src/main/java/com/finalproject/itda/controller/MemberController.java=UTF-8
->>>>>>> origin/wang
+encoding//src/main/java/com/finalproject/itda/vo/MemberBaseVO.java=UTF-8
