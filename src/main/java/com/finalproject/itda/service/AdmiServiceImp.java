@@ -4,11 +4,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.finalproject.itda.dao.AdminDAO;
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 
 
 
@@ -18,26 +17,24 @@ public class AdmiServiceImp implements AdminService {
 	@Inject
 	AdminDAO adminDAO;
 
-
-
 	@Override
-	public List<MemberVO> MemberList() 
+	public List<MemberBaseVO> MemberList() 
 	{
 		return adminDAO.MemberList();
 	}
 
 	@Override
-	public MemberVO MemberView(MemberVO vo) {
+	public MemberBaseVO MemberView(MemberBaseVO vo) {
 		return adminDAO.MemberView(vo);
 	}
 
 	@Override
-	public int MemberInsert(MemberVO vo) {
+	public int MemberInsert(MemberBaseVO vo) {
 		return adminDAO.MemberInsert(vo);
 	}
 
 	@Override
-	public int MemberUpdate(MemberVO vo) {
+	public int MemberUpdate(MemberBaseVO vo) {
 		return adminDAO.MemberUpdate(vo);
 	}
 

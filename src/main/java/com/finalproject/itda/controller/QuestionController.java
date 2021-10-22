@@ -25,7 +25,7 @@ public class QuestionController {
 	
 	@RequestMapping(value="/questionView")
 	public String questionView(Model model, int no) {
-		model.addAttribute(model)
+		model.addAttribute(model);
 		return "question/questionView";
 	}
 	

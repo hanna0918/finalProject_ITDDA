@@ -57,7 +57,7 @@
 				<div><!-- 3 댓글 텍스트박스 -->
 					<textarea name='replyCommentTextarea' id='replyCommentTextarea'></textarea>
 					<div>
-						<input type='button' name='writeReplyBtn' value='작성'/>
+						<input type='button' name='writeReplyBtn' class="viewBtn" value='작성'/>
 					</div>
 				</div>
 			</div>
@@ -72,8 +72,8 @@
 				</div>
 			</div>
 			<div id='bottomBtn'>
-				<input type='button' name='postListBtn' value='목록'/>
-				<input type='button' name='postWriteBtn' value='글쓰기'/>
+				<input type='button' name='postListBtn' class="viewBtn" value='목록'/>
+				<input type='button' name='postWriteBtn' class="viewBtn" value='글쓰기'/>
 			</div>
 
 		</form>

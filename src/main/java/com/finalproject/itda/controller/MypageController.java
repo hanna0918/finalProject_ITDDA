@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.ModelAndViewDefiningException;
 
 import com.finalproject.itda.service.MypageService;
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 @Controller
@@ -29,14 +28,14 @@ public class MypageController {
 	//내정보수정
 	@RequestMapping(value="/editMyInfo", method=RequestMethod.POST)
 	@ResponseBody 
-	public ModelAndView editMyInfo(MemberVO vo) {
+	public ModelAndView editMyInfo(MemberBaseVO vo) {
 		ModelAndView mav = new ModelAndView();
 		
 		return mav;
 	}
 	//내가 쓴 글--------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypagePostList")
-	public ModelAndView myPostList(MemberVO vo, HttpSession ses) {
+	public ModelAndView myPostList(MemberBaseVO vo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
 		vo.setM_seq((Integer)ses.getAttribute("logseq"));
 		
@@ -46,7 +45,7 @@ public class MypageController {
 	}
 	//내가 쓴 댓글--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageReplyList")
-	public ModelAndView mypageReplyList(MemberVO vo, HttpSession ses) {
+	public ModelAndView mypageReplyList(MemberBaseVO vo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
 		vo.setM_seq((Integer)ses.getAttribute("logseq")); 
 		

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 @import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
 /* qna 모달 */
 .AdminSendQnqModal {
@@ -30,9 +29,8 @@
 }
 /* qna 모달 */
 
-
 /* AllBoard 모달 */
-.AllSelectBoardModal{
+.AllSelectBoardModal {
   display: none;
   position: fixed;
   top: 0;
@@ -58,7 +56,6 @@
   background-color: white;
 }
 /* AllBoard 모달 */
-
 
 /**/
 /*모달창*/
@@ -88,15 +85,14 @@
   background-color: white;
 }
 
-label
+/* label
 {
-  font-size: 10px;
+  font-size: 15px;
   width: 100px;
   height: 20px;
-}
+} */
 
-.BoardViewModal
-{
+.BoardViewModal {
   display: none;
   position: fixed;
   top: 0;
@@ -108,7 +104,6 @@ label
   overflow-y: auto;
   -ms-overflow-style: none;
 }
-
 
 /*AdminMember*/
 .AdminInsertModal {
@@ -124,7 +119,8 @@ label
   -ms-overflow-style: none;
 }
 
-.AdminMemberModal { /*모달창*/
+.AdminMemberModal {
+  /*모달창*/
   position: relative;
   margin: 100px auto;
   width: 450px;
@@ -152,23 +148,23 @@ label
   -ms-overflow-style: none;
 }
 
-.AdminAMember { /*모달창*/
-   position: relative;
-   margin: 100px auto;
-   width: 450px;
-   padding: 20px;
-   text-align: center;
+.AdminAMember {
+  /*모달창*/
+  position: relative;
+  margin: 100px auto;
+  width: 450px;
+  padding: 20px;
+  text-align: center;
   border-radius: 10px;
   border: 2px solid #666;
   overflow-y: auto;
   background-color: white;
 }
 
-
 /*AdminAMember*/
 
 /* BoardBlack 모달 */
-.BlackBoardSelectModal{
+.BlackBoardSelectModal {
   display: none;
   position: fixed;
   top: 0;
@@ -196,31 +192,26 @@ label
 /* BoardBlack 모달 */
 
 /*공통 모달*/
-.ModalInput
-{
-  width:200px;
+.ModalInput {
+  width: 200px;
   height: 50px;
   text-align: left;
 }
 
-.ModalInput:focus
-{
+.ModalInput:focus {
   outline: none;
 }
 
-.Modalselect
-{
-  width:200px;
+.Modalselect {
+  width: 200px;
   height: 50px;
   text-align: left;
 }
-.Modallabel
-{
+.Modallabel {
   font-size: 20px;
   width: 100px;
   height: 30px;
   float: left;
-
 }
 
 .modalOverlay {

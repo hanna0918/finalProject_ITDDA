@@ -7,8 +7,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <div id="matchingFrame">
 	<header>
+	<div class="boardName">
+	    <h2>MATCHING</h2>
+	    <h4>나와 다른사람을 이어보세요!</h4>
+  	</div>
 		<div id="searchAndCalendar">
-			<form method="post" id="tagTranfer" action="<%=request.getContextPath()%>/matchingList">
+			<form method="post" id="tagTranfer" onsubmit="return false">
 				<div>
 					<input type="text" name="searchText" id="searchText"/>
 				</div>
@@ -19,7 +23,7 @@
 					<div id="hiddenTag3" style="display: none;"></div>
 					<div id="hiddenTag4" style="display: none;"></div>
 				</div>
-				<a href="#" class="button" id="calendarBtn">달력</a>
+				<a class="button" id="calendarBtn">달력</a>
 			<div id="selectedDateDiv" style="display: none;"></div>
 			</form>
 		</div>
@@ -80,11 +84,11 @@
 	    	</c:if>
 		</c:forEach>
 		<c:if test="${pVo.nowPage<pVo.totalPage}">
-	    	<li class='page-item'><a href="javascript:matchingPaging(${pVo.onePageNumCount+1})">Next</a></li>
+	    	<li class='page-item'><a href="javascript:matchingPaging(${pVo.nowPage+1})">Next</a></li>
 	    </c:if>
 	</ul>
 </div>
 		<a href="/itda/matchingUpload" class="button" id="calendarBtn" id="matchingUploadBtn">글쓰기</a>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=333333333333333333333333333"></script>
+<script src="/itda/js/matchingList.js?version=3333333333333333333333333333333333"></script>

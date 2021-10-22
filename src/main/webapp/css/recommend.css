@@ -1,0 +1,49 @@
+ @charset "UTF-8";
+@font-face {
+  font-family: "IBMPlexSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+현태씨 코드 복사하여 가져온것 
+#recommendUploadFrame {
+  font-family: "IBMPlexSansKR-Regular";
+  width: 1100px;
+  margin: 50px auto;
+  overflow: auto;
+}
+#recommendBasicInfoArea {
+  overflow: auto;
+  margin: 0 auto;
+  width: 97%;
+}
+
+踰꾪듉
+#recommendSubmitBtn,
+#recommendCancelBtn {
+  background-color: white;
+  width: 100px;
+  font-size: 2em;
+  padding: 0;
+  border-radius: 3px;
+  margin: 10px;
+}
+#recommendSubmitBtn {
+  float: right;
+  background-color: rgba(42, 135, 197, 0.2);
+  border: 1px solid rgba(255, 99, 72, 0.2);
+}
+#recommendCancelBtn {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: rgba(192, 98, 82, 0.2);
+  border: 1px solid rgba(255, 99, 72, 0.2);
+}
+#recommendSubmitBtn:hover {
+  background-color: rgba(42, 135, 197, 0.25);
+}
+#recommendCancelBtn:hover {
+  background-color: rgba(192, 98, 82, 0.25);
+}

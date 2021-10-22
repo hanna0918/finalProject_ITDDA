@@ -4,9 +4,9 @@
 <%@ include file="/WEB-INF/views/register/loginModal.jsp" %>
       <!-- footer -->
     
-      </div>
+      </div><!-- mainContent end -->
       <footer class="footer">test bottom</footer>
-    </div>
+    </div><!-- wrapper end -->
     <script defer type="text/javascript" src="js/admin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script defer type="text/javascript" src="js/mainScript.js?1"></script>

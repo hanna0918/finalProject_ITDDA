@@ -4,8 +4,10 @@
 
 	<div id='container'>
 		<!-- 게시판제목 -->
-		<h2>인증게시판</h2>
-		<h4>나의 활동을 인증해보자!</h4>
+		<div class="boardName">
+		    <h2>HANGOUT</h2>
+		    <h4>나의 활동을 인증해보자!</h4>
+  		</div>
 		<!-- 검색창 -->
 		<div id='searchDiv'>
 			<input type='text' id='searchTag' name='searchTag' placeholder='&nbsp;#태그를입력하세요!' />
@@ -14,7 +16,7 @@
 		<div id='pic'>
 			<c:forEach var="ivo" items="${list}">
 				<div>
-					<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' id='injeungImg' /></div>
+					<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
 					<div>${ivo.board_subject}</div>
 					<div><img name='heartIcon' src='/itda/img/recommend4.png' />${ivo.b_goodhit} &nbsp;&nbsp;<img  name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 					<div class='injeungContentWriter'><!-- 작성자 -->

@@ -1,10 +1,14 @@
 package com.finalproject.itda.dao;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
 
@@ -14,39 +18,20 @@ public interface MatchingDAO {
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
+		" where board_block=0 ",
 		" <if test='tag != null and tag != \"\"'> ",
-		" where ",
-		" <foreach item='item' collection='tag' open='' separator='and' close=''> ",
-		" board_select like '%${item}%' ",
+		" <foreach item='item' collection='tag' open='' separator='' close=''> ",
+		" and board_select like '%${item}%' ",
 		" </foreach> ",
 		" </if> ",
-		" <choose> ",
-		" <when test='tag != null and selectedDate != null'> ",
-		" and mc_start_date=to_date(#{selectedDate}, 'YYYY-MM-DD') ",
-		" </when> ",
-		" <when test='tag == null and selectedDate != null'> ",
-		" where mc_start_date=to_date(#{selectedDate}, 'YYYY-MM-DD') ",
-		" </when> ",
-		" </choose> ",
+		" <if test='selectedDate != null and selectedDate != \"\"'> ",
+		" and to_char(mc_start_date,'YYYY-MM-DD')=#{selectedDate} ",
+		" </if> ",
 		" <if test='frequency != null and frequency != 0'> ",
-		" <choose> ",
-		" <when test='tag == null and selectedDate == null'> ",
-		" where mc_state=#{frequency} ",
-		" </when> ",
-		" <otherwise> ",
 		" and mc_state=#{frequency} ",
-		" </otherwise> ",
-		" </choose> ",
 		" </if> ",
 		" <if test='listup != null and listup != 0'> ",
-		" <choose> ",
-		" <when test='tag == null and selectedDate == null and frequency != 1 and frequency !=2'> ",
-		" where mc_start_date <![CDATA[>]]> sysdate ",
-		" </when> ",
-		" <otherwise> ",
 		" and mc_start_date <![CDATA[>]]> sysdate ",
-		" </otherwise> ",
-		" </choose> ",
 		" </if> ",
 		" </script>" })
 	public MatchingPagingVO page(MatchingPagingVO pVo);
@@ -58,39 +43,20 @@ public interface MatchingDAO {
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
+		" where board_block=0 ",
 		" <if test='tag != null and tag != \"\"'> ",
-		" where ",
-		" <foreach item='item' collection='tag' open='' separator='and' close=''> ",
-		" board_select like '%${item}%' ",
+		" <foreach item='item' collection='tag' open='' separator='' close=''> ",
+		" and board_select like '%${item}%' ",
 		" </foreach> ",
 		" </if> ",
-		" <choose> ",
-		" <when test='tag != null and selectedDate != null'> ",
+		" <if test='selectedDate != null and selectedDate != \"\"'> ",
 		" and to_char(mc_start_date,'YYYY-MM-DD')=#{selectedDate} ",
-		" </when> ",
-		" <when test='tag == null and selectedDate != null'> ",
-		" where to_char(mc_start_date,'YYYY-MM-DD')=#{selectedDate} ",
-		" </when> ",
-		" </choose> ",
+		" </if> ",
 		" <if test='frequency != null and frequency != 0'> ",
-		" <choose> ",
-		" <when test='tag == null and selectedDate == null'> ",
-		" where mc_state=#{frequency} ",
-		" </when> ",
-		" <otherwise> ",
 		" and mc_state=#{frequency} ",
-		" </otherwise> ",
-		" </choose> ",
 		" </if> ",
 		" <if test='listup != null and listup != 0'> ",
-		" <choose> ",
-		" <when test='tag == null and selectedDate == null and frequency != 1 and frequency !=2'> ",
-		" <![CDATA[where mc_start_date > sysdate]]> ",
-		" </when> ",
-		" <otherwise> ",
 		" and mc_start_date <![CDATA[>]]> sysdate ",
-		" </otherwise> ",
-		" </choose> ",
 		" </if> ",
 		" <choose> ",
 		" <when test='listup != null and listup != 0'> ",
@@ -132,10 +98,10 @@ public interface MatchingDAO {
 	@Select(" select * from (select a.board_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
 			+ "	mc_max, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select, "
 			+ " lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, "
-			+ " lag(board_subject, 1, '이전 글이 없습니다.') over(order by a.board_seq) board_prev_subject, "
+			+ " lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject, "
 			+ " lag(board_select, 1) over(order by a.board_seq) board_prev_select, "
 			+ " lead(a.board_seq, 1) over(order by a.board_seq) board_next_seq, "
-			+ " lead(board_subject, 1, '다음 글이 없습니다.') over(order by a.board_seq) board_next_subject, "
+			+ " lead(board_subject, 1, '다음글이 없습니다.') over(order by a.board_seq) board_next_subject, "
 			+ " lead(board_select) over(order by a.board_seq) board_next_select "
 			+ "	from boardbase a inner join memberbase b on a.m_seq=b.m_seq "
 			+ "	inner join mc_table c on a.board_seq=c.board_seq "
@@ -150,10 +116,53 @@ public interface MatchingDAO {
 	@Select("select a.board_seq, m_seq, m_board_subject, ")
 	public int matchingEdit(int board_seq, int m_seq);
 	
-//	@Select(" select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') 'start', board_subject as 'title' "
-//			+ " from boardbase b inner join mc_table m on b.board_seq=m.board_seq")
-//	
-//	public List<CalendarVO> dataForJson();
+	
+	
+	@Select(" select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", "
+			+ " board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq")
+	public List<CalendarVO> dataForJson();
+	
+	@Insert(" insert all "
+	         + "into boardbase ("
+	         + "         board_seq,"
+	         + "         m_seq, "
+	         + "         board_code, "
+	         + "         board_subject, "
+	         + "         b_content) "
+	         + "      values ("
+	         + "         board_seq.nextval, "
+	         + "         ${m_seq}, "
+	         + "         2, "
+	         + "         #{board_subject}, "
+	         + "         #{b_content}) "
+	         
+	         + "into mc_table("
+	         + "         mc_seq, "
+	         + "         board_seq, "
+	         + "         m_seq, "
+	         + "         mc_max, "
+	         + "         mc_state ,"
+	         + "         mc_start_date, "
+	         + "         mc_end_date, "
+	         + "         mc_where) "
+	         + "      values ( "
+	         + "         mc_seq.nextval, "
+	         + "         board_seq.currval, "
+	         + "         ${m_seq}, "
+	         + "         ${mc_max}, "
+	         + "         ${mc_state}, "
+	         + "         to_date(#{mc_start_date},'yyyy-mm-dd hh24:mi'), "
+	         + "         to_date(#{mc_end_date},'yyyy-mm-dd hh24:mi'), "
+	         + "         #{mc_where}) "
+	         + " into board_content ( "
+	         + "         board_seq, "
+	         + "         board_select ) "
+	         + "      values ( "
+	         + "         board_seq.currval, "
+	         + "         #{board_select} )"
+	         + ""
+	         + " select * from dual ")
+	public int matchingWriteOk(MatchingVO vo);
 }
 
 

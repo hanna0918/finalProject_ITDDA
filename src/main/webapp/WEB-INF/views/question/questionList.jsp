@@ -3,21 +3,28 @@
 
 	<div class='boardContainer'>
 		<!-- 게시판제목 -->
-		<h1>Q&A</h1>
-		<div>궁금한건 못참지! 궁금함을 공유해보세요!</div>
+		<div class="boardName">
+		    <h2>Q&A</h2>
+		    <h4>궁금한건 못참지! 궁금함을 공유해보세요!</h4>
+  		</div>
+
 		<!-- 검색창 -->
-		<div class='allSearch'>
-			<form method="get" action="">
-				<select name='searchSelec'>
-					<option>전체</option>
-					<option>글제목</option>
-					<option>작성자</option>
-					<option>내용</option>
-					<option>제목+내용</option>
-				</select> &nbsp; &nbsp; <input type='text' id='search' name='search' placeholder='검색어를 입력하세요' />&nbsp;&nbsp;
-										<input type='submit' name='searchContent' value='검색'/>
-			</form>
-		</div>
+		<!-- 검색창 -->
+	  <div class="allSearch">
+	    <form>
+		    <div>
+			   <select name="searchSelect">
+			        <option>전체</option>
+			        <option>글제목</option>
+			        <option>작성자</option>
+			        <option>내용</option>
+			        <option>제목+내용</option>
+			  </select>
+			  <input type="text" id="search" name="search" placeholder="검색어를 입력하세요" />
+			  <div><img src="img/magnifyingglass.png"></div>
+		    </div>
+	    </form>
+	  </div>
 		<!-- 인증게시판/QnA 리스트 -->
 		<div class='boardList'>
 			<ul id='quesTitle'>
@@ -43,20 +50,22 @@
 			</c:forEach>
 		</div>
 		
-		<!-- 글쓰기 버튼 -->
-		<div class="boardBtnDiv">
-			<input type="button" value="글쓰기" class="writeBtn" onclick="location.href='/itda/writeQuestion'"/>
-		</div>
-		<!-- 페이지번호 -->
-		<div class='pagingDiv'>
-			<ul>
-				<li><a href='#'>◁</a></li>
-				<li><a href='#'>1</a></li>
-				<li><a href='#'>2</a></li>
-				<li><a href='#'>3</a></li>
-				<li><a href='#'>4</a></li>
-				<li><a href='#'>5</a></li>
-				<li><a href='#'>▷</a></li>
-			</ul>
+		<div>
+			<!-- 글쓰기 버튼 -->
+			<div class="boardBtnDiv">
+				<input type="button" value="글쓰기" class="writeBtn" onclick="location.href='/itda/writeQuestion'"/>
+			</div>
+			<!-- 페이지번호 -->
+			<div class='pagingDiv'>
+				<ul>
+					<li><a href='#'>◁</a></li>
+					<li><a href='#'>1</a></li>
+					<li><a href='#'>2</a></li>
+					<li><a href='#'>3</a></li>
+					<li><a href='#'>4</a></li>
+					<li><a href='#'>5</a></li>
+					<li><a href='#'>▷</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>

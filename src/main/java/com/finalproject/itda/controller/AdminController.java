@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.finalproject.itda.service.AdminService;
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 
 @Controller
 public class AdminController {
@@ -31,7 +30,7 @@ public class AdminController {
 		return "admin/adminInsert";}
 
 	@RequestMapping(value = "/adminInsertOk", method = RequestMethod.POST)
-	public ModelAndView adminInsertOk(MemberVO vo, HttpSession session) {
+	public ModelAndView adminInsertOk(MemberBaseVO vo, HttpSession session) {
 		int cnt = adminService.MemberInsert(vo);
 		ModelAndView mav = new ModelAndView();
 		if (cnt > 0) { 
@@ -50,14 +49,14 @@ public class AdminController {
 		return "admin/MemberList";}
 //멤버 모달에 출력
 	@RequestMapping(value="/MemberView", method=RequestMethod.POST)
-	@ResponseBody public MemberVO AdminMemberView(MemberVO vo) {
+	@ResponseBody public MemberBaseVO AdminMemberView(MemberBaseVO vo) {
 			System.out.println(vo.getM_seq()); 
-			MemberVO membervo =adminService.MemberView(vo);
-			return membervo; }
+			MemberBaseVO MemberBaseVO =adminService.MemberView(vo);
+			return MemberBaseVO; }
 	
 //멤버 모달에서 update
 	@RequestMapping(value="/MemberUpdate", method=RequestMethod.POST)
-	   public ModelAndView MemberUpdate(MemberVO vo) {
+	   public ModelAndView MemberUpdate(MemberBaseVO vo) {
 	      int cnt = adminService.MemberUpdate(vo);
 	      ModelAndView mav = new ModelAndView();
 	      if(cnt>0) { // 글쓰기 성공
