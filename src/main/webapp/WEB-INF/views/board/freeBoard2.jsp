@@ -458,8 +458,9 @@ body{
 		<div class="blockJoinModal2" id="blockJoinModal2">
 				<article class="blockModalContent2 blockDataInputModal2" style="width: 300px; padding:0;">
 					
+					
+					<div id="testChadan">
 					<%-- 
-					<div>
 						<div style="background: cornflowerblue; height: 25px;"></div>
 						<h4>" ${m_userid } "님이 차단되었습니다.</h4>
 						
@@ -467,8 +468,9 @@ body{
 				        style="position:absolute;top: 0px; right: 1px;;"/></a>
 				     
 				       <!-- <div><input type="button" value="확인"/></div> -->
+				        --%>
 					</div>
-					 --%>
+					
 				</article>
 		</div>
 		
@@ -516,7 +518,7 @@ body{
 		<div class="gudokJoinModal" id="gudokJoinModal">
 				<article class="gudokModalContent gudokDataInputModal">
 					<div>
-						<h4>" ${m_userid }" 님을 구독하시겠습니까?</h4>
+						<h4>" 구독하시겠습니까? </h4>
 						<input type="submit" value="네, 구독할래요." id="yesGudok"  />
 						<input type="button" value="취소" id="noGudok" />
 						 
@@ -530,13 +532,13 @@ body{
 		<!-- --------------구독 yes 모달창  ----------->
 		<div class="gudokJoinModal2" id="gudokJoinModal2">
 				<article class="gudokModalContent2 gudokDataInputModal2" style="width: 300px; padding:0;">
-					<div>
-						<div style="background: cornflowerblue; height: 25px;"></div>
-						<h4>" ${m_userid } "님 구독이 완료되었습니다.</h4>
+					<div id="testGudok">
+						<%-- <div style="background: cornflowerblue; height: 25px;"></div>
+						<h4>" ${m_username } "님 구독이 완료되었습니다.</h4>
 						
 						<a><img src="/itda/img/close1.png" class="close6" 
 				        style="position:absolute;top: 0px; right: 1px;;"/></a>
-				        <!-- <div><input type="button" value="확인"/></div> -->
+				        <!-- <div><input type="button" value="확인"/></div> --> --%>
 					</div>
 				</article>
 		</div>
@@ -671,10 +673,8 @@ body{
               $('#test').html(tag);
               console.log(tag);
            
-              
-
             }, error: function () {  //////////////4 
-              console.log("싰빠이");
+              console.log("싰빠이프로필");
             }
 
           });////////////////3 ajax
@@ -732,24 +732,31 @@ body{
               var result = $(result);
               console.log(result);
               var tag = "";	
-	      		
+	      	  
+            
+	          	tag+=`<div class='profilJoinModal' id='profilJoinModal'></div>`;
+	          	tag+="<h4>" + result[0].m_nickname + "님이 차단되었습니다." +"</h4>";
+	           	tag+=`<div>`;
+	              	tag+= "<input type='submit' id ='chadanOk' value='확인'/>";
+	            tag+=`</div>`;
               
-        
-         
-        
+              
+              console.log(tag);
+              $('#testChadan').html(tag);
+              console.log(tag);
+           
+              
+
+            }, error: function () {  //////////////4 
+              console.log("싰빠이차단");
+            }
+
+          });////////////////3 ajax
+          nickname="";
+		  console.log("초기화후:"+nickname);
+              
           
-			   
-			   
-			   
-			   
-			   
-			   
-			   
-			   
-			   
-			   
-			   
-			   
+		  
 			   /////////////////////////////////////////////////////////////
 			   //취소
 			  $(document).on("click", "#noChadan ", function(){
@@ -770,20 +777,80 @@ body{
 				$('.blockDataInputModal2').css('display', 'block');
 				$('.blockJoinModal2').css('display', 'block');
 			
-					//x버튼
-					$(document).on("click", ".close2 ", function(){	   
+					//x확인버튼 
+					$(document).on("click", "#chadanOk", function(){	   
 						 $('.blockJoinModal2').css('display', 'none'); 
 				   
-					});  //x버튼
+					});  //x확인버튼
 			 }); //차단 예쓰
 		
 		  });  //.chadan document 이벤트 
         
+       //////////////////////////////////////구독하기////////////////////////////////////////////// 
         
-        
-      
+		  /*구독하기 모달창*/
+		  
+		  $(document).on("click", ".gudok", function(){
+			   $('.gudokDataInputModal').css('display', 'block');
+			   $('.gudokJoinModal').css('display', 'block');
+		///////////////////////////////////////////////////////////////////////////////////////////
+		
+		$.ajax({ /////////////////////////////////3
+            url:'/itda/freeBoardmodalGudok', 
+            data: nickname1,
+            type: 'POST',
+            success: function (result) { ///////////////////4
+              var result = $(result);
+              console.log(result);
+              var tag = "";	
+	         
+              	tag+=`<div style='background: cornflowerblue; height: 25px;'></div>`;
+      			tag+= "<h4>" + result[0].m_nickname + "님 구독이 완료되었습니다." + "</h4>";
+      			tag += `<div>`; 
+      			tag += "<input type='submit' id='gudokOk' value='확인'/>";
+      			tag += `</div>`; 
+      			
+              console.log(tag);
+              $('#testGudok').html(tag);
+              console.log(tag);
+           
+            }, error: function () {  //////////////4 
+              console.log("싰빠이구독");
+            }
+
+          });////////////////3 ajax
+          nickname="";
+		  console.log("초기화후:"+nickname);   
+			   
+			   
+			   
+			   //취소버튼
+			   
+			     $(document).on("click", "#noGudok", function(){
+					 $('.gudokJoinModal').css('display', 'none');  
+			 	 });   
+			   
+			   //x버튼
+			   $(document).on("click", ".close5", function(){
+					  $('.gudokJoinModal').css('display', 'none');  
+					});  
+			
+			  //구독하기 버튼 
+			   $(document).on("click", "#yesGudok", function(){
+					   $('.gudokJoinModal').css('display', 'none');  
+					   
+					   //보내기 yes 모달창
+					   $('.gudokDataInputModal2').css('display', 'block');
+					   $('.gudokJoinModal2').css('display', 'block');
+					   
+					 //x확인버튼
+					   $('#gudokOk').click(function () {
+							  $('.gudokJoinModal2').css('display', 'none');  
+						}); //x확인버튼
+				   }); //구독하기 
+				}); //구독하기 모달
     
-    
+    	/*//////////////////////////////////쪽지 모달창////////////////////////////////////*/
     
     
     
@@ -824,36 +891,7 @@ body{
 			 
 			}); 
 			
-			/*구독하기 모달창*/
-			$('.gudok').click(function () {
-			   $('.gudokDataInputModal').css('display', 'block');
-			   $('.gudokJoinModal').css('display', 'block');
-			   
-			   //취소버튼
-			   $('#noGudok').click(function () {
-					 $('.gudokJoinModal').css('display', 'none');  
-			  });   
-			   
-			   //x버튼
-			    $('.close5').click(function () {
-					  $('.gudokJoinModal').css('display', 'none');  
-					});  
 			
-			  //구독하기 버튼 
-			    $('#yesGudok').click(function () {
-					   $('.gudokJoinModal').css('display', 'none');  
-					   
-					   //보내기 yes 모달창
-					   $('.gudokDataInputModal2').css('display', 'block');
-					   $('.gudokJoinModal2').css('display', 'block');
-					   
-					 //x버튼
-					   $('.close6').click(function () {
-							  $('.gudokJoinModal2').css('display', 'none');  
-						}); 
-				   });
-				 
-				}); 
 		
 	/* 		//프로필 모달창
 			 $('#profil').click(function () {

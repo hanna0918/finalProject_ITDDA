@@ -47,16 +47,42 @@ public class BoardController {
 	 @RequestMapping(value="/freeBoardmodal" , method=RequestMethod.POST )
 	 @ResponseBody
 	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo) {
-		 System.out.println(mbVo.getM_nickname());
-		 System.out.println("들어온거 맞니? 여기?");
-		 System.out.println(mbVo.getM_name());
-		 System.out.println(mbVo.getM_gender());
-		 System.out.println(mbVo.getM_info());
-		 System.out.println(mbVo.getM_tag());
+			/*
+			 * System.out.println(mbVo.getM_nickname());
+			 * System.out.println("들어온거 맞니? 프로필?"); System.out.println(mbVo.getM_name());
+			 * System.out.println(mbVo.getM_gender()); System.out.println(mbVo.getM_info());
+			 * System.out.println(mbVo.getM_tag());
+			 */
 		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
 		return resultvo;
 	
 	 }
+	 
+	 
+	 //차단 모달
+	 @RequestMapping(value="/freeBoardmodalChadan" , method=RequestMethod.POST )
+	 @ResponseBody
+	 public MemberbaseVO freeBoardmodalChadan(MemberbaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 차단?");
+		 System.out.println(mbVo.getM_nickname());
+		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+			return resultvo;
+	 }
+	
+	 //구독 모달
+	 @RequestMapping(value="/freeBoardmodalGudok" , method=RequestMethod.POST )
+	 @ResponseBody
+	 public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 구독?");
+		 System.out.println(mbVo.getM_nickname());
+		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+			return resultvo;
+	 }
+	 
+	
+	 
+	 
+	 
 	 
 	 
 	/*

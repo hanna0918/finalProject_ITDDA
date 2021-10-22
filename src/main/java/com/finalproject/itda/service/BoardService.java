@@ -13,7 +13,9 @@ import com.finalproject.itda.vo.PagingVO;
 
 public interface BoardService {
 	public List<BoardVO> boardList(PagingVO pVo); //글목록 리스트 origin
-	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo);
+	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo); // 프로필 모달창 
+	 public MemberbaseVO freeBoardmodalChadan(MemberbaseVO mbVo); //차단
+	 public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo);  //구독
 	/* public List<BoardVO> boardList(); */
 	public PagingVO totalRecordCount(PagingVO pVo); //검색
 	public int freeboardWrite(BoardVO vo); //글쓰기

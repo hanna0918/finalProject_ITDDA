@@ -67,13 +67,26 @@ public class BoardServiceImp implements BoardService {
 		return boardDAO.commentInsert(commentVo);
 	}
 
-
+	//프로필 모달창
 	@Override
 	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo){
 		return boardDAO.freeBoardmodal(mbVo);
 	}
 
+	//차단 모달창
+	@Override
+	public MemberbaseVO freeBoardmodalChadan(MemberbaseVO mbVo) {
+		return boardDAO.freeBoardmodalChadan(mbVo);
+	}
 
+	//구독 모달창
+	@Override
+	public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo) {
+		return boardDAO.freeBoardmodalGudok(mbVo);
+	}
+
+	
+	
 
 
 

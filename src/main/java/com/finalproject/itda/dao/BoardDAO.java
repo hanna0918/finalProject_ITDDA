@@ -136,6 +136,20 @@ public interface BoardDAO {
 		/* @Select("select * from memberbase where m_nickname = #{m_nickname}") */
 		 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo);
 	
+	//차단 모달창
+		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
+		public MemberbaseVO freeBoardmodalChadan(MemberbaseVO mbVo);   
+	
+	//구독 모달창 
+		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
+		public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo);   
+		
+		
+		
+		
+		
+		
+		
 	/*
 	 * //페이징
 	 * 
