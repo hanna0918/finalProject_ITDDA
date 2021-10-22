@@ -4,18 +4,18 @@
 	<div id='postViewDiv'><!-- 게시글뷰 페이지 -->
 		<form>
 			<div class='contentTitle'><!-- 카테고리,제목 -->
-				<div>카테고리</div>
-				<div>Uluru 울룰루 안갔다온게 한이된다 진짜 다시간다 호주!!!!</div>
+				<div>Q&A</div>
+				<div>${vo.board_subject}</div>
 			</div>
 			<div class='contentWriter'><!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
-					<div>내가순찬</div>
+					<div>${vo.m_seq}</div>
 					<div>
 						<ul>
-							<li>2021-09-18</li>
-							<li>조회수 18</li>
-							<li>신고</li>
+							<li>${vo.board_writedate}</li>
+							<li>${vo.board_hit}</li>
+							<li>${vo.board_call}</li>
 						</ul>
 					</div>
 				</div>
@@ -23,28 +23,13 @@
 			<div class='contentView'>
 				<div><span>#울룰루</span><span>#호주</span><span>#안가보면</span><span>#후회할걸</span><span>#그래서</span><span>#내가후회중</span></div>
 				<!-- 글내용박스 -->
-				Uluru is an inselberg, meaning "island mountain". An
-				inselberg is a prominent isolated residual knob or hill that rises
-				abruptly from and is surrounded by extensive and relatively flat
-				erosion lowlands in a hot, dry region. 
-				<img src='https://apod.nasa.gov/apod/image/2105/UluruOrion_Liu_1080.jpg' style='width: 900px;' />
-				Uluru is also often
-				referred to as a monolith, although this is an ambiguous term that
-				is generally avoided by geologists. The remarkable feature of
-				Uluru is its homogeneity and lack of jointing and parting at bedding
-				surfaces, leading to the lack of development of scree slopes and
-				soil. These characteristics led to its survival, while the
-				surrounding rocks were eroded. For the purpose of mapping and
-				describing the geological history of the area, geologists refer to
-				the rock strata making up Uluru as the Mutitjulu Arkose, and it is
-				one of many sedimentary formations filling the Amadeus Basin. 
-				
+				${vo.b_content}
 			</div>
 			<div class='contentReply'>
 				<div><!-- 1 좋아요/댓글수 -->
-					<img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> 15&nbsp;&nbsp;
+					<img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit}&nbsp;&nbsp;
 					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
-					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> 2</span>
+					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_black}</span>
 				</div>
 				<div><!-- 2 댓글박스 -->
 					<div><img src='img/circle.png' name='profileShot'></div>

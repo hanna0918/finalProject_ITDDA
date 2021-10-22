@@ -21,12 +21,18 @@ li {
   padding: 0;
   list-style-type: none;
 }
+
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
+
+/* body::-webkit-scrollbar,
+.mainContent::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+} */
 a:link {
   color: black;
   text-decoration: none;
@@ -46,21 +52,22 @@ a:visited {
 /* 네비게이션 start */
 .mainHeader {
   margin: 0 auto;
-  width: 1700px;
-}
-.topMenu { 
-  text-align: center;
+  width: 1100px;
+  height: 115px;
+  box-sizing: border-box;
 }
 
 .topMenu > li {
+  margin: 1%;
   float: left;
-  padding: 0 15px;
-  height: 160px;
-  line-height: 160px;
+  height: 80px;
+  line-height: 80px;
   font-size: 20px;
+  letter-spacing: -1px;
+  color: #000000ba;
 }
 .topMenu > li > a > img {
-  width: 220px;
+  width: 150px;
   text-align: center;
   cursor: pointer;
 }
@@ -73,6 +80,7 @@ a:visited {
   /* font-family: "바탕체"; */
   font-family: "Nanum Pen Script", cursive;
   /* font-family: "Jua", sans-serif; */
+  margin-left: 0;
 }
 .topMenu > li:nth-child(n + 9) {
   font-size: 1.5em;
@@ -82,27 +90,32 @@ a:visited {
 .topMenu a:visited,
 .topMenu a:active {
   text-decoration: none;
-  color: black;
+  color: #000000ba;
 }
 .topMenu a:hover {
   /* color: rgba(131, 125, 125, 0.952); */
 }
 .topMenu_r {
-  text-align: center;
-  line-height: 160px;
-  font-size: 20px;
+  float: right;
+  width: 20%;
+  text-align: right;
+  line-height: 115px;
+  font-size: 14px;
+}
+.topMenu_r label {
+  margin-right: 2%;
+  font-size: 1em;
 }
 .topMenu_r a {
   padding: 0 10px;
 }
-.loginBtnBox {
-  float: right;
-  font-size: 20px;
-}
+
 /* 네비게이션 end */
 
 /* 실제 content 들어가는 영역 스타일 */
-.mainContent { 
+.mainContent {
+  flex: 1;
+  width: 1100px;
   margin: 0 auto;
   overflow: auto;
 }
@@ -197,7 +210,8 @@ a:visited {
 
 /* 매칭게시판 설정 ----------------------------------------------- */
 /* section 설정 */
- 
+.matchingBoard {
+  /* width: 1100px; */
 }
 .matchingBoard h1:nth-child(1) {
   border-bottom: 1px solid black;
@@ -282,6 +296,7 @@ a:visited {
 
 .footer {
   /* 높이를 지정하지 않도록 한다. */
+  margin-top: 120px;
   padding: 30px 0;
   color: white;
   background: black;
@@ -323,7 +338,7 @@ a:visited {
 
 .joinModalContent {
   position: relative;
-  margin: 30px auto;
+  margin: 0 auto;
   width: 400px;
   padding: 20px;
   background-color: #fafafa;
@@ -554,7 +569,6 @@ a:visited {
 }
 .autoLoginLabel {
   overflow: auto;
-  display: none;
 }
 
 /* 메인페이지 스타일 정의 */

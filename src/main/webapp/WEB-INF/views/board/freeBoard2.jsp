@@ -374,9 +374,12 @@ body{
 </style>
 
 <body>
+	<!-- 게시판제목 -->
+	<div class="boardName">
+	    <h2>자유</h2>
+	    <h4>아무말 대잔치를 열어보자!</h4>
+  	</div>
 	<div id='qNaContainer'>
-		<!-- 게시판제목 -->
-		<h1>아무말 대잔치</h1>
 		<!-- 검색창 -->
 		<div id='allSearch'>
 			<select name='searchSelec'>

@@ -4,7 +4,7 @@
 	<div id='postViewDiv'><!-- 게시글뷰 페이지 -->
 		<form>
 			<div class='contentTitle'><!-- 카테고리,제목 -->
-				<div>카테고리</div>
+				<div>인증</div>
 				<div>Uluru 울룰루 안갔다온게 한이된다 진짜 다시간다 호주!!!!</div>
 			</div>
 			<div class='contentWriter'><!-- 작성자 -->
@@ -57,7 +57,7 @@
 				<div><!-- 3 댓글 텍스트박스 -->
 					<textarea name='replyCommentTextarea' id='replyCommentTextarea'></textarea>
 					<div>
-						<input type='button' name='writeReplyBtn' value='작성'/>
+						<input type='button' name='writeReplyBtn' class="viewBtn" value='작성'/>
 					</div>
 				</div>
 			</div>
@@ -72,8 +72,8 @@
 				</div>
 			</div>
 			<div id='bottomBtn'>
-				<input type='button' name='postListBtn' value='목록'/>
-				<input type='button' name='postWriteBtn' value='글쓰기'/>
+				<input type='button' name='postListBtn' class="viewBtn" value='목록'/>
+				<input type='button' name='postWriteBtn' class="viewBtn" value='글쓰기'/>
 			</div>
 
 		</form>

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+ @charset "UTF-8";
 @font-face {
   font-family: "IBMPlexSansKR-Regular";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff") format("woff");
@@ -6,7 +6,7 @@
   font-style: normal;
 }
 
-/* 현태씨 코드 복사하여 가져온것  */
+현태씨 코드 복사하여 가져온것 
 #recommendUploadFrame {
   font-family: "IBMPlexSansKR-Regular";
   width: 1100px;
@@ -19,7 +19,7 @@
   width: 97%;
 }
 
-/* 踰꾪듉 */
+踰꾪듉
 #recommendSubmitBtn,
 #recommendCancelBtn {
   background-color: white;

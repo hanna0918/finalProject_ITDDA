@@ -27,6 +27,15 @@ public class MemberBaseVO {
 	private String m_name;  
 	private String m_state;
 	
+	//카운트용
+	private int board_count;
+	private int comment_count;
+	private int sub_count;
+	private int bookmark_count;
+	private int msg_count;
+	
+	
+	
 	
 	public String getM_addrdetail() {
 		return m_addrdetail;
@@ -160,7 +169,34 @@ public class MemberBaseVO {
 	public void setM_state(String m_state) {
 		this.m_state = m_state;
 	}
-	
-
-	
+	public int getBoard_count() {
+		return board_count;
+	}
+	public void setBoard_count(int board_count) {
+		this.board_count = board_count;
+	}
+	public int getComment_count() {
+		return comment_count;
+	}
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
+	}
+	public int getSub_count() {
+		return sub_count;
+	}
+	public void setSub_count(int sub_count) {
+		this.sub_count = sub_count;
+	}
+	public int getBookmark_count() {
+		return bookmark_count;
+	}
+	public void setBookmark_count(int bookmark_count) {
+		this.bookmark_count = bookmark_count;
+	}
+	public int getMsg_count() {
+		return msg_count;
+	}
+	public void setMsg_count(int msg_count) {
+		this.msg_count = msg_count;
+	}
 }

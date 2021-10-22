@@ -14,7 +14,7 @@ public class BoardCommentVO {
 	private String m_nickname;
 	//爾뚮컯 諛곗뿴
 	private int[] br_id_Array;
-	
+
 	
 	public int getBr_id() {
 		return br_id;

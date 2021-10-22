@@ -7,6 +7,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <div id="matchingFrame">
 	<header>
+	<div class="boardName">
+	    <h2>MATCHING</h2>
+	    <h4>나와 다른사람을 이어보세요!</h4>
+  	</div>
 		<div id="searchAndCalendar">
 			<form method="post" id="tagTranfer" onsubmit="return false">
 				<div>
