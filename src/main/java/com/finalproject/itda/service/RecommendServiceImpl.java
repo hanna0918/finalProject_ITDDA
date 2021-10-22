@@ -19,15 +19,33 @@ public class RecommendServiceImpl implements RecommendService {
 	}
 
 	@Override
-	public RecommendVO countHit(int board_seq) {
-		return null;
-	}
-
-	@Override
 	public int recommendWriteOk(RecommendVO vo) {
 		return recommendDAO.recommendWriteOk(vo);
 	}
 
+	@Override
+	public RecommendVO recommendView(int board_seq) {
+		return recommendDAO.recommendView(0);
+	}
 
+	@Override
+	public int countHit(int board_seq) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int recommendEdit(int board_seq, int m_seq) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int recommendDelete(int board_seq, int m_seq) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 
 }

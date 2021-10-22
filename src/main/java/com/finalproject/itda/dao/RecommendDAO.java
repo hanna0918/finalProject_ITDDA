@@ -53,4 +53,34 @@ public interface RecommendDAO {
 			+ " select * from dual ")
 	public int recommendWriteOk(RecommendVO vo);
 
+	@Select(" "
+			+ "select * from "
+			+ "    (select a.board_seq "
+			+ "           , m_userid "
+			+ "           , m_nickname "
+			+ "           , m_info "
+			+ "           , board_subject "
+			+ "           , board_writedate "
+			+ "           , board_hit"
+			+ "           , b_goodhit "
+			+ "           , board_call "
+			+ "           , b_content "
+			+ "           , board_select "
+			+ "           , lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq "
+			+ "           , lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject "
+			+ "           , lag(board_select, 1) over(order by a.board_seq) board_prev_select "
+			+ "           , lead(a.board_seq, 1) over(order by a.board_seq) board_next_seq "
+			+ "           , lead(board_subject, 1, '다음글이 없습니다.') over(order by a.board_seq) board_next_subject "
+			+ "           , lead(board_select) over(order by a.board_seq) board_next_select "
+			+ "    from boardbase a "
+			+ "    inner join memberbase b "
+			+ "            on a.m_seq=b.m_seq "
+			+ "    inner join board_content d "
+			+ "            on a.board_seq=d.board_seq "
+			+ "    where board_code=1) "
+			+ "where board_seq=${param1};")
+	public RecommendVO recommendView(int board_seq);
 }
+
+
+

@@ -64,7 +64,7 @@
           <div class="recommendContent">
             <div><img src="/itda/img/${vo.i_url}" class="chucheonImg" /></div>
             <div class="">
-              <div><a href="/itda/questionView">${vo.board_subject}</a></div>
+              <div><a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a></div>
               <span>${vo.board_select}</span>
               <div>
                 <img src="img/recommend.png" class="recommendImg" />

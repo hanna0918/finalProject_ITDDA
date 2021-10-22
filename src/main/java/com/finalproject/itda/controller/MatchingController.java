@@ -62,6 +62,7 @@ public class MatchingController {
 		mav.setViewName("matching/matchingView");
 		return mav;
 	}
+	
 	@RequestMapping("/matchingUpload")
 	public String matchingUpload(HttpSession ses) {
 		System.out.println("세션은" + ses.getAttribute("login"));

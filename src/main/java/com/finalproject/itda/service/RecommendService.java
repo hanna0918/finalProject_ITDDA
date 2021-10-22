@@ -12,7 +12,7 @@ public interface RecommendService {
 	public int recommendWriteOk(RecommendVO vo);
 	
 	//추천게시판 글보기
-	public RecommendVO recommendView(RecommendVO vo);
+	public RecommendVO recommendView(int board_seq);
 	
 	//추천게시한 보기숫자 증가
 	public int countHit(int board_seq);
