@@ -2,8 +2,10 @@ package com.finalproject.itda.service;
 
 import java.util.List;
 
+
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
+import com.finalproject.itda.vo.MemberVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 public interface MypageService {
@@ -12,10 +14,10 @@ public interface MypageService {
 	 */ 
 	
 	//마이페이지 내가쓴글 리스트
-	public List<BoardVO> mypagePostList();
+	public List<BoardVO> mypagePostList(MemberVO vo);
 	
 	//내가쓴댓글 뿌리고 시작
-	public List<BoardCommentVO>myReplyList();
+	public List<BoardCommentVO>mypageReplyList(MemberVO vo);
 	
 	//1:1문의 
 	public int QuestionInsert(QuestionVO quesVo);

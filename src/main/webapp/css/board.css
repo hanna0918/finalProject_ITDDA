@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*추천, QnA, 인증 css*/
 	@font-face {
 	    font-family: 'IBMPlexSansKR-Regular';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
@@ -23,6 +24,12 @@
 		overflow:auto;
 		margin:0 auto;
 	}
+	.boardContainer>div:first-of-type{
+		float: left;
+		font-size:1.1em;
+		font-wiegh:bold;
+		color:black;
+	}
 	a{
 		text-decoration:none;
 		color:black;
@@ -31,7 +38,7 @@
 		color:#5e83d1;
 	}
 	span{
-		color:blue;
+		color:black;
 		font-size:0.85em;
 	}
 	
@@ -98,7 +105,7 @@
 	}
 	.quesContent>div{
 		float:left;
-		height:50px;
+		height:50x;
 		line-height:50px;
 		text-align:center;
 		box-sizing:border-box;
@@ -108,16 +115,12 @@
 	}
 	.quesContent>div:nth-of-type(6n+2){
 		width:50%;
-		display: table-cell;
-  		vertical-align: middle;
 		text-align:left;
 		overflow:hidden; 
 		text-overflow:ellipsis;
 	}
  	.quesContent>div:nth-of-type(6n+3){
  		width:13%; 
-/*  		display: table-cell; */
-  		vertical-align: middle;
 	}
 	.quesContent>div:nth-of-type(6n+4){
 		width:13%;
@@ -155,7 +158,7 @@
 	#pic::-webkit-scrollbar{
 		display:none;
 	}
-	.mainImg{/*이미지 사이즈*/
+	#injeungImg{/*이미지 사이즈*/
 		width:260px;
 		height:265px;
 	}
@@ -238,48 +241,30 @@
 	}
 	
 	
-=======
 @font-face {
   font-family: "IBMPlexSansKR-Regular";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
-body,
-div,
-ul,
-li {
+body, div, ul, li {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "IBMPlexSansKR-Regular";
 }
 
-h1 {
-  /*제목*/
-  margin-left: 20px;
+.boardName>h2{
+  font-weight:bold;
+  color:black;
+  margin:10px 0;
+  font-size:1.6em;
 }
-
-hr {
-  color: black;
+.boardName>h4{
+	margin-top:5px;
+	color:gray;
+    font-size:1.02em;
 }
-.boardName {
-  /* border-bottom: 1px solid black; */
-}
-.boardName p:nth-child(1) {
-  margin-left: 30px;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 0;
-}
-.boardName p:nth-child(2) {
-  margin-left: 30px;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 0;
-  color: rgba(53, 53, 53, 0.8);
-}
-
 .boardContainer {
   /*컨테이너*/
   width: 1100px;
@@ -306,18 +291,34 @@ span {
   flex-direction: row;
   justify-content: flex-end;
 }
-select {
+.allSearch>form{
+	border: 1px solid #80808073;
+    border-radius: 5px;
+    width: 360px;
+    height: 40px;
+    box-sizing: border-box;
+}
+select[name=searchSelec] {
   height: 36px;
-  border: none;
+  margin: 1.5px 0 0 9px;
   outline: none;
+  font-size:1em; 
+}
+.allSearch>form>div>div{
+	float:right;
+}
+.allSearch>form>div>div>img{
+	width:22px;
+	height:22px;
+	margin:8px 10px 7px 10px;
 }
 #search,
 #search:focus {
   height: 30px;
   line-height: 30px;
+  width:210px;
   border: none;
   outline: none;
-  border-bottom: 1.5px solid #4c4646;
 }
 input[name="searchContent"] {
   width: 32px;
@@ -332,69 +333,13 @@ input[name="searchContent"] {
   overflow: auto;
   text-align: right;
 }
+.boardList>hr{
+	color:ligthgray;
+}
 .boardList li {
   float: left;
   width: 10%;
   text-align: center;
-}
-/*------------QnA-----------------------------------*/
-#quesTitle {
-  height: 40px;
-  line-height: 40px;
-  font-size: 1.05em;
-}
-#quesTitle li {
-  width: 10%;
-  float: left;
-  text-align: center;
-}
-#quesTitle > li:nth-child(2) {
-  width: 50%;
-}
-#quesTitle > li:nth-child(3),
-#quesTitle > li:nth-child(4) {
-  width: 13%;
-}
-#quesTitle > li:nth-child(5),
-#quesTitle > li:nth-child(6) {
-  width: 7%;
-}
-.quesContent {
-  width: 100%;
-  height: 80px;
-}
-.quesContent > div {
-  float: left;
-  height: 80px;
-  text-align: center;
-  box-sizing: border-box;
-  padding: 5px;
-}
-.quesContent > div:nth-of-type(6n + 1) {
-  width: 10%;
-  padding: 18px 5px;
-}
-.quesContent > div:nth-of-type(6n + 2) {
-  width: 50%;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.quesContent > div:nth-of-type(6n + 3) {
-  width: 13%;
-  /*  		display: table-cell; */
-  vertical-align: middle;
-}
-.quesContent > div:nth-of-type(6n + 4) {
-  width: 13%;
-  padding: 18px 5px;
-}
-.quesContent > div:nth-of-type(6n + 5),
-.quesContent > div:nth-of-type(6n + 6) {
-  width: 7%;
-  padding: 18px 5px;
 }
 
 /*----추천------------------------------------------------*/
@@ -402,12 +347,13 @@ input[name="searchContent"] {
   height: 40px;
   line-height: 40px;
   font-size: 1.05em;
+  display:none;
 }
 #chucheonTitle > li:nth-child(1) {
-  width: 10%;
+  width: 8%;
 }
 #chucheonTitle > li:nth-child(2) {
-  width: 50%;
+  width: 52%;
 }
 #chucheonTitle > li:nth-child(3) {
   width: 15%;
@@ -423,7 +369,8 @@ input[name="searchContent"] {
 }
 .chucheonContentList {
   width: 100%;
-  height: 80px;
+  height: 100px;
+  border-bottom:1px solid lightgray;
 }
 .chucheonContentList > div {
   float: left;
@@ -433,11 +380,13 @@ input[name="searchContent"] {
   overflow: hidden;
 }
 .chucheonContentList > div:nth-of-type(6n + 1) {
-  width: 10%;
-  line-height: 80px;
+  width: 8%;
+  line-height: 100px;
 }
 .recommendContent {
-  width: 50%;
+  width: 52%;
+  box-sizing:border-box;
+  padding: 5px 0;
   /* display: table; */
 }
 .recommendContent > div {
@@ -449,10 +398,11 @@ input[name="searchContent"] {
 .recommendContent > div:nth-child(2) {
   width: 85%;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 20px;
   display: table-cell;
   vertical-align: middle;
 }
+
 .chucheonContentList > div:nth-of-type(6n + 3) {
   width: 15%;
   display: table;
@@ -461,15 +411,16 @@ input[name="searchContent"] {
   display: table-cell;
   vertical-align: middle;
 }
+
 .chucheonContentList > div:nth-of-type(6n + 4) {
   width: 10%;
-  line-height: 80px;
+  line-height: 100px;
 }
 
 .chucheonContentList > div:nth-of-type(6n + 5),
 .chucheonContentList > div:nth-of-type(6n + 6) {
   width: 7.5%;
-  line-height: 80px;
+  line-height: 100px;
 }
 
 .chucheonImg {

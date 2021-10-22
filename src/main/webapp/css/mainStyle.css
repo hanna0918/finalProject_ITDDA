@@ -47,22 +47,21 @@ a:visited {
 .mainHeader {
   margin: 0 auto;
   width: 1100px;
-}
-.topMenu {
-  /* overflow: auto; */
-  /* width: 1100px; */
-  text-align: center;
+  height:115px;
+  box-sizing: border-box;
 }
 
 .topMenu > li {
-  float: left;
-  padding: 0 15px;
-  height: 80px;
-  line-height: 80px;
-  font-size: 20px;
+	margin:1%;
+  	float: left;
+  	height: 80px;
+  	line-height: 80px;
+  	font-size: 20px;
+  	letter-spacing: -1px;
+  	color:#000000ba;
 }
 .topMenu > li > a > img {
-  width: 110px;
+  width: 150px;
   text-align: center;
   cursor: pointer;
 }
@@ -75,6 +74,7 @@ a:visited {
   /* font-family: "바탕체"; */
   font-family: "Nanum Pen Script", cursive;
   /* font-family: "Jua", sans-serif; */
+  margin-left:0;
 }
 .topMenu > li:nth-child(n + 9) {
   font-size: 1.5em;
@@ -84,22 +84,26 @@ a:visited {
 .topMenu a:visited,
 .topMenu a:active {
   text-decoration: none;
-  color: black;
+  color: #000000ba;
 }
 .topMenu a:hover {
   /* color: rgba(131, 125, 125, 0.952); */
 }
 .topMenu_r {
-  text-align: center;
-  line-height: 80px;
-  font-size: 14px;
+	float:right;
+	width:20%;
+	text-align: right;
+	line-height: 115px;
+	font-size: 14px;
+}
+.topMenu_r label{
+	margin-right:2%;
+	font-size:1em;
 }
 .topMenu_r a {
   padding: 0 10px;
 }
-.loginBtnBox {
-  float: right;
-}
+
 /* 네비게이션 end */
 
 /* 실제 content 들어가는 영역 스타일 */

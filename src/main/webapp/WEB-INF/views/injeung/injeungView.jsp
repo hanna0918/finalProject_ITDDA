@@ -4,7 +4,7 @@
 	<div id='postViewDiv'><!-- 게시글뷰 페이지 -->
 		<form>
 			<div class='contentTitle'><!-- 카테고리,제목 -->
-				<div>카테고리</div>
+				<div>인증</div>
 				<div>Uluru 울룰루 안갔다온게 한이된다 진짜 다시간다 호주!!!!</div>
 			</div>
 			<div class='contentWriter'><!-- 작성자 -->

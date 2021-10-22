@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.finalproject.itda.dao.MypageDAO;
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
+import com.finalproject.itda.vo.MemberVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 @Service
@@ -22,15 +23,15 @@ public class MypageServiceImp implements MypageService {
 	 */
 	//마이페이지 내가쓴글 리스트
 	@Override
-	public List<BoardVO> mypagePostList() {
-		return  mypageDao.mypagePostList();
+	public List<BoardVO> mypagePostList(MemberVO vo) {
+		return  mypageDao.mypagePostList(vo);
 	}
 	//내가쓴댓글 뿌리고 시작
 	@Override
-	public List<BoardCommentVO> myReplyList() {
-		
-		return null;
+	public List<BoardCommentVO> mypageReplyList(MemberVO vo) {
+		return mypageDao.myReplyList(vo);
 	}
+	
 	//1:1문의 글뿌리면서 시작
 	@Override
 	public int QuestionInsert(QuestionVO quesVo) {
@@ -41,6 +42,7 @@ public class MypageServiceImp implements MypageService {
 	public List<QuestionVO> MypageQnA() {
 		return  mypageDao.MypageQnA();
 	}
+	
 
 
 }

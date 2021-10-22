@@ -13,7 +13,7 @@ public class BoardCommentVO {
 	private String m_nickname;
 	//쳌박 배열
 	private int[] br_id_Array;
-	
+
 	
 	public int getBr_id() {
 		return br_id;

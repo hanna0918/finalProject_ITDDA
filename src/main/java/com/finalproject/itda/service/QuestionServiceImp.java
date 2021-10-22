@@ -19,6 +19,16 @@ public class QuestionServiceImp implements QuestionService {
 		return questionDAO.questionBoardList();
 	}
 
+	@Override
+	public int questionInsert(BoardVO vo) {
+		return questionDAO.questionInsert(vo);
+	}
+
+	@Override
+	public BoardVO boardView(int no) {
+		return questionDAO.boardView(no);
+	}
+
 	
 	
 	

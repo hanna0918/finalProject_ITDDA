@@ -1,0 +1,135 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#injeungWriteFrame {
+    font-family: 'IBMPlexSansKR-Regular';
+    width: 1100px;
+    margin: 50px auto;
+    overflow: auto;
+}
+#injeungWriteFrame h4{
+	margin: 18px;
+    color: darkgray;
+}
+#injeungBasicInfoArea {
+    overflow: auto;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#titleAndMap {
+    list-style-type: none;
+    overflow: auto;
+    margin: 10px auto;
+    padding: 0;
+}
+#titleAndMap>li {
+    float: left;
+    margin: 5px 0;
+    padding: 0;
+    font-size: 1.2em;
+}
+/* #titleAndMap>li>input:focus {
+    outline: none !important;
+    border: 1px solid rgb(156, 190, 221);
+    box-shadow: 0 0 20px #d6e2f0;
+} */
+#titleAndMap>li:nth-of-type(2n+1) {
+    width: 92%;
+}
+#titleAndMap>li:nth-of-type(2) {
+    width: 8%;
+}
+#titleAndMap>li>input {
+    width: 98%;
+    height: 50px;
+    padding-left: 10px;
+    border-bottom:1px solid gray;
+}
+#titleAndMap>li>input[type=button]{
+	border:1px solid gray;
+	border-radius:5px;
+}
+#titleAndMap>li>input:focus{
+	outline:none;
+}
+
+
+/* �깭洹� 湲곕뒫 */
+#addTag{
+    float: left;
+    overflow: auto;
+}
+#addTag>div {
+    float: left;
+    border: 1px solid gray;
+    margin: 2px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+}
+/* ---------------------------------------------------------- */
+/*紐⑤떖李�*/
+.mapJoinModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+}
+.mapJoinModal::-webkit-scrollbar {
+    display: none;
+}
+
+/* 紐⑤떖李� 諛곌꼍 */
+.mapModalOverlay {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    overflow-y: auto;
+    position: fixed;
+}
+
+/* 紐⑤떖李� */
+.mapModalContent {
+    position: relative;
+    margin: 150px auto;
+    width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #666;
+    overflow-y: auto;
+}
+
+/* 踰꾪듉 */
+#injeungSubmitBtn, #injeungCancelBtn {
+    width: 70px;
+    height:30px;
+    padding: 0;
+    border-radius: 3px;
+    margin: 10px;
+}
+#injeungSubmitBtn {
+    float: right;
+    background-color: #0e08a7;
+    color:white;
+    border: #0e08a7;
+}
+#injeungCancelBtn {
+    float: left;
+    background-color: ghostwhite;
+    border: 1px solid rgba(255, 99, 72, 0.2);
+}
