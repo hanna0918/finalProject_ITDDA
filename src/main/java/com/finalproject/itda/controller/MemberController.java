@@ -108,5 +108,8 @@ public class MemberController {
 		return "register/joinResult";
 
 	}
+	
+	
+	
 
 }

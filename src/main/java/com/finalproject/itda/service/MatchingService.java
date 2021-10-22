@@ -19,4 +19,7 @@ public interface MatchingService {
 	public List<MatchingVO> matchingUser(int board_seq);
 	public int matchingIn(int m_seq, int mc_seq);
 	public List<BoardCommentVO> matchingReply(int board_seq);
+	public MatchingVO matchingConfirm(int mc_seq, int m_seq);
+	public int matchingCancel(int mc_seq, int m_seq);
+	public int matchingReplyWrite(BoardCommentVO vo);
 }

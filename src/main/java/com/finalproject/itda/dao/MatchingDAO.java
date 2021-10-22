@@ -35,11 +35,13 @@ public interface MatchingDAO {
 		" </if> ",
 		" </script>" })
 	public MatchingPagingVO page(MatchingPagingVO pVo);
+	
 	@Select({" <script> ",
 		" select * from ",
 		" (select * from ",
 		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, b_content, ",
-		" mc_state, mc_max, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, mc_where, board_select ",
+		" mc_state, mc_max, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, mc_where, board_select, ",
+		" (select count(m_seq) from mc_part d where d.mc_seq=m.mc_seq) matchingCount ",
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
@@ -96,7 +98,8 @@ public interface MatchingDAO {
 	public List<MatchingVO> matchingList(MatchingPagingVO pVo);
 	
 	@Select(" select * from (select a.board_seq, mc_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
-			+ "	mc_max, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select, "
+			+ "	mc_max, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select,"
+			+ " (select count(board_seq) from board_comment e where a.board_seq=e.board_seq) replyCount, "
 			+ " lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, "
 			+ " lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject, "
 			+ " lag(board_select, 1) over(order by a.board_seq) board_prev_select, "
@@ -160,25 +163,36 @@ public interface MatchingDAO {
 			+ "		values ( "
 			+ "			board_seq.currval, "
 			+ "			#{board_select} )"
-			+ ""
+			+ " into mc_part ( "
+			+ "			mc_seq, "
+			+ "			m_seq ) "
+			+ "			values ( "
+			+ "			mc_seq.currval, "
+			+ "			${m_seq}) "
 			+ " select * from dual ")
 	public int matchingWriteOk(MatchingVO vo);
 	
 	@Delete("")
 	public int matchingDelete(int board_seq);
 	
-	
 	@Select(" select m_nickname, m_rank from mc_part a join mc_table b on a.mc_seq = b.mc_seq join memberbase c on a.m_seq=c.m_seq where board_seq=${param1} ")
 	public List<MatchingVO> matchingUser(int board_seq);
 	
-	
-	@Insert(" insert into mc_part values(${param2}, ${param1}) ")
-	public int matchingIn(int m_seq, int mc_seq);
-	
-	
-	@Select(" select board_seq, m_nickname, m_userid, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate "
+	@Select(" select board_seq, m_nickname, m_userid, a.m_seq, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate "
 			+ " from board_comment a join memberbase b on a.m_seq=b.m_seq where board_seq=${param1} "
 			+ " order by br_writedate asc ")
 	public List<BoardCommentVO> matchingReply(int board_seq);
 	
+	@Select(" select m_seq from mc_part where mc_seq=${param1} and m_seq=${param2} ")
+	public MatchingVO matchingConfirm(int mc_seq, int m_seq);
+	
+	@Insert(" insert into mc_part values(${param2}, ${param1}) ")
+	public int matchingIn(int m_seq, int mc_seq);
+	
+	@Delete(" delete from mc_part where m_seq=${param2} and mc_seq=${param1} ")
+	public int matchingCancel(int m_seq, int mc_seq);
+	
+	@Insert(" insert into board_comment (br_id, board_seq, br_content) "
+			+ " values(br_id.nextval, ${board_seq}, #{br_content}) ")
+	public int matchingReplyWrite(BoardCommentVO vo);
 }

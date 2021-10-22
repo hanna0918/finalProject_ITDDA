@@ -55,7 +55,7 @@
 						<div class="where">${vo.mc_where}</div>
 						<div class="writer">${vo.m_userid }</div>
 						<div class="matchingDate">${vo.mc_start_date}</div>
-						<div class="matchingStatus">Hmmmm / ${vo.mc_max}</div>
+						<div class="matchingStatus">${vo.matchingCount} / ${vo.mc_max}</div>
 					</div></a>
 			</c:forEach>
 		</section>
@@ -87,4 +87,4 @@
 		<a href="/itda/matchingUpload" class="button" id="calendarBtn" id="matchingUploadBtn">글쓰기</a>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=3333333333333333333333333333333333"></script>
+<script src="/itda/js/matchingList.js?version=333333333333333333333333333333333333"></script>

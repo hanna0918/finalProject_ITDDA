@@ -33,6 +33,8 @@ public class MatchingVO {
 	private int m_rank;
 	private int partCnt;
 	private int mc_seq;
+	private int matchingCount;
+	private int replyCount;
 	
 	private String tags[];
 	private String prevTags[];
@@ -234,6 +236,18 @@ public class MatchingVO {
 	}
 	public void setMc_seq(int mc_seq) {
 		this.mc_seq = mc_seq;
+	}
+	public int getMatchingCount() {
+		return matchingCount;
+	}
+	public void setMatchingCount(int matchingCount) {
+		this.matchingCount = matchingCount;
+	}
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
 	}
 	public void setM_rank(int m_rank) {
 		this.m_rank = m_rank;

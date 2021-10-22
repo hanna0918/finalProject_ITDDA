@@ -64,12 +64,29 @@ public class MatchingServiceImp implements MatchingService {
 	}
 
 	@Override
+	public List<BoardCommentVO> matchingReply(int board_seq) {
+		return matchingDAO.matchingReply(board_seq);
+	}
+
+	@Override
+	public MatchingVO matchingConfirm(int mc_seq, int m_seq) {
+		return matchingDAO.matchingConfirm(mc_seq, m_seq);
+	}
+	
+	@Override
 	public int matchingIn(int m_seq, int mc_seq) {
 		return matchingDAO.matchingIn(m_seq, mc_seq);
 	}
 
 	@Override
-	public List<BoardCommentVO> matchingReply(int board_seq) {
-		return matchingDAO.matchingReply(board_seq);
+	public int matchingCancel(int mc_seq, int m_seq) {
+		return matchingDAO.matchingCancel(m_seq, mc_seq);
 	}
+
+	@Override
+	public int matchingReplyWrite(BoardCommentVO vo) {
+		return matchingDAO.matchingReplyWrite(vo);
+	}
+	
+	
 }

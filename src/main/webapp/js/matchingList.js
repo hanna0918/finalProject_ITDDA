@@ -207,7 +207,7 @@ function sendWithAjax(){
 					newList += `<div class="where">${vo.mc_where}</div>`;
 					newList += `<div class="writer">${vo.m_userid }</div>`;
 					newList += `<div class="matchingDate">${vo.mc_start_date}</div>`;
-					newList += `<div class="matchingStatus">Hmmm / ${vo.mc_max}</div>`;
+					newList += `<div class="matchingStatus">${vo.matchingCount} / ${vo.mc_max}</div>`;
 					newList += `</div></a>`;
 				});
 			} else {
