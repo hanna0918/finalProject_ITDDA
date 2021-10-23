@@ -13,12 +13,12 @@
     <section id="matchingUploadFrame">
     <h1>매칭게시판</h1>
         <div id="matchingBasicInfoArea">
-        <input type='hidden' id='databoard_seq' value='${vo.board_seq}'>
-	    <input type='hidden' id='datam_seq' value='${vo.m_seq}'>
 	    <input type='hidden' id='datamc_state' value='${vo.mc_state}'>
 	    <input type='hidden' id='datamc_where' value='${vo.mc_where}'>
 	    <input type='hidden' id='databoard_select' value='${vo.board_select}'>
             <form method="post" id="matchingUploadForm" onsubmit="return false">
+		        <input type='hidden' name='board_seq' id='databoard_seq' value='${vo.board_seq}'>
+	    		<input type='hidden' id='datam_seq' value='${vo.m_seq}'>
                 <div>
                     <ul id="titleAndMap">
                         <li><input type="text" id="matchingUploadTitle" name="board_subject" placeholder="제목을 입력하세요" value='${vo.board_subject}' required/></li>

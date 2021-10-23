@@ -95,7 +95,7 @@ public class MatchingController {
 	@RequestMapping(value="/matchingEditOk", method=RequestMethod.POST)
 	public String matchingEditOk(MatchingVO vo) {
 		System.out.println("글수정 확인 메소드 입장");
-		//matchingService.matchingEditOk(vo);
+		matchingService.matchingEditOk(vo);
 		System.out.println("글수정 확인 메소드 퇴장 직전까진 문제없음");
 		return "redirect:matchingView/board_seq=" + vo.getBoard_seq();
 	}

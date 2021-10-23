@@ -21,4 +21,5 @@ public interface MatchingService {
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq);
 	public int matchingCancel(int mc_seq, int m_seq);
 	public int matchingReplyWrite(BoardCommentVO vo);
+	public int matchingEditOk(MatchingVO vo);
 }

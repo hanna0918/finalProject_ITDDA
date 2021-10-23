@@ -173,13 +173,26 @@ public interface MatchingDAO {
 			+ " select * from dual ")
 	public int matchingWriteOk(MatchingVO vo);
 
-	// 매칭 글 수정
+	// 매칭 글 수정페이지 이동
 	@Select(" select a.board_seq, board_subject, a.m_seq, mc_max, mc_state, to_char(mc_start_date,'YYYY-MM-DD') startDate, "
 			+ " to_char(mc_start_date,'HH24:MI') startTime, to_char(mc_end_date,'HH24:MI')endTime, mc_where, board_select, b_content "
 			+ " from boardbase a join mc_table b on a.board_seq=b.board_seq "
 			+ " join board_content c on a.board_seq=c.board_seq "
 			+ " where a.board_seq=${param1}")
 	public MatchingVO matchingEdit(int board_seq);
+	
+	// 매칭 글 수정하기...!!!
+	@Update(" update boardbase a join mc_table b on a.board_seq=b.board_seq join board_content c on a.board_seq=c.board_seq "
+			+ "	set board_subject = #{board_subject} "
+			+ "	, b_content = #{b_content} "
+			+ "	, mc_max = ${mc_max} "
+			+ "	, mc_state = ${mc_state} "
+			+ "	, mc_start_date = to_date(#{mc_start_date}, 'YYYY-MM-DD HH24:MI') "
+			+ "	, mc_end_date = to_date(#{mc_end_date}, 'YYYY-MM-DD HH24:MI') "
+			+ "	, mc_where = #{mc_where} "
+			+ "	, board_select = #{board_select} "
+			+ " where a.board_seq=${board_seq} ")
+	public int matchingEditOk(MatchingVO vo);
 	
 	// 매칭 인원 불러오는 쿼리문
 	@Select(" select m_nickname, m_rank from mc_part a join mc_table b on a.mc_seq = b.mc_seq join memberbase c on a.m_seq=c.m_seq where board_seq=${param1} ")
