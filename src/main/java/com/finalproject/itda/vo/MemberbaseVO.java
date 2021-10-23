@@ -34,9 +34,21 @@ public class MemberBaseVO {
 	private int bookmark_count;
 	private int msg_count;
 	
+
+	private String m_addrDetail;
+
 	
 	
 	
+	
+	
+	
+	public String getM_addrDetail() {
+		return m_addrDetail;
+	}
+	public void setM_addrDetail(String m_addrDetail) {
+		this.m_addrDetail = m_addrDetail;
+	}
 	public String getM_addrdetail() {
 		return m_addrdetail;
 	}
