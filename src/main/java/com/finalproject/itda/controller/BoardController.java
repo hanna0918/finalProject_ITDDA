@@ -76,10 +76,29 @@ public class BoardController {
 		 System.out.println("들어온거 맞니? 구독?");
 		 System.out.println(mbVo.getM_nickname());
 		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
-			return resultvo;
+		return resultvo;
 	 }
 	 
-	
+	//쪽지보내기 모달
+	 @RequestMapping(value="/freeBoardmodalNote" , method=RequestMethod.POST )
+	 @ResponseBody
+	 public MemberbaseVO freeBoardmodalNote(MemberbaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 쪽지?");
+		 System.out.println(mbVo.getM_nickname());
+		 System.out.println();
+		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+			return resultvo;
+	 }
+	 //쪽지보내기 모달 yes
+	 @RequestMapping(value="/ freeBoardmodalNoteYes" , method=RequestMethod.POST )
+	 @ResponseBody
+	 public MemberbaseVO freeBoardmodalNoteYes(MemberbaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 쪽지 yes?");
+		 System.out.println(mbVo.getM_nickname());
+		 System.out.println();
+		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+			return resultvo;
+	 }
 	 
 	 
 	 

@@ -18,8 +18,6 @@ public class MemberbaseVO {
 	private int m_rank;
 	private String m_name;
 	
-	
-	
 	public String getM_name() {
 		return m_name;
 	}

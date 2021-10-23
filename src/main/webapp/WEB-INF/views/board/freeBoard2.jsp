@@ -437,7 +437,8 @@ body{
 			</ul>
 		</div>
 		
-		<!---------------- 차단 모달창 ------------- -->
+		
+		<!---------------- 차단 모달창 -------------->
 		<div class="blockJoinModal" id="blockJoinModal">
 				<article class="blockModalContent blockDataInputModal">
 					<div>
@@ -479,7 +480,8 @@ body{
 		
 		<div class="mailJoinModal" id="mailJoinModal">
 				<article class="mailModalContent mailDataInputModal style="box-shadow: 10px 10px 5px lightgrey;" >
-					<div>
+					<div id = "testNote">
+						<!--  
 						<form>
 							<h4 style="background:moccasin;" >🍊 쪽지 보내기</h4>
 							<a><img src="/itda/img/close1.png" class="close3" 
@@ -492,8 +494,9 @@ body{
 					     	</ul>
 					     		<input type="submit" value="보내기" id="yesMail"/>
 					     		<input type="button" value="취소" id="noMail"/>
-					        <!-- <div><input type="button" value="확인"/></div> -->
+					        <div><input type="button" value="확인"/></div> 
 				        </form>
+				        -->
 					</div>
 				</article>
 		</div> 
@@ -502,14 +505,18 @@ body{
 		 
 		 	<div class="mailJoinModal2" id="mailJoinModal2">
 				<article class="mailModalContent2 mailDataInputModal2" style="width: 315px; padding:0;">
-					<div>
+					<div id = "testNoteYes">
+						<!--  
 						<div style="background: cornflowerblue; height: 25px;"></div>
 						<h4><strong>'${m_userid }'</strong>님에게 쪽지가 전송되었습니다 😊</h4>
 						
 						<a><img src="/itda/img/close1.png" class="close4" 
 				        style="position:absolute;top: 0px; right: 1px;;"/></a>
 				     
-				        <!-- <div><input type="button" value="확인"/></div> -->
+				        <div><input type="button" value="확인"/></div> 
+				        
+				        -->
+				        
 					</div>
 				</article>
 		</div>
@@ -518,7 +525,7 @@ body{
 		<div class="gudokJoinModal" id="gudokJoinModal">
 				<article class="gudokModalContent gudokDataInputModal">
 					<div>
-						<h4>" 구독하시겠습니까? </h4>
+						<h4> 구독하시겠습니까? </h4>
 						<input type="submit" value="네, 구독할래요." id="yesGudok"  />
 						<input type="button" value="취소" id="noGudok" />
 						 
@@ -617,7 +624,7 @@ body{
               var tag = "";
               
             
-          	 		tag += `<h4 id='profileTop'> 🍊  프로필 </h4>`; 
+          	 		tag += `<h4 id='profileTop'> 🍊 프로필 </h4>`; 
           	 		tag += `<form>`;
           	 			tag += `<div class="profileinfo">`;
           	 			tag += `<div style='width:100px; height:100px; margin:0 auto;'>`;
@@ -717,7 +724,7 @@ body{
           });
 
         }); ////////////////2
-            
+             
 		/*////////////////////////////////차단 모달창//////////////////////////////////////////// */
 		
 		  $(document).on("click", ".chadan", function(){
@@ -754,13 +761,10 @@ body{
           });////////////////3 ajax
           nickname="";
 		  console.log("초기화후:"+nickname);
-              
-          
-		  
-			   /////////////////////////////////////////////////////////////
-			   //취소
+			/////////////////////////////////////////////////////////////
+			 //취소
 			  $(document).on("click", "#noChadan ", function(){
-				  $('.blockJoinModal').css('display', 'none');
+				$('.blockJoinModal').css('display', 'none');
 			    });
 	        
 			//x버튼
@@ -822,10 +826,7 @@ body{
           nickname="";
 		  console.log("초기화후:"+nickname);   
 			   
-			   
-			   
 			   //취소버튼
-			   
 			     $(document).on("click", "#noGudok", function(){
 					 $('.gudokJoinModal').css('display', 'none');  
 			 	 });   
@@ -851,47 +852,100 @@ body{
 				}); //구독하기 모달
     
     	/*//////////////////////////////////쪽지 모달창////////////////////////////////////*/
+			//쪽지보내기 모달창 
+	   	 	$(document).on("click", ".sendMail", function(){
+			$('.mailDataInputModal').css('display', 'block');
+			$('.mailJoinModal').css('display', 'block');
+			
+			$.ajax({ /////////////////////////////////3
+	            url:'/itda/freeBoardmodalNote', 
+	            data: nickname1,
+	            type: 'POST',
+	            success: function (result) { ///////////////////4
+	              var result = $(result);
+	              console.log(result);
+	              var tag = "";	
+		         	
+	             
+	               tag += `<form>`;
+        			tag += `<h4 style='background:moccasin;'> 🍊 쪽지보내기 </h4>`; 
+				    tag += `<ul class='mailInfo'>`;
+				    tag +=  "<li style='text-align: left; padding-left: 25px;'>" + "받는사람 : " + result[0].m_nickname +"</li>";  
+				    tag +=  `<li style='text-align: left; padding-left: 25px; padding-top: 10px;'>내용</li>`;
+				     tag +=  "<textarea class='mailTextarea' title='쪽지 내용을 입력하세요' placeholder='쪽지 내용을 입력하세요' style='margin:5px; width:325px; height:200px; resize:none; outline-style:none; padding:0; border-radius:3px 3px 0 0; font-size:14px; cursor:text'>";
+				    tag +=  "</textarea>"; 
+				     tag += `</ul>`;  
+				     tag += "<input type='submit' value='보내기' id='yesMail'/>";
+				     tag +=	"<input type='button' value='취소' id='noMail'/>";  
+			       tag += `</form>`; 
+	              	
+	              	
+	              console.log(tag);
+	              $('#testNote').html(tag);
+	              console.log(tag);
+	           
+	            }, error: function () {  //////////////4 
+	              console.log("싰빠이쪽지");
+	            }
+
+	          });////////////////3 ajax
+	          nickname="";
+			  console.log("초기화후:"+nickname);   
+			
+	
+			   //취소버튼
+			    $(document).on("click", "#noMail", function(){
+					 $('.mailJoinModal').css('display', 'none');  
+			  });   
+			  
+			   
+			  /////////////////////쪽지 yes ///////////////////////////////
+			  	   //보내기 yes 모달창
+			   $(document).on("click", "#yesMail", function(){
+				   $('.mailJoinModal').css('display', 'none'); 
+				   $('.mailDataInputModal2').css('display', 'block');
+				   $('.mailJoinModal2').css('display', 'block');
+			  
+					$.ajax({ /////////////////////////////////3
+			            url:'/itda/freeBoardmodalNoteYes', 
+			            data: nickname1,
+			            type: 'POST',
+			            success: function (result) { ///////////////////4
+			              var result = $(result);
+			              console.log(result);
+			              var tag = "";	
+						
+			              tag +=`<div style='background:cornflowerblue; height: 25px;'></div>`
+						  tag +="<h4>"+ "<strong>"+ result[0].m_nickname + "</strong>" + 님에게 쪽지가 전송되었습니다 😊 + "</h4>"; 
+						  tag += `<div>`;
+						  tag += "<input type='submit' value='확인'/>";
+						  tag += `</div>`; 
+			           
+			              console.log(tag);
+			              $('#testNoteYes').html(tag);
+			              console.log(tag);
+			           
+			            }, error: function () {  //////////////4 
+			              console.log("싰빠이쪽지yes");
+			            }
+			            
+			          });////////////////3 ajax
+			          nickname="";
+					  console.log("초기화후:"+nickname);  
+				   
+				   
+				 //x버튼
+				    $(document).on("click", ".close4", function(){
+						  $('.mailJoinModal2').css('display', 'none');  
+					}); //x버튼 
+			   }); //보내기 버튼 
+			}); 
     
-    
-    
-    
+    	
     }///////////////1
 	
 	 ///////////////////////////////////////////////////////////////////////////
-
-	  
-			/*쪽지보내기 모달창*/
-			$('.sendMail').click(function () {
-			   $('.mailDataInputModal').css('display', 'block');
-			   $('.mailJoinModal').css('display', 'block');
-			   
-			   //취소버튼
-			   $('#noMail').click(function () {
-					 $('.mailJoinModal').css('display', 'none');  
-			  });   
-			   
-			   //x버튼
-			    $('.close3').click(function () {
-					  $('.mailJoinModal').css('display', 'none');  
-					});  
-			   
-			   //보내기버튼
-			   $('#yesMail').click(function () {
-				   $('.mailJoinModal').css('display', 'none');  
-				   
-				   //보내기 yes 모달창
-				   $('.mailDataInputModal2').css('display', 'block');
-				   $('.mailJoinModal2').css('display', 'block');
-				   
-				 //x버튼
-				   $('.close4').click(function () {
-						  $('.mailJoinModal2').css('display', 'none');  
-					}); 
-			   });
-			 
-			}); 
-			
-			
+	
 		
 	/* 		//프로필 모달창
 			 $('#profil').click(function () {

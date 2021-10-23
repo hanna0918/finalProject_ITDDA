@@ -85,6 +85,18 @@ public class BoardServiceImp implements BoardService {
 		return boardDAO.freeBoardmodalGudok(mbVo);
 	}
 
+//쪽지
+	@Override
+	public MemberbaseVO freeBoardmodalNote(MemberbaseVO mbVo) {
+		return boardDAO.freeBoardmodalNote(mbVo);
+	}
+
+	//쪽지 yes
+	@Override
+	public MemberbaseVO freeBoardmodalNoteYes(MemberbaseVO mbVo) {
+		return boardDAO.freeBoardmodalNoteYes(mbVo);
+	}
+
 	
 	
 

@@ -16,6 +16,9 @@ public interface BoardService {
 	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo); // 프로필 모달창 
 	 public MemberbaseVO freeBoardmodalChadan(MemberbaseVO mbVo); //차단
 	 public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo);  //구독
+	 public MemberbaseVO freeBoardmodalNote(MemberbaseVO mbVo); //쪽지 
+	 public MemberbaseVO freeBoardmodalNoteYes(MemberbaseVO mbVo); //쪽지 yes
+	 
 	/* public List<BoardVO> boardList(); */
 	public PagingVO totalRecordCount(PagingVO pVo); //검색
 	public int freeboardWrite(BoardVO vo); //글쓰기

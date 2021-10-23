@@ -143,7 +143,14 @@ public interface BoardDAO {
 	//구독 모달창 
 		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
 		public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo);   
+	
+	//쪽지 모달창
+		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
+		public MemberbaseVO freeBoardmodalNote(MemberbaseVO mbVo);   
 		
+	//쪽지 YES 모달창
+		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
+		public MemberbaseVO freeBoardmodalNoteYes(MemberbaseVO mbVo);   
 		
 		
 		
