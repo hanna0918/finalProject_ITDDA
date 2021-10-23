@@ -18,7 +18,7 @@
 	img[name=profileShot]{
 		width:40px;
 		height:40px;
-		margin:5px;
+/* 		margin:5px; */
 	}
 	.contentTitle{
 		overflow:auto;

@@ -10,10 +10,10 @@
     <link rel="stylesheet" type="text/css" href="css/mypageTop.css?a1" />
     <link rel="stylesheet" type="text/css" href="css/mypage.css?b" />
     <!--  index 스타일  -->
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?a" />
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?ab" />
 	
     <!--  추천게시판 스타일  -->
-    <link rel="stylesheet" type="text/css" href="css/board.css?abc" />
+    <link rel="stylesheet" type="text/css" href="css/board.css?abcd" />
     <link rel="stylesheet" type="text/css" href="css/postView.css" /> 
 	
 	<!--  관리자 스타일  -->
