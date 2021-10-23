@@ -15,7 +15,7 @@ $(document).ready(function () {
     $(".joinTextBox").val("");
   });
 
-  //오버레이영역 클릭시 모달창 닫기
+  // 클릭시 모달창 닫기
   $(".closeBtn").click(function () {
     $(".loginJoinModal").css("display", "none");
     $(".checkModal").css("display", "block");
@@ -25,6 +25,11 @@ $(document).ready(function () {
     $(".loginModal").css("display", "none");
   });
 
+  // 로그인창 -> 회원가입창 클릭 동작
+  $("#joinBtn2").click(function () {
+    $(".loginModal").css("display", "none");
+    $(".loginJoinModal").css("display", "block");
+  });
   //약관동의창 취소버튼 동작
   $("#joinCancelBtn").click(function () {
     $(".loginJoinModal").css("display", "none");

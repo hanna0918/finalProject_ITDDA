@@ -43,7 +43,7 @@ public class MemberController {
     			session.setAttribute("logname", lvo.getM_username());
     			session.setAttribute("logseq", (int)lvo.getM_seq());
     			session.setAttribute("lognick", lvo.getM_nickname());
-
+    			System.out.println("확인용>>>>>>>>>>>>"+lvo.getM_seq());
                 return "redirect:/";        // 메인페이지 이동
             } 
         }
@@ -108,5 +108,8 @@ public class MemberController {
 		return "register/joinResult";
 
 	}
+	
+	
+	
 
 }

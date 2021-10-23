@@ -60,7 +60,7 @@ public class RecommendController {
 		ModelAndView mav = new ModelAndView();
 		int cnt = recommendService.countHit(board_seq);
 		System.out.println(cnt+"__________________글보기가 안들어온다");
-		mav.addObject("vo", recommendService.countHit(board_seq));
+		mav.addObject("vo", recommendService.recommendView(board_seq));
 		mav.setViewName("recommend/recommendView");
 		return mav;
 		

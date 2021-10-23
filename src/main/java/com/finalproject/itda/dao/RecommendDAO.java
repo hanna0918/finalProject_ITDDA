@@ -78,7 +78,7 @@ public interface RecommendDAO {
 			+ "    inner join board_content d "
 			+ "            on a.board_seq=d.board_seq "
 			+ "    where board_code=1) "
-			+ "where board_seq=${param1};")
+			+ "where board_seq=${param1}")
 	public RecommendVO recommendView(int board_seq);
 }
 

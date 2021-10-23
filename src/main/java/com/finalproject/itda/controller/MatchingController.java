@@ -1,5 +1,6 @@
 package com.finalproject.itda.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.MatchingService;
+import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.CalendarVO;
 import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
@@ -27,6 +29,7 @@ public class MatchingController {
 		ModelAndView mav = new ModelAndView();
 		MatchingPagingVO pVo = new MatchingPagingVO();
 		mav.setViewName("matching/matchingList");
+		
 		mav.addObject("pVo", matchingService.page(pVo));
 		mav.addObject("list", matchingService.matchingList(pVo));
 		return mav; 
@@ -56,8 +59,9 @@ public class MatchingController {
 	@RequestMapping(value="matchingView")
 	public ModelAndView matchingView(int board_seq) {
 		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
 		int cnt = matchingService.countHit(board_seq);
-
+		mav.addObject("part", matchingService.matchingUser(board_seq));
 		mav.addObject("vo", matchingService.matchingView(board_seq));
 		mav.setViewName("matching/matchingView");
 		return mav;
@@ -77,13 +81,12 @@ public class MatchingController {
 	@RequestMapping(value="/matchingWriteOk", method = RequestMethod.POST)
 	public ModelAndView matchingWriteOk(MatchingVO vo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
-//			Map<String, Object> map = new HashMap<String, Object>();
-//			map.put("vo", vo);
-//			map.put("m_seq", (Integer)ses.getAttribute("logseq"));
-			int result = matchingService.matchingWriteOk(vo);
-			System.out.println("너 뭐냐"+result);
-//			mav.setViewName("redirect:matchingList");
+		int result = matchingService.matchingWriteOk(vo);
+		if(result > 0) {
 			mav.setViewName("redirect:matchingList");
+		} else {
+			mav.setViewName("matching/result");
+		}
 		return mav;
 	}
 
@@ -91,12 +94,54 @@ public class MatchingController {
 	public ModelAndView matchingEdit(int board_seq, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
 		Object test = ses.getAttribute("logseq");
-
+		
 		matchingService.matchingEdit(board_seq, Integer.valueOf((String)test) );
 		return mav;
 	}
 	
-//	@RequestMapping("/matchingReply")
-//	@ResponseBody
-//	public List<>
+	// -----------------------------------글삭제
+	@RequestMapping("/matchingDelete")
+	public String matchingDelete(int board_seq) {
+		matchingService.matchingDelete(board_seq);
+		return "";
+	}
+	
+	@RequestMapping("/matchingConfirm")
+	@ResponseBody
+	public MatchingVO matchingConfirm(int mc_seq, int m_seq){
+		System.out.println("mc_seq" + mc_seq);
+		System.out.println("m_seq" + m_seq);
+		
+		System.out.println("컨트롤러 매칭컨펌 들어옴");
+		return matchingService.matchingConfirm(mc_seq, m_seq);
+	}
+	
+	@RequestMapping("/matchingIn")
+	public String matchingIn(int m_seq, int mc_seq, int board_seq) {
+		matchingService.matchingIn(m_seq, mc_seq);
+		return "redirect:/matchingView?board_seq="+board_seq;
+	}
+	
+	@RequestMapping("/matchingCancel")
+	public String matchingCancel(int m_seq, int mc_seq, int board_seq) {
+		System.out.println("mc_seq" + mc_seq);
+		System.out.println("m_seq" + m_seq);
+		System.out.println("매칭캔슬 들어옴");
+		
+		matchingService.matchingCancel(m_seq, mc_seq);
+		return "redirect:/matchingView?board_seq="+board_seq;
+	}
+	
+	@RequestMapping("/matchingReply")
+	@ResponseBody
+	public List<BoardCommentVO> matchingReply(int board_seq){
+		return matchingService.matchingReply(board_seq);
+	}
+	
+	// 댓글 등록
+	@RequestMapping(value="/matchingReplyWrite", method=RequestMethod.POST)
+	@ResponseBody
+	public int matchingReplyWrite(BoardCommentVO vo) {
+		return matchingService.matchingReplyWrite(vo);
+	}
 }

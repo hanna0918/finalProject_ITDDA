@@ -27,17 +27,17 @@
 		</form>
 	</div>
 	<!-- 추천 리스트 -->
-<!-- 	<div class="boardList"> -->
-<!-- 		<ul id="chucheonTitle"> -->
-<!-- 			<li>NO</li> -->
-<!-- 			<li>제목</li> -->
-<!-- 			<li>작성자</li> -->
-<!-- 			<li>등록일</li> -->
-<!-- 			<li>조회수</li> -->
-<!-- 			<li>댓글수</li> -->
-<!-- 		</ul> -->
-<!-- 		<hr /> -->
-<!-- 	</div> -->
+	<!-- 	<div class="boardList"> -->
+	<!-- 		<ul id="chucheonTitle"> -->
+	<!-- 			<li>NO</li> -->
+	<!-- 			<li>제목</li> -->
+	<!-- 			<li>작성자</li> -->
+	<!-- 			<li>등록일</li> -->
+	<!-- 			<li>조회수</li> -->
+	<!-- 			<li>댓글수</li> -->
+	<!-- 		</ul> -->
+	<!-- 		<hr /> -->
+	<!-- 	</div> -->
 	<div>
 		<form>
 			<div class="chucheonList">
@@ -78,11 +78,12 @@
 	</div>
 
 </div>
+
 <div>
 	<!-- 글쓰기 버튼 -->
 	<div class="boardBtnDiv">
-		<input type="button" value="글쓰기" class="writeBtn"
-			onclick="location.href='/itda/writeQuestion'" />
+		<input type="button" value="글쓰기" class="writeBtn recommendBtn"
+			onclick="location.href='/itda/recommendWrite'" />
 	</div>
 	<!-- 페이지번호 -->
 	<div class='pagingDiv'>

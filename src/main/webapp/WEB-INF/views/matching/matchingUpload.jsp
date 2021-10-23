@@ -24,7 +24,7 @@
                         <li><input type="time" name="startTime" required/></li>
                         <li>~</li>
                         <li><input type="time" name="endTime" required/></li>
-                        <li><input type="number" name="mc_max" id="mc_max" placeholder="매칭 최대 인원 (최대 10인)" min="2" max="10"/></li>
+                        <li><input type="number" name="mc_max" id="mc_max" placeholder="매칭 최대 인원 (최대 10인)" min="2" max="10" required/></li>
                         <li><select name="sido" id="sido"></select><select name="gugun" id="gugun"></select></li>
                         <li><input type="radio" class="mc_state" id="mc_state1" name="mc_state" value="1" checked/>
 			                <label for="mc_state1">일회성모임</label>

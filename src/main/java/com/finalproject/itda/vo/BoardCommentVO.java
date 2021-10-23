@@ -6,12 +6,13 @@ public class BoardCommentVO {
 	private int m_seq;
 	private String br_content;
 	private String br_writedate;
+	private String m_userid;
 	
-	//글제목
+	//湲��젣紐�
 	private String board_subject;
-	//닉넴
+	//�땳�꽩
 	private String m_nickname;
-	//쳌박 배열
+	//爾뚮컯 諛곗뿴
 	private int[] br_id_Array;
 
 	
@@ -47,6 +48,12 @@ public class BoardCommentVO {
 	}
 	public String getBoard_subject() {
 		return board_subject;
+	}
+	public String getM_userid() {
+		return m_userid;
+	}
+	public void setM_userid(String m_userid) {
+		this.m_userid = m_userid;
 	}
 	public void setBoard_subject(String board_subject) {
 		this.board_subject = board_subject;
