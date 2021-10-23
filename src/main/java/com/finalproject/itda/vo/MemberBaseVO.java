@@ -21,13 +21,13 @@ public class MemberBaseVO {
 	private String m_birth;
 	private String m_img;
 	
-//	ì¡°ì¸ìš© vo
+//	ì¡°ì¸?š© vo
 	private String m_content;
 	private String board_seq; 
 	private String m_name;  
 	private String m_state;
 	
-	//ì¹´ìš´íŠ¸ìš©
+	//ì¹´ìš´?Š¸?š©
 	private int board_count;
 	private int comment_count;
 	private int sub_count;

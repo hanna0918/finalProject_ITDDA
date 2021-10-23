@@ -31,7 +31,7 @@
           </li>
           <li><a href="/itda/recommendList">RECOMMEND</a></li>
           <li><a href="/itda/matchingList">MATCHING</a></li>
-          <li><a href="#">LIBERTY</a></li>
+          <li><a href="/itda/freeBoard2">FREEBOARD</a></li>
           <li><a href="/itda/questionBoard">Q&A</a></li>
           <li><a href="/itda/injeungBoard">HANGOUT</a></li>
         </ul>
