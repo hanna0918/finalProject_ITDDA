@@ -10,7 +10,7 @@
 			<div class='contentWriter'><!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
-					<div class='userid'>내가순찬</div>
+					<div class='postWirterNick'>내가순찬</div>
 					<div>
 						<ul>
 							<li>2021-09-18</li>

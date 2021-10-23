@@ -27,17 +27,17 @@
 		</form>
 	</div>
 	<!-- 추천 리스트 -->
-	<div class="boardList">
-		<ul id="chucheonTitle">
-			<li>NO</li>
-			<li>제목</li>
-			<li>작성자</li>
-			<li>등록일</li>
-			<li>조회수</li>
-			<li>댓글수</li>
-		</ul>
-		<hr />
-	</div>
+<!-- 	<div class="boardList"> -->
+<!-- 		<ul id="chucheonTitle"> -->
+<!-- 			<li>NO</li> -->
+<!-- 			<li>제목</li> -->
+<!-- 			<li>작성자</li> -->
+<!-- 			<li>등록일</li> -->
+<!-- 			<li>조회수</li> -->
+<!-- 			<li>댓글수</li> -->
+<!-- 		</ul> -->
+<!-- 		<hr /> -->
+<!-- 	</div> -->
 	<div>
 		<form>
 			<div class="chucheonList">

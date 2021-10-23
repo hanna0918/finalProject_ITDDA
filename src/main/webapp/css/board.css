@@ -42,7 +42,8 @@ li {
 }
 /* 페이지, 글쓰기벝은 */
 .boardBtnDiv {
-  height: 50px;
+  height: 40px;
+  margin-top:10px;
 }
 .writeBtn {
   /*글쓰기 버튼*/
@@ -152,22 +153,24 @@ span {
 #quesTitle {
   height: 40px;
   line-height: 40px;
-  font-size: 1.05em;
+  font-size: 0.85em;
+  display:block;
+  border-top: 2px solid black;
+  border-bottom: 1px solid black;
 }
 #quesTitle li {
-  width: 10%;
   float: left;
   text-align: center;
 }
-#quesTitle > li:nth-child(2) {
-  width: 50%;
+#quesTitle > li:nth-child(1) {
+  width: 56%;
 }
-#quesTitle > li:nth-child(3),
-#quesTitle > li:nth-child(4) {
-  width: 13%;
+#quesTitle > li:nth-child(2),
+#quesTitle > li:nth-child(3) {
+  width: 15%;
 }
-#quesTitle > li:nth-child(5),
-#quesTitle > li:nth-child(6) {
+#quesTitle > li:nth-child(4),
+#quesTitle > li:nth-child(5) {
   width: 7%;
 }
 .quesContent {
@@ -178,30 +181,26 @@ span {
   float: left;
   height: 50px;
   line-height: 50px;
+  font-size:0.91em;
   text-align: center;
   box-sizing: border-box;
+  border-bottom:1px solid lightgray;
 }
-.quesContent > div:nth-of-type(6n + 1) {
-  width: 10%;
-}
-.quesContent > div:nth-of-type(6n + 2) {
-  width: 50%;
-  display: table-cell;
-  vertical-align: middle;
+.quesContent > div:nth-of-type(5n + 1) {
+  width: 56%;
+  box-sizing:border-box;
+  padding-left:10px;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.quesContent > div:nth-of-type(6n + 3) {
-  width: 13%;
-  /*  		display: table-cell; */
-  vertical-align: middle;
+
+.quesContent > div:nth-of-type(5n + 2),
+.quesContent > div:nth-of-type(5n + 3) {
+  width: 15%;
 }
-.quesContent > div:nth-of-type(6n + 4) {
-  width: 13%;
-}
-.quesContent > div:nth-of-type(6n + 5),
-.quesContent > div:nth-of-type(6n + 6) {
+.quesContent > div:nth-of-type(5n + 4),
+.quesContent > div:nth-of-type(5n + 5) {
   width: 7%;
 }
 /*------------인증----------------------------------------*/
@@ -297,27 +296,24 @@ img[name="heartIcon"] {
 /*-------------------------------------------------------*/
 
 /*----추천------------------------------------------------*/
-boardList hr{
-	margin:0;
-	padding:0;
-}
-#chucheonTitle {
-  height: 40px;
-  line-height: 40px;
-  font-size: 1.05em;
-}
-.boardList{
-	display: none;
-}
-#chucheonTitle > li:nth-child(1) {
-  width: 7%;
-}
-#chucheonTitle > li:nth-child(2) {
-  width: 83%;
-}
-#chucheonTitle > li:nth-child(3) {
-  width: 10%;
-}
+/* boardList>hr{ */
+/* 	margin:0; */
+/* 	padding:0; */
+/* } */
+/* #chucheonTitle { */
+/*   height: 40px; */
+/*   line-height: 40px; */
+/*   font-size: 1.05em; */
+/* } */
+/* #chucheonTitle > li:nth-child(1) { */
+/*   width: 7%; */
+/* } */
+/* #chucheonTitle > li:nth-child(2) { */
+/*   width: 83%; */
+/* } */
+/* #chucheonTitle > li:nth-child(3) { */
+/*   width: 10%; */
+/* } */
 
 .chucheonList {
   width: 100%;

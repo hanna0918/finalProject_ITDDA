@@ -14,7 +14,7 @@
 	
     <!--  추천게시판 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/board.css?abcd" />
-    <link rel="stylesheet" type="text/css" href="css/postView.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/postView.css?a" /> 
 	
 	<!--  관리자 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/adminTop.css?3" />
@@ -31,9 +31,9 @@
           </li>
           <li><a href="/itda/recommendList">RECOMMEND</a></li>
           <li><a href="/itda/matchingList">MATCHING</a></li>
-          <li><a href="#">LIBERTY</a></li>
-          <li><a href="/itda/questionBoard">Q&A</a></li>
           <li><a href="/itda/injeungBoard">HANGOUT</a></li>
+          <li><a href="#">FREEBOARD</a></li>
+          <li><a href="/itda/questionBoard">Q&A</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">
