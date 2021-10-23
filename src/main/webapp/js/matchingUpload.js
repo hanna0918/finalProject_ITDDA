@@ -3,6 +3,7 @@ $('#summernote').summernote({
     placeholder: '매칭 정보를 입력해주세요',
     tabsize: 2,
     height: 300,
+    
 });
 
 

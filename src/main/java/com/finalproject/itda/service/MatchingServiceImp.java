@@ -85,6 +85,8 @@ public class MatchingServiceImp implements MatchingService {
 
 	@Override
 	public int matchingEditOk(MatchingVO vo) {
+		matchingDAO.matchingEditOkMcTable(vo);
+		matchingDAO.matchingEditOkBoardBase(vo);
 		return matchingDAO.matchingEditOk(vo);
 	}
 

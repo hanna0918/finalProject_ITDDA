@@ -87,6 +87,7 @@ public class MatchingVO {
 		if(startDate != null) {
 			mc_start_date = startDate + " " + startTime;
 		}
+		System.out.println(mc_start_date);
 		return mc_start_date;
 	}
 	public void setMc_start_date(String mc_start_date) {
@@ -96,6 +97,7 @@ public class MatchingVO {
 		if(startDate != null) {
 			mc_end_date = startDate + " " + endTime;
 		}
+		System.out.println(mc_end_date);
 		return mc_end_date;
 	}
 	public void setMc_end_date(String mc_end_date) {

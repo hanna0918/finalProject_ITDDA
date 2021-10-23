@@ -156,7 +156,9 @@
             </div>
             <div id='bottomBtn'>
                 <a href='/itda/matchingList'><input type='button' name='postListBtn' value='목록'/></a>
+                <c:if test='${logseq!=null}'>
                 <a href='/itda/matchingUpload'><input type='button' name='postWriteBtn' value='글쓰기'/></a>
+                </c:if>
             </div>
         </form>
     </div>

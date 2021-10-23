@@ -196,7 +196,7 @@ $(function(){
 	});
 	var deleteParams = "";
 	$(document).on('click','.deleteReply',function(){
-		var deleteParams = $(this).parent().next('.modifyEditForm').serialize(); // coment=문자&num=888
+		deleteParams = $(this).parent().next().children().serialize();
 		console.log("clickevent"+deleteParams);
 		let tag = "";
 		tag += "<h1>댓글을 정말 삭제하시겠습니까?</h1>";

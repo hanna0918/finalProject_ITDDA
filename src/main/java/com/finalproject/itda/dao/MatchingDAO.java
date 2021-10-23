@@ -181,35 +181,35 @@ public interface MatchingDAO {
 			+ " where a.board_seq=${param1}")
 	public MatchingVO matchingEdit(int board_seq);
 	
-	// 매칭 글 수정하기...!!!
-	@Update(" update     "
-			+ "    (select         "
-			+ "          A1.board_subject      "
-			+ "        , A1.b_content      "
-			+ "        , A2.mc_max      "
-			+ "        , A2.mc_state      "
-			+ "        , A2.mc_start_date      "
-			+ "        , A2.mc_end_date      "
-			+ "        , A2.mc_where      "
-			+ "        , A3.board_select       "
-			+ "    from           "
-			+ "        boardbase A1        "
-			+ "        , mc_table A2 on A2.board_seq = A1.board_seq     "
-			+ "        , board_content A3 on A3.board_seq = A1.board_seq     "
-			+ "    where           "
-			+ "        A1.board_seq = #{board_select}) "
-			+ "    set      "
-			+ "        board_subject = #{board_subject}   "
-			+ "        , b_content = #{b_content}   "
-			+ "        , mc_max = ${mc_max}   "
-			+ "        , mc_state = ${mc_state}   "
-			+ "        , mc_start_date = to_date(#{mc_start_date}, 'YYYY-MM-DD HH24:MI')   "
-			+ "        , mc_end_date = to_date(#{mc_end_date}, 'YYYY-MM-DD HH24:MI')   "
-			+ "        , mc_where = #{mc_where}   "
-			+ "        , board_select = #{board_select} "
-			+ "    where      "
-			+ "        A1.board_seq=#{board_select} ")
+	
+	
+	// 매칭 글 수정하기...!!!1
+	@Update(" update "
+		+ "			board_content set "
+			+ "			board_select=#{board_select} "
+			+ " 	where board_seq=${board_seq} ")
 	public int matchingEditOk(MatchingVO vo);
+	
+	// 매칭 글 수정하기...!!!2
+	@Update(" update "
+			+ "		boardbase set "
+			+ "			board_subject=#{board_subject}, "
+			+ "			b_content=#{b_content} "
+			+ "		where board_seq=${board_seq} ")
+	public int matchingEditOkBoardBase(MatchingVO vo);
+	
+	// 매칭 글 수정하기...!!!3
+	@Update(" update "
+			+ "		mc_table set "
+			+ "			mc_max = ${mc_max}, "
+			+ "			mc_state = ${mc_state}, "
+			+ "			mc_start_date = to_date(#{mc_start_date},'YYYY-MM-DD HH24:MI'), "
+			+ "			mc_end_date = to_date(#{mc_end_date},'YYYY-MM-DD HH24:MI'), "
+			+ "			mc_where = #{mc_where} "
+			+ "		where board_seq = ${board_seq} ")
+	public int matchingEditOkMcTable(MatchingVO vo);
+	
+	
 	
 	// 매칭 인원 불러오는 쿼리문
 	@Select(" select m_nickname, m_rank from mc_part a join mc_table b on a.mc_seq = b.mc_seq join memberbase c on a.m_seq=c.m_seq where board_seq=${param1} ")

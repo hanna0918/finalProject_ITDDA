@@ -62,11 +62,9 @@ public class MatchingController {
 	
 	@RequestMapping("/matchingUpload")
 	public String matchingUpload(HttpSession ses) {
-		System.out.println("세션은" + ses.getAttribute("login"));
 		if(ses.getAttribute("login") != null) {
 			return "matching/matchingUpload";
 		} else {
-			System.out.println("여기들어옴");
 			return "register/login";
 		}
 	}
@@ -94,16 +92,13 @@ public class MatchingController {
 	// 글 수정 후 update 하러 들어오는 메소등
 	@RequestMapping(value="/matchingEditOk", method=RequestMethod.POST)
 	public String matchingEditOk(MatchingVO vo) {
-		System.out.println("글수정 확인 메소드 입장");
 		matchingService.matchingEditOk(vo);
-		System.out.println("글수정 확인 메소드 퇴장 직전까진 문제없음");
-		return "redirect:matchingView/board_seq=" + vo.getBoard_seq();
+		return "redirect:matchingView?board_seq=" + vo.getBoard_seq();
 	}
 	
 	@RequestMapping("/matchingConfirm")
 	@ResponseBody
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq){
-		System.out.println("컨트롤러 매칭컨펌 들어옴");
 		return matchingService.matchingConfirm(mc_seq, m_seq);
 	}
 	
@@ -115,10 +110,6 @@ public class MatchingController {
 	
 	@RequestMapping("/matchingCancel")
 	public String matchingCancel(int m_seq, int mc_seq, int board_seq) {
-		System.out.println("mc_seq" + mc_seq);
-		System.out.println("m_seq" + m_seq);
-		System.out.println("매칭캔슬 들어옴");
-		
 		matchingService.matchingCancel(m_seq, mc_seq);
 		return "redirect:/matchingView?board_seq="+board_seq;
 	}
