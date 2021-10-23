@@ -14,7 +14,7 @@
 	function delChk(no){
 		
 		if(confirm("삭제할까요?")){
-			location.href="/itda/freeDelete?board_seq="+${vo.board_seq};
+			location.href="/itda/freeDelete?board_seq=${vo.board_seq}";
 		}
 		/* 	<li><a href="/itda/freeview?board_seq=${vo.board_seq}">${vo.board_subject}</a></li> */	
 	}
@@ -62,7 +62,7 @@ a{
 .freeBoardTop>div:nth-child(2){
 	position: relative;
     z-index: 1;
-    max-width: 900px; /*1100이면 뭔가 가운데가 안맞음*/
+    max-width: 1100px; /*1100이면 뭔가 가운데가 안맞음*/
     margin: 0 auto;
     display: block;
     width: 100%;
@@ -138,7 +138,7 @@ a{
 	
 /*게시판 내용 */
 .freeContent{
-	max-width: 900px; /*1100*/ 
+	max-width: 1100px; /*1100*/ 
     float: none ;
     width: 100% ;
     min-width: auto;
@@ -164,7 +164,7 @@ padding: 22px 0;
     padding: 16px;
     border: 1px solid rgba(128, 128, 128, 0.2);
     border-radius: 3px;
-    height:110px;
+    height:145px;
 }
 .freeText>textarea{
 	border: none;
@@ -551,8 +551,29 @@ border-radius: 5px;
 		font-size:0.85em;
 		color:#ddd;
 	}
+	img[name=freeprofileShot]{
+		width:40px;
+		height:40px;
+		margin:5px;
+		float:left;
+	}
 	
-	
+	/*로그인 안되어있을 때 작성버튼->스타일 안먹어서 아래에 넣어줌*/
+	#needlogin2{
+	background: #0e3775;
+    border: 2px solid #0e3775;
+    color: #fff;
+    float: right;
+    outline-style: none;
+    padding-left: 23px;
+    padding-right: 23px;
+    border-width: 2px;
+    border-radius: 5px;
+    line-height: 1.5;
+    padding-top: 4px;
+    height: 32px;
+	margin-top:-20px;
+	}
 	
 	
 </style>
@@ -562,7 +583,7 @@ border-radius: 5px;
 		<div class="freeBoardTop">
 			<div>
 				<div>
-					<a href=""><h4>아무말 대잔치</h4></a>
+					<a href=""><h4>자유게시판</h4></a>
 					<h1 style="background: linear-gradient(45deg, whitesmoke, transparent);">${vo.board_subject }</h1>
 					<div>
 					<!-- <span><a href='#'>#벌써</a>&nbsp<a href='#'>#10월이라니</a>&nbsp<a href="#">#말도안돼</a></span> -->
@@ -577,22 +598,21 @@ border-radius: 5px;
 							<a href="#"><img src="/itda/img/circle.png" alt="프로필이미지"/></a>
 						</div>
 					</div>
-					<div style="z-index:40; position:absolute; left:86px; top:-1px; margin-top: 24px;"><a href=""><label style="padding-right:3px;">${lognickname}</label>  @${login }</a></div>
+					<div style="z-index:40; position:absolute; left:86px; top:-1px; margin-top: 24px;"><a href=""><label style="padding-right:3px;">${logname}</label>  @${login}</a></div>
 					<div style="position: absolute; top:-0.1px; margin-top: 50px; left: 87px;">${vo.board_writedate}</div>
 					
 					<span>
-					
+					  
 					 <!-- 내가 쓴 글이 아닐경우에만 신고,북마크 보이기-->
 					<c:if test="${vo.m_seq!=logseq}">
 					
-						<div style="margin-right:10px; margin-top:-5px;">
+						<div style="margin-right:3px; margin-top:-5px;">
 							<img src="/itda/img/siren3.png" alt="신고" id="sirenImg"/> 
 						</div>
-						<div style="margin-right:10px">
+						<div style="margin-right:-10px; margin-left:10px;">
 							<a><img src="/itda/img/bookmark4.png" alt="북마크" id="bookmarkOff"/></a>
 							<a><img src="/itda/img/bookmarkOn.png" alt="북마크on" id="bookmarkOn"/></a>
 						</div>
-					
 					</c:if>
 					
 					<!-- 내가 쓴 글일 경우엔 수정, 삭제 보이기 -->
@@ -600,12 +620,12 @@ border-radius: 5px;
 						<div style="margin-right:10px; ">
 						<a href="/itda/freeEdit?board_seq=${vo.board_seq}">수정</a>
 						</div>
-						<div style="margin-right:10px">
+						<div style="margin-right:-10px">
 						<a href="javascript:delChk(${board_seq})">삭제</a> <!-- 레코드번호 넘겨서 삭제 -->
 						</div>
 					</c:if>
 					
-					<div>
+					<div style="margin-right:-160px; margin-left:25px;">
 						<a href=""><img src="/itda/img/hit.png" alt="조회수"/>
 						<label>${vo.board_hit}</label>
 						</a>
@@ -616,7 +636,7 @@ border-radius: 5px;
 			</div>
 			
 			<div class="freeContent">
-			<div class="freeContentView">${vo.board_content }</div>
+			<div class="freeContentView">${vo.b_content}</div>
 			<div class="freeComment" style="margin-bottom:24px;">
 				<div class="commentBtn" style="display:inline-block; float:left;">
 					<a href="" style="font-size:16px;"><img src="/itda/img/like.png" alt="좋아요수"/>${vo.b_goodhit}</a> 
@@ -628,7 +648,7 @@ border-radius: 5px;
 			</div>
 			
 			<!------- 댓글 목록 나오는 리스트---------->
-			<div style="float:left"><!-- 2 댓글박스 -->
+			<div style=" position: relative; left: -55px; top: 25px;"><!-- 2 댓글박스 -->
 				<div><img src='/itda/img/circle.png' name='freeprofileShot'></div>
 				<div>
 					<div id='freeuserid' class='freeuserid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
@@ -643,13 +663,14 @@ border-radius: 5px;
 			<!----------------------------------댓글쓰기 --------------------------------->
 			
 			<!-- 로그인이 되어있을 경우  -->
-			<c:if test="${logStatus=='Y'}">
+			<c:if test="${login ne null}">
 				<div class="freeTextarea">
 					<form method="post" id="commentFrm" action="/itda/commentWrite">
 						<div class="freeTextBlock">
 							<div class="freeText">
-							<textarea id="freecoment" name="br_content" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" style="overflow:hidden; overflow-wrap:break-word; height:95px;"></textarea>
-							<input type="submit" value="작성" style="margin-top:-20px;"/>
+							<textarea id="freecoment" name="br_content" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" style="overflow:hidden; overflow-wrap:break-word; height:100px;"></textarea>
+							<input type="submit" id="freeComentBtn" value="작성" style="margin-top:-25px;"/>
+							
 							<input type="hidden" name="board_seq" value="${vo.board_seq}"/> <!-- 원글 글번호 board_seq -->
 							<input type="hidden" name="m_userid" value="${vo.m_userid}"/>
 							</div>
@@ -659,13 +680,13 @@ border-radius: 5px;
 			</c:if>
 			
 			<!-- 로그인이 안되어있을 경우 -->
-			<c:if test="${logStatus=='N'}">
+			<c:if test="${empty login}">
 				<div class="freeTextarea">
 					<form method="post" id="" action="">
 						<div class="freeTextBlock">
-							<div class="freeText2">
-							<textarea id="freecoment2" title="로그인이 필요합니다" placeholder="로그인이 필요합니다" rows="1" style="overflow:hidden; overflow-wrap:break-word; height:95px;"></textarea>
-							<input type="button" value="작성" id="needLogin" style="margin-top:-20px;"/>
+							<div class="freeText" id="needLogin1">
+							<textarea id="freecoment" title="로그인이 필요합니다" placeholder="로그인이 필요합니다" rows="1" style="overflow:hidden; overflow-wrap:break-word; height:95px;"></textarea>
+							<input type="button" value="작성" id="needLogin2" style="background: #0e3775;border: 2px solid #0e3775;color: #fff;float: right;outline-style: none;padding-left: 23px;padding-right: 23px;border-width: 2px;border-radius: 5px;line-height: 1.5;padding-top: 4px;height: 32px;margin-top:-20px;" />
 							</div>
 						</div>
 					</form>
@@ -685,6 +706,9 @@ border-radius: 5px;
 			</div>
 		</div>
 	</div>
+	
+	
+	
 
 		<!-- 게시글 신고 모달창 -->
 		<div class="sirenloginJoinModal" id="sirenloginJoinModal">
@@ -788,19 +812,27 @@ border-radius: 5px;
 				</article>
 		</div>
 		
-		<!-- 아이디 누르면 나오는 메뉴바? -->
-		<div class="User-area">
-  			<div class="User-avtar">
-   				<img src="http://f1s.000webhostapp.com/images/avatar/avatar5.png"/>
-  			</div>
-	    	<!-- <ul class="User-Dropdown U-open">
-		     	 <li><a href="#">My Profile</a></li>
-		      	 <li><a href="#">Notifications</a><span>40</span></li>
-		      	 <li><a href="#">Projects</a></li>
-		     	 <li><a href="#">Settings</a></li>
-		      	 <li><a href="#">Logout</a></li>
-    		</ul>
-		</div> -->
+		<!-- 로그인 안했을경우 댓글 클릭시 로그인 모달창 띄우기  -->
+		<div class=loginModal" id="loginModal" style="display:none;">
+  	<!-- 	<div class="modalOverlay"></div> -->
+  		<article class="loginForm">
+    	<div class="closeBtn">close</div>
+    	<form method="post" action="/itda/loginOk">
+     	 <h2>로그인</h2>
+      	<input type="text" class="login_userid" name="m_userid" placeholder="아이디" /><br />
+      	<input type="password" class="login_userpwd" name="m_userpwd" placeholder="비밀번호" /><br />
+      	<input type="submit" value="로그인" />
+   	 	</form>
+    	<label class="autoLoginLabel">
+      	<input type="checkbox" name="autoLogin" id="autoLogin" class="autoLogin" />
+      	<span>로그인상태유지</span>
+    	</label>
+    	<div class="loginBottumBtn">
+      	<a href="" class="joinBtn2">회원가입</a>
+      	<a href="" class="findId">아이디&비밀번호 찾기</a>
+    	</div>
+  	</article>
+	</div>
 				
 <script type="text/javascript">
 
@@ -829,7 +861,7 @@ $('#guitarBtn').click(function () {
      /*웹페이지 열었을 때*/
      $("#bookmarkOff").show();
      $("#bookmarkOn").hide();
-
+ });
      /*img1을 클릭했을 때 img2를 보여줌*/
      $("#bookmarkOff").click(function(){
     	 
@@ -859,13 +891,13 @@ $('#guitarBtn').click(function () {
          });  
          
      });
- });
+
  
  	/*댓글댓글댓글댓글*/
 
-	$(function(){
+	/*$(function(){
 		//해당게시물의 댓글 목록 구하기(db에서 셀렉트해서)
-		/* function commentList(){
+		 function commentList(){
 			var rParam = "board_seq=${vo.board_seq}"; //현재 글번호 레코드 번호 
 			var rUrl = "/itda/commentList"; //매핑주소
 			$.ajax({
@@ -893,7 +925,7 @@ $('#guitarBtn').click(function () {
 						}else{//자기가 쓴 댓글이 아닐 때 
 							tag+="<br/>"+vo.coment+"</div></li>";
 						}
-						/* tag += vo.coment+"</li>"; */
+						// tag += vo.coment+"</li>"; 
 					});
 					console.log(tag);
 					$("#freereplyView").html(tag); //기존에 있는거 지우고 새롭게 태그를 추가해
@@ -903,11 +935,20 @@ $('#guitarBtn').click(function () {
 				}
 			});
 		}
-		 */
-		//댓글 쓰기//////////////////////////////////////////////////////////// 
-		$("#freeText").click(()=>{
+		
+		/*로그인 안되있을 경우 로그인창 띄우기*/
+		$("#needLogin1").click(function(){
+			 $('.loginModal').css('display','block');
+		});
+
+		$("#needLogin2").click(function(){
+			 $('.loginModal').css('display','block');
+		});
+		
+		//댓글 쓰기////////////////////////////////////////////////
+		$('#freeComentBtn').click(function(){
 				//----- 댓글을 입력하지 않은 경우 
-				if($("#coment").val()==""){ 
+				if($("#freecoment").val()==""){ 
 				alert("댓글을 입력후 등록하세요.."); //추후 모달창으로 대체하기!!!!!!!!!!!!!!!!!!!!
 					return false;
 				}else{
@@ -925,7 +966,7 @@ $('#guitarBtn').click(function () {
 								//현재 보고 있는 댓글 목록을 다시 선택한다 (comment에 있는 value 삭제)
 								commentList();
 								//이전 댓글 지우기
-								$("#coment").val("");
+								$("#freecoment").val("");
 							}
 						},error:function(){
 							console.log("댓글쓰기 에러");
@@ -934,6 +975,7 @@ $('#guitarBtn').click(function () {
 				}
 			});
 			
+		 
 		
 	/* 	//댓글 수정 버튼을 선택하면 (document를 기준으로 ) 나중에 추가된 input
 		$(document).on('click','#commentList input[value=수정]',function(){
