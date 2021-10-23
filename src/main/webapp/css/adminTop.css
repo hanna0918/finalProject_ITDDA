@@ -1,103 +1,103 @@
 @charset "UTF-8";
 
-  #myPageTop{
-    width:100%;
-    height:300px;
-  }
-  #myPageContentDiv{
-    margin:0 auto;
-    width:1100px;
-    height:300px;
-  }
-  #profileBox{
-    margin:0 auto;
-    width:100%;
-    height:250px;
-    background-color:white;
-  }
-  #profileBox>div{
-    width:100%;
-    height:50%;
-    box-sizing:border-box;
-    border-bottom:1px solid #ddd;
-  }
-  #profileBox>div:first-child>div{
-    width:50%;
-    height:100%;
-    float:left;
-  }
-  #introDiv{
-    display: flex;
-    align-items: center;
-  }
+#myPageTop {
+  width: 100%;
+  background-color: #f7afaf6b;
+  height: 300px;
+}
+#myPageContentDiv {
+  margin: 0 auto;
+  width: 1100px;
+  height: 300px;
+}
+#profileBox {
+  margin: 0 auto;
+  width: 100%;
+  height: 250px;
+  background-color: white;
+}
+#profileBox > div {
+  width: 100%;
+  height: 50%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+}
+#profileBox > div:first-child > div {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+#introDiv {
+  display: flex;
+  align-items: center;
+}
 
-  #introDiv>li:first-child{
-    width:30%;
-    margin: 25px;
-    margin-left:100px;
-    height:100%
-  }
-  #introDiv>li:last-child{
-    width:70%;
-    height:100%
-  }
-  #myRating, #myRating+div{
-    display:flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  #myRating{
-    box-sizing:border-box;
-  }
-  #myRating span{
-    font-size:1.8em;
-  }
-  #myRating p{
-    text-align:center;
-  }
-  #myPageAlertDiv{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  #myPageAlertDiv>ul{
-    display: flex;
-    flex-direction: row;
-  }
-  #myPageAlertDiv li{
-    text-align:center;
-    line-height: 35px;
-    margin: 0px 50px;
-  }
-  #tab{
-    margin:0 auto;
-    width:100%;
-    height:50px;
-    box-sizing:border-box;
-    background-color:white;
-    border-top:1px solid gray;
-    border-bottom:1px solid gray;
-  }
-  #tab>ul{
-    width:100%;
-    height:50px;
-    line-height:50px;
-    display:flex;
-    justify-content: space-evenly;
-
-  }
-  #tab li{
-    float:left;
-    cursor:pointer;
-  }
-  #tab li:hover{
-    color:coral;
-    font-weight:bold;
-  }
-  #tab li.on
-  {
-    background-color: black;
-  }
-  #MyList>li>a{
-    text-decoration-line: none;
-  }
+#introDiv > li:first-child {
+  width: 30%;
+  margin: 25px;
+  margin-left: 100px;
+  height: 100%;
+}
+#introDiv > li:last-child {
+  width: 70%;
+  height: 100%;
+}
+#myRating,
+#myRating + div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#myRating {
+  box-sizing: border-box;
+}
+#myRating span {
+  font-size: 1.8em;
+}
+#myRating p {
+  text-align: center;
+}
+#myPageAlertDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#myPageAlertDiv > ul {
+  display: flex;
+  flex-direction: row;
+}
+#myPageAlertDiv li {
+  text-align: center;
+  line-height: 35px;
+  margin: 0px 50px;
+}
+#tab {
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  background-color: white;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+#tab > ul {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+#tab li {
+  float: left;
+  cursor: pointer;
+}
+#tab li:hover {
+  color: coral;
+  font-weight: bold;
+}
+#tab li.on {
+  background-color: black;
+}
+#MyList > li > a {
+  text-decoration-line: none;
+}

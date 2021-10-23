@@ -228,7 +228,7 @@ html, body {
 	.joinDataInputModal input[type="email"] {
 	width: 350px;
 	height: 30px;
-	margin-bottom: 25px;
+	/* margin-bottom: 25px; */
 	font-size: 12px;
 }
 

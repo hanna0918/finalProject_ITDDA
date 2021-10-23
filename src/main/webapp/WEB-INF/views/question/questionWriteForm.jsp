@@ -229,16 +229,7 @@
 		</div>	
 		
 		
-		<form method="post" action="/itda/questionEditOk" style="width:100%; overflow:auto;">
-		<!-- 대표 이미지 설정(넣을지 뺄지 잘 모르겠지만 일단 넣어봅니다) -->
-		<!-- <div id="questionzImage">
-			<div>
-				<label >대표 이미지 설정</label>
-			
-			</div>
-		</div> -->
-		
-		<!-- --------------------------------------------- -->
+		<form method="post" action="/itda/questionWriteOk" style="width:100%; overflow:auto;">
 		
 				<!-- 이미지, 아이디  -->
 				<div class="questionwriteBody">
@@ -248,16 +239,13 @@
 								<img src="/itda/img/circle.png" alt="프로필이미지"/>
 							</div>
 							<div id="profilId" style="  padding-top: 10px; padding-left: 0px;">
-								<div id="questionleftId"> ${lognickname}&nbsp; @${login} </div>
+								<div id="questionleftId"> ${lognickname}&nbsp; ${login} </div>
 							</div>
 						</div> 
 						
 						<div id="questionboardTitle">
 							<div id="questionboardTitleWrap">
-								<div><input type="text" name="board_subject" placeholder="제목" value="${vo.board_subject }" style=" border:none"/></div>
-								<!-- <div>
-								<input type="text"  placeholder="#을 이용하여 태그를 작성해보세요! (최대 10개)" style="border: none; border-bottom: 1px solid rgba(128, 128, 128, 0.3); width:100%" font-family:normal;/>
-								</div> -->
+								<div><input type="text" name="board_subject" placeholder="제목" style=" border:none"/></div>
 							</div>
 						
 						</div>
@@ -269,16 +257,13 @@
 						 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
        					 <!-- <div id="summernote" name="content"></div> -->
        					 
-  						<textarea id="questionSummernote" name="board_content">
-  						${vo.board_content }
+  						<textarea id="questionSummernote" name="b_content">
   						
   						</textarea>
-						<input type="hidden" name="board_seq" value="${vo.board_seq }"/>
-       					 
-
+				
 					      <!-- ---------------------물론 여긴 바꿔야함------------------------ -->
-					      <a href="/itda/questionEditOk"><input type="submit" value="수정" id="questionObtn" /></a>
-        				  <a href="/itda/questionBoard2"><input type="submit" value="취소" id="questionXBtn" style="float:right; background: #fff; border: 1px solid #d3d3d3;color: #4a4a4a;margin-right: 7px;padding: 6.5px 12px;border-radius: 3px;font-size: 12.2px;font-weight: bold;"/></a>
+					      <input type="submit" value="등록" id="questionObtn" />
+        				  <a href="#" onclick="history.back(); return false;"><input type="button" value="취소" id="questionXBtn" style="float:right; background: #fff; border: 1px solid #d3d3d3;color: #4a4a4a;margin-right: 7px;padding: 6.5px 12px;border-radius: 3px;font-size: 12.2px;font-weight: bold;"/></a>
 					      <!-- ---------------------물론 여긴 바꿔야함------------------------ -->
 
 
@@ -290,6 +275,7 @@
 	
 
 	<script>
+	
 	$('#questionSummernote').summernote({
         placeholder: '내용을 입력해주세요',
         tabsize: 2,

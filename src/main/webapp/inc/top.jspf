@@ -6,21 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-
+	<!-- mypage 스타일 -->
     <link rel="stylesheet" type="text/css" href="css/mypageTop.css?a1" />
-    <link rel="stylesheet" type="text/css" href="css/mypage.css?a1" />
-    <link rel="stylesheet" type="text/css" href="css/injeung.css" />
-    <link rel="stylesheet" type="text/css" href="css/postView.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mypage.css?b" />
     <!--  index 스타일  -->
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?7" />
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css?a" />
 	
     <!--  추천게시판 스타일  -->
-    <link rel="stylesheet" type="text/css" href="css/board.css?" />
+    <link rel="stylesheet" type="text/css" href="css/board.css?abc" />
+    <link rel="stylesheet" type="text/css" href="css/postView.css" /> 
 	
 	<!--  관리자 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/adminTop.css?3" />
     <link rel="stylesheet" type="text/css" href="css/adminModal.css"/>
-    <link rel="stylesheet" type="text/css" href="css/admin.css" />
+    <link rel="stylesheet" type="text/css" href="css/admin.css?ver1" />
   </head>
   <body>
     <div class="wrapper">
@@ -28,15 +27,13 @@
       <header class="mainHeader">
         <ul class="topMenu">
           <li>
-            <a href="/itda"><img src="img/itdaLogo.png" /></a>
+            <a href="/itda"><img src="img/ITDDA01.png" /></a>
           </li>
-          <li><a href="/itda/recommendList">추천게시판</a></li>
-          <li><a href="/itda/matchingList">매칭게시판</a></li>
-          <li><a href="#">장터</a></li>
-          <li><a href="/itda/freeBoard2">자유게시판</a></li>
+          <li><a href="/itda/recommendList">RECOMMEND</a></li>
+          <li><a href="/itda/matchingList">MATCHING</a></li>
+          <li><a href="/itda/freeBoard2">FREEBOARD</a></li>
           <li><a href="/itda/questionBoard">Q&A</a></li>
-          <li><a href="#">베스트</a></li>
-          <li><a href="/itda/injeungBoard">인증</a></li>
+          <li><a href="/itda/injeungBoard">HANGOUT</a></li>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">

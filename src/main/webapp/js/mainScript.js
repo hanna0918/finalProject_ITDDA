@@ -15,7 +15,7 @@ $(document).ready(function () {
     $(".joinTextBox").val("");
   });
 
-  //오버레이영역 클릭시 모달창 닫기
+  // 클릭시 모달창 닫기
   $(".closeBtn").click(function () {
     $(".loginJoinModal").css("display", "none");
     $(".checkModal").css("display", "block");
@@ -25,6 +25,11 @@ $(document).ready(function () {
     $(".loginModal").css("display", "none");
   });
 
+  // 로그인창 -> 회원가입창 클릭 동작
+  $("#joinBtn2").click(function () {
+    $(".loginModal").css("display", "none");
+    $(".loginJoinModal").css("display", "block");
+  });
   //약관동의창 취소버튼 동작
   $("#joinCancelBtn").click(function () {
     $(".loginJoinModal").css("display", "none");
@@ -164,7 +169,7 @@ $(document).ready(function () {
     new daum.Postcode({
       oncomplete: function (data) {
         document.getElementById("joinAddr").value = data.address;
-        document.querySelector("input[name=m_addrDetail]").focus();
+        document.querySelector("input[name=m_addrdetail]").focus();
       },
     }).open();
   });
@@ -181,6 +186,7 @@ $(document).ready(function () {
   var telCheck = false; //전화번화
   var birthCheck = false; //생일
   var addressCheck = false; // 주소
+  var addressDetailCheck = false; // 주소
   var nameCheck = false; // 이름
   var genderCheck = false; //성별
 
@@ -196,6 +202,7 @@ $(document).ready(function () {
     var tel = $(".m_tel").val(); // 전화번호 입력란
     var birth = $(".m_birth").val(); // 생일 입력란
     var addr = $(".m_addr").val(); // 주소 입력란
+    var addrdetail = $(".m_addrdetail").val(); // 상세주소 입력란
     var name = $(".m_username").val(); // 이름 입력란
     var gender = $("input[name=m_gender]").is(":checked"); // 성별 입력란
 
@@ -260,6 +267,15 @@ $(document).ready(function () {
       addressCheck = true;
     }
 
+    /* 상세주소 유효성 검사 */
+    if (addrdetail == "") {
+      $(".final_addrdetail_ck").css("display", "block");
+      addressDetailCheck = false;
+    } else {
+      $(".final_addrdetail_ck").css("display", "none");
+      addressDetailCheck = true;
+    }
+
     /* 생일 확인 유효성 검사 */
     if (birth == "") {
       $(".final_birth_ck").css("display", "block");
@@ -286,7 +302,7 @@ $(document).ready(function () {
       genderCheck = true;
     }
 
-    if (idCheck && idckCheck && pwCheck && pwckCheck && pwckcorCheck && mailCheck && nickCheck && telCheck && birthCheck && addressCheck && nameCheck && genderCheck) {
+    if (idCheck && idckCheck && pwCheck && pwckCheck && pwckcorCheck && mailCheck && nickCheck && telCheck && birthCheck && addressCheck && addressDetailCheck && nameCheck && genderCheck) {
       $("#joinOk").submit();
     }
 

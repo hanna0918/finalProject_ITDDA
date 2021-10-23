@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.BoardService;
 import com.finalproject.itda.vo.BoardVO;
-import com.finalproject.itda.vo.MemberbaseVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.PagingVO;
 
 @Controller
@@ -23,84 +23,63 @@ public class BoardController {
 	@Inject
 	BoardService boardService;
 
-	/*
-	 * @RequestMapping("/board/list") public ModelAndView boardList() { ModelAndView
-	 * mav = new ModelAndView(); mav.addObject("list",
-	 * boardService.boardAllSelect()); mav.setViewNam("board/list");
-	 * 
-	 * return mav;
-	 * 
-	 * }
-	 */
 
 	//자유게시판 리스트 /////////////////////////origin
-	
 	 @RequestMapping("/freeBoard2") //, value= method = RequestMethod.GET public
 	 public String freeBoard2(PagingVO pVo, Model model){
 		 model.addAttribute("list",boardService.boardList(pVo));
 		 return "board/freeBoard2"; 
 	 }
 	 
-	////////////////////////////////////////////////////////////
-	
 	 //프로필 모달 
 	 @RequestMapping(value="/freeBoardmodal" , method=RequestMethod.POST )
 	 @ResponseBody
-	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo) {
-			/*
-			 * System.out.println(mbVo.getM_nickname());
-			 * System.out.println("들어온거 맞니? 프로필?"); System.out.println(mbVo.getM_name());
-			 * System.out.println(mbVo.getM_gender()); System.out.println(mbVo.getM_info());
-			 * System.out.println(mbVo.getM_tag());
-			 */
-		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+	 public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo) {
+		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
 		return resultvo;
 	
 	 }
 	 
-	 
 	 //차단 모달
 	 @RequestMapping(value="/freeBoardmodalChadan" , method=RequestMethod.POST )
 	 @ResponseBody
-	 public MemberbaseVO freeBoardmodalChadan(MemberbaseVO mbVo) {
+	 public MemberBaseVO freeBoardmodalChadan(MemberBaseVO mbVo) {
 		 System.out.println("들어온거 맞니? 차단?");
 		 System.out.println(mbVo.getM_nickname());
-		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
 			return resultvo;
 	 }
 	
 	 //구독 모달
 	 @RequestMapping(value="/freeBoardmodalGudok" , method=RequestMethod.POST )
 	 @ResponseBody
-	 public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo) {
+	 public MemberBaseVO freeBoardmodalGudok(MemberBaseVO mbVo) {
 		 System.out.println("들어온거 맞니? 구독?");
 		 System.out.println(mbVo.getM_nickname());
-		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
 		return resultvo;
 	 }
 	 
 	//쪽지보내기 모달
 	 @RequestMapping(value="/freeBoardmodalNote" , method=RequestMethod.POST )
 	 @ResponseBody
-	 public MemberbaseVO freeBoardmodalNote(MemberbaseVO mbVo) {
+	 public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo) {
 		 System.out.println("들어온거 맞니? 쪽지?");
 		 System.out.println(mbVo.getM_nickname());
 		 System.out.println();
-		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
 			return resultvo;
 	 }
 	 //쪽지보내기 모달 yes
 	 @RequestMapping(value="/ freeBoardmodalNoteYes" , method=RequestMethod.POST )
 	 @ResponseBody
-	 public MemberbaseVO freeBoardmodalNoteYes(MemberbaseVO mbVo) {
+	 public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo) {
 		 System.out.println("들어온거 맞니? 쪽지 yes?");
 		 System.out.println(mbVo.getM_nickname());
 		 System.out.println();
-		 MemberbaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
 			return resultvo;
 	 }
-	 
-	 
 	 
 	 
 	 
@@ -110,6 +89,7 @@ public class BoardController {
 	 * "/board/freeBoard2"; }
 	 */
 	
+
 	
 	//글내용보기
 	@RequestMapping("/freeview")
@@ -124,19 +104,6 @@ public class BoardController {
 	public String freeboardWrite() {
 		return "board/freeboardWrite";
 	}
-
-	//자유게시판 글쓰기 등록
-
-	/*
-	 * @RequestMapping(value="/freeWriteOk",method=RequestMethod.POST ) public
-	 * ModelAndView freeWriteOk(BoardVO vo, HttpSession ses, HttpServletRequest req)
-	 * { vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq"))); int
-	 * result = boardService.freeboardWrite(vo); ModelAndView mav = new
-	 * ModelAndView();
-	 * 
-	 * if(result>0) { //글쓰기 성공시 리스트로 mav.setViewName("redirect:freeBoard2"); }else
-	 * {//글쓰기 폼으로 mav.setViewName("redirect:freeboardWrite"); } return mav; }
-	 */
 	
 	@RequestMapping(value="/freeWriteOk",method=RequestMethod.POST ) 
 	   public ModelAndView freeWriteOk(BoardVO vo, HttpSession ses) {
@@ -156,14 +123,6 @@ public class BoardController {
 	      return mav;
 	   }      
 	
-	
-	// vo.setIp(req.getRemoteAddr());*/
-	//vo.setM_userid((String)ses.getAttribute("login"));
-	/* vo.setM_nickname((String)ses.getAttribute("lognickname")); */
-	//vo.setM_userid((String)req.getSession().getAttribute("m_userid"));
-	//	  vo.setM_nickname((String)req.getSession().getAttribute("m_nickname"));
-	//	  vo.setBoard_subject((String)req.getSession().getAttribute("board_subject"));
-
 	//수정폼
 	@RequestMapping("/freeEdit")
 	public ModelAndView boardEdit(int board_seq){
@@ -178,9 +137,6 @@ public class BoardController {
 	public ModelAndView boardEditOk(BoardVO vo, HttpSession session){
 		vo.setM_userid((String)session.getAttribute("login"));
 		vo.setM_seq(Integer.parseInt(session.getAttribute("logseq").toString()));
-		/* vo.setM_seq(Integer.parseInt((String)session.getAttribute("logseq"))); */
-		/* vo.setM_nickname((String)session.getAttribute("lognickname")); */
-//		 vo.setM_seq(Integer.parseInt((String)ses.getAttribute("logseq"))); 
 		System.out.println(vo.getM_userid());
 		System.out.println(vo.getM_seq());
 		
@@ -218,20 +174,6 @@ public class BoardController {
 		return mav;
 	}
 	
-	
-
-	/*
-	//댓글 쓰기
-	@RequestMapping(value="/commentWrite", method=RequestMethod.POST) //view페이지에서 받아서 success로 리턴
-	public int commentWrite(Model model,Board_CommentVO commentVo, HttpSession ses) {
-		//댓글 작성자를 session 얻어오기
-		model.addAttribute("commentVo",boardService.commentInsert(commentVo));
-		commentVo.setM_seq((String)ses.getAttribute("logseq")); //object이니까 string으로 바꿔서
-		return "board/freeview";
-			
-	}
-	*/
-	
 	//댓글 목록
 	@RequestMapping(value="/commentList")
 	public ModelAndView commentList(int board_seq) {
@@ -254,60 +196,5 @@ public class BoardController {
 		System.out.print("ASfsadf");
 		return null;
 	}
-
-	/*
-	 * @RequestMapping("/freeBoard2") public String freeboardWrite() { return
-	 * "board/freeBoard2"; }
-	 * 
-	 */
-	/*
-	 * @RequestMapping("/board/freeBoard2") public ModelAndView freeBoard2(PagingVO
-	 * pVo) { ModelAndView mav = new ModelAndView(); //총레코드수
-	 * boardService.totalRecordCount(pVo); mav.addObject("pVo",pVo);
-	 * mav.addObject("list", boardService.boardPageSelect(pVo));
-	 * mav.setViewName("board/freeBoard2"); return mav; }
-	 * 
-	 * //자유게시판 글쓰기
-	 * 
-	 * @RequestMapping("/board/freeboardWrite") public String freeboardWrite() {
-	 * return "board/freeboardWrite"; }
-	 */
-
-	/*
-	 * //자유게시판 글쓰기 등록시
-	 * 
-	 * @RequestMapping(value="/board/freeWriteOk",method=RequestMethod.POST ) public
-	 * ModelAndView freeWriteOk(BoardVO vo, HttpServletRequest req) {
-	 * vo.setIp(req.getRemoteAddr());
-	 * vo.setUserid((String)req.getSession().getAttribute("m_userid"));
-	 * 
-	 * int result = boardService.freeboardWrite(vo); ModelAndView mav = new
-	 * ModelAndView(); mav.setViewName("redirect:freeBoard2"); //board/list로 return
-	 * mav;
-	 * 
-	 * }
-	 * 
-	 * 
-	 * @RequestMapping("/board/view") public ModelAndView boardView(int no) {
-	 * ModelAndView mav = new ModelAndView(); mav.addObject("vo",
-	 * boardService.boardView(no)); mav.setViewName("board/view"); return mav; }
-	 */
-
-	/*
-	 * @RequestMapping("/freeBoard2") public ModelAndView freeBoard2() {
-	 * ModelAndView mav = new ModelAndView(); mav.addObject("list",
-	 * boardService.boardList()); mav.setViewName("board/freeBoard2");
-	 * 
-	 * return mav; }
-	 */
-	/*
-	 * @RequestMapping("/freeBoard2") public String freeBoard2() { return
-	 * "board/freeBoard2"; }
-	 * 
-	 * @RequestMapping("/freeboardWrite") public String freeBoard2() { return
-	 * "board/freeboardWrite"; }
-	 */
-
-
 
 }

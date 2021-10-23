@@ -13,10 +13,10 @@
 		<form method='post' action="/itda/askSomething">
 			<div id='askDiv'>
 				<select name='q_category' class='askSelect'>
-					<option value='1'>게시판 문의</option>
-					<option value='2'>또뭐가있을까요</option>
-					<option value='3'>분명뭐가있을텐디</option>
-					<option value='4'>기타문의</option>
+					<option value='게시판 문의'>게시판 문의</option>
+					<option value='구독문의'>구독문의</option>
+					<option value='신고문의'>신고문의</option>
+					<option value='기타문의'>기타문의</option>
 				</select>
 				<div>
 					<textarea name='q_title'
@@ -33,7 +33,7 @@
 			<c:forEach var='quesVo' items="${list}">
 				<li class="question">
 					<div>
-						<div>카아테고오리${quesVo.q_category} <input type='hidden' name='q_number' value='${quesVo.q_number}'></div>
+						<div>${quesVo.q_category} <input type='hidden' name='q_number' value='${quesVo.q_number}'></div>
 						<div>문의내용<br/>${quesVo.q_title}</div>
 						<div>작성일 ${quesVo.q_date}</div>
 					</div>

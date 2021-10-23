@@ -86,7 +86,7 @@
       <!-- 이메일 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
       <div>
         <label>이메일<span class="asterisk">*</span></label>
-        <div><input class="joinTextBox m_email" type="email" name="m_email" id="userEmail" placeholder="ex) itda@itda.com" /></div>
+        <div><input class="joinTextBox m_email" type="email" name="m_email" placeholder="ex) itda@itda.com" /></div>
         <div id="error_mail" class="result-email result-check"></div>
         <span class="final_mail_ck">이메일을 입력해주세요.</span>
       </div>
@@ -107,9 +107,10 @@
       <div>
         <label>주소<span class="asterisk">*</span></label>
         <!-- 카카오주소 api 사용 -->
-        <input class="joinTextBox m_addr" type="text" name="m_addr" id="joinAddr" readonly />
-        <input class="joinTextBox" type="text" name="m_addrDetail" id="m_addrDetail" />
+        <input class="joinTextBox m_addr" type="text" class="m_addr" name="m_addr" id="joinAddr" readonly />
+        <input class="joinTextBox" type="text" class="m_addrdetail" name="m_addrdetail" id="m_addrdetail" />
         <span class="final_addr_ck">주소를 입력해주세요.</span>
+        <span class="final_addrdetail_ck">상세주소를 입력해주세요.</span>
       </div>
       <div>
         <div>

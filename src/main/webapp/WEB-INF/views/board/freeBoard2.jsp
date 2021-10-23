@@ -914,12 +914,12 @@ body{
 			              var result = $(result);
 			              console.log(result);
 			              var tag = "";	
-						
+						/* 
 			              tag +=`<div style='background:cornflowerblue; height: 25px;'></div>`
 						  tag +="<h4>"+ "<strong>"+ result[0].m_nickname + "</strong>" + 님에게 쪽지가 전송되었습니다 😊 + "</h4>"; 
 						  tag += `<div>`;
 						  tag += "<input type='submit' value='확인'/>";
-						  tag += `</div>`; 
+						  tag += `</div>`;  */
 			           
 			              console.log(tag);
 			              $('#testNoteYes').html(tag);
@@ -946,6 +946,8 @@ body{
 	
 	 ///////////////////////////////////////////////////////////////////////////
 	
+			
+			
 		
 	/* 		//프로필 모달창
 			 $('#profil').click(function () {

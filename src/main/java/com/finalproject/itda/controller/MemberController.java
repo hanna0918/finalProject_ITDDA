@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.MemberService;
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 
 @Controller
 public class MemberController {
@@ -26,11 +26,11 @@ public class MemberController {
     private BCryptPasswordEncoder pwEncoder;
 	// 로그인
 	@RequestMapping(value = "/loginOk", method = RequestMethod.POST)
-	public String loginOk(MemberVO vo, HttpSession session) {
+	public String loginOk(MemberBaseVO vo, HttpSession session) {
         String rawPw = "";
         String encodePw = "";
     
-        MemberVO lvo = memberService.login(vo);    // 제출한아이디와 일치하는 아이디 있는지 
+        MemberBaseVO lvo = memberService.login(vo);    // 제출한아이디와 일치하는 아이디 있는지 
         
         if(lvo != null) {            // 일치하는 아이디 존재시
             
@@ -41,7 +41,7 @@ public class MemberController {
                 lvo.setM_userpwd("");                    // 인코딩된 비밀번호 정보 지움
     			session.setAttribute("login", lvo.getM_userid());
     			session.setAttribute("logname", lvo.getM_username());
-    			session.setAttribute("logseq", lvo.getM_seq());
+    			session.setAttribute("logseq", (int)lvo.getM_seq());
     			session.setAttribute("lognick", lvo.getM_nickname());
     			System.out.println("확인용>>>>>>>>>>>>"+lvo.getM_seq());
                 return "redirect:/";        // 메인페이지 이동
@@ -89,7 +89,7 @@ public class MemberController {
 	
 	// 회원가입
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
-	public String joinOk(MemberVO vo, Model model) {
+	public String joinOk(MemberBaseVO vo, Model model) {
 
         String rawPw = "";            // 인코딩 전 비밀번호
         String encodePw = "";        // 인코딩 후 비밀번호
@@ -108,5 +108,8 @@ public class MemberController {
 		return "register/joinResult";
 
 	}
+	
+	
+	
 
 }

@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.ModelAndViewDefiningException;
 
 import com.finalproject.itda.service.MypageService;
-import com.finalproject.itda.vo.MemberVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 @Controller
@@ -20,29 +19,39 @@ public class MypageController {
 	@Inject
 	MypageService mypageService;
 	
+	
 	@RequestMapping(value="/mypage")
 	public String mypage() {
 		return "mypage/mypage00Intro";
 	}
 	
+	//내정보수정
 	@RequestMapping(value="/editMyInfo", method=RequestMethod.POST)
 	@ResponseBody 
-	public ModelAndView editMyInfo(MemberVO vo) {
+	public ModelAndView editMyInfo(MemberBaseVO vo) {
 		ModelAndView mav = new ModelAndView();
 		
 		return mav;
 	}
 	//내가 쓴 글--------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypagePostList")
-	public String myPostList(Model model) {
-		model.addAttribute("list", mypageService.mypagePostList());
-		return "mypage/mypage01Post";
+	public ModelAndView myPostList(MemberBaseVO vo, HttpSession ses) {
+		ModelAndView mav = new ModelAndView();
+		vo.setM_seq((Integer)ses.getAttribute("logseq"));
+		
+		mav.addObject("replyList", mypageService.mypagePostList(vo));
+		mav.setViewName("mypage/mypage01Post");
+		return mav;
 	}
 	//내가 쓴 댓글--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageReplyList")
-	public String mypageReplyList(Model model) {
-		model.addAttribute("replyList", mypageService.myReplyList());
-		return "mypage/mypage02Reply";
+	public ModelAndView mypageReplyList(MemberBaseVO vo, HttpSession ses) {
+		ModelAndView mav = new ModelAndView();
+		vo.setM_seq((Integer)ses.getAttribute("logseq")); 
+		
+		mav.addObject("replyList", mypageService.mypageReplyList(vo));
+		mav.setViewName("mypage/mypage02Reply");
+		return mav;
 	}
 	//매칭--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageMatching")
@@ -75,9 +84,10 @@ public class MypageController {
 	
 	//1:1문의 글등록
 	@RequestMapping(value="/askSomething", method=RequestMethod.POST)
-	public ModelAndView AskSomething(QuestionVO quesVo) {
+	public ModelAndView AskSomething(QuestionVO quesVo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
-		
+		Integer logseq = (Integer)ses.getAttribute("logseq");
+		quesVo.setM_seq(logseq);
 		int cnt = mypageService.QuestionInsert(quesVo);
 		if(cnt>0) {//글등록함!!!
 			mav.setViewName("redirect:mypageQnA");

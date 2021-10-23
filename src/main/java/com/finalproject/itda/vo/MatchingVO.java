@@ -16,6 +16,12 @@ public class MatchingVO {
 	private String board_next_subject;
 	private String board_prev_select;
 	private String board_next_select;
+	private String startDate;
+	private String startTime;
+	private String endTime;
+	private String sido;
+	private String gugun;
+	
 	private int board_prev_seq;
 	private int board_next_seq;
 	private int mc_state;
@@ -23,6 +29,12 @@ public class MatchingVO {
 	private int board_hit;
 	private int b_goodhit;
 	private int board_call;
+	private int m_seq;
+	private int m_rank;
+	private int partCnt;
+	private int mc_seq;
+	private int matchingCount;
+	private int replyCount;
 	
 	private String tags[];
 	private String prevTags[];
@@ -72,18 +84,59 @@ public class MatchingVO {
 		Board_writedate = board_writedate;
 	}
 	public String getMc_start_date() {
+		if(startDate != null) {
+			mc_start_date = startDate + " " + startTime;
+		}
 		return mc_start_date;
 	}
 	public void setMc_start_date(String mc_start_date) {
 		this.mc_start_date = mc_start_date;
 	}
 	public String getMc_end_date() {
+		if(startDate != null) {
+			mc_end_date = startDate + " " + endTime;
+		}
 		return mc_end_date;
 	}
 	public void setMc_end_date(String mc_end_date) {
 		this.mc_end_date = mc_end_date;
 	}
+	
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	public String getSido() {
+		return sido;
+	}
+	public void setSido(String sido) {
+		this.sido = sido;
+	}
+	
+	public String getGugun() {
+		return gugun;
+	}
+	public void setGugun(String gugun) {
+		this.gugun = gugun;
+	}
 	public String getMc_where() {
+		if(sido != null && gugun != null) {
+			mc_where = sido + " " + gugun;
+		}
 		return mc_where;
 	}
 	public void setMc_where(String mc_where) {
@@ -162,6 +215,42 @@ public class MatchingVO {
 	}
 	public void setBoard_call(int board_call) {
 		this.board_call = board_call;
+	}
+	public int getPartCnt() {
+		return partCnt;
+	}
+	public void setPartCnt(int partCnt) {
+		this.partCnt = partCnt;
+	}
+	public int getM_seq() {
+		return m_seq;
+	}
+	public void setM_seq(String m_seq) {
+		this.m_seq = Integer.parseInt(m_seq);
+	}
+	public int getM_rank() {
+		return m_rank;
+	}
+	public int getMc_seq() {
+		return mc_seq;
+	}
+	public void setMc_seq(int mc_seq) {
+		this.mc_seq = mc_seq;
+	}
+	public int getMatchingCount() {
+		return matchingCount;
+	}
+	public void setMatchingCount(int matchingCount) {
+		this.matchingCount = matchingCount;
+	}
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
+	public void setM_rank(int m_rank) {
+		this.m_rank = m_rank;
 	}
 	public String[] getTags() {
 		return tags;

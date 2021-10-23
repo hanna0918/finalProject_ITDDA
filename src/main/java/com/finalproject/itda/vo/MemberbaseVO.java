@@ -1,6 +1,6 @@
 package com.finalproject.itda.vo;
 
-public class MemberbaseVO {
+public class MemberBaseVO {
 	private int m_seq;
 	private String m_userid;
 	private String m_userpwd;
@@ -16,13 +16,32 @@ public class MemberbaseVO {
 	private String m_regdate;
 	private int m_statecode;
 	private int m_rank;
-	private String m_name;
 	
-	public String getM_name() {
-		return m_name;
+	private String m_addrdetail;
+	private String m_birth;
+	private String m_img;
+	
+//	조인용 vo
+	private String m_content;
+	private String board_seq; 
+	private String m_name;  
+	private String m_state;
+	
+	//카운트용
+	private int board_count;
+	private int comment_count;
+	private int sub_count;
+	private int bookmark_count;
+	private int msg_count;
+	
+	
+	
+	
+	public String getM_addrdetail() {
+		return m_addrdetail;
 	}
-	public void setM_name(String m_name) {
-		this.m_name = m_name;
+	public void setM_addrdetail(String m_addrdetail) {
+		this.m_addrdetail = m_addrdetail;
 	}
 	public int getM_seq() {
 		return m_seq;
@@ -113,5 +132,71 @@ public class MemberbaseVO {
 	}
 	public void setM_rank(int m_rank) {
 		this.m_rank = m_rank;
+	}
+	public String getM_birth() {
+		return m_birth;
+	}
+	public void setM_birth(String m_birth) {
+		this.m_birth = m_birth;
+	}
+	public String getM_img() {
+		return m_img;
+	}
+	public void setM_img(String m_img) {
+		this.m_img = m_img;
+	}
+	public String getM_content() {
+		return m_content;
+	}
+	public void setM_content(String m_content) {
+		this.m_content = m_content;
+	}
+	public String getBoard_seq() {
+		return board_seq;
+	}
+	public void setBoard_seq(String board_seq) {
+		this.board_seq = board_seq;
+	}
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+	public String getM_state() {
+		return m_state;
+	}
+	public void setM_state(String m_state) {
+		this.m_state = m_state;
+	}
+	public int getBoard_count() {
+		return board_count;
+	}
+	public void setBoard_count(int board_count) {
+		this.board_count = board_count;
+	}
+	public int getComment_count() {
+		return comment_count;
+	}
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
+	}
+	public int getSub_count() {
+		return sub_count;
+	}
+	public void setSub_count(int sub_count) {
+		this.sub_count = sub_count;
+	}
+	public int getBookmark_count() {
+		return bookmark_count;
+	}
+	public void setBookmark_count(int bookmark_count) {
+		this.bookmark_count = bookmark_count;
+	}
+	public int getMsg_count() {
+		return msg_count;
+	}
+	public void setMsg_count(int msg_count) {
+		this.msg_count = msg_count;
 	}
 }

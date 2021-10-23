@@ -19,7 +19,7 @@ $('.mapModalOverlay').click(function () {
 });
 
 // 태그 배열 선언
- var tag = new Array();
+var tag = new Array();
 
 // Text 이벤트리스너
 const searchTextArea = document.querySelector("#searchText");
@@ -33,7 +33,13 @@ function keyupTest(e){
         if(keyCode==32 || keyCode==13){
             text = searchTextArea.value;
             searchTextArea.value = "";
-            tag.push(text);
+            if(text=="" || text==" ") {
+                return;
+        	}
+            if($("#hiddenTagAllDone").css('display', 'block')) {
+                $("#hiddenTagAllDone").css('display', 'none');
+            }
+            tag.push(text.trim());
             eraseAllTag();
             tagInValue();
             console.log(tag);
@@ -71,7 +77,16 @@ function eraseTag(){
     tagInValue();
     console.log(tag);
 }
-
+var tagStr;
+function boardSelectMaker(){
+	tagStr = "";
+	for(i=0;i<tag.length;i++){
+		if(i!=0) tagStr += "/";
+		tagStr += tag[i];
+	}
+	console.log(tagStr);
+	$("#board_select").val(tagStr);
+}
 
 // 태그일괄 지우기
 function eraseAllTag(){
@@ -86,7 +101,29 @@ function tagInValue(){
         document.querySelector(`#hiddenTag${i}`).innerHTML = "#" + tag[i];
         document.querySelector(`#hiddenTag${i}`).style.display = "";
     }
+    boardSelectMaker();
 }
+
+
+function preventDefaultFunction(event){
+    console.log("왜되는거야");
+    event.preventDefault();
+}
+
+$("#matchingSubmitBtn").click(function(){
+    if( tag.length <5 ) {
+        $("#hiddenTagAllDone").css('display', 'block');
+        $("#hiddenTagAllDone").text('태그를 5개 이상 작성해주세요');
+        return false;
+    }
+    if( $("#mc_state2").val() == "구/군 선택" ) {
+    	return false;
+    }
+    $("#searchText").prop("disabled", true);
+    $("#matchingUploadForm").attr("onsubmit", "");
+    
+    $("#matchingUploadForm").submit();
+});
 
 // 시군구 선택
 $('document').ready(function() {
@@ -108,26 +145,26 @@ $('document').ready(function() {
     var area15 = ["거제시","김해시","마산시","밀양시","사천시","양산시","진주시","진해시","창원시","통영시","거창군","고성군","남해군","산청군","의령군","창녕군","하동군","함안군","함양군","합천군"];
     var area16 = ["서귀포시","제주시","남제주군","북제주군"];
    
-// 시/도 선택 박스 초기화
-$("select[name^=sido]").each(function() {
-    $selsido = $(this);
-    $.each(eval(area0), function() {
-        $selsido.append("<option value='"+this+"'>"+this+"</option>");
-    });
-    $selsido.next().append("<option value=''>구/군 선택</option>");
-});
-
-// 시/도 선택시 구/군 설정
-$("select[name^=sido]").change(function() {
-    var area = "area"+$("option",$(this)).index($("option:selected",$(this))); // 선택지역의 구군 Array
-    var $gugun = $(this).next(); // 선택영역 군구 객체
-    $("option",$gugun).remove(); // 구군 초기화
-    if(area == "area0")
-        $gugun.append("<option value=''>구/군 선택</option>");
-    else {
-        $.each(eval(area), function() {
-            $gugun.append("<option value='"+this+"'>"+this+"</option>");
-        });
-    }
-});
+	// 시/도 선택 박스 초기화
+	$("select[name^=sido]").each(function() {
+	    $selsido = $(this);
+	    $.each(eval(area0), function() {
+	        $selsido.append("<option value='"+this+"'>"+this+"</option>");
+	    });
+	    $selsido.next().append("<option value=''>구/군 선택</option>");
+	});
+	
+	// 시/도 선택시 구/군 설정
+	$("select[name^=sido]").change(function() {
+	    var area = "area"+$("option",$(this)).index($("option:selected",$(this))); // 선택지역의 구군 Array
+	    var $gugun = $(this).next(); // 선택영역 군구 객체
+	    $("option",$gugun).remove(); // 구군 초기화
+	    if(area == "area0")
+	        $gugun.append("<option value=''>구/군 선택</option>");
+	    else {
+	        $.each(eval(area), function() {
+	            $gugun.append("<option value='"+this+"'>"+this+"</option>");
+	        });
+	    }
+	});
 });

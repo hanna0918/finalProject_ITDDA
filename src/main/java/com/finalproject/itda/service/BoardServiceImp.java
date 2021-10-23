@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.finalproject.itda.dao.BoardDAO;
 import com.finalproject.itda.vo.BoardVO;
 import com.finalproject.itda.vo.Board_CommentVO;
-import com.finalproject.itda.vo.MemberbaseVO;
+import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.PagingVO;
 
 @Service
@@ -69,51 +69,33 @@ public class BoardServiceImp implements BoardService {
 
 	//프로필 모달창
 	@Override
-	 public MemberbaseVO freeBoardmodal(MemberbaseVO mbVo){
+	 public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo){
 		return boardDAO.freeBoardmodal(mbVo);
 	}
 
 	//차단 모달창
 	@Override
-	public MemberbaseVO freeBoardmodalChadan(MemberbaseVO mbVo) {
+	public MemberBaseVO freeBoardmodalChadan(MemberBaseVO mbVo) {
 		return boardDAO.freeBoardmodalChadan(mbVo);
 	}
 
 	//구독 모달창
 	@Override
-	public MemberbaseVO freeBoardmodalGudok(MemberbaseVO mbVo) {
+	public MemberBaseVO freeBoardmodalGudok(MemberBaseVO mbVo) {
 		return boardDAO.freeBoardmodalGudok(mbVo);
 	}
 
 //쪽지
 	@Override
-	public MemberbaseVO freeBoardmodalNote(MemberbaseVO mbVo) {
+	public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo) {
 		return boardDAO.freeBoardmodalNote(mbVo);
 	}
 
 	//쪽지 yes
 	@Override
-	public MemberbaseVO freeBoardmodalNoteYes(MemberbaseVO mbVo) {
+	public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo) {
 		return boardDAO.freeBoardmodalNoteYes(mbVo);
 	}
 
 	
-	
-
-
-
-	/*
-	 * @Override public String freeBoardmodal(String m_nickname) { return
-	 * boardDAO.freeBoardmodal(m_nickname); }
-	 */
-
-//	@Override
-//	public List<BoardVO> boardList() {
-//		return boardDAO.BoardList();
-//	}
-
-	
-
-	 
-
 }
