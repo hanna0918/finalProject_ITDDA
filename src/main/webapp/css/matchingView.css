@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
     font-family: 'IBMPlexSansKR-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
@@ -142,7 +143,7 @@ img[name=profileShot]{
 input[name=replyFileUpload]{
     margin-left:2.5%;
 }
-input[name=writeReplyBtn]{
+input[name=writeReplyBtn], input[name=loginPls]{
     float:right;
     margin-right:2%;
 }
@@ -150,7 +151,7 @@ input[name=writeReplyBtn]{
     margin:2% 0;
     overflow:auto;
 }
-input[name=writeReplyBtn]{
+input[name=writeReplyBtn], input[name=loginPls]{
     width:70px;
     height:30px;
     background-color:#0e08a7;
@@ -231,7 +232,7 @@ input[name=postWriteBtn]{
 
 
 /* ---------------------------------------------------------- */
-/*���â*/
+/*占쏙옙占시�*/
 .matchingModal {
     display: none;
     position: fixed;
@@ -248,7 +249,7 @@ input[name=postWriteBtn]{
     display: none;
 }
 
-/* ���â ��� */
+/* 占쏙옙占시� 占쏙옙占� */
 .matchingModalOverlay {
     background: rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -258,7 +259,7 @@ input[name=postWriteBtn]{
     position: fixed;
 }
 
-/* ���â */
+/* 占쏙옙占시� */
 .joinModalContent {
     position: relative;
     margin: 230px auto;
@@ -271,7 +272,7 @@ input[name=postWriteBtn]{
     overflow-y: auto;
 }
 
-/* ���â ��ư */
+/* 占쏙옙占시� 占쏙옙튼 */
 .joinModalContent input {
     width: 100px;
     height: 40px;
@@ -294,7 +295,7 @@ input[name=postWriteBtn]{
     background-color: rgba(192, 98, 82, 0.25);
 }
 
-/*��Ҹ��â*/
+/*占쏙옙恬占쏙옙창*/
 .matchingCancelModal {
     display: none;
     position: fixed;
@@ -311,7 +312,7 @@ input[name=postWriteBtn]{
     display: none;
 }
 
-/* ���â ��� */
+/* 占쏙옙占시� 占쏙옙占� */
 .matchingCancelModalOverlay {
     background: rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -321,7 +322,7 @@ input[name=postWriteBtn]{
     position: fixed;
 }
 
-/* ���â */
+/* 占쏙옙占시� */
 .joinCancelModalContent {
     position: relative;
     margin: 230px auto;
@@ -334,7 +335,7 @@ input[name=postWriteBtn]{
     overflow-y: auto;
 }
 
-/* ���â ��ư */
+/* 占쏙옙占시� 占쏙옙튼 */
 .joinCancelModalContent input {
     width: 100px;
     height: 40px;
@@ -356,7 +357,7 @@ input[name=postWriteBtn]{
 .joinCancelModalContent input:nth-of-type(2):hover {
     background-color: rgba(192, 98, 82, 0.25);
 }
-/* ��� */
+/* 占쏙옙占� */
 #matchingDetailBanner{
     border-radius: 4px;
     position: absolute;

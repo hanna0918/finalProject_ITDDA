@@ -38,8 +38,9 @@ public class MatchingServiceImp implements MatchingService {
 	}
 
 	@Override
-	public int matchingEdit(int board_seq, int m_seq) {
-		return matchingDAO.matchingEdit(board_seq, m_seq);
+	public MatchingVO matchingEdit(int board_seq) {
+		System.out.println("serviceImpµµ µé¾î¿È");
+		return matchingDAO.matchingEdit(board_seq);
 	}
 
 	@Override

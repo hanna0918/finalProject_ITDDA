@@ -12,7 +12,7 @@ public interface MatchingService {
 	public MatchingPagingVO page(MatchingPagingVO pVo);
 	public MatchingVO matchingView(int board_seq);
 	public int countHit(int board_seq);
-	public int matchingEdit(int board_seq, int m_seq);
+	public MatchingVO matchingEdit(int board_seq);
 	public List<CalendarVO> dataForJson();
 	public int matchingWriteOk(MatchingVO vo);
 	public List<MatchingVO> matchingUser(int board_seq);

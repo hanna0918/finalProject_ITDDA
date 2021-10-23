@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="/itda/css/matchingView.css?version=111111">
+<link rel="stylesheet" href="/itda/css/matchingView.css?version=1111111">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <aside id="matchingDetailBanner">
         <div id="hostIntro">
@@ -16,7 +16,7 @@
             ${vo.m_info }
         </div>
         <div id="hostMatchingInfo">
-            ${vo.mc_where}<br />${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br />
+            ${vo.mc_where}<br />${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br/>
         </div>
         <div>
 			<c:choose>
@@ -75,7 +75,7 @@
                             	<li>신고</li>
                             </c:when>
                             <c:when test='${vo.m_userid==login }'>
-                            	<li><a href='/itda/matchingEdit?board_seq_seq=${vo.board_seq}&m_seq=${vo.m_seq}'>글수정</a></li>
+                            	<li><a href='/itda/matchingEdit?board_seq=${vo.board_seq}'>글수정</a></li>
                             </c:when>
                             </c:choose>
                         </ul>
@@ -107,7 +107,14 @@
                 <div id="replyTextBox"><!-- 3 댓글 텍스트박스 -->
                     <textarea class='br_content' id='br_content'></textarea>
                     <div>
+                    	<c:choose>
+                    	<c:when test='${logseq!=null }'>
                         <input type='button' name='writeReplyBtn' id='writeReplyBtn' value='작성'/>
+                        </c:when>
+                        <c:otherwise>
+                        <input type='button' name='loginPls' id='loginPls' value='작성'/>
+                        </c:otherwise>
+						</c:choose>
                     </div>
                 </div>
             </div>
@@ -163,4 +170,4 @@
     </div>
     
 
-<script src="/itda/js/matchingView.js?version=11111111111111111111111111111111"></script>
+<script src="/itda/js/matchingView.js?version=111111111111111111111111111111111"></script>

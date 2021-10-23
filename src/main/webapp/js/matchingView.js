@@ -87,7 +87,13 @@ function matchingConfirm(){
     });
 }
 
-
+$("#loginPls").click(function(){
+	let tag = "";
+	tag += "<h1>로그인 후 이용해주세요</h1>";
+	tag += "<input type='button' id='closeBtn' value='확인'>";
+	$(".joinModalContent").html(tag);
+	$('.matchingModal').css('display', 'block');
+});
 
 
 

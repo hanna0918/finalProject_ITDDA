@@ -1,6 +1,5 @@
 package com.finalproject.itda.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +33,7 @@ public class MatchingController {
 		mav.addObject("list", matchingService.matchingList(pVo));
 		return mav; 
 	}
-	//   @RequestMapping(value="/matchingListTagSearch", method=RequestMethod.POST)
-	//   @ResponseBody
-	//   public List<MatchingVO> tagSearch(PagingVO pVo){
-	//      matchingService.page(pVo);
-	//      return matchingService.matchingList(pVo);
-	//   } 
+
 	@RequestMapping(value="/matchingListTagSearch", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> tagSearch(MatchingPagingVO pVo){
@@ -89,21 +83,26 @@ public class MatchingController {
 		return mav;
 	}
 
-	@RequestMapping("/matchingEdit")
-	public ModelAndView matchingEdit(int board_seq, HttpSession ses) {
+	@RequestMapping(value="/matchingEdit", method=RequestMethod.GET)
+	public ModelAndView matchingEdit(int board_seq) {
 		ModelAndView mav = new ModelAndView();
-		Object test = ses.getAttribute("logseq");
-		
-		matchingService.matchingEdit(board_seq, Integer.valueOf((String)test) );
+		mav.addObject("vo", matchingService.matchingEdit(board_seq));
+		mav.setViewName("matching/matchingEdit");
 		return mav;
+	}
+	
+	// 글 수정 후 update 하러 들어오는 메소등
+	@RequestMapping(value="/matchingEditOk", method=RequestMethod.POST)
+	public String matchingEditOk(MatchingVO vo) {
+		System.out.println("글수정 확인 메소드 입장");
+		//matchingService.matchingEditOk(vo);
+		System.out.println("글수정 확인 메소드 퇴장 직전까진 문제없음");
+		return "redirect:matchingView/board_seq=" + vo.getBoard_seq();
 	}
 	
 	@RequestMapping("/matchingConfirm")
 	@ResponseBody
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq){
-		System.out.println("mc_seq" + mc_seq);
-		System.out.println("m_seq" + m_seq);
-		
 		System.out.println("컨트롤러 매칭컨펌 들어옴");
 		return matchingService.matchingConfirm(mc_seq, m_seq);
 	}

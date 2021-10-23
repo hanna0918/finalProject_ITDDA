@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<link rel="stylesheet" href="/itda/css/matchingUpload.css?version=111111">
+	
     <!-- include libraries(jQuery, bootstrap) -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -12,18 +13,19 @@
     <section id="matchingUploadFrame">
     <h1>매칭게시판</h1>
         <div id="matchingBasicInfoArea">
-            <form method="post" action="/itda/matchingWriteOk" id="matchingUploadForm" action="/itda/matchingWriteOk" onsubmit="return false">
+            <form method="post" id="matchingUploadForm" onsubmit="return false">
                 <div>
+                 <!-- action="/itda/matchingWriteOk"  -->
                     <ul id="titleAndMap">
                         <li><input type="text" id="matchingUploadTitle" name="board_subject" placeholder="제목을 입력하세요" required/></li>
                         <li><input type="button" value="지도" id="mapBtn"></li>
                         <li><input type="text" name="searchText" id="searchText" placeholder="태그를 입력하세요(최소 5개, 최대 10개)"/></li>
                         <li>매칭 시작일</li>
-                        <li><input type="date" name="startDate" required/></li>
+                        <li><input type="date" name="startDate" id='startDate' required/></li>
                         <li>매칭 시간</li>
-                        <li><input type="time" name="startTime" required/></li>
+                        <li><input type="time" name="startTime" id='startTime' required/></li>
                         <li>~</li>
-                        <li><input type="time" name="endTime" required/></li>
+                        <li><input type="time" name="endTime" id='endTime' required/></li>
                         <li><input type="number" name="mc_max" id="mc_max" placeholder="매칭 최대 인원 (최대 10인)" min="2" max="10" required/></li>
                         <li><select name="sido" id="sido"></select><select name="gugun" id="gugun"></select></li>
                         <li><input type="radio" class="mc_state" id="mc_state1" name="mc_state" value="1" checked/>
@@ -78,4 +80,4 @@
         </form>
         </div>
         </section>
-    <script src="/itda/js/matchingUpload.js?version=111111"></script>
+    <script src="/itda/js/matchingUpload.js?version=11111111111111"></script>
