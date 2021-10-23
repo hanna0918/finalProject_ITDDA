@@ -8,8 +8,16 @@ public class QuestionVO {
 	private String q_result;	//답변
 	private int q_result_state;	//답변상태
 	private int m_seq;	//회원번호
+	private String m_nickname;
 	
 	
+	
+	public String getM_nickname() {
+		return m_nickname;
+	}
+	public void setM_nickname(String m_nickname) {
+		this.m_nickname = m_nickname;
+	}
 	public int getQ_number() {
 		return q_number;
 	}

@@ -56,13 +56,13 @@
 
             <div>
               <label class="Modallabel"> 주소:</label>
-              <input class="ModalInput" type='text' name='m_addr' placeholder="주소"  />
+              <input class="ModalInput" type='text' name='m_addr' placeholder="주소" value="서울특별시 마포구 백범로 13길 비트캠프 신촌"  />
             </div>
             <br>
 
             <div>
               <label class="Modallabel"> 생일:</label>
-              <input class="ModalInput" type='date' name='m_brith' placeholder="생일"/>
+              <input class="ModalInput" type='date' name='m_birth' placeholder="생일"/>
             </div>
             <br>
             
