@@ -87,6 +87,16 @@ public class MatchingServiceImp implements MatchingService {
 	public int matchingEditOk(MatchingVO vo) {
 		return matchingDAO.matchingEditOk(vo);
 	}
+
+	@Override
+	public int matchingReplyEdit(BoardCommentVO vo) {
+		return matchingDAO.matchingReplyEdit(vo);
+	}
+
+	@Override
+	public int matchingReplyDelete(BoardCommentVO vo) {
+		return matchingDAO.matchingReplyDelete(vo);
+	}
 	
 	
 }

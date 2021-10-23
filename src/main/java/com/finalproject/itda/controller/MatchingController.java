@@ -135,4 +135,18 @@ public class MatchingController {
 	public int matchingReplyWrite(BoardCommentVO vo) {
 		return matchingService.matchingReplyWrite(vo);
 	}
+	
+	@RequestMapping(value="/matchingReplyEdit", method=RequestMethod.POST)
+	@ResponseBody
+	public int MatchingReplyEdit(BoardCommentVO vo) {
+		return matchingService.matchingReplyEdit(vo);
+	}
+
+	@RequestMapping(value="/matchingReplyDelete", method=RequestMethod.POST)
+	@ResponseBody
+	public int MatchingReplyDelete(BoardCommentVO vo) {
+		return matchingService.matchingReplyDelete(vo);
+	}
+	
+	
 }

@@ -43,7 +43,7 @@ $('#participateBtn').one("click", function () {
     $(".joinModalContent").append("<label style='color: red; font-size: 0.8em'>로그인 후 참가버튼을 눌러주세요</label>");
 });
 
-$('#closeBtn').click(function () {
+$(document).on('click', '#closeBtn', function () {
     $('.matchingModal').css('display', 'none');
 });
 
@@ -76,7 +76,7 @@ function matchingConfirm(){
             } else {
             	tag += "<form method='post' id='regForm' action='/itda/matchingCancel?mc_seq="+mc_seq+"&m_seq="+m_seq+"&board_seq="+board_seq+"'>"
                 tag += "<h1>정말 취소하시겠습니까?</h1>";
-            	tag += "<input type='submit' id='calcelBtn value='취소'>";
+            	tag += "<input type='submit' id='cancelBtn value='취소'>";
                 tag += "<input type='button' id='closeBtn' value='취소'></input>";
                 tag += "</form>"
             }
@@ -125,9 +125,9 @@ $(function(){
 						// 수정폼
 						tag += "<div style='display: none;'>";
 						
-						tag += "<form method='post' class='modifyEditForm'>";
-						tag += "<textarea name='coment'>" + vo.br_content + "</textarea>";
-						tag += "<span class='editReply'>Edit</span>";
+						tag += "<form method='post' class='modifyEditForm' onsubmit='return false'>";
+						tag += "<textarea name='br_content'>" + vo.br_content + "</textarea>";
+						tag += "<span class='editReplySubmit'>Edit</span>";
 						tag += "<span>/</span>";
 						tag += "<span class='editCancel'>Cancel</span>";
 						tag += "<input type='hidden' name='br_id' value='" + vo.br_id + "'/>"; // 댓글의 일련번호
@@ -181,10 +181,44 @@ $(function(){
 		$(this).parent().parent().css('display', 'none');
 		// 댓글 수정폼 보이기
 	});
-	
-	/*$(document).click('.editReply', function(){
-		$("#modifyEditForm").submit();
-	});*/
+	$(document).on('click','.editReplySubmit',function(){
+		var url = "/itda/matchingReplyEdit";
+		var params = $(this).parent().serialize(); // coment=문자&num=888
+		console.log(params);
+		$.ajax({
+			url: url,
+			data: params,
+			type: "POST",
+			success: function(result){
+				replyList();
+			}
+		});
+	});
+	var deleteParams = "";
+	$(document).on('click','.deleteReply',function(){
+		var deleteParams = $(this).parent().next('.modifyEditForm').serialize(); // coment=문자&num=888
+		console.log("clickevent"+deleteParams);
+		let tag = "";
+		tag += "<h1>댓글을 정말 삭제하시겠습니까?</h1>";
+    	tag += "<input type='button' id='deleteReplyBtn' value='확인'>";
+        tag += "<input type='button' id='closeBtn' value='취소'></input>";
+        $(".joinModalContent").html(tag);
+		$('.matchingModal').css('display', 'block');
+	});
+	$(document).on('click', '#deleteReplyBtn', function(){
+		console.log("버튼눌림");
+		var url = "/itda/matchingReplyDelete";
+		console.log(deleteParams);
+		$.ajax({
+			url: url,
+			data: deleteParams,
+			type: "POST",
+			success: function(result){
+				replyList();
+			}
+		});
+		$('.matchingModal').css('display', 'none');
+	});
 	replyList();
 	console.log("댓글 replyList() 호출했음?");
 });

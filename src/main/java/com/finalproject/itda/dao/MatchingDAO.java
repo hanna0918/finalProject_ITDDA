@@ -182,16 +182,33 @@ public interface MatchingDAO {
 	public MatchingVO matchingEdit(int board_seq);
 	
 	// 매칭 글 수정하기...!!!
-	@Update(" update boardbase a join mc_table b on a.board_seq=b.board_seq join board_content c on a.board_seq=c.board_seq "
-			+ "	set board_subject = #{board_subject} "
-			+ "	, b_content = #{b_content} "
-			+ "	, mc_max = ${mc_max} "
-			+ "	, mc_state = ${mc_state} "
-			+ "	, mc_start_date = to_date(#{mc_start_date}, 'YYYY-MM-DD HH24:MI') "
-			+ "	, mc_end_date = to_date(#{mc_end_date}, 'YYYY-MM-DD HH24:MI') "
-			+ "	, mc_where = #{mc_where} "
-			+ "	, board_select = #{board_select} "
-			+ " where a.board_seq=${board_seq} ")
+	@Update(" update     "
+			+ "    (select         "
+			+ "          A1.board_subject      "
+			+ "        , A1.b_content      "
+			+ "        , A2.mc_max      "
+			+ "        , A2.mc_state      "
+			+ "        , A2.mc_start_date      "
+			+ "        , A2.mc_end_date      "
+			+ "        , A2.mc_where      "
+			+ "        , A3.board_select       "
+			+ "    from           "
+			+ "        boardbase A1        "
+			+ "        , mc_table A2 on A2.board_seq = A1.board_seq     "
+			+ "        , board_content A3 on A3.board_seq = A1.board_seq     "
+			+ "    where           "
+			+ "        A1.board_seq = #{board_select}) "
+			+ "    set      "
+			+ "        board_subject = #{board_subject}   "
+			+ "        , b_content = #{b_content}   "
+			+ "        , mc_max = ${mc_max}   "
+			+ "        , mc_state = ${mc_state}   "
+			+ "        , mc_start_date = to_date(#{mc_start_date}, 'YYYY-MM-DD HH24:MI')   "
+			+ "        , mc_end_date = to_date(#{mc_end_date}, 'YYYY-MM-DD HH24:MI')   "
+			+ "        , mc_where = #{mc_where}   "
+			+ "        , board_select = #{board_select} "
+			+ "    where      "
+			+ "        A1.board_seq=#{board_select} ")
 	public int matchingEditOk(MatchingVO vo);
 	
 	// 매칭 인원 불러오는 쿼리문
@@ -199,7 +216,7 @@ public interface MatchingDAO {
 	public List<MatchingVO> matchingUser(int board_seq);
 	
 	// 댓글 불러오기
-	@Select(" select board_seq, m_nickname, m_userid, a.m_seq, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate "
+	@Select(" select board_seq, br_id, m_nickname, m_userid, a.m_seq, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate "
 			+ " from board_comment a join memberbase b on a.m_seq=b.m_seq where board_seq=${param1} "
 			+ " order by br_writedate asc ")
 	public List<BoardCommentVO> matchingReply(int board_seq);
@@ -220,4 +237,11 @@ public interface MatchingDAO {
 	@Insert(" insert into board_comment (br_id, board_seq, br_content, m_seq) "
 			+ " values(br_id.nextval, ${board_seq}, #{br_content}, ${m_seq}) ")
 	public int matchingReplyWrite(BoardCommentVO vo);
+	
+	// 댓글 수정
+	@Update(" update board_comment set br_content=#{br_content} where br_id=#{br_id} ")
+	public int matchingReplyEdit(BoardCommentVO vo);
+	
+	@Delete(" delete board_comment where br_id=#{br_id} ")
+	public int matchingReplyDelete(BoardCommentVO vo);
 }
