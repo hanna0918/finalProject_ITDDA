@@ -39,15 +39,26 @@ public class BoardController {
 		return resultvo;
 	
 	 }
-	 
 	 //차단 모달
-	 @RequestMapping(value="/freeBoardmodalChadan" , method=RequestMethod.POST )
+//	 @RequestMapping(value="/freeBoardmodalChadan" , method=RequestMethod.POST )
+//	 @ResponseBody
+//	 public MemberBaseVO freeBoardmodalChadan(MemberBaseVO mbVo) {
+//		 System.out.println("들어온거 맞니? 차단?");
+//		 System.out.println(mbVo.getM_nickname());
+//		
+//		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
+//			return resultvo;
+//	 }
+	 
+	 //차단 ok 모달
+	 @RequestMapping(value="/freeBoardmodalChadanOk" , method=RequestMethod.POST )
 	 @ResponseBody
-	 public MemberBaseVO freeBoardmodalChadan(MemberBaseVO mbVo) {
-		 System.out.println("들어온거 맞니? 차단?");
+	 public int freeBoardmodalChadanOk(MemberBaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 차단ok?");
 		 System.out.println(mbVo.getM_nickname());
-		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
-			return resultvo;
+		 int result = boardService.freeBoardmodalChadanOk(mbVo);
+		 System.out.println("db작업 끝 리턴 직전");
+			return result;
 	 }
 	
 	 //구독 모달
@@ -57,8 +68,39 @@ public class BoardController {
 		 System.out.println("들어온거 맞니? 구독?");
 		 System.out.println(mbVo.getM_nickname());
 		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		return resultvo;
+	 }
+	 
+	//쪽지보내기 모달
+	 @RequestMapping(value="/freeBoardmodalNote" , method=RequestMethod.POST )
+	 @ResponseBody
+	 public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 쪽지?");
+		 System.out.println(mbVo.getM_nickname());
+		 System.out.println();
+		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
 			return resultvo;
 	 }
+	 //쪽지보내기 모달 yes
+	 @RequestMapping(value="/freeBoardmodalNoteYes", method=RequestMethod.POST )
+	 @ResponseBody
+	 public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 쪽지 yes?");
+		 System.out.println(mbVo.getM_nickname());
+		 System.out.println();
+		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
+			return resultvo;
+	 }
+	 
+
+	 
+	/*
+	 * @RequestMapping(value="/freeBoard2") public String freeBoard2(Model model) {
+	 * model.addAttribute("list", boardService.boardList()); return
+	 * "/board/freeBoard2"; }
+	 */
+	
+
 	
 	//글내용보기
 	@RequestMapping("/freeview")

@@ -73,10 +73,10 @@ public class BoardServiceImp implements BoardService {
 		return boardDAO.freeBoardmodal(mbVo);
 	}
 
-	//차단 모달창
+	//차단 Ok 모달창
 	@Override
-	public MemberBaseVO freeBoardmodalChadan(MemberBaseVO mbVo) {
-		return boardDAO.freeBoardmodalChadan(mbVo);
+	public int freeBoardmodalChadanOk(MemberBaseVO mbVo) {
+		return boardDAO.freeBoardmodalChadanOk(mbVo);
 	}
 
 	//구독 모달창
@@ -85,4 +85,17 @@ public class BoardServiceImp implements BoardService {
 		return boardDAO.freeBoardmodalGudok(mbVo);
 	}
 
+//쪽지
+	@Override
+	public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo) {
+		return boardDAO.freeBoardmodalNote(mbVo);
+	}
+
+	//쪽지 yes
+	@Override
+	public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo) {
+		return boardDAO.freeBoardmodalNoteYes(mbVo);
+	}
+
+	
 }

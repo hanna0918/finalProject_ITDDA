@@ -17,6 +17,7 @@ public class BoardVO {
 	private String b_content;
 	private String board_blockcontent;
 	private String board_content;
+	
 	//댓글 수 
 	private int br_count;
 	//--닉네임 관리--
