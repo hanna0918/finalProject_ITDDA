@@ -13,7 +13,7 @@ public interface BoardService {
 	public List<BoardVO> boardList(PagingVO pVo); //글목록 리스트 origin
 
 	public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo); // 프로필 모달창 
-	public MemberBaseVO freeBoardmodalChadan(MemberBaseVO mbVo); //차단
+	public int freeBoardmodalChadanOk(MemberBaseVO mbVo); //차단 ok
 	public MemberBaseVO freeBoardmodalGudok(MemberBaseVO mbVo);  //구독
 	public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo); //쪽지 
 	public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo); //쪽지 yes

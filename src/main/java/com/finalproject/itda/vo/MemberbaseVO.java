@@ -20,6 +20,7 @@ public class MemberBaseVO {
 	private String m_addrdetail;
 	private String m_birth;
 	private String m_img;
+	private String b_note;
 	
 //	조인용 vo
 	private String m_content;
@@ -144,6 +145,12 @@ public class MemberBaseVO {
 	}
 	public void setM_img(String m_img) {
 		this.m_img = m_img;
+	}
+	public String getB_note() {
+		return b_note;
+	}
+	public void setB_note(String b_note) {
+		this.b_note = b_note;
 	}
 	public String getM_content() {
 		return m_content;
