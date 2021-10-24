@@ -1,125 +1,397 @@
-.TopContent
-{
-    width:1100px;
-    min-height: 40px;
-    margin: 0 auto;
-    text-align: center;
+@charset "UTF-8";
+/* include*/
+.TopContent {
+  width: 1100px;
+  min-height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  /*asdasd*/
 }
-.TopSubContent
-{
-    font-size: 40px; border-bottom: 1px solid wheat;
-}
-
-.MainContent
-{
-    width:1000px; height: 800px; margin: 0 auto;
+.TopSubContent {
+  font-size: 40px;
+  border-bottom: 1px solid wheat;
 }
 
-.BarMeunSelect{
-    list-style-type: none;
-    width: 10%;
-    min-height: 800px;
-    padding: 0;
-    margin: 0;
-    float: left;
-    background-color: #fafafa;
+.MainContent {
+  width: 1000px;
+  height: 800px;
+  margin: 0 auto;
 }
 
-.BarMeun
-{
-    border: 1px solid blanchedalmond; width: 90%;  margin: 0 auto; font-size: 25px; text-align: center;
-}
-.BarMeunSelect>div /* 왼쪽 메뉴 글씨 크기*/
-{
-    font-size: 18px;
-}
-
-.MainConTentBox/*수정하기*/
-{
-    height: 800px; width:90%; float: left;"
+.BarMeunSelect {
+  list-style-type: none;
+  width: 10%;
+  min-height: 800px;
+  padding: 0;
+  margin: 0;
+  float: left;
+  background-color: #fafafa;
 }
 
-/*사용자 관리사항 수정사항 css*/
-ul,li{
-    list-style: none;
+.BarMeun {
+  border: 1px solid blanchedalmond;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 25px;
+  text-align: center;
 }
-.SerchBox
-{
-    width:100%; height: 10%;
+.BarMeunSelect > div {
+  font-size: 18px;
 }
 
+.MainConTentBox {
+  height: 800px;
+  width: 90%;
+  float: left;
+}
+
+.SerchBox {
+  width: 100%;
+  height: 10%;
+}
 
 /* Member */
-  #MemberList {
-      width: 95%;
-      height: 600px;
+#MemberList {
+  width: 95%;
+  height: 600px;
+}
+
+#MemberList > li {
+  float: left;
+  height: 40px;
+  width: 11%;
+  text-align: center;
+  font-size: 20px;
+}
+
+#MemberList > li:nth-of-type(9n + 1) {
+  width: 4%;
+}
+#MemberList > li:nth-of-type(9n + 2) {
+  width: 14%;
+}
+#MemberList > li:nth-of-type(9n + 3) {
+  width: 14%;
+}
+#MemberList > li:nth-of-type(9n + 4) {
+  width: 15%;
+}
+#MemberList > li:nth-of-type(9n + 5) {
+  width: 15%;
+}
+#MemberList > li:nth-of-type(9n + 6) {
+  width: 12%;
+}
+#MemberList > li:nth-of-type(9n + 7) {
+  width: 8%;
+}
+#MemberList > li:nth-of-type(9n + 8) {
+  width: 9%;
+}
+#MemberList > li:nth-of-type(9n + 9) {
+  width: 9%;
+}
+.MemberListButtonBox > ul > :nth-child(n) {
+  padding-left: 10px;
+}
+
+.MemberListButton {
+  width: 100%;
+  height: 55px;
+}
+
+.MemberListButton > li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  margin-left: 60px;
+}
+
+/* Member */
+
+/* QnA */
+
+/*------------------------------------*bar Meun css*/
+ #QnaList > li:nth-of-type(4n+1) {
+
+      width: 10%;
+    }
+    #QnaList > li:nth-of-type(4n+2) {
+
+      overflow: hidden;
+
+      width: 50%;
     }
 
-    /*페이징버튼 버튼*/
-    #MemberList > li {
-      float: left;
-      height: 40px;
-      width: 11%;
-      text-align: center;
+    #QnaList > li:nth-of-type(4n+3) {
+
+      width: 20%;
+    }
+
+    #QnaList > li:nth-of-type(4n+4) {
+
+      width: 20%;
+    }
+
+    .AdminQnqModal > form > div
+    {
+
       font-size: 20px;
     }
-
-    .MemberListButtonBox>ul>:nth-child(n){padding-left: 10px;}
-
-    .MemberListButton
-    {
-      width: 100%;
-      height: 55px;
-    }
-
-    .MemberListButton>li
+    .QnaButton>li
     {
       float: left;
       width: 50px;
       height: 50px;
-      font-size: 30px;
+      font-size: 20px;
       margin-left: 60px;
     }
-
-    #MemberList > li:nth-of-type(9n+1) {
-      width: 5%;
+    .QnaRightBox
+    {
+      width: 100%;
+      height: 600px;
     }
-
-    #MemberList > li:nth-of-type(9n+2) {
-      width: 14%;
-    }
-
-    #MemberList > li:nth-of-type(9n+4) {
-      width: 15%;
-    }
-
-/* Member */
-
-
-/* QnA */
-
-
-/* QnA */
-
-
-/*BoardBlackList*/
-
-.AdminBoardButtonBox>ul>:nth-child(n){padding-left: 10px;}
-
-    .AdminBoardListButton
+    .QnaButton
     {
       width: 100%;
       height: 55px;
     }
+    .QnaButtonBox>ul>:nth-child(n){padding-left: 10px;}
 
-    .AdminBoardListButton>li
+    #QnaList>li
     {
-      float: left;
-      width: 50px;
+      float:left;
       height: 50px;
-      font-size: 30px;
-      margin-left: 60px;
+      width: 100px;
+      line-height:50px;
+      text-align: center;
+      font-size: 15px;
     }
+    .QnaDataBox>li{
+      margin: 0 auto;
+    }
+    .QnaBoardContent
+    {
+      height: 600px;
+      width: 100%;
+      margin: 0 auto;
+      margin: 0 auto;
+    }
+/* QnA */
 
+/*BoardList*/
 
-/*BoardBlackList*/
+.AdminBoardButtonBox > ul > :nth-child(n) {
+  padding-left: 10px;
+}
+
+.AdminBoardListButton {
+  width: 100%;
+  height: 55px;
+}
+
+.AdminBoardListButton > li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  margin-left: 60px;
+}
+
+#BoardView > li {
+  float: left;
+
+  height: 30px;
+  height: -44px;
+  height: 91px;
+
+  width: 10%;
+  margin-top: 5px;
+  text-align: center;
+}
+
+#BoardView {
+  width: 100%;
+  height: 500px;
+}
+
+.BoardViewImg {
+  width: 100px;
+  height: 90px;
+}
+
+#BoardView > li {
+  font-size: 20px;
+  width: 10%;
+  height: 30px;
+}
+
+#BoardView > li:nth-of-type(7n + 2) {
+  width: 15%;
+  overflow: hidden;
+}
+
+#BoardView > li:nth-of-type(7n + 3) {
+  width: 30%;
+  text-align: left;
+}
+
+#BoardView > li:nth-of-type(7n + 6) {
+  width: 15%;
+}
+
+#BoardView > li:nth-of-type(1) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(2) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(3) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(4) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(5) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(6) {
+  height: 10%;
+}
+#BoardView > li:nth-of-type(7) {
+  height: 10%;
+}
+
+.MemberListButtonBox {
+  margin: 0 auto;
+  width: 100%;
+  height: 55px;
+}
+.MemberListButtonBox > ul > li {
+  margin: 0 auto;
+  float: left;
+  font-size: 15px;
+  padding-left: 80px;
+  text-align: center;
+}
+
+.MemberListButtonBox > ul > :nth-child(n) {
+  padding-left: 10px;
+}
+
+.MemberListButton {
+  width: 100%;
+  height: 55px;
+}
+
+.MemberListButton > li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: 60px;
+}
+
+/*BoardList*/
+
+/*boardList*/
+
+#BoardView > li {
+  float: left;
+  height: 90px;
+  width: 10%;
+  margin-top: 5px;
+  text-align: center;
+}
+
+#BoardView {
+  width: 100%;
+  height: 500px;
+}
+
+.BoardViewImg {
+  width: 100px;
+  height: 90px;
+}
+
+#BoardView > li {
+  font-size: 20px;
+  width: 10%;
+}
+
+#BoardView > li:nth-of-type(7n + 2) {
+  width: 15%;
+  overflow: hidden;
+}
+
+#BoardView > li:nth-of-type(7n + 3) {
+  width: 30%;
+  text-align: left;
+}
+
+#BoardView > li:nth-of-type(7n + 6) {
+  width: 15%;
+}
+
+#BoardView > li:nth-of-type(1) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(2) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(3) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(4) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(5) {
+  height: 10%;
+}
+
+#BoardView > li:nth-of-type(6) {
+  height: 10%;
+}
+#BoardView > li:nth-of-type(7) {
+  height: 10%;
+}
+
+.MemberListButtonBox {
+  margin: 0 auto;
+  width: 100%;
+  height: 55px;
+}
+.MemberListButtonBox > ul > li {
+  margin: 0 auto;
+  float: left;
+  font-size: 15px;
+  padding-left: 80px;
+  text-align: center;
+}
+
+.MemberListButtonBox > ul > :nth-child(n) {
+  padding-left: 10px;
+}
+
+.MemberListButton {
+  width: 100%;
+  height: 55px;
+}
+
+.MemberListButton > li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: 60px;
+}
