@@ -23,8 +23,8 @@ public interface AdminDAO {
 	@Select("select m.m_seq,m.m_userid ,m.m_nickname ,to_char(m.m_regdate,'YY-MM-DD') m_regdate, s.m_state, r.m_name,m.m_rank,m.m_statecode from memberbase m  join states s on m.m_statecode = s.m_statecode join member_rank r on m.m_rank = r.m_rank where m.m_seq=#{m_seq}")
 	public MemberBaseVO MemberView(MemberBaseVO vo);      
 																												//�궃以묒뿉 seq���뒪濡� 諛붽퓭�빞�맖
-	@Insert("insert into memberbase(m_seq,m_userid, m_username,m_userpwd,m_nickname,m_email,m_tel,m_addr,m_birth,m_gender) "
-			+ "values (6,#{m_userid},#{m_username},#{m_userpwd},#{m_nickname},#{m_email},#{m_tel},#{m_addr},#{m_birth},1)")
+	@Insert("insert into memberbase(m_seq,m_userid, m_username,m_userpwd,m_nickname,m_email,m_tel,m_addr,m_addrdetail,m_birth,m_gender,m_rank) "
+			+ "values (m_seq.nextval,#{m_userid},#{m_username},#{m_userpwd},#{m_nickname},#{m_email},#{m_tel},#{m_addr},'관리자',#{m_birth},#{m_gender},1)")
 	public int MemberInsert(MemberBaseVO vo);
 	
 	@Update("update memberbase set m_statecode=#{m_statecode},m_rank=#{m_rank} where m_seq=#{m_seq}")
@@ -64,12 +64,28 @@ public interface AdminDAO {
 	/*게시판 블럭 처리 확인 블럭 처리 업데이트*/
 
 	/* 1:1문의 */
-	@Select("select q.q_number,q.q_title,m.m_nickname,to_char(q.q_date,'YY-MM-DD')q_date,q.q_result from question q join memberbase m on q.m_seq= m.m_seq")
+	@Select("select q.q_number,q.q_title,m.m_nickname,to_char(q.q_date,'YY-MM-DD')q_date,q.q_result from question q join memberbase m on q.m_seq= m.m_seq where q_result_state=0")
 	public List<QuestionVO> QuestionList();
 	/* 1:1문의 */
 
-	@Select("select q.q_number,q.q_title,m.m_nickname,to_char(q.q_date,'YY-MM-DD')q_date,q.q_result from question q join memberbase m on q.m_seq= m.m_seq")
-	public QuestionVO QusetionWaitModal(QuestionVO vo);
+
+	/* 1:1 문의 모달 */
+	@Select("select q.q_number,q.q_title,m.m_nickname,to_char(q.q_date,'YY-MM-DD')q_date,q.q_result from question q join memberbase m on q.m_seq= m.m_seq where q.q_number=#{q_number}")
+	public QuestionVO QusetionWaitModallist(QuestionVO vo);
+	/* 1:1 문의 모달 */	
+	
+	
+	//update memberbase set m_statecode=#{m_statecode},m_rank=#{m_rank} where m_seq=#{m_seq}
+	/* 1:1 문의 업데이트 */
+	@Update("update question set "
+			+ "q_result_state=#{q_result_state}, "
+			+ "q_result=#{q_result} where q_number=#{q_number}")
+	public int QusetionupdateModal(QuestionVO vo);
+	/* 1:1 문의 업데이트 */
+	
+	@Select("select q.q_number,q.q_title,m.m_nickname,to_char(q.q_date,'YY-MM-DD')q_date,q.q_result from question q join memberbase m on q.m_seq= m.m_seq where q_result_state=1")
+	public List<QuestionVO> QuestionResultList();
+	
 }
 
 

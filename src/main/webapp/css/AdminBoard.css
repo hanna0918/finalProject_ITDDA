@@ -1,0 +1,96 @@
+#BoardView > li {
+    float: left;
+    height: 90px;
+    width: 10%;
+    margin-top: 5px;
+    text-align: center;
+
+}
+
+#BoardView {
+    width: 100%;
+    height: 500px;
+}
+
+.BoardViewImg {
+    width: 100px;
+    height: 90px;
+}
+
+#BoardView > li {
+    font-size: 20px;
+    width: 10%;
+}
+
+#BoardView > li:nth-of-type(7n+2) {
+    width: 15%;
+    overflow: hidden;
+}
+
+#BoardView > li:nth-of-type(7n+3) {
+    width: 30%;
+    text-align: left;
+}
+
+#BoardView > li:nth-of-type(7n+6) {
+    width: 15%;
+}
+
+#BoardView > li:nth-of-type(1) {
+    height: 10%;
+}
+
+#BoardView > li:nth-of-type(2) {
+    height: 10%;
+}
+
+#BoardView > li:nth-of-type(3) {
+    height: 10%;
+}
+
+#BoardView > li:nth-of-type(4) {
+    height: 10%;
+}
+
+#BoardView > li:nth-of-type(5) {
+    height: 10%;
+}
+
+#BoardView > li:nth-of-type(6) {
+    height: 10%;}
+#BoardView > li:nth-of-type(7) {
+    height: 10%;}
+
+
+.MemberListButtonBox
+{
+    margin: 0 auto;
+    width: 100%;
+    height: 55px;
+
+}
+.MemberListButtonBox>ul>li
+{
+    margin: 0 auto;
+    float: left;
+    font-size: 15px;
+    padding-left: 80px;
+    text-align: center;}
+
+
+.MemberListButtonBox>ul>:nth-child(n){padding-left: 10px;}
+
+.MemberListButton
+{
+    width: 100%;
+    height: 55px;
+}
+
+.MemberListButton>li
+{
+    float: left;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 60px;
+}

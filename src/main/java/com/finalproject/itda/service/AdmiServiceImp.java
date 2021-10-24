@@ -83,10 +83,19 @@ public class AdmiServiceImp implements AdminService {
 		return adminDAO.QuestionList();
 	}
 	
-	@Override //Q & A Wait 모달보기 보기
-	public QuestionVO QusetionWaitModal(QuestionVO vo)
+	public QuestionVO QusetionWaitModallist(QuestionVO vo)
 	{
-		return adminDAO.QusetionWaitModal(vo);
+		return adminDAO.QusetionWaitModallist(vo);
+	}
+
+	@Override
+	public int QusetionupdateModal(QuestionVO vo) {
+		return adminDAO.QusetionupdateModal(vo);
+	}
+
+	@Override
+	public List<QuestionVO> QuestionResultList() {
+		return adminDAO.QuestionResultList();
 	}
 	
 	

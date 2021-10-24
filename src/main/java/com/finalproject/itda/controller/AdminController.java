@@ -3,6 +3,7 @@ package com.finalproject.itda.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,23 +23,45 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 	
-	//Q & A 데이터 넘기기
-	@RequestMapping(value="/admin")
-	public String adminMove(Model model) {
+	@Autowired
+    private BCryptPasswordEncoder pwEncoder;
+	//Q & A wait 이동 및 데이터 넘기기
+	@RequestMapping(value="/adminQnawait")
+	public String AdminQnaWait(Model model) {
 		model.addAttribute("list", adminService.QuestionList());
 		return "admin/adminQnawait";
 	}
 	
-	//Q & A 모달에 출력
-		@RequestMapping(value="/QnaModalwaitView", method=RequestMethod.POST)
-		@ResponseBody public QuestionVO AdminQnaWaitModalView(QuestionVO vo) {
-				System.out.println(vo.getQ_number()); 
-				QuestionVO Qnavo =adminService.QusetionWaitModal(vo);
-				return Qnavo; }
-		
-		
+	//Q & A wait 모달에 출력
+	@RequestMapping(value="/QnaModalwaitView", method=RequestMethod.POST)
+	@ResponseBody public QuestionVO AdminQnaWaitModalView(QuestionVO vo) {
+		System.out.println(vo.getQ_number()); 
+		QuestionVO Qnavo =adminService.QusetionWaitModallist(vo);
+	return Qnavo; }
 	
-//-------------------------
+	//Q & A wait 모달에서 update
+		@RequestMapping(value="/CallwaitUpdate", method=RequestMethod.POST)
+		   public ModelAndView AdminQnaUpdate(QuestionVO vo) {
+		
+				System.out.println(vo.getQ_number());
+				System.out.println(vo.getQ_result_state());
+				System.out.println(vo.getQ_result());
+				
+		      int cnt = adminService.QusetionupdateModal(vo);
+		      ModelAndView mav = new ModelAndView();
+		  	if (cnt > 0) { 
+				mav.setViewName("redirect:adminQnawait");
+			} 
+		      return mav;
+		   }
+	//-------------------------
+		//Q & A result 이동 및 데이터 넘기기
+		@RequestMapping(value="/adminQnaresult")
+		public String AdminQnaresult(Model model) {
+			model.addAttribute("list", adminService.QuestionResultList());
+			return "admin/adminQnaresult";
+		}
+		
 	@RequestMapping(value="AdminMemberlist")
 	public String AdminMemberList(Model model) {
 		model.addAttribute("list", adminService.AMemberList());
@@ -52,13 +75,23 @@ public class AdminController {
 
 	//어드민 추가
 	@RequestMapping(value = "/adminInsertOk", method = RequestMethod.POST)
-	public ModelAndView adminInsertOk(MemberBaseVO vo) {
+	public ModelAndView adminInsertOk(MemberBaseVO vo, Model model) {
+		
+
+        String rawPw = "";            // 인코딩 전 비밀번호
+        String encodePw = "";        // 인코딩 후 비밀번호
+        
+        
+        rawPw = vo.getM_userpwd();
+        encodePw = pwEncoder.encode(rawPw);
+        vo.setM_userpwd(encodePw);
+		
 		int cnt = adminService.MemberInsert(vo);
 		ModelAndView mav = new ModelAndView();
 		if (cnt > 0) { 
-			mav.setViewName("redirect:MemberInsert");
+			mav.setViewName("redirect:AdminMemberlist");
 		} else {
-			mav.setViewName("redirect:admin");
+			mav.setViewName("redirect:MemberInsert");
 		}
 		return mav;
 	}
@@ -93,9 +126,6 @@ public class AdminController {
 	      }
 	      return mav;
 	   }
-	
-//-------------------------
-
 //-------------------------
 	//신고 게시판 이동
 			@RequestMapping(value="/BoardCallList")

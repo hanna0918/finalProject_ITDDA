@@ -31,8 +31,8 @@
               <li>${call.board_writedate}</li>
               <li class="BoardBlack" name="${call.board_seq}">관리</li>
               <br>
-             </c:forEach>
-             <!-- 데이터내용 end-->
+          	</c:forEach>
+          	<!-- 데이터내용 end-->
             
           </ul>
     </div>
@@ -51,11 +51,11 @@
   </div>
   
 
- <!--  <!-- 모달창... -->
+ <!-- 모달창... -->
   <div class="CallBoardModalTest">
     <div class="modalOverlay"></div>
     <article class="BoardModal">
     <div id="update"></div>
 
     </article> 
-  </div> -->
+  </div>

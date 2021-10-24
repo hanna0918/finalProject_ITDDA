@@ -35,6 +35,8 @@ public class MemberBaseVO {
 	private int bookmark_count;
 	private int msg_count;
 	
+
+
 	public String getM_addrdetail() {
 		return m_addrdetail;
 	}
