@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 	<div id='container'>
@@ -114,13 +113,13 @@
 		<!-- 페이지 -->
 		<div class='pagingDiv'>
 			<ul>
-				<li><a href='#'><</a></li>
+				<li><a href='#'>◁</a></li>
 				<li><a href='#'>1</a></li>
 				<li><a href='#'>2</a></li>
 				<li><a href='#'>3</a></li>
 				<li><a href='#'>4</a></li>
 				<li><a href='#'>5</a></li>
-				<li><a href='#'>></a></li>
+				<li><a href='#'>▷</a></li>
 			</ul>
 		</div>
 	</div>

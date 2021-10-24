@@ -8,7 +8,7 @@
 #matchingUploadFrame {
     font-family: 'IBMPlexSansKR-Regular';
     width: 1100px;
-    margin: 50px auto;
+    margin: 30px auto;
     overflow: auto;
 }
 #matchingBasicInfoArea {
@@ -232,13 +232,13 @@
     border-radius: 3px;
     margin: 10px;
 }
-#matchingSubmitBtn {
+#matchingSubmitBtn, #injeungSubmitBtn {
     float: right;
     background-color: #00376b;
     border: #00376b;
     color:white;
 }
-#matchingCancelBtn {
+#matchingCancelBtn, #injeungCancelBtn {
     text-align: center;
     text-decoration: none;
     color: black;

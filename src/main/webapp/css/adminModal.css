@@ -15,8 +15,7 @@
   -ms-overflow-style: none;
 }
 
-.AdminresultQnqModal
-{
+.AdminresultQnqModal {
   display: none;
   position: fixed;
   top: 0;
@@ -116,11 +115,11 @@
   background-color: white;
 }
 
-label {
+/* label {
   font-size: 20px;
   width: 100px;
   height: 20px;
-}
+} */
 
 .BoardViewModal {
   display: none;
