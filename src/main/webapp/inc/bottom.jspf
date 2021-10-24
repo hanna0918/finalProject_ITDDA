@@ -34,6 +34,7 @@
 <script defer type="text/javascript" src="js/mainScript.js?1"></script>
 <script type="text/javascript" src="js/mypageScript.js"></script>
 <script type="text/javascript" src="js/userDropdownScript.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
 <!-- 카카오주소록 -->
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

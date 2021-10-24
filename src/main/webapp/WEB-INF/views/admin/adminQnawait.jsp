@@ -3,37 +3,7 @@
 
 <%@ include file="/inc/adminTop.jspf" %>
 <script>
-$(document).ready(function(){
 
-	$('.AdminQna').click(function () {
-	    $('.AdminSendQnqModal').css('display', 'block'); //1:1문의 모달
-	 var seq =$(this).attr("name");
-	 const qnanumber = "q_number"+parseInt(seq);
-	   console.log(seq);
-	  $.ajax({
-	    	url:'/itda/BlackBoardBlackView',
-	    	data: qnanumber,
-	    	type: 'POST',
-	    	success: function(result){
-	    		console.log("성공");
-	    		var result = $(result);
-	    			
-	    	var tag;
-	    	tag+="<h2 style='text-align:center;'>블럭게시판 관리</h2>";
-	    	
-	    	 $('#modal').html(tag);
-	    	}, error: function(){
-	    		console.log("왜 실패하니 너는?");
-	    	}
-	    	
-	});
-
-	$('.modalOverlay').click(function () {
-	 
-	    $('.AdminSendQnqModal').css('display', 'none');});
-    
-    });
-});
 </script>
   <div class="TopContent">
     <div class="TopSubContent">

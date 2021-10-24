@@ -2,11 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ include file="/inc/adminTop.jspf" %>
-<script>
-$(document).ready(function(){
 
-});
-</script>
   <div class="TopContent">
     <div class="TopSubContent">
       <div>1:1 문의확인</div></div>
