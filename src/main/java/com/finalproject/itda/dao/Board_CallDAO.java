@@ -19,4 +19,14 @@ public interface Board_CallDAO {
 	
 	@Delete(" delete from board_call where board_seq=${board_seq} and m_seq=${m_seq} ")
 	public int boardCallBack(Board_CallVO vo);
+	
+	@Select(" select count(goodhit_seq) from b_goodhit where board_seq=${board_seq} and m_seq=${m_seq} ")
+	public int goodHitCheck(Board_CallVO vo);
+	
+	@Insert(" insert into b_goodhit (b_goodhit, board_seq, m_seq) values (goodhit_seq.nextval, ${board_seq}, ${m_seq}) ")
+	public int goodHit(Board_CallVO vo);
+	
+	@Delete(" delete from b_goodhit where board_seq=${board_seq} and m_seq=${m_seq} ")
+	public int goodHitBack(Board_CallVO vo);
+	
 }

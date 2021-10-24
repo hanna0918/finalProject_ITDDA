@@ -28,5 +28,17 @@ public class Board_CallServiceImp implements Board_CallService {
 	public int boardCallCheck(Board_CallVO vo) {
 		return board_CallDAO.boardCallCheck(vo);
 	}
+	@Override
+	public int goodHitCheck(Board_CallVO vo) {
+		return board_CallDAO.goodHitCheck(vo);
+	}
+	@Override
+	public int goodHit(Board_CallVO vo) {
+		return board_CallDAO.goodHit(vo);
+	}
+	@Override
+	public int goodHitBack(Board_CallVO vo) {
+		return board_CallDAO.goodHitBack(vo);
+	}
 	
 }

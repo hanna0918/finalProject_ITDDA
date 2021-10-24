@@ -233,6 +233,10 @@ $(function(){
 	console.log("댓글 replyList() 호출했음?");
 });
 
+
+
+/* --------------------------------------------------신고----------------------------------------------------- */
+
 /* 신고한적 있는 게시글인지 아닌지 확인하는 ajax */
 function boardCallCheck(){
 	var board_seq = $("#board_seq").val();
@@ -379,3 +383,121 @@ $(document).on("click", "#sirenX", function () {
 $(document).on("click", ".close", function () {
     $('.matchingReportModal').css('display', 'none');
 });
+
+/* --------------------------------------------------신고----------------------------------------------------- */
+
+
+
+/* --------------------------------------------------져아요----------------------------------------------------- */
+
+/* 좋아요한적 있는 게시글인지 아닌지 확인하는 ajax 완성하고 js 마지막에 호출하게 만들어놓으면 됨 */
+function goodHitCheck(){
+	var board_seq = $("#board_seq").val();
+    var m_seq = $("#logseq").val();
+    var rParam = "board_seq="+board_seq+"&m_seq="+m_seq;
+    var rUrl = "/itda/goodHitCheck";
+    var tag = "";
+    $.ajax({
+        url: rUrl,
+        data: rParam,
+        success: function(result){
+        	console.log("result = "+result);
+            if(result==0){
+				tag += "";
+				// 좋아요 한 글이니 색 칠해진 죠아요 이미지 그리고 좋아요 취소하는 매핑 되있는 아이디 부여 id='goodHitBack'
+
+			} else {
+				tag += "";
+				// 좋아요 안 한 글이니 색 안칠해진 죠아요 이미지 그리고 좋아요 하는 매핑 되있는 아이디 부여 id='goodHit'
+			}
+			// 밑에는 신고버튼용이고 여기서는 죠아요를 구현하는 곳이니 다른 장소를 찾아야함
+			// $(".matchingReportModalContent").html(tag);
+        }, error: function(){
+            console.log("죠아요 확인하는 ajax 에러입니다")
+        },
+    });
+}
+
+// 좋아요 하는 펑션
+function goodHit() {
+	var board_seq = $("#board_seq").val();
+    var m_seq = $("#logseq").val();
+    var rParam = "board_seq="+board_seq+"&m_seq="+m_seq;
+    var rUrl = "/itda/goodHit";
+    var tag = "";
+    $.ajax({
+        url: rUrl,
+        data: rParam,
+        success: function(result){
+            tag += "";
+			// 좋아요 db 들어갔는지 확인하고 색있는 죠아요 이미지 넣고 해당 위치에 삽입하기
+			// $("#???????").html(tag);
+		}, error: function(){
+			console.log("죠아요 하는 ajax 에러입니다.");
+		}
+	});
+}
+
+// 좋아요 철회하는 펑션
+function goodHitBack() {
+	var board_seq = $("#board_seq").val();
+    var m_seq = $("#logseq").val();
+    var rParam = "board_seq="+board_seq+"&m_seq="+m_seq;
+    var rUrl = "/itda/goodHitBack";
+    var tag = "";
+    $.ajax({
+        url: rUrl,
+        data: rParam,
+        success: function(result){
+            tag += "";
+			// 좋아요 db에서 잘 삭제되었는지 확인하고 색없는 죠아요 이미지 넣고 해당 위치에 삽입하기
+			// $("#???????").html(tag);
+		}, error: function(){
+			console.log("죠아요 하는 ajax 에러입니다.");
+		}
+	});
+}
+
+// 좋아요 눌렀을때 로그인 안되어있으면 신고 모달에 로그인 하라고 내용 넣고 확인누르면 로그인 모달 띄우기 
+// 로그인 되어있으면 좋아요 ajax ㄱㄱ
+$(document).on("click", "#goodHit", function(){
+	if($("#logseq").val()=="") {
+		let tag = "";
+		tag += "<h1>로그인 후</h1>";
+		tag += "<h1>이용해주세요</h1>";
+		tag += "<input type='button' id='loginPlease' value='확인'>";
+		$(".matchingReportModalContent").html(tag);
+		$('.matchingReportModal').css('display', 'block');
+		return false;
+	}
+	goodHit();
+});
+
+// 좋아요 눌렀을때 로그인 안되어있으면 신고 모달에 로그인 하라고 내용 넣고 확인누르면 로그인 모달 띄우기 
+// 로그인 되어있으면 좋아요 철회 ajax ㄱㄱ
+$(document).on("click", "#goodHitBack", function(){
+	if($("#logseq").val()=="") {
+		let tag = "";
+		tag += "<h1>로그인 후</h1>";
+		tag += "<h1>이용해주세요</h1>";
+		tag += "<input type='button' id='loginPlease' value='확인'>";
+		$(".matchingReportModalContent").html(tag);
+		$('.matchingReportModal').css('display', 'block');
+		return false;
+	}
+	goodHitBack();
+});
+
+// 로그인 되어있으면 페이지 들어와서 좋아요 했는지 확인함
+if($("#logseq").val()!="") {
+	goodHitCheck();
+}
+
+/* 이건 로그인이 안되어있을때 뜨는 모달의 확인 버튼을 누르면 오는 곳이고 이전 모달이 꺼지면서 로그인 모달이 뜸
+$(document).on('click', '#loginPlease', function(){
+	$('.matchingReportModal').css('display', 'none');
+	$(".loginModal").css('display', 'block');
+});
+*/
+
+/* --------------------------------------------------져아요----------------------------------------------------- */

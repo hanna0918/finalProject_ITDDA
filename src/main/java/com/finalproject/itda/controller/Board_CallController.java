@@ -38,4 +38,33 @@ public class Board_CallController {
 	public int boardCallBack(Board_CallVO vo) {
 		return board_CallService.boardCallBack(vo);
 	}
+	
+	// 좋아요했던 게시글인지 확인
+	@RequestMapping("/goodHitCheck")
+	@ResponseBody
+	public int goodHitCheck(Board_CallVO vo) {
+		return board_CallService.goodHitCheck(vo);
+	}
+	
+	@RequestMapping("/goodHit")
+	@ResponseBody
+	public int goodHit(Board_CallVO vo) {
+		return board_CallService.goodHit(vo);
+	}
+	
+	@RequestMapping("/goodHitBack")
+	@ResponseBody
+	public int goodHitBack(Board_CallVO vo) {
+		return board_CallService.goodHitBack(vo);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
