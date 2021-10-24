@@ -34,6 +34,8 @@ public class MemberBaseVO {
 	private int bookmark_count;
 	private int msg_count;
 
+	
+//	수정이 필요하다!!
 	public String getM_addrdetail() {
 		return m_addrdetail;
 	}
