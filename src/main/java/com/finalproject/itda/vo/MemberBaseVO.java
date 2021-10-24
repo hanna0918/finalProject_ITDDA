@@ -1,6 +1,6 @@
 package com.finalproject.itda.vo;
 
-public class MemberbaseVO {
+public class MemberBaseVO {
 	private int m_seq;
 	private String m_userid;
 	private String m_userpwd;
