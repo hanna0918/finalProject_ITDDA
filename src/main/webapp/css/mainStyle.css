@@ -115,7 +115,7 @@ a:visited {
 /* 실제 content 들어가는 영역 스타일 */
 .mainContent {
   flex: 1;
-  width: 1100px;
+  width: 100%;
   margin: 0 auto;
   overflow: auto;
 }
@@ -125,6 +125,7 @@ a:visited {
 
 /* 메인페이지 베스트 게시물 표기 스타일 */
 .bestBoardContent {
+  width: 1100px;
   overflow: auto;
   margin: 0 auto;
 }

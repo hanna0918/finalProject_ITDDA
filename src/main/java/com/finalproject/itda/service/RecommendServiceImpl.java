@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.finalproject.itda.dao.RecommendDAO;
+import com.finalproject.itda.vo.RecommendPagingVO;
 import com.finalproject.itda.vo.RecommendVO;
 @Service
 public class RecommendServiceImpl implements RecommendService {
@@ -44,6 +45,11 @@ public class RecommendServiceImpl implements RecommendService {
 	public int recommendDelete(int board_seq, int m_seq) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public RecommendPagingVO page(RecommendPagingVO pVo) {
+		return recommendDAO.page(pVo);
 	}
 
 	

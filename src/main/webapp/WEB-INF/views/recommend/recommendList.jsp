@@ -4,28 +4,29 @@
 
 <div class="boardContainer">
 	<!-- 게시판제목 -->
+	<!-- 검색창 -->
+	<header>
 	<div class="boardName">
 		<h2>RECOMMEND</h2>
 		<h4>모두에게 유용한 정보를 추천해보세요!</h4>
 	</div>
-	<!-- 검색창 -->
-	<div class="allSearch">
-		<form>
-			<div>
-				<select name="searchSelect">
-					<option>전체</option>
-					<option>글제목</option>
-					<option>작성자</option>
-					<option>내용</option>
-					<option>제목+내용</option>
-				</select> <input type="text" id="search" name="search"
-					placeholder="검색어를 입력하세요" />
+		<div id="recommendSerchBox">
+			<form method="post" id="tagTranfer" onsubmit="return false">
 				<div>
-					<img src="img/magnifyingglass.png">
+					<input type="text" class="searchText"name="searchText" id="searchText" />
 				</div>
-			</div>
-		</form>
-	</div>
+				<div id="addTag">
+					<div id="hiddenTag0" ></div>
+					<div id="hiddenTag1" ></div>
+					<div id="hiddenTag2" ></div>
+					<div id="hiddenTag3" ></div>
+					<div id="hiddenTag4" ></div>
+				</div>
+			</form>
+		</div>
+	</header>
+	
+	
 	<!-- 추천 리스트 -->
 	<div class="boardList">
 		<ul id="chucheonTitle">

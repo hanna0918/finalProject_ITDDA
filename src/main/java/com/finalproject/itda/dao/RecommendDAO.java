@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import com.finalproject.itda.vo.MatchingVO;
+import com.finalproject.itda.vo.RecommendPagingVO;
 import com.finalproject.itda.vo.RecommendVO;
 
 public interface RecommendDAO {
@@ -80,6 +81,10 @@ public interface RecommendDAO {
 			+ "    where board_code=1) "
 			+ "where board_seq=${param1}")
 	public RecommendVO recommendView(int board_seq);
+	
+	@Select("select count(*) from baordbase where board_code=1")
+	public RecommendPagingVO page(RecommendPagingVO pVo);
+	
 }
 
 

@@ -25,6 +25,8 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 15px;
+    display: none;
+    margin-left: 5px;
 }
 #jangteoFrame>header {
     overflow: auto;
@@ -189,4 +191,12 @@ a.button {
 	border-radius: 4px;
 	padding: 5px 30px;
     float: right;
+}
+
+
+/* 태그검색 관련 */
+.searchText{
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
 }
