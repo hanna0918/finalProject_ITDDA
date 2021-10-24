@@ -1,7 +1,6 @@
 package com.finalproject.itda.service;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -39,8 +38,9 @@ public class MatchingServiceImp implements MatchingService {
 	}
 
 	@Override
-	public int matchingEdit(int board_seq, int m_seq) {
-		return matchingDAO.matchingEdit(board_seq, m_seq);
+	public MatchingVO matchingEdit(int board_seq) {
+		System.out.println("serviceImpµµ µé¾î¿È");
+		return matchingDAO.matchingEdit(board_seq);
 	}
 
 	@Override
@@ -51,11 +51,6 @@ public class MatchingServiceImp implements MatchingService {
 	@Override
 	public int matchingWriteOk(MatchingVO vo) {
 		return matchingDAO.matchingWriteOk(vo);
-	}
-
-	@Override
-	public int matchingDelete(int board_seq) {
-		return matchingDAO.matchingDelete(board_seq);
 	}
 
 	@Override
@@ -86,6 +81,23 @@ public class MatchingServiceImp implements MatchingService {
 	@Override
 	public int matchingReplyWrite(BoardCommentVO vo) {
 		return matchingDAO.matchingReplyWrite(vo);
+	}
+
+	@Override
+	public int matchingEditOk(MatchingVO vo) {
+		matchingDAO.matchingEditOkMcTable(vo);
+		matchingDAO.matchingEditOkBoardBase(vo);
+		return matchingDAO.matchingEditOk(vo);
+	}
+
+	@Override
+	public int matchingReplyEdit(BoardCommentVO vo) {
+		return matchingDAO.matchingReplyEdit(vo);
+	}
+
+	@Override
+	public int matchingReplyDelete(BoardCommentVO vo) {
+		return matchingDAO.matchingReplyDelete(vo);
 	}
 	
 	

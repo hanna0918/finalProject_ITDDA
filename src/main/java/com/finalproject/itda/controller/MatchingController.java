@@ -1,6 +1,5 @@
 package com.finalproject.itda.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +33,7 @@ public class MatchingController {
 		mav.addObject("list", matchingService.matchingList(pVo));
 		return mav; 
 	}
-	//   @RequestMapping(value="/matchingListTagSearch", method=RequestMethod.POST)
-	//   @ResponseBody
-	//   public List<MatchingVO> tagSearch(PagingVO pVo){
-	//      matchingService.page(pVo);
-	//      return matchingService.matchingList(pVo);
-	//   } 
+
 	@RequestMapping(value="/matchingListTagSearch", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> tagSearch(MatchingPagingVO pVo){
@@ -59,8 +53,7 @@ public class MatchingController {
 	@RequestMapping(value="matchingView")
 	public ModelAndView matchingView(int board_seq) {
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> map = new HashMap<String, Object>();
-		int cnt = matchingService.countHit(board_seq);
+		matchingService.countHit(board_seq);
 		mav.addObject("part", matchingService.matchingUser(board_seq));
 		mav.addObject("vo", matchingService.matchingView(board_seq));
 		mav.setViewName("matching/matchingView");
@@ -69,11 +62,9 @@ public class MatchingController {
 	
 	@RequestMapping("/matchingUpload")
 	public String matchingUpload(HttpSession ses) {
-		System.out.println("세션은" + ses.getAttribute("login"));
 		if(ses.getAttribute("login") != null) {
 			return "matching/matchingUpload";
 		} else {
-			System.out.println("여기들어옴");
 			return "register/login";
 		}
 	}
@@ -90,29 +81,24 @@ public class MatchingController {
 		return mav;
 	}
 
-	@RequestMapping("/matchingEdit")
-	public ModelAndView matchingEdit(int board_seq, HttpSession ses) {
+	@RequestMapping(value="/matchingEdit", method=RequestMethod.GET)
+	public ModelAndView matchingEdit(int board_seq) {
 		ModelAndView mav = new ModelAndView();
-		Object test = ses.getAttribute("logseq");
-		
-		matchingService.matchingEdit(board_seq, Integer.valueOf((String)test) );
+		mav.addObject("vo", matchingService.matchingEdit(board_seq));
+		mav.setViewName("matching/matchingEdit");
 		return mav;
 	}
 	
-	// -----------------------------------글삭제
-	@RequestMapping("/matchingDelete")
-	public String matchingDelete(int board_seq) {
-		matchingService.matchingDelete(board_seq);
-		return "";
+	// 글 수정 후 update 하러 들어오는 메소등
+	@RequestMapping(value="/matchingEditOk", method=RequestMethod.POST)
+	public String matchingEditOk(MatchingVO vo) {
+		matchingService.matchingEditOk(vo);
+		return "redirect:matchingView?board_seq=" + vo.getBoard_seq();
 	}
 	
 	@RequestMapping("/matchingConfirm")
 	@ResponseBody
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq){
-		System.out.println("mc_seq" + mc_seq);
-		System.out.println("m_seq" + m_seq);
-		
-		System.out.println("컨트롤러 매칭컨펌 들어옴");
 		return matchingService.matchingConfirm(mc_seq, m_seq);
 	}
 	
@@ -124,10 +110,6 @@ public class MatchingController {
 	
 	@RequestMapping("/matchingCancel")
 	public String matchingCancel(int m_seq, int mc_seq, int board_seq) {
-		System.out.println("mc_seq" + mc_seq);
-		System.out.println("m_seq" + m_seq);
-		System.out.println("매칭캔슬 들어옴");
-		
 		matchingService.matchingCancel(m_seq, mc_seq);
 		return "redirect:/matchingView?board_seq="+board_seq;
 	}
@@ -144,4 +126,18 @@ public class MatchingController {
 	public int matchingReplyWrite(BoardCommentVO vo) {
 		return matchingService.matchingReplyWrite(vo);
 	}
+	
+	@RequestMapping(value="/matchingReplyEdit", method=RequestMethod.POST)
+	@ResponseBody
+	public int MatchingReplyEdit(BoardCommentVO vo) {
+		return matchingService.matchingReplyEdit(vo);
+	}
+
+	@RequestMapping(value="/matchingReplyDelete", method=RequestMethod.POST)
+	@ResponseBody
+	public int MatchingReplyDelete(BoardCommentVO vo) {
+		return matchingService.matchingReplyDelete(vo);
+	}
+	
+	
 }

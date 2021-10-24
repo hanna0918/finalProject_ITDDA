@@ -88,7 +88,9 @@
 	    </c:if>
 	</ul>
 </div>
+	<c:if test='${logseq!=null}'>
 		<a href="/itda/matchingUpload" class="button" id="calendarBtn" id="matchingUploadBtn">글쓰기</a>
+	</c:if>
 	</section>
 </div>
 <script src="/itda/js/matchingList.js?version=1"></script>

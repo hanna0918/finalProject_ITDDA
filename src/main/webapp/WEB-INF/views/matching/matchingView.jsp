@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="/itda/css/matchingView.css?version=111111">
+<link rel="stylesheet" href="/itda/css/matchingView.css?version=1111111">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <aside id="matchingDetailBanner">
         <div id="hostIntro">
@@ -16,7 +16,7 @@
             ${vo.m_info }
         </div>
         <div id="hostMatchingInfo">
-            ${vo.mc_where}<br />${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br />
+            ${vo.mc_where}<br />${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br/>
         </div>
         <div>
 			<c:choose>
@@ -70,13 +70,14 @@
                         <ul>
                             <li>${vo.board_writedate}</li>
                             <li>조회수 ${vo.board_hit}</li>
-                            <c:if test='${login != null && login != vo.m_userid}'>
-                            	<li>신고</li>
-                            </c:if>
-                            <c:if test='${vo.m_userid==login }'>
-                            	<li><a href='/itda/matchingEdit?board_seq_seq=${vo.board_seq}&m_seq=${vo.m_seq}'>글수정</a></li>
-                            	<li><a href='/itda/matchingDelete?board_seq=${vo.board_seq}&m_seq=${vo.m_seq}'>글삭제</a></li>
-                            </c:if>
+                            <c:choose>
+                            <c:when test='${login != null && login != vo.m_userid}'>
+                            	<li id='reportMatching'>신고</li>
+                            </c:when>
+                            <c:when test='${vo.m_userid==login }'>
+                            	<li><a href='/itda/matchingEdit?board_seq=${vo.board_seq}'>글수정</a></li>
+                            </c:when>
+                            </c:choose>
                         </ul>
                     </div>
                 </div>
@@ -106,7 +107,14 @@
                 <div id="replyTextBox"><!-- 3 댓글 텍스트박스 -->
                     <textarea class='br_content' id='br_content'></textarea>
                     <div>
+                    	<c:choose>
+                    	<c:when test='${logseq!=null }'>
                         <input type='button' name='writeReplyBtn' id='writeReplyBtn' value='작성'/>
+                        </c:when>
+                        <c:otherwise>
+                        <input type='button' name='loginPls' id='loginPls' value='작성'/>
+                        </c:otherwise>
+						</c:choose>
                     </div>
                 </div>
             </div>
@@ -148,7 +156,9 @@
             </div>
             <div id='bottomBtn'>
                 <a href='/itda/matchingList'><input type='button' name='postListBtn' value='목록'/></a>
+                <c:if test='${logseq!=null}'>
                 <a href='/itda/matchingUpload'><input type='button' name='postWriteBtn' value='글쓰기'/></a>
+                </c:if>
             </div>
         </form>
     </div>
@@ -161,5 +171,60 @@
         </article>
     </div>
     
+    <div class="matchingReportModal" id="matchingReportModal">
+        <div class="matchingReportModalOverlay"></div>
+        <article class="matchingReportModalContent">
+            <form method="post" id="freeSiren" action="/itda/" >
+                <div id="sirenPopup">
+                    <div id="sirenHeader">
+                        <h1><img src="/itda/img/siren3.png"/><label>신고하기</label></h1>
+                        <a><img src="/itda/img/close1.png" class="close" style="position:absolute;top: 18px; right: 17px;"/></a>
+                    </div>
+                    <div id="sirenContainer">
+                        <div> 
+                            <ul class="sirenInfo">
+                                <li class="first" name="board_seq">게시물번호 :&nbsp; ${vo.board_seq }</li>
+                                <li class="two" name="board_subject">제&nbsp;&nbsp;목 :&nbsp; ${vo.board_subject }</li>
+                                <li class="two" style="border-bottom:ridge;">작성자 :&nbsp; ${vo.m_userid }</li>
+                                <li class="two" style="padding-top:10px;">
+                                    <span>사유선택</span>
+                                </li>	
+                            </ul>
+                            <div class="sirenWhy">
+                                <p>"여러 사유에 해당되는 경우, 대표적인 사유 1개를 선택해 주세요"</p>
+                                <ul class="sirenWhySelect">
+                                    <li>
+                                        <input type="radio" name="sirenRadio" id="commercialIssue" value="1" checked/>
+                                        <label for="commercialIssue">&nbsp;부적절한 홍보 게시글</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="sirenRadio" id="sexualIssue" value="2"/>
+                                        <label for="sexualIssue">&nbsp;음란성 또는 청소년에게 부적합한 내용</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="sirenRadio" id="rightsIssue" value="3" />
+                                        <label for="rightsIssue">&nbsp;명예훼손/사생활 침해 및 저작권침해 등</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="sirenRadio" id="illigalIssue" value="4" />
+                                        <label for="illigalIssue">&nbsp;불법촬영물등 신고</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="sirenRadio" id="etcIssue" value="5"/>
+                                        <label for="etcIssue">&nbsp;기타</label>
+                                    </li>
+                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sirenFooter">
+                        <input type="submit" value="신고하기" />
+                        <input type="button" id="sirenX" value="취소"/>
+                    </div>
+                </div>
+            </form>
+        </article>
+    </div>
+    
 
-<script src="/itda/js/matchingView.js?version=111111111111111111111111111"></script>
+<script src="/itda/js/matchingView.js?version=1111111111111111111111111111111111"></script>
