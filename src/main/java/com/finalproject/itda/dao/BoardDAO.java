@@ -18,7 +18,7 @@ public interface BoardDAO {
 	@Select
 //	(" select * from "
 		//	("	select * from "
-			 	("select distinct b.m_seq, b.board_seq,b.board_subject,to_char(b.board_writedate, 'YYYY-MM-DD HH24:MI') board_writedate, m.m_userid, m.m_nickname ,b.board_hit, "
+			 	("select distinct b.m_seq, b.board_seq,b.board_subject,to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, m.m_userid, m.m_nickname ,b.board_hit, "
 			+ " (select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count "
 			+ "	 from boardbase b join memberbase m on b.m_seq=m.m_seq full join board_comment bc on b.board_seq=bc.board_seq "
 			+ "	 where b.board_code=5 and b.board_block=0 order by board_writedate desc ") 

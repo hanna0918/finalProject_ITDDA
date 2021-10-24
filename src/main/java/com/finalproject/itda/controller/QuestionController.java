@@ -16,13 +16,14 @@ import com.finalproject.itda.vo.BoardVO;
 public class QuestionController {
 	@Inject
 	QuestionService questionService;
-	
+	//글보기
 	@RequestMapping(value="/questionBoard")
 	public String questionBoard(Model model) {
 		model.addAttribute("list", questionService.questionBoardList());
 		return "question/questionList";
 	}
 	
+	//뷰어
 	@RequestMapping(value="/questionView")
 	public String questionView(Model model, int no) {
 		model.addAttribute(model);

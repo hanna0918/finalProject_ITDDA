@@ -9,7 +9,7 @@
 		    <h4>나의 활동을 인증해보자!</h4>
   		</div>
 		<!-- 검색창 -->
-		<div id='searchDiv'>
+		<div id='tagSearchDiv'>
 			<input type='text' id='searchTag' name='searchTag' placeholder='&nbsp;#태그를입력하세요!' />
 		</div>
 		<!-- 컨텐츠 -->
@@ -33,7 +33,80 @@
 					</div>
 				</div>
 			</c:forEach>
+		<div>
+			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
+			<div>아줜나춥다아~~~~</div>
+			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div class='injeungContentWriter'>
+				<!-- 작성자 -->
+				<div><img src='img/circle.png' name='profileShot' /></div>
+				<div>
+					<div id='injeungWriter'>집가고싶은애</div>
+					<div>
+						<ul>
+							<li>2020-04-23</li>
+							<li>조회수 22</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
+		<div>
+			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
+			<div>아줜나춥다아~~~~</div>
+			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div class='injeungContentWriter'>
+				<!-- 작성자 -->
+				<div><img src='img/circle.png' name='profileShot' /></div>
+				<div>
+					<div id='injeungWriter'>집가고싶은애</div>
+					<div>
+						<ul>
+							<li>2020-04-23</li>
+							<li>조회수 22</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
+			<div>아줜나춥다아~~~~</div>
+			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div class='injeungContentWriter'>
+				<!-- 작성자 -->
+				<div><img src='img/circle.png' name='profileShot' /></div>
+				<div>
+					<div id='injeungWriter'>집가고싶은애</div>
+					<div>
+						<ul>
+							<li>2020-04-23</li>
+							<li>조회수 22</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
+			<div>아줜나춥다아~~~~</div>
+			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div class='injeungContentWriter'>
+				<!-- 작성자 -->
+				<div><img src='img/circle.png' name='profileShot' /></div>
+				<div>
+					<div id='injeungWriter'>집가고싶은애</div>
+					<div>
+						<ul>
+							<li>2020-04-23</li>
+							<li>조회수 22</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
 		<!-- 글쓰기 버튼 -->
 		<div class='boardBtnDiv'>
 			<input type='button' name='writeBtn' class='writeBtn' value='글쓰기' onclick='location.href="/itda/writeInjeung"'/>
