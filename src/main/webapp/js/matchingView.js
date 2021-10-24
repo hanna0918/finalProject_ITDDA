@@ -22,7 +22,7 @@ $('#bannerBtn').click(function () {
 	if($("#logseq").val()=="") {
 		let tag = "";
 		tag += "<h1>로그인 후 이용해주세요</h1>";
-		tag += "<input type='button' id='closeBtn' value='확인'>";
+		tag += "<input type='button' id='loginPlsOk' value='확인'>";
 		$(".joinModalContent").html(tag);
 		$('.matchingModal').css('display', 'block');
 		return false;
@@ -38,11 +38,11 @@ $('#bannerBtn').click(function () {
     $('.matchingModal').css('display', 'block');
 });
 
-    
-$('#participateBtn').one("click", function () {
-    $(".joinModalContent").append("<label style='color: red; font-size: 0.8em'>로그인 후 참가버튼을 눌러주세요</label>");
+/* 로그인 필요한 서비스 모달창 확인하면 로그인 모달 뜨게 */
+$(document).on('click', '#loginPlsOk', function(){
+	$('.matchingModal').css('display', 'none');
+	$(".loginModal").css('display', 'block');
 });
-
 $(document).on('click', '#closeBtn', function () {
     $('.matchingModal').css('display', 'none');
 });
@@ -76,7 +76,7 @@ function matchingConfirm(){
             } else {
             	tag += "<form method='post' id='regForm' action='/itda/matchingCancel?mc_seq="+mc_seq+"&m_seq="+m_seq+"&board_seq="+board_seq+"'>"
                 tag += "<h1>정말 취소하시겠습니까?</h1>";
-            	tag += "<input type='submit' id='cancelBtn value='취소'>";
+            	tag += "<input type='submit' id='cancelBtn value='확인'>";
                 tag += "<input type='button' id='closeBtn' value='취소'></input>";
                 tag += "</form>"
             }
@@ -90,12 +90,14 @@ function matchingConfirm(){
 $("#loginPls").click(function(){
 	let tag = "";
 	tag += "<h1>로그인 후 이용해주세요</h1>";
-	tag += "<input type='button' id='closeBtn' value='확인'>";
+	tag += "<input type='button' id='loginPlsOk' value='확인'>";
 	$(".joinModalContent").html(tag);
-	$('.matchingModal').css('display', 'block');
+	$( ".matchingModal" ).css('display', 'block');
 });
 
-
+$(document).on("click", "#reportMatching", function(){
+	$('.matchingReportModal').css('display', 'block');
+});
 
 /* 댓글!!! */
 $(function(){
@@ -145,8 +147,12 @@ $(function(){
     }
     // 댓글쓰기 -- 댓글을 입력하지 않은 경우
 	$("#writeReplyBtn").click(()=>{
-	    if($("#br_content").val()==""){
-	        alert("댓글을 입력후 등록하세요");
+	    if($.trim($("#br_content").val())==""){
+	        let tag = "";
+			tag += "<h1>댓글 내용을 입력해주세요.</h1>";
+			tag += "<input type='button' id='closeBtn' value='확인'>";
+			$(".joinModalContent").html(tag);
+			$( ".matchingModal" ).css('display', 'block');
 	        return false;
 	    }else{
 	    	const m_seq = $("#logseq").val();
@@ -172,13 +178,25 @@ $(function(){
 	        });
 	    }
 	});
+	// 댓글 수정폼 보이기
     $(document).on('click','.modifyReply',function(){
-		// 댓글 수정폼 보이기
-		$(this).parent().next().css('display', 'block');
+		$(this).parent().next().animate({
+		    display: "block",
+		    top: "+=5",
+		    height: "toggle"
+		  }, 200, function() {
+		    // Animation complete.
+	 	 });
 	});
+	// 댓글정보숨기기
     $(document).on('click','.editCancel',function(){
-		// 댓글정보숨기기
-		$(this).parent().parent().css('display', 'none');
+		$(this).parent().parent().animate({
+		    display: "none",
+		    top: "+=5",
+		    height: "toggle"
+		  }, 200, function() {
+		    // Animation complete.
+	 	 });
 		// 댓글 수정폼 보이기
 	});
 	$(document).on('click','.editReplySubmit',function(){
@@ -221,4 +239,18 @@ $(function(){
 	});
 	replyList();
 	console.log("댓글 replyList() 호출했음?");
+});
+
+
+/* 신고 모달 */
+$('#etcIssue').click(function () {
+    $('#guitar').css('display', 'block');
+});
+
+$('#sirenX').click(function () {
+    $('.matchingReportModal').css('display', 'none');
+});
+
+$('.close').click(function () {
+    $('.matchingReportModal').css('display', 'none');
 });

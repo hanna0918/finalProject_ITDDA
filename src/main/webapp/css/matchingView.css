@@ -437,3 +437,34 @@ input[name=postWriteBtn]{
 	border : 0;
 	overflow: auto;
 }
+
+
+
+
+/* 신고 모달 */
+
+.matchingReportModal {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 101%;
+    height: 700px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+}
+
+.matchingReportModal::-webkit-scrollbar {
+    display: none;
+}
+
+.matchingReportModalContent {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    background-color: #fafafa;
+    text-align: center;
+    border-radius: 10px;
+}
