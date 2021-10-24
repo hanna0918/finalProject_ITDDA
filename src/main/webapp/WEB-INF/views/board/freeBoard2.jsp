@@ -53,7 +53,7 @@
 		<!-- 글쓰기 버튼 -->
 		<div class="boardBtnDiv">
 			<input type="button" value="글쓰기" class="writeBtn recommendBtn"
-				onclick="location.href='/itda/recommendWrite'" />
+				onclick="location.href='/itda/freeboardWrite'" />
 		</div>
 		<!-- 페이지번호 -->
 		<div class='pagingDiv'>

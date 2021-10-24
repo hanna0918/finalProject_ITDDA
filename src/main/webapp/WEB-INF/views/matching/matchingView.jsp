@@ -16,7 +16,7 @@
             ${vo.m_info }
         </div>
         <div id="hostMatchingInfo">
-            ${vo.mc_where}<br />${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br />
+            ${vo.mc_where}<br/>${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br />
         </div>
         <div>
 			<c:choose>

@@ -5,64 +5,73 @@
     font-weight: normal;
     font-style: normal;
 }
-#injeungWriteFrame {
+#reco_injeungFrame {
     font-family: 'IBMPlexSansKR-Regular';
     width: 1100px;
-    margin: 50px auto;
+    margin: 30px auto;
     overflow: auto;
 }
-#injeungWriteFrame h4{
-	margin: 18px;
-    color: darkgray;
-}
-#injeungBasicInfoArea {
+#reco_injeungInfoArea {
     overflow: auto;
     margin: 0 auto;
     width: 100%;
 }
-
-#titleAndMap {
+#recommendWrite {
     list-style-type: none;
     overflow: auto;
     margin: 10px auto;
     padding: 0;
+    height: 162px;
+    
 }
-#titleAndMap>li {
+#reco_injeungMapBtn{
+	display: none;
+}
+
+#recommendWrite>div>input[type=text],
+#recommendWrite>div>input[type=text]:focus {
+    width: 94%;
+    height: 50px;
+	border:none;
+	outline:none;
+    border-bottom: 1px solid black;
+}
+#recommendWrite>div {
     float: left;
     margin: 5px 0;
     padding: 0;
     font-size: 1.2em;
+    font-size: 1.15em;
 }
-/* #titleAndMap>li>input:focus {
-    outline: none !important;
-    border: 1px solid rgb(156, 190, 221);
-    box-shadow: 0 0 20px #d6e2f0;
-} */
-#titleAndMap>li:nth-of-type(2n+1) {
+#recommendWrite>div:nth-of-type(2n+1) {
     width: 92%;
 }
-#titleAndMap>li:nth-of-type(2) {
-    width: 8%;
+
+#recommendWrite>div:last-child{
+	width:100%;
+	height:30px;
+	line-height: 30px;
 }
-#titleAndMap>li>input {
-    width: 98%;
-    height: 50px;
-    padding-left: 10px;
-    border-bottom:1px solid gray;
+.input-file-button{
+  padding: 6px 25px;
+  background-color:#00376b;
+  border-radius: 3px;
+  color: white;
+  font-size:0.9em;
+  cursor: pointer;
+  position:absolute;
 }
-#titleAndMap>li>input[type=button]{
-	border:1px solid gray;
-	border-radius:5px;
-}
-#titleAndMap>li>input:focus{
+#input-file,
+#input-file:focus{
+	padding:5px 0 0 4px;
 	outline:none;
 }
-
 
 /* �깭洹� 湲곕뒫 */
 #addTag{
     float: left;
     overflow: auto;
+    margin-bottom:10px;\
 }
 #addTag>div {
     float: left;
@@ -72,9 +81,41 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 15px;
+    font-weight:bold;
+    color:#014f99;
 }
-/* ---------------------------------------------------------- */
-/*紐⑤떖李�*/
+#hiddenTagAllDone {
+    color: red;
+    border-radius: 0px;
+}
+
+.note-editing-area{
+	min-height: 500px;
+}
+/* 踰꾪듉 */
+#injeungSubmitBtn, #injeungCancelBtn, #recommendSubmitBtn, #matchingCancelBtn {
+    background-color: white;
+    width: 80px;
+    height:35px;
+    padding: 0;
+    border-radius: 3px;
+    margin: 10px;
+}
+#injeungSubmitBtn, #recommendSubmitBtn {
+    float: right;
+    background-color: #00376b;
+    border: #00376b;
+    color:white;
+}
+#injeungCancelBtn, #matchingCancelBtn {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+/*지도 모달*/
 .mapJoinModal {
     display: none;
     position: fixed;
@@ -112,24 +153,4 @@
     border-radius: 5px;
     border: 2px solid #666;
     overflow-y: auto;
-}
-
-/* 踰꾪듉 */
-#injeungSubmitBtn, #injeungCancelBtn {
-    width: 70px;
-    height:30px;
-    padding: 0;
-    border-radius: 3px;
-    margin: 10px;
-}
-#injeungSubmitBtn {
-    float: right;
-    background-color: #0e08a7;
-    color:white;
-    border: #0e08a7;
-}
-#injeungCancelBtn {
-    float: left;
-    background-color: ghostwhite;
-    border: 1px solid rgba(255, 99, 72, 0.2);
 }
