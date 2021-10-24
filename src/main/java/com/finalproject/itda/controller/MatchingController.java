@@ -60,6 +60,7 @@ public class MatchingController {
 		return mav;
 	}
 	
+	// 매칭 글쓰기폼 이동
 	@RequestMapping("/matchingUpload")
 	public String matchingUpload(HttpSession ses) {
 		if(ses.getAttribute("login") != null) {
@@ -69,6 +70,7 @@ public class MatchingController {
 		}
 	}
 
+	// 매칭 글쓰기 업로드
 	@RequestMapping(value="/matchingWriteOk", method = RequestMethod.POST)
 	public ModelAndView matchingWriteOk(MatchingVO vo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
@@ -81,6 +83,7 @@ public class MatchingController {
 		return mav;
 	}
 
+	// 매칭 수정폼 이동
 	@RequestMapping(value="/matchingEdit", method=RequestMethod.GET)
 	public ModelAndView matchingEdit(int board_seq) {
 		ModelAndView mav = new ModelAndView();
@@ -96,24 +99,28 @@ public class MatchingController {
 		return "redirect:matchingView?board_seq=" + vo.getBoard_seq();
 	}
 	
+	// 매칭 참가중인지 확인하는 AJAX
 	@RequestMapping("/matchingConfirm")
 	@ResponseBody
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq){
 		return matchingService.matchingConfirm(mc_seq, m_seq);
 	}
 	
+	// 매칭 참가
 	@RequestMapping("/matchingIn")
 	public String matchingIn(int m_seq, int mc_seq, int board_seq) {
 		matchingService.matchingIn(m_seq, mc_seq);
 		return "redirect:/matchingView?board_seq="+board_seq;
 	}
 	
+	// 매칭 취소
 	@RequestMapping("/matchingCancel")
 	public String matchingCancel(int m_seq, int mc_seq, int board_seq) {
 		matchingService.matchingCancel(m_seq, mc_seq);
 		return "redirect:/matchingView?board_seq="+board_seq;
 	}
 	
+	// 댓글 목록
 	@RequestMapping("/matchingReply")
 	@ResponseBody
 	public List<BoardCommentVO> matchingReply(int board_seq){
@@ -127,17 +134,19 @@ public class MatchingController {
 		return matchingService.matchingReplyWrite(vo);
 	}
 	
+	// 댓글 수정
 	@RequestMapping(value="/matchingReplyEdit", method=RequestMethod.POST)
 	@ResponseBody
 	public int MatchingReplyEdit(BoardCommentVO vo) {
 		return matchingService.matchingReplyEdit(vo);
 	}
 
+	// 댓글 삭제
 	@RequestMapping(value="/matchingReplyDelete", method=RequestMethod.POST)
 	@ResponseBody
 	public int MatchingReplyDelete(BoardCommentVO vo) {
 		return matchingService.matchingReplyDelete(vo);
 	}
 	
-	
+
 }

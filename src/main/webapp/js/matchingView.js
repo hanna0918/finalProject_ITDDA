@@ -95,16 +95,11 @@ $("#loginPls").click(function(){
 	$( ".matchingModal" ).css('display', 'block');
 });
 
-$(document).on("click", "#reportMatching", function(){
-	$('.matchingReportModal').css('display', 'block');
-});
-
 /* 댓글!!! */
 $(function(){
     function replyList(){
     	var m_seq = $("#logseq").val();
     	board_seq = $("#board_seq").val();
-    	console.log("board_seq = " + board_seq);
         var rParam = `board_seq=${board_seq}&m_seq=${m_seq}`;
         var rUrl = "/itda/matchingReply";
         $.ajax({
@@ -112,7 +107,6 @@ $(function(){
             data: rParam,
           
             success: function(result){
-				console.log(result);
 				var result = $(result);
 				var tag = "";
 				result.each(function(idx, vo){
@@ -138,7 +132,6 @@ $(function(){
 				tag += "</div>";
 				tag += "</div>";
             });
-            console.log(tag);
             $("#replyList").html(tag);
     	}, error: function(){
             console.log("댓글목록선택에러")
@@ -215,7 +208,6 @@ $(function(){
 	var deleteParams = "";
 	$(document).on('click','.deleteReply',function(){
 		deleteParams = $(this).parent().next().children().serialize();
-		console.log("clickevent"+deleteParams);
 		let tag = "";
 		tag += "<h1>댓글을 정말 삭제하시겠습니까?</h1>";
     	tag += "<input type='button' id='deleteReplyBtn' value='확인'>";
@@ -241,16 +233,149 @@ $(function(){
 	console.log("댓글 replyList() 호출했음?");
 });
 
+/* 신고한적 있는 게시글인지 아닌지 확인하는 ajax */
+function boardCallCheck(){
+	var board_seq = $("#board_seq").val();
+    var m_seq = $("#logseq").val();
+    var rParam = "board_seq="+board_seq+"&m_seq="+m_seq;
+    var rUrl = "/itda/boardCallCheck";
+    var tag = "";
+    $.ajax({
+        url: rUrl,
+        data: rParam,
+        success: function(result){
+        	console.log("result = "+result);
+            if(result==0){
+            	tag += `<form method="post" id="callBoardForm" method="post" >`;
+				tag += `<div id="sirenPopup">`;
+				tag += `<div id="sirenHeader">`;
+				tag += `<h1><img src="/itda/img/siren3.png"/><label>신고하기</label></h1>`;
+				tag += `<a><img src="/itda/img/close1.png" class="close" style="position:absolute;top: 18px; right: 17px;"/></a>`;
+				tag += `</div>`;
+				tag += `<div id="sirenContainer">`;
+				tag += `<div> `;
+				tag += `<ul class="sirenInfo">`;
+				tag += `<span>사유선택</span>`;
+				tag += `</li>`;
+				tag += `</ul>`;
+				tag += `<div class="sirenWhy">`;
+				tag += `<p>"여러 사유에 해당되는 경우, 대표적인 사유 1개를 선택해 주세요"</p>`;
+				tag += `<ul class="sirenWhySelect">`;
+				tag += `<li>`;
+				tag += `<input type="radio" name="call_code" id="commercialIssue" value="1" checked/>`;
+				tag += `<label for="commercialIssue">&nbsp;부적절한 홍보 게시글</label>`;
+				tag += `</li>`;
+				tag += `<li>`;
+				tag += `<input type="radio" name="call_code" id="sexualIssue" value="2"/>`;
+				tag += `<label for="sexualIssue">&nbsp;음란성 또는 청소년에게 부적합한 내용</label>`;
+				tag += `</li>`;
+				tag += `<li>`;
+				tag += `<input type="radio" name="call_code" id="rightsIssue" value="3" />`;
+				tag += `<label for="rightsIssue">&nbsp;명예훼손/사생활 침해 및 저작권침해 등</label>`;
+				tag += `</li>`;
+				tag += `<li>`;
+				tag += `<input type="radio" name="call_code" id="illigalIssue" value="4" />`;
+				tag += `<label for="illigalIssue">&nbsp;불법촬영물등 신고</label>`;
+				tag += `</li>`;
+				tag += `<li>`;
+				tag += `<input type="radio" name="call_code" id="etcIssue" value="5"/>`;
+				tag += `<label for="etcIssue">&nbsp;기타</label>`;
+				tag += `</li>`;
+				tag += `</ul>`;
+				tag += `</div>`;
+				tag += `</div>`;
+				tag += `</div>`;
+				tag += `<div id="sirenFooter">`;
+				tag += `<input type="button" id="callBoard" value="신고하기" />`;
+				tag += `<input type="button" id="sirenX" value="취소"/>`;
+				tag += `</div>`;
+				tag += `</div>`;
+				tag += `<input type="hidden" name="board_seq" value="${board_seq}"/>`;
+				tag += `<input type="hidden" name="m_seq" value="${m_seq}"/>`;
+				tag += `</form>`;
+            } else {
+            	tag += "<form method='post' id='boardCallBackForm'>"
+                tag += "<h1>신고를 철회하시겠습니까?</h1>";
+            	tag += "<input type='button' id='callCancel' value='철회'/>";
+                tag += "<input type='button' id='sirenX' value='취소'/>";
+                tag += `<input type="hidden" name="board_seq" value="${board_seq}"/>`;
+				tag += `<input type="hidden" name="m_seq" value="${m_seq}"/>`;
+                tag += "</form>"
+            }
+            $(".matchingReportModalContent").html(tag);
+        }, error: function(){
+            console.log("신고 ajax 에러입니다")
+        },
+    });
+}
+
+/* 신고 버튼 누르면 ajax로 데이터 검색해서 db에 값이 있으면 취소하는지, 없으면 신고페이지 보여줌 */
+$(document).on("click", "#reportMatching", function(){
+	boardCallCheck();
+	$('.matchingReportModal').css('display', 'block');
+});
+/* ㄹㅇ 신고버튼 누르면 실행되는 ajax */
+function boardCall(data){
+    var rParam = data;
+    var rUrl = "/itda/boardCall";
+    var tag = "";
+    $.ajax({
+        url: rUrl,
+        data: rParam,
+        method: "POST",
+        success: function(result){
+			tag += "<h1>신고를</h1>";
+			tag += "<h1>완료했습니다.</h1>";
+			tag += "<input type='button' id='sirenX' value='확인'>";
+			$(".matchingReportModalContent").html(tag);
+		}, error: function() {
+			console.log("ㄹㅇ 신고에서 에러남");
+		}
+	});
+}
+
+/* ㄹㅇ신고버튼 누르면 */
+$(document).on("click", "#callBoard", function(){
+	const ajaxData = $("#callBoardForm").serialize();
+	boardCall(ajaxData);
+	
+});
+
+/* 신고했던 사람이면 뜨는 모달에서 신고 철회했을때 가는 ajax */
+function boardCallBack(data){
+	var rParam = data;
+    var rUrl = "/itda/boardCallBack";
+    var tag = "";
+    $.ajax({
+        url: rUrl,
+        data: rParam,
+        method: "POST",
+        success: function(result){
+			tag += "<h1>신고를</h1>";
+			tag += "<h1>철회했습니다.</h1>";
+			tag += "<input type='button' id='sirenX' value='확인'>";
+			$(".matchingReportModalContent").html(tag);
+		}, error: function() {
+			console.log("ㄹㅇ 신고에서 에러남");
+		}
+	});
+}
+
+/* 신고했던 사람이면 뜨는 모달에서 신고 철회했을때 */
+$(document).on("click", "#callCancel", function(){
+	const ajaxData = $("#boardCallBackForm").serialize();
+	boardCallBack(ajaxData);
+});
 
 /* 신고 모달 */
 $('#etcIssue').click(function () {
     $('#guitar').css('display', 'block');
 });
 
-$('#sirenX').click(function () {
+$(document).on("click", "#sirenX", function () {
     $('.matchingReportModal').css('display', 'none');
 });
 
-$('.close').click(function () {
+$(document).on("click", ".close", function () {
     $('.matchingReportModal').css('display', 'none');
 });
