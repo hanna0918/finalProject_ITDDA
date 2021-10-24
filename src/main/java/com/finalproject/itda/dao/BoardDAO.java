@@ -18,7 +18,7 @@ public interface BoardDAO {
 	@Select
 //	(" select * from "
 		//	("	select * from "
-			 	("select distinct b.m_seq, b.board_seq,b.board_subject,to_char(b.board_writedate, 'YYYY-MM-DD HH24:MI') board_writedate, m.m_userid, m.m_nickname ,b.board_hit, "
+			 	("select distinct b.m_seq, b.board_seq,b.board_subject,to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, m.m_userid, m.m_nickname ,b.board_hit, "
 			+ " (select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count "
 			+ "	 from boardbase b join memberbase m on b.m_seq=m.m_seq full join board_comment bc on b.board_seq=bc.board_seq "
 			+ "	 where b.board_code=5 and b.board_block=0 order by board_writedate desc ") 
@@ -80,13 +80,24 @@ public interface BoardDAO {
 		 public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo);
 	
 	//차단 모달창
-		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
-		public MemberBaseVO freeBoardmodalChadan(MemberBaseVO mbVo);   
+		@Insert("insert into user_ban(m_seq,b_note,m_seq_ban) values (${m_seq},#{b_note},(select m_seq from memberbase where m_nickname=#{m_nickname})) ")
+		public int freeBoardmodalChadanOk(MemberBaseVO mbVo);   
+		
+		
+	//차단 Ok 모달창
+//		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
 	
+		
 	//구독 모달창 
 		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
 		public MemberBaseVO freeBoardmodalGudok(MemberBaseVO mbVo);   
+	
+	//쪽지 모달창
+		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
+		public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo);   
 		
-		
+	//쪽지 YES 모달창
+		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
+		public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo);   
 
 }

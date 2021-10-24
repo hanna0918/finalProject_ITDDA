@@ -34,23 +34,12 @@
       <ul>
         <li class="menu"><a href="/itda/MemberList">유저관리</a></li>
         <li class="menu"><a href="/itda/BoardAllView">모든 게시판</a></li>
-        <li class="menu"><a href="/itda/BoardCallList">신고 게시판 </a></li>
-        <li class="menu"><a href="/itda/BoardBlackList">블럭 게시판</a></li>
-        <li class="menu"><a href="AdminQna(Waiting).html">1:1 문의 관리</a></li>
-        <li class="menu"><a href="AdminAMember.html">관리자 관리</a></li>
+        <li class="menu"><a href="/itda/BoardCallList">신고 게시판</a></li>
+        <li class="menu"><a href="/itda/BoardBlackList">블럭게시판</a></li>
+        <li class="menu"><a href="/itda/adminQnawait">1:1 문의 관리</a></li>
+        <li class="menu"><a href="/itda/AdminMemberlist">관리자 관리</a></li>
         <li class="menu"><a href="/itda/MemberInsert">관리자 추가</a></li>
-        <li class="menu"><a href="#">로그인 기록</a></li>
       </ul>
     </div>
   </div>
 </div>
-<!-- 
-<script>
-  $(()=>{
-    $('#tab li').click(function(){
-      $('#tab li').css('font-weight', 'normal').css('color', 'black');
-      $(this).css('font-weight', 'bold').css('color', 'coral');
-    });
-  });
-</script>
- -->

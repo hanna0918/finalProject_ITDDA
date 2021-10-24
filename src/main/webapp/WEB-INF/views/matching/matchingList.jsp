@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<link rel="stylesheet" href="/itda/css/matchingList.css?version=333">
+<link rel="stylesheet" href="/itda/css/matchingList.css?version=1">
 <link href='/itda/fullcalendar/main.css' rel='stylesheet' />
 <script src='/itda/fullcalendar/main.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
@@ -14,14 +14,14 @@
 		<div id="searchAndCalendar">
 			<form method="post" id="tagTranfer" onsubmit="return false">
 				<div>
-					<input type="text" name="searchText" id="searchText"/>
+					<input type="text" name="searchText" class="searchText" id="searchText" placeholder="#태그검색"/>
 				</div>
 				<div id="addTag">
-					<div id="hiddenTag0" style="display: none;"></div>
-					<div id="hiddenTag1" style="display: none;"></div>
-					<div id="hiddenTag2" style="display: none;"></div>
-					<div id="hiddenTag3" style="display: none;"></div>
-					<div id="hiddenTag4" style="display: none;"></div>
+					<div id="hiddenTag0" ></div>
+					<div id="hiddenTag1" ></div>
+					<div id="hiddenTag2" ></div>
+					<div id="hiddenTag3" ></div>
+					<div id="hiddenTag4" ></div>
 				</div>
 				<a class="button" id="calendarBtn">달력</a>
 			<div id="selectedDateDiv" style="display: none;"></div>
@@ -93,4 +93,4 @@
 	</c:if>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=333333333333333333333333333333333333"></script>
+<script src="/itda/js/matchingList.js?version=1"></script>

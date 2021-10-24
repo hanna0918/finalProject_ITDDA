@@ -3,7 +3,11 @@
 
 <%@ include file="/inc/adminTop.jspf" %>
 
+<script>
 
+
+</script>
+ 
   <div class="TopContent">
     <div class="TopSubContent">
       <div>회원관리</div>
@@ -23,17 +27,16 @@
   <div class="MainContent">
       <div style=" background-color: blanchedalmond; width:100%; height: 90%;">
         <ul id="MemberList">
-          <li>순번</li>
+          <li></li>
           <li>아이디</li>
           <li>이름</li>
           <li>별명</li>
           <li>전화번호</li>
           <li>가입일자</li>
-          <li>게시물수</li>
+          <li>게시글</li>
           <li>활동상태</li>
           <li> </li>
           <br>
-
  
 	  <c:forEach items="${list}" var="list">
 	  	<li> ${list.m_seq}</li>
@@ -44,15 +47,15 @@
         <li> ${list.m_regdate }</li>
         <li> ${list.board_seq }</li>
         <li> ${list.m_state }</li>
-        <li class="AdminMember" name="${list.m_seq}"/>회원 관리</li>
+        <li class="AdminMember" name="${list.m_seq}"/>회원관리</li>
 		<br>
       </c:forEach>
   
   
         </ul>
       </div>
-    <div class="MemberListButtonBox">
-      <ul class="MemberListButton">
+     <div class="AdminBoardButtonBox">
+      <ul class="AdminBoardListButton">
         <li><a href="#"><</a></li>
         <li><a href="#">1</a></li>
         <li><a href="#">2</a></li>

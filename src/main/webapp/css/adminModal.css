@@ -15,6 +15,19 @@
   -ms-overflow-style: none;
 }
 
+.AdminresultQnqModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
 .AdminQnqModal {
   position: relative;
   margin: 100px auto;
@@ -43,18 +56,35 @@
   -ms-overflow-style: none;
 }
 
+/*신고모달 */
+.CallBoardModalTest {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+/*신고모달 */
+
 .BoardModal {
   position: relative;
   margin: 100px auto;
   width: 450px;
   padding: 20px;
   background-color: #fafafa;
-  /* text-align: center; */
+  text-align: center;
   border-radius: 10px;
   border: 2px solid #666;
   overflow-y: auto;
   background-color: white;
 }
+
 /* AllBoard 모달 */
 
 /**/
@@ -85,9 +115,8 @@
   background-color: white;
 }
 
-/* label
-{
-  font-size: 15px;
+/* label {
+  font-size: 20px;
   width: 100px;
   height: 20px;
 } */
@@ -131,6 +160,7 @@
   overflow-y: auto;
   background-color: white;
 }
+
 /*AdminMember*/
 
 /*AdminAMember*/

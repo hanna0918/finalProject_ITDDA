@@ -211,7 +211,9 @@ a:visited {
 /* 매칭게시판 설정 ----------------------------------------------- */
 /* section 설정 */
 .matchingBoard {
-  /* width: 1100px; */
+  width: 1100px;
+  overflow: auto;
+  margin: 0 auto;
 }
 .matchingBoard h1:nth-child(1) {
   border-bottom: 1px solid black;
@@ -298,11 +300,34 @@ a:visited {
   /* 높이를 지정하지 않도록 한다. */
   margin-top: 120px;
   padding: 30px 0;
-  color: white;
-  background: black;
-  text-align: center;
+  color: black;
+  font-size:0.767em;
+  background: #f5f5f5;
+/*   text-align: center; */
 }
-
+#footerDiv{
+	width:1100px;
+	margin:0 auto;
+	box-sizing:border-box;
+	line-height:20px;
+	color:gray;
+}
+#footerDiv>div{
+	width:50%;
+	float:left;
+}
+#footerDiv span{
+	text-decoration:none;
+	cursor:pointer;
+	color:gray;
+	font-size:0.79em;
+}
+#footerDiv>div span:last-child{
+	font-weight:bold;
+}
+#footerDiv>div:last-child{
+	padding-left:5%;
+}
 /* 회원가입 & 로그인 모달창 관련 -----------------------------*/
 .asterisk {
   color: red;
@@ -344,7 +369,7 @@ a:visited {
   background-color: #fafafa;
   text-align: center;
   border-radius: 5px;
-  border: 2px solid #666;
+  border: 1px solid gray;
   overflow-y: auto;
 }
 
@@ -538,7 +563,7 @@ a:visited {
   margin: 100px auto;
   width: 400px;
   padding: 20px;
-  background-color: #fafafa;
+  background-color: white;
   text-align: center;
   border-radius: 10px;
   border: 2px solid #666;
@@ -546,30 +571,99 @@ a:visited {
 }
 .login_userid,
 .login_userpwd {
-  border: none;
+  border: 1px solid lightgray;
+  border-radius:5px;
   box-shadow: none;
   padding: 12px 16px;
   width: 370px;
   line-height: 1.2;
+  margin-bottom:15px;
 }
+.login_userpwd {
+	margin-bottom:0px;
+}
+
 .loginForm input[type="submit"] {
   width: 100%;
   padding: 10px;
+  margin-bottom:10px;
+  background: #0e3775;
+  border: #0e3775;
+  border-radius:5px;
+  color:white;
 }
 .autoLoginLabel {
   float: left;
   padding: 10px 0;
+  width:100%;
+  text-align:left;
+}
+.autoLoginLabel>span{
+	color:black;
+}
+.loginBottumBtn{
+	width:100%;
+	display:flex;
+	justify-content: space-between;
+}
+.joinBtn2, .findId {
+  margin:0 10px;
 }
 
-.joinBtn2 {
-  float: left;
-}
-.findId {
-  float: right;
-}
 .autoLoginLabel {
   overflow: auto;
 }
-
+/*bottom-----------------------------------------------*/
+/*이용약관*/
+.termsOfService{
+  display:none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  z-index: 10000;
+}
+#tosCloseBtn {
+  text-align: right;
+  width: 50%;
+  cursor: pointer;
+  float:left;
+}
+.termsOfServiceFrame {
+  position: relative;
+  margin: 100px auto;
+  width: 600px;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #666;
+  overflow: auto;
+}
+.termsOfServiceFrame>div:first-child{
+    font-size: 1.2em;
+    font-weight: bold;
+    width:50%;
+    float: left;
+    text-align: left;
+}
+#tosContent{
+	width:100%;
+    text-align: left;
+	overflow:auto;
+    font-size: 0.9em;
+}
 /* 메인페이지 스타일 정의 */
+
+.recommendBoard{
+  width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
 /* 베스트게시판 */

@@ -15,6 +15,12 @@ public class BoardVO {
 	private int commentcount; //댓글수 
 	private int br_id; //댓글번호
 	private String b_content;
+	private String board_blockcontent;
+	private String board_content;
+
+	private int board_block;
+
+	
 	//댓글 수 
 	private int br_count;
 	//--닉네임 관리--
@@ -33,6 +39,26 @@ public class BoardVO {
 	private String l_Url;
 	
 	
+	
+	
+	public int getBoard_block() {
+		return board_block;
+	}
+	public void setBoard_block(int board_block) {
+		this.board_block = board_block;
+	}
+	public String getBoard_content() {
+		return board_content;
+	}
+	public void setBoard_content(String board_content) {
+		this.board_content = board_content;
+	}
+	public String getBoard_blockcontent() {
+		return board_blockcontent;
+	}
+	public void setBoard_blockcontent(String board_blockcontent) {
+		this.board_blockcontent = board_blockcontent;
+	}
 	public int getM_seq() {
 		return m_seq;
 	}
