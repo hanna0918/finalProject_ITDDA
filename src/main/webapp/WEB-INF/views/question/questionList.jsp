@@ -27,7 +27,7 @@
 	  </div>
 		<!-- 인증게시판/QnA 리스트 -->
 		<div class='boardList'>
-			<ul id='quesTitle'>
+			<ul id='basicBoardTitle'>
 				<li>제목</li>
 				<li>작성자</li>
 				<li>등록일</li>
@@ -35,9 +35,9 @@
 				<li>댓글수</li>
 			</ul>
 		</div>	
-		<div class="questionList">
+		<div>
 			<c:forEach var="questionVo" items="${list}">
-				<div class='quesContent'> 
+				<div class='basicBoardContent'> 
 					<div><a href='/itda/questionView?board_seq=${questionVo.board_seq}'>${questionVo.board_subject}</a></div>
 					<div>${questionVo.m_nickname}</div>
 					<div>${questionVo.board_writedate}</div>

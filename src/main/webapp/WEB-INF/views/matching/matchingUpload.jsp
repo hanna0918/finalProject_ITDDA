@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-	<link rel="stylesheet" href="/itda/css/matchingUpload.css?version=111111">
+	<link rel="stylesheet" href="/itda/css/matchingUpload.css?a">
     <!-- include libraries(jQuery, bootstrap) -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -10,28 +10,41 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <section id="matchingUploadFrame">
-    <h1>매칭게시판</h1>
+    <div class="boardName">
+	    <h2>MATCHING</h2>
+	    <h4>나와 다른사람을 이어보세요!</h4>
+  	</div>
         <div id="matchingBasicInfoArea">
             <form method="post" action="/itda/matchingWriteOk" id="matchingUploadForm" action="/itda/matchingWriteOk" onsubmit="return false">
                 <div>
-                    <ul id="titleAndMap">
-                        <li><input type="text" id="matchingUploadTitle" name="board_subject" placeholder="제목을 입력하세요" required/></li>
-                        <li><input type="button" value="지도" id="mapBtn"></li>
-                        <li><input type="text" name="searchText" id="searchText" placeholder="태그를 입력하세요(최소 5개, 최대 10개)"/></li>
-                        <li>매칭 시작일</li>
-                        <li><input type="date" name="startDate" required/></li>
-                        <li>매칭 시간</li>
-                        <li><input type="time" name="startTime" required/></li>
-                        <li>~</li>
-                        <li><input type="time" name="endTime" required/></li>
-                        <li><input type="number" name="mc_max" id="mc_max" placeholder="매칭 최대 인원 (최대 10인)" min="2" max="10" required/></li>
-                        <li><select name="sido" id="sido"></select><select name="gugun" id="gugun"></select></li>
-                        <li><input type="radio" class="mc_state" id="mc_state1" name="mc_state" value="1" checked/>
-			                <label for="mc_state1">일회성모임</label>
-			                <input type="radio" class="mc_state" id="mc_state2" name="mc_state" value="2"/>
-			                <label for="mc_state2">정기모임</label>
-			            </li>
-                    </ul>
+                    <div id="titleAndMap">
+                        <div><input type="text" id="matchingUploadTitle" name="board_subject" placeholder="제목을 입력하세요" required/></div>
+                        <div><input type="button" value="지도" id="mapBtn"></div>
+                        <div><input type="text" name="searchText" id="searchText" placeholder="#태그를 입력하세요(최소 5개, 최대 10개)"/></div>
+                        <div id="dayAndTime">
+	                        <div>매칭시작일</div>
+	                        <div><input type="date" name="startDate" required/></div>
+	                        <div>매칭시간</div>
+	                        <div><input type="time" name="startTime" required/></div>
+	                        <div>~</div>
+	                        <div><input type="time" name="endTime" required/></div>
+                        </div>
+                        <div id="countAndSido">
+                        	<div>매칭인원</div>
+	                        <div><input type="number" name="mc_max" id="mc_max" placeholder="매칭 최대 인원 (최대 10인)" min="2" max="10" required/></div>
+	                        <div>매칭지역</div>
+	                        <div><select name="sido" id="sido"></select><select name="gugun" id="gugun"></select></div>
+	                        <div><input type="radio" class="mc_state" id="mc_state1" name="mc_state" value="1" checked/>
+				                <label for="mc_state1">일회성모임</label>
+				                <input type="radio" class="mc_state" id="mc_state2" name="mc_state" value="2"/>
+				                <label for="mc_state2">정기모임</label>
+				            </div>
+				        </div>
+				        <div>
+					        <label class="input-file-button" for="input-file">썸네일</label>
+							<input type="file" id="input-file"/>
+				        </div>
+                    </div>
                 </div>
                 <div id="addTag">
                     <div id="hiddenTag0" style="display: none;">#</div>
