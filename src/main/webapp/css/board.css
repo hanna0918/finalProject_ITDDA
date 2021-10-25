@@ -24,7 +24,7 @@ li {
 /* 게시판 공통 부분 */
 /*컨테이너*/
 .boardContainer {
-  width: 1100px;
+  width: 1200px;
   overflow: auto;
   margin: 0 auto;
 }
@@ -109,14 +109,16 @@ select[name=searchSelect] {
 	height:22px;
 	margin:8px 10px 7px 10px;
 }
-input[name=search],
-input[name=search]:focus {
+input[name=search] {
   height: 30px;
   width:205px;
   line-height: 30px;
   border: none;
-  outline: none;
 /*   border-bottom: 1.5px solid #4c4646; */
+}
+input[name=search]:focus{
+	background:white;
+	outline:none;
 }
 input[name="searchContent"] {
   width: 32px;
@@ -209,7 +211,7 @@ span {
 /*------------인증----------------------------------------*/
 #container {
   /*컨테이너*/
-  width: 1100px;
+  width: 1200px;
   min-width: 400px;
   margin: 0 auto;
   overflow: auto;

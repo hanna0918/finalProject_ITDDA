@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* 寃��깋, �떖�젰 */
 #matchingFrame {
-    width: 1100px;
+    width: 1200px;
     margin: 0 auto;
     padding: 0;
     overflow: auto;
@@ -144,16 +144,25 @@ section>section{
 }
 .endSoon {
 	font-size: 0.8em;
+/* 	font-weight: bold; */
 	position: absolute;
 	width: 70px;
 	height: 30px;
 	line-height: 30px;
-	color: lightgray;
+	color: white;
 	top: 0;
 	left:0;
-	background-color: #00376b;
+	background-color: #fc9d9eb0;
 	text-align: center;
 	border-radius: 4px;
+}
+.matchingBox>div:nth-child(4)>div:first-child{
+	width:75%;
+	float:left;
+}
+.matchingBox>div:nth-child(4)>div:last-child{
+	width:25%;
+	float:left;
 }
 /*매칭 정보*/
 .where, .matchingStatus, .writer, .matchingDate {
@@ -166,14 +175,14 @@ section>section{
 }
 .writer{
 	font-size:0.9em;
-	margin:0;
+	margin:5px 0;
 }
 .hashTag{
 	font-family: 'BBTreeGL';
 	color:#00376b;
 	height: 20px;
 	line-height: 20px;
-	margin-bottom:5px;
+	margin:5px 0;
 	font-size: 1em;
 	font-weight: 600;
 	overflow: hidden;
@@ -187,10 +196,13 @@ section>section{
 	width:100%;
 	text-align: center;
     font-weight: 900;
-    background-color:#a5c3f43d;
+    background-color:white;
+	border:1px solid #00376b;
     height: 30px;
     line-height: 30px;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    margin-bottom:0;
+    margin-top:5px;
     border-radius: 4px;
     
 }
