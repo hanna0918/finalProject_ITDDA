@@ -158,6 +158,7 @@ $(document).ready(function(){
         data: testInt,
         type: 'POST',
         success: function(result){
+            var result = $(result);	console.log("성공"); console.log(result);
             var result = $(result);   console.log("성공"); console.log(result);
 
             var tag ="<h2 style='text-align:center;'>블럭게시판 관리</h2>";
@@ -193,6 +194,7 @@ $(document).ready(function(){
   /* Qna result start*/
     $('.AdminQnaresult').click(function () {
     $('.AdminSendQnqModal').css('display', 'block'); //1:1문의 모달
+	 var test = $(this).attr("name");
     var test = $(this).attr("name");
     const testInt = "q_number=" + parseInt(test);
     console.log(testInt);
@@ -201,6 +203,7 @@ $(document).ready(function(){
         data: testInt,
         type: 'POST',
         success: function(result){
+            var result = $(result);	console.log("성공"); console.log(result);
             var result = $(result);   console.log("성공"); console.log(result);
             var tag ="<h2 style='text-align:center;'>블럭게시판 관리</h2>";
             tag += "<div>"+"게시물번호 :"+ result[0].q_number +"</div>";
@@ -209,6 +212,7 @@ $(document).ready(function(){
             tag += "<div style='overflow-y: scroll; width:450px; height: 150px; margin: 0 auto'>"+result[0].q_title+"</div>"+"<hr>";
             tag +="<div style='text-align:center;'>"+"답변완료"+"</div>"+"<br>";
             tag+="<textarea style='resize: none; width: 450px; height: 50px;' disabled>"+result[0].q_result+"</textarea>";
+			tag += "<br>";
          tag += "<br>";
 
            
