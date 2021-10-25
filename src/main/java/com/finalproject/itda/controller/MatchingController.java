@@ -46,8 +46,8 @@ public class MatchingController {
 	}
 	@RequestMapping("/calendarAjax")
 	@ResponseBody
-	public List<CalendarVO> calendarAjax() {
-		return matchingService.dataForJson();
+	public List<CalendarVO> calendarAjax(MatchingPagingVO pVo) {
+		return matchingService.dataForJson(pVo);
 	}
 
 	@RequestMapping(value="matchingView")

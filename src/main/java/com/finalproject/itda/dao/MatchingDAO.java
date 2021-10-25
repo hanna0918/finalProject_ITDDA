@@ -128,9 +128,14 @@ public interface MatchingDAO {
 	public int countHit(int b_id);
 	
 	// 캘린더에 들어갈 값
-	@Select(" select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", "
-			+ " board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq")
-	public List<CalendarVO> dataForJson();
+	@Select({" <script> ",
+			"select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", ",
+			" board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq",
+			" <if test='m_seq!=null and m_seq!=\"\"'> ",
+			" where b.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+			" </if> ",
+			" </script>"})
+	public List<CalendarVO> dataForJson(MatchingPagingVO pVo);
 	
 	// 매칭 글등록
 	@Insert(" insert all "

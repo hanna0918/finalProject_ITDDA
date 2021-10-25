@@ -17,7 +17,12 @@ calendarAjax();
 
 
 function calendarAjax(){
-	var rUrl = "/itda/calendarAjax";
+	var logseq = $("#logseq").val();
+	if(logseq!=null || logseq!=""){
+		var rUrl = "/itda/calendarAjax?m_seq=" + logseq;
+	}else{
+		var rUrl = "/itda/calendarAjax";
+	}
 	$.ajax({
 		type : "GET",
 		url: rUrl,
