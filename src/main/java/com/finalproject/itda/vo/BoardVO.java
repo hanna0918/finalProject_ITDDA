@@ -1,41 +1,50 @@
 package com.finalproject.itda.vo;
 
 public class BoardVO {
-	private int m_seq; //회원번호 
-	private int board_seq; //게시물번호
-	private int board_code;//카테고리 번호
-	private String board_subject; //제목
-	private String board_writedate; //등록일
-	private int board_hit; //조회수
-	private int b_goodhit;//좋아요
-	private int board_call; //신고
-	private int board_black; //블럭처리
-	private String m_userid; //아이디
-	private String m_nickname;//닉네임
-	private int commentcount; //댓글수 
-	private int br_id; //댓글번호
+	private int m_seq; //�쉶�썝踰덊샇 
+	private int board_seq; //寃뚯떆臾쇰쾲�샇
+	private int board_code;//移댄뀒怨좊━ 踰덊샇
+	private String board_subject; //�젣紐�
+	private String board_writedate; //�벑濡앹씪
+	private int board_hit; //議고쉶�닔
+	private int b_goodhit;//醫뗭븘�슂
+	private int board_call; //�떊怨�
+	private int board_black; //釉붾윮泥섎━
+	private String m_userid; //�븘�씠�뵒
+	private String m_nickname;//�땳�꽕�엫
+	private int commentcount; //�뙎湲��닔 
+	private int br_id; //�뙎湲�踰덊샇
 	private String b_content;
 	private String board_blockcontent;
 	private String board_content;
-	private String m_name; // 등급이름 
-
-	private int board_block;
-
+	private String m_name; // �벑湲됱씠由� 
 	
-	//댓글 수 
-	private int br_count;
-	//--닉네임 관리--
-	//--닉네임 관리--
-	//--카테고리 관리--
-	//--카테고리 관리--
+	private String board_prev_subject;
+	private String board_next_subject;
+	private String board_prev_select;
+	private String board_next_select;
+	private String[] next_tag;
+	private String[] prev_tag;
+	
 
-	//--장터 관리--
+	private String[] tag;
+	private int board_block;
+	private int replyCount;
+	
+	//�뙎湲� �닔 
+	private int br_count;
+	//--�땳�꽕�엫 愿�由�--
+	//--�땳�꽕�엫 愿�由�--
+	//--移댄뀒怨좊━ 愿�由�--
+	//--移댄뀒怨좊━ 愿�由�--
+
+	//--�옣�꽣 愿�由�--
 	private String board_shopcontent;
-	//--장터 관리--
-	//--태그 관리--
+	//--�옣�꽣 愿�由�--
+	//--�깭洹� 愿�由�--
 	private String board_select;
-	//--태그 관리--
-	//--이미지 관리--
+	//--�깭洹� 愿�由�--
+	//--�씠誘몄� 愿�由�--
 	private int imageseq;
 	private String l_Url;
 	
@@ -111,6 +120,13 @@ public class BoardVO {
 	public int getBoard_black() {
 		return board_black;
 	}
+	
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
 	public void setBoard_black(int board_black) {
 		this.board_black = board_black;
 	}
@@ -161,6 +177,7 @@ public class BoardVO {
 	}
 	public void setBoard_select(String board_select) {
 		this.board_select = board_select;
+		tag=board_select.split("/");
 	}
 	public int getImageseq() {
 		return imageseq;
@@ -179,6 +196,50 @@ public class BoardVO {
 	}
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
+	}
+	public String[] getTag() {
+		return tag;
+	}
+	public void setTag(String[] tag) {
+		this.tag = tag;
+	}
+	public String getBoard_prev_subject() {
+		return board_prev_subject;
+	}
+	public void setBoard_prev_subject(String board_prev_subject) {
+		this.board_prev_subject = board_prev_subject;
+	}
+	public String getBoard_next_subject() {
+		return board_next_subject;
+	}
+	public void setBoard_next_subject(String board_next_subject) {
+		this.board_next_subject = board_next_subject;
+	}
+	public String getBoard_prev_select() {
+		return board_prev_select;
+	}
+	public void setBoard_prev_select(String board_prev_select) {
+		this.board_prev_select = board_prev_select;
+		prev_tag=board_prev_select.split("/");
+	}
+	public String getBoard_next_select() {
+		return board_next_select;
+	}
+	public void setBoard_next_select(String board_next_select) {
+		this.board_next_select = board_next_select;
+		next_tag=board_next_select.split("/");
+	}
+	public String[] getNext_tag() {
+		return next_tag;
+	}
+	public void setNext_tag(String[] next_tag) {
+		this.next_tag = next_tag;
+	}
+	public String[] getPrev_tag() {
+		return prev_tag;
+	}
+	public void setPrev_tag(String[] prev_tag) {
+		this.prev_tag = prev_tag;
 	}
 	
 

@@ -107,7 +107,8 @@ public interface MatchingDAO {
 	public List<MatchingVO> matchingList(MatchingPagingVO pVo);
 	
 	// 매칭 글보기
-	@Select(" select * from (select a.board_seq, mc_seq, a.m_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
+	@Select(" select * from "
+			+ " (select a.board_seq, mc_seq, a.m_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
 			+ "	mc_max, mc_where, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select,"
 			+ " (select count(board_seq) from board_comment e where a.board_seq=e.board_seq) replyCount, "
 			+ " lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, "

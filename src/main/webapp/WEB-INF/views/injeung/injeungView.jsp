@@ -5,47 +5,41 @@
 		<form>
 			<div class='contentTitle'><!-- 카테고리,제목 -->
 				<div>인증</div>
-				<div>Uluru 울룰루 안갔다온게 한이된다 진짜 다시간다 호주!!!!</div>
+				<div>${vo.board_subject}</div>
 			</div>
 			<div class='contentWriter'><!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
-					<div class='postWirterNick'>내가순찬</div>
+					<div class='postWirterNick'>${vo.m_nickname }</div>
 					<div>
 						<ul>
-							<li>2021-09-18</li>
-							<li>조회수 18</li>
-							<li>신고</li>
+							<li>${vo.board_writedate }</li>
+							<li>조회수 ${vo.board_hit }</li>
+							<c:when test='${login != null && login != vo.m_userid}'>
+                            	<li id='reportMatching'>신고</li>
+                            </c:when>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class='contentView'>
-				<div><span>#울룰루</span><span>#호주</span><span>#안가보면</span><span>#후회할걸</span><span>#그래서</span><span>#내가후회중</span></div>
+				<div>
+					<c:forEach var='tags' items='${tag}'>
+					<span>#tags</span>
+					</c:forEach>
+				</div>
 				<!-- 글내용박스 -->
-				Uluru is an inselberg, meaning "island mountain". An
-				inselberg is a prominent isolated residual knob or hill that rises
-				abruptly from and is surrounded by extensive and relatively flat
-				erosion lowlands in a hot, dry region. 
-				<img src='https://apod.nasa.gov/apod/image/2105/UluruOrion_Liu_1080.jpg' style='width: 900px;' />
-				Uluru is also often
-				referred to as a monolith, although this is an ambiguous term that
-				is generally avoided by geologists. The remarkable feature of
-				Uluru is its homogeneity and lack of jointing and parting at bedding
-				surfaces, leading to the lack of development of scree slopes and
-				soil. These characteristics led to its survival, while the
-				surrounding rocks were eroded. For the purpose of mapping and
-				describing the geological history of the area, geologists refer to
-				the rock strata making up Uluru as the Mutitjulu Arkose, and it is
-				one of many sedimentary formations filling the Amadeus Basin. 
+				${vo.b_content }
 				
 			</div>
 			<div class='contentReply'>
 				<div><!-- 1 좋아요/댓글수 -->
-					<img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> 15&nbsp;&nbsp;
-					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
-					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> 2</span>
-				</div>
+                    <img alt="heart" id='heartIcon' class='goodHit' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit }&nbsp;&nbsp;
+                    <!-- 해야함 -->
+                    <img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${vo.replyCount}&nbsp;&nbsp;
+                    <span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_call}</span>
+                </div>
+                
 				<div><!-- 2 댓글박스 -->
 					<div><img src='img/circle.png' name='profileShot'></div>
 					<div>
@@ -54,6 +48,8 @@
 						<div><span>수정</span> <span>지우기</span></div>				
 					</div>
 				</div>
+				
+				
 				<div><!-- 3 댓글 텍스트박스 -->
 					<textarea name='replyCommentTextarea' id='replyCommentTextarea'></textarea>
 					<div>
@@ -62,19 +58,43 @@
 				</div>
 			</div>
 			<div id='otherContent'><!-- 이전글/다음글 -->
-				<div>
-					<div class='arrowDiv'><img src='img/up-arrow.png' name='prevPost'/></div>
-					<div>이전글 <a>순찬이글 </a></div>
-				</div>
-				<div>
-					<div class='arrowDiv'><img src='img/down-arrow.png' name='nextPost'/></div>
-					<div>다음글 <a>순찬이글 </a></div>
-				</div>
-			</div>
+                <div>
+                    <div class='arrowDiv'><img src='/itda/img/up-arrow.png' name='prevPost'/></div>
+                    <c:choose>
+                    <c:when test="${vo.board_next_subject=='다음글이 없습니다.'}">
+	                    <div class='nextPrevDiv' style="color: gray">${vo.board_next_subject}</div>
+                    </c:when>
+                    <c:otherwise>
+	                    <div class='nextPrevDiv'><a href="/itda/injeungView?board_seq=${vo.board_next_seq}"><span class='nextPrevWord'>다음글</span> ${map.vo.board_next_subject}
+	                    	<c:forEach var='nextTag' items='${vo.nextTags}'>
+	                    		<span class='nextPrevTag'>#${nextTag}</span>
+	                    	</c:forEach>
+	                    </a></div>
+                    </c:otherwise>
+                    </c:choose>
+                </div>
+                <div>
+                    <div class='arrowDiv'><img src='/itda/img/down-arrow.png' name='nextPost'/></div>
+                    <c:choose>
+                    <c:when test="${vo.board_prev_subject=='이전글이 없습니다.'}">
+	                    <div class='nextPrevDiv' style="color: gray">${vo.board_prev_subject}</div>
+                    </c:when>
+                    <c:otherwise>
+	                    <div class='nextPrevDiv'><a href="/itda/injeungView?board_seq=${vo.board_prev_seq}"><span class='nextPrevWord'>이전글</span> ${map.vo.board_prev_subject}
+	                    	<c:forEach var='prevTag' items='${vo.prevTags}'>
+	                    		<span class='nextPrevTag'>#${prevTag}</span>
+	                    	</c:forEach>
+	                    </a></div>
+                    </c:otherwise>
+                    </c:choose>
+                </div>
+            </div>
 			<div id='bottomBtn'>
-				<input type='button' name='postListBtn' class="viewBtn" value='목록'/>
-				<input type='button' name='postWriteBtn' class="viewBtn" value='글쓰기'/>
-			</div>
+                <a href='/itda/injeungBoard'><input type='button' name='postListBtn' value='목록'/></a>
+                <c:if test='${logseq!=null}'>
+                <a href='/itda/writeInjeung'><input type='button' name='postWriteBtn' value='글쓰기'/></a>
+                </c:if>
+            </div>
 
 		</form>
 	</div>
