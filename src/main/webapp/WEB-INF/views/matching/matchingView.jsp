@@ -65,7 +65,7 @@
             <div class='contentWriter'><!-- 작성자 -->
                 <div><img src='/itda/img/user.png' name='profileShot' /></div><!-- 프로필이미지 -->
                 <div>
-                    <div class='userid'>${vo.m_nickname}(${vo.m_userid})</div>
+                    <div>${vo.m_nickname}(${vo.m_userid})</div>
                     <div>
                         <ul>
                             <li>${vo.board_writedate}</li>

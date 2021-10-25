@@ -6,6 +6,9 @@ public class MatchingPagingVO {
 	private int totalPage;
 	private int onePageRecord = 8;
 	
+	// 차단을 위한 필수조건 내 시퀀스
+	private int m_seq;
+	
 	// 검색어
 	private String searchKey;
 	private String searchWord;
@@ -51,6 +54,12 @@ public class MatchingPagingVO {
 	}
 	public void setOnePageRecord(int onePageRecord) {
 		this.onePageRecord = onePageRecord;
+	}
+	public int getM_seq() {
+		return m_seq;
+	}
+	public void setM_seq(int m_seq) {
+		this.m_seq = m_seq;
 	}
 	public String getSearchKey() {
 		return searchKey;
