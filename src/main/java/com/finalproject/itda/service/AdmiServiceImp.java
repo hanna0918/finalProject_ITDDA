@@ -97,6 +97,11 @@ public class AdmiServiceImp implements AdminService {
 	public List<QuestionVO> QuestionResultList() {
 		return adminDAO.QuestionResultList();
 	}
-	
+
+	@Override
+	public BoardVO Allboardmodal(BoardVO vo)
+	{
+		return adminDAO.Allboardmodal(vo);
+	}
 	
 }

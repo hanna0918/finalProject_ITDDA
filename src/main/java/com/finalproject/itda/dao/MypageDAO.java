@@ -31,12 +31,14 @@ public interface MypageDAO {
 	public List<BoardCommentVO>myReplyList(MemberBaseVO vo);
 	
 	//1:1문의는 글을 뿌리면서 시작합니다.
-	@Select("select q_number, q_title, q_date, q_category, m_seq, q_result_state from question where m_seq=1 order by q_date desc")
+	@Select("select q_number, q_title, q_date, q_category, m_seq, q_result_state,q_result from question where m_seq=2 order by q_date desc")
 	public List<QuestionVO> MypageQnA();
 	
+	
+	//public int MypageQnA(QuestionVO quesVo);s
 	//1:1문의 글 써봅니다.
 	@Insert("insert into question(q_number, q_category, q_title, m_seq) "
-			+ " values(3, #{q_category}, #{q_title}, #{m_seq})")
+			+ " values(q_number_seq.nextval, #{q_category}, #{q_title}, #{m_seq})")
 	public int QuestionInsert(QuestionVO quesVo);
 	
 	

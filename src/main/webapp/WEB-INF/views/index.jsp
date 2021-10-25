@@ -1,8 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+ <video autoplay muted loop id="myVideo">
+    <source src="/video/itda.mp4" type="video/mp4" />
+  </video>
+<section class="videoMain">
+  <!-- The video -->
 
-  <!-- 베스트 게시판==================================================================== -->
+ 
+</section>
+
+<!-- 베스트 게시판==================================================================== -->
 <section class="bestBoardContent">
   <h1>베스트 게시판</h1>
   <ul class="bestBoard">
@@ -183,9 +190,4 @@
 <!-- 마켓 게시판==================================================================== -->
 <!-- 마켓 게시판==================================================================== -->
 
-<section class="maketBoard">
-
-</section>
-
-
-      
+<section class="maketBoard"></section>

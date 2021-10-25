@@ -42,13 +42,12 @@
 				<c:if test="${quesVo.q_result_state eq 1}">
 					<li class="answer">
 						<div>
-							<div>답변내용<br/>${quesVo.q_result}</div>
-							<div>답변일 </div>
+							<div style="text-align: center">답변내용<br/>${quesVo.q_result}</div>
 						</div>
 					</li>
 				</c:if>
 				<c:choose>
-					<c:when test="${quesVo.q_result_state ne 1}">
+					<c:when test="${quesVo.q_result_state eq 0}">
 						<div class="answer">
 							<div class="inProgress">아직 처리중입니다.</div>
 						</div>

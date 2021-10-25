@@ -6,6 +6,7 @@
 <script>
 
 
+
 </script>
  
   <div class="TopContent">
@@ -25,7 +26,7 @@
   </div>
 
   <div class="MainContent">
-      <div style=" background-color: blanchedalmond; width:100%; height: 90%;">
+      <div style="width:100%; height: 90%;">
         <ul id="MemberList">
           <li></li>
           <li>아이디</li>

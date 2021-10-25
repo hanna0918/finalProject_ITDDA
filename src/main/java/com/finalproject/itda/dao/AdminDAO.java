@@ -14,7 +14,7 @@ import com.finalproject.itda.vo.QuestionVO;
 public interface AdminDAO {
 
 
-	@Select("select  m.m_seq,m.m_userid,m.m_username,m.m_nickname ,m.m_tel, to_char(m_regdate,'YY-MM-DD') m_regdate,count(b.board_seq) board_seq,s.m_state from memberbase m full outer join  boardbase b on m.m_seq = b.m_seq join member_rank mr on m.m_rank = mr.m_rank join states s on m.m_statecode = s.m_statecode where m.m_rank between 2 and 3 group by m.m_seq, m.m_userid, m.m_username, m.m_nickname, m.m_tel, to_char(m_regdate,'YY-MM-DD'), m.m_rank,s.m_state order by m.m_seq desc")
+	@Select("select  m.m_seq,m.m_userid,m.m_username,m.m_nickname ,m.m_tel, to_char(m_regdate,'YY-MM-DD') m_regdate,count(b.board_seq) board_seq,s.m_state from memberbase m full outer join  boardbase b on m.m_seq = b.m_seq join member_rank mr on m.m_rank = mr.m_rank join states s on m.m_statecode = s.m_statecode where m.m_rank between 2 and 4 group by m.m_seq, m.m_userid, m.m_username, m.m_nickname, m.m_tel, to_char(m_regdate,'YY-MM-DD'), m.m_rank,s.m_state order by m.m_seq desc")
 	public List<MemberBaseVO> MemberList();
 
 	@Select("select  m.m_seq,m.m_userid,m.m_username,m.m_nickname, m.m_tel, to_char(m_regdate,'YY-MM-DD') m_regdate,mr.m_name,s.m_state from memberbase m join member_rank mr on m.m_rank = mr.m_rank join states s on m.m_statecode = s.m_statecode where m.m_rank=1 order by m.m_seq desc")
@@ -47,6 +47,8 @@ public interface AdminDAO {
 	@Select("select b.board_seq, b.board_subject,b.board_hit,bc.board_content,m.m_nickname,b.b_content, to_char(board_writedate,'YY-MM-DD') board_writedate ,bt.Board_select from boardbase b join memberbase m on b.m_seq = m.m_seq join board_code bc on bc.board_code = b.board_code join Board_content bt on bt.board_seq = b.board_seq")
 	public List<BoardVO> AllboardList();
 	/*모든 게시판 보기*/
+	
+	
 	
 	/*블랙 게시판*/
 	@Select("select b.board_seq,bc.board_content,b.board_subject,b.b_content,m.m_nickname,b.board_call ,to_char(board_writedate,'YY-MM-DD') board_writedate from boardbase b JOIN memberbase m on b.m_seq = m.m_seq join board_code bc on b.board_code = bc.board_code join board_content bc on b.board_seq = bc.board_seq where board_block=1")
@@ -85,7 +87,9 @@ public interface AdminDAO {
 	
 	@Select("select q.q_number,q.q_title,m.m_nickname,to_char(q.q_date,'YY-MM-DD')q_date,q.q_result from question q join memberbase m on q.m_seq= m.m_seq where q_result_state=1")
 	public List<QuestionVO> QuestionResultList();
-	
+
+	@Select("select b.board_seq, b.board_subject,bc.board_content,m.m_nickname,b.b_content, bt.Board_select,b.board_blockcontent from boardbase b join memberbase m on b.m_seq = m.m_seq join board_code bc on bc.board_code = b.board_code join board_content bt on bt.board_seq =b.board_seq where b.board_seq =#{m_seq}")
+	public BoardVO Allboardmodal(BoardVO vo);
 }
 
 

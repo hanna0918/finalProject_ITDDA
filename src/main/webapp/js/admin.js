@@ -18,8 +18,8 @@ $(document).ready(function(){
                 tag +=`<form method="post" action="/itda/MemberUpdate">`;
                 tag +=`<div> <label class="Modallabel"> 아이디:</label> <input class="ModalInput" type="text" name="M_UserId" id="M_UserId" disabled value="${result[0].m_userid}"/></div>  </div> <br>`;
                 tag +=`<div> <label class="Modallabel">닉네임:</label> <input class="ModalInput" type='text' name='M_NickName' id='M_NickName'disabled value="${result[0].m_nickname}"/> </div> <br>`;
-                tag +=`<div> <label class="Modallabel"> 활동상태:</label> <select class="Modalselect" name="m_statecode" value="${result[0].m_statecode}"> <option value="0">양호</option> <option value="1">정지</option> </select> </div><br>`;
-                tag +=`<div> <label class="Modallabel"> 회원등급:</label> <select class="Modalselect" name="m_rank" value="${result[0].m_name}>/*여기*/  <option value="${result[0].m_rank}">${result[0].m_name}</option> <option value="2">브론즈</option>  <option value="3">실버</option> <option value="4">골드</option> <option value="1">관리자</option> </select> </div> <br>`;
+                tag +=`<div> <label class="Modallabel"> 활동상태:</label> <select class="Modalselect" name="m_statecode" value="${result[0].m_statecode}"> <option value="${result[0].m_statecode}" selected>${result[0].m_state}</option>  <option value="0">양호</option> <option value="1">정지</option> </select> </div><br>`;
+                tag +=`<div> <label class="Modallabel"> 회원등급:</label> <select class="Modalselect" name="m_rank" value="${result[0].m_name}>"><option value="${result[0].m_rank}" selected>${result[0].m_name}</option><option value="2">브론즈</option>  <option value="3">실버</option><option value="4">골드</option> <option value="1">관리자</option></select> </div><br>`;
                 tag +=`<div> <label class="Modallabel">가입일자:</label> <input class="ModalInput" name="m_regdate" value="${result[0].m_regdate}" disabled/> </div> <br> `;
                 tag +=`<div class=""> <button style="background-color:white" type="submit" id="joinCancelBtn"  class="btnBlock"><a>수정</a></button> </div>`;
                 tag +=`<input type="hidden" name="m_seq" value="${result[0].m_seq}"/>`;
@@ -62,7 +62,7 @@ $(document).ready(function(){
                 tag += "<input type='text' style='resize: none; width: 450px; height: 100px;'name='board_blockcontent' placeholder='블럭사유'>" + "</input>";
                 tag += "<br>";
                 tag += "<input type='hidden' name='board_seq' value='" + result[0].board_seq + "'/>";
-                /* tag += "<input type='hidden' id='board_block' name='board_block' value='" + testdate + "'/>"; */
+                tag += "<input type='hidden' id='board_block' name='board_block' value=''/>";
 
                 //--
                 tag += "<input type='button' id='block' name='board_block' style='text-align:center; width: 200px; height: 50px;'value='블럭처리하기'>" + "</tag>"; //1
@@ -158,7 +158,6 @@ $(document).ready(function(){
         data: testInt,
         type: 'POST',
         success: function(result){
-            var result = $(result);	console.log("성공"); console.log(result);
             var result = $(result);   console.log("성공"); console.log(result);
 
             var tag ="<h2 style='text-align:center;'>블럭게시판 관리</h2>";
@@ -194,7 +193,6 @@ $(document).ready(function(){
   /* Qna result start*/
     $('.AdminQnaresult').click(function () {
     $('.AdminSendQnqModal').css('display', 'block'); //1:1문의 모달
-	 var test = $(this).attr("name");
     var test = $(this).attr("name");
     const testInt = "q_number=" + parseInt(test);
     console.log(testInt);
@@ -203,7 +201,6 @@ $(document).ready(function(){
         data: testInt,
         type: 'POST',
         success: function(result){
-            var result = $(result);	console.log("성공"); console.log(result);
             var result = $(result);   console.log("성공"); console.log(result);
             var tag ="<h2 style='text-align:center;'>블럭게시판 관리</h2>";
             tag += "<div>"+"게시물번호 :"+ result[0].q_number +"</div>";
@@ -212,11 +209,8 @@ $(document).ready(function(){
             tag += "<div style='overflow-y: scroll; width:450px; height: 150px; margin: 0 auto'>"+result[0].q_title+"</div>"+"<hr>";
             tag +="<div style='text-align:center;'>"+"답변완료"+"</div>"+"<br>";
             tag+="<textarea style='resize: none; width: 450px; height: 50px;' disabled>"+result[0].q_result+"</textarea>";
-			tag += "<br>";
          tag += "<br>";
 
-           
-          
             $('#resultmodal').html(tag);
         }, error: function(){
             console.log("왜 실패하니 너는?");
@@ -231,10 +225,52 @@ $(document).ready(function(){
         $('.AdminSendQnqModal').css('display', 'none');
     });
    });
-    /* Qna result end*/
+    /* Qna result end 어머님이 누구시니 왜 이렇게 날 힘들게하니 쉐떌뿌리부리*/ 
 
+/* 모든 게시판 리스트 만들기 start*/
 $('.AllboardSelect').click(function () {
-    $('.AllSelectBoardModal').css('display', 'block'); //모든 게시판 모달 뛰우기
+    $('.AllSelectBoardModal').css('display', 'block'); //모든 게시판 모달 뛰우기.
+       var test = $(this).attr("name");
+        const testInt = "m_seq=" + parseInt(test);
+        console.log(testInt);
+        $.ajax({
+            url: "/itda/BoardAllViewmodal",
+            data: testInt,
+            type: "POST",
+            success: function (result) {
+                var result = $(result);
+                console.log(result);
+           var tag ="<h2>게시판</h2>";
+           tag +="<div>"+"게시물번호 :"+ result[0].board_seq +"</div>";
+           tag+="<div style='float:left display: inline-block;'>"+"제목:"+result[0].board_subject+"카테고리:"+result[0].board_select +"글쓴이:"+result[0].m_nickname+"<br>"+ "</div>";
+         tag +="<hr>";
+           tag += "<textarea style='resize: none; width: 450px; height: 200px;' disabled>" + "글내용:" + result[0].b_content + "</textarea>";
+           tag +="<br>";
+           tag +="<hr>";
+           tag +=`<button style="text-align:center; background-color:white;" type="submit" id="checkallboard"  class="btnBlock"><a>확인</a></button>`;
+           tag +="</div>";
+           
+            $('#allBoardList').html(tag);
+        }, error: function(){
+            console.log("왜 실패하니 너는?");
+        }
+
+    });   
+    
+    
 });
 
+
+                
+
+
+    $(document).on('click','#checkallboard',function () {
+       $('.AllSelectBoardModal').css('display', 'none');
+    });
+    
+ $('.modalOverlay').click(function () {
+
+        $('.AllSelectBoardModal').css('display', 'none');
+    });
+/* 모든 게시판 리스트 만들기 end*/
 });
