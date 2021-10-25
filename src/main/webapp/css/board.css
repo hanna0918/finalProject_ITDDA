@@ -258,12 +258,18 @@ input[name="searchTag"]:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-top: 5px;
+/*   margin-top: 5px; */
   padding-left: 3px;
   font-size: 0.9em;
 }
-#pic > div > div:nth-of-type(3) {
-  margin-top: 15px;
+.injeungTag{
+	font-family: 'BBTreeGL';
+	color:#00376b;
+	font-size: 0.8em;
+	font-weight: 600;
+}
+#pic > div > div:nth-of-type(4) {
+  margin-top: 6px;
   padding-left: 3px;
   font-size: 0.8em;
 }
@@ -273,14 +279,14 @@ img[name="profileShot"] {
   margin: 5px 0;
 }
 img[name="bubbleIcon"],
-img[name="heartIcon"] {
+img[name="goodhit"] {
   width: 16px;
   height: 16px;
 }
 .injeungContentWriter {
   width: 100%;
   overflow: auto;
-  margin-top: 3%;
+/*   margin-top: 2%; */
 }
 .injeungContentWriter > div:first-child {
   width: 20%;
@@ -296,6 +302,7 @@ img[name="heartIcon"] {
   float: left;
   /* margin-right:1%; */
 }
+
 /*-------------------------------------------------------*/
 
 /*----추천------------------------------------------------*/

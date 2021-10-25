@@ -30,8 +30,13 @@
 #calendarBtn{
 	color: #00376b;
 	border: 2px solid #00376b;
-	border-radius: 5px;
+	border-radius: 3px;
+	float: right;
 	cursor: pointer;
+	height: 30px;
+	width: 50px;
+    line-height: 30px;
+    text-align: center;
 }
 #tagAndDate{
 	width:100%;
@@ -72,6 +77,9 @@
     z-index: 100;
     width: 1100px;
 }
+.fc .fc-button-primary{
+	
+}
 /* 蹂닿린 紐⑤뱶 */
 #viewByGroup, #viewByTime {
     margin: 0;
@@ -93,6 +101,7 @@
     font-size:0.92em;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 #viewByGroup>li:first-child, #viewByTime>li:first-child{
     font-size: 1.1em;
@@ -111,69 +120,78 @@ section>section{
     overflow: auto;
     height: 100%;
 }
-.matchingBox:hover{
-    box-shadow: 1px 1px 10px gray;
-    transform: translate(0,-1px);
-    transition: all 100ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-}
 .matchingBox{
-    width: 23%;
-    height:40%;
-    margin: 2% 0%;
+    width: 260px;
+    height:370px;
+    margin-bottom: 2%;
     padding: 0;
     overflow: hidden;
     position: relative;
     float: left;
-    background: whitesmoke;
+    box-sizing:border-box;
     cursor: default;
-    border-radius: 4px;
     text-decoration: none;
     color: black;
     
 }
-.photo{
-    padding-top:70%;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgb(154, 147, 147);
-    border-radius: 4px;
-
-}
 .matchingBox img{
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-width: 100%;
-    height: auto;
+	width:260px;
+	height: 240px;
+    border-radius: 4px;
 }
-.endSoon{
-    font-size: 0.8em;
-    position: absolute;
-    width: 23%;
-    top: 0px;
-    background-color: red;
-    text-align: center;
-    border-radius: 4px
+.endSoon {
+	font-size: 0.8em;
+	position: absolute;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	color: lightgray;
+	top: 0;
+	left:0;
+	background-color: #00376b;
+	text-align: center;
+	border-radius: 4px;
 }
-.hashTag, .where, .matchingStatus, .writer, .matchingDate {
-    text-align: center;
+/*매칭 정보*/
+.where, .matchingStatus, .writer, .matchingDate {
+    text-align: left;
     height: 20px;
     line-height: 20px;
     overflow: hidden;
+    font-size:0.9em;
+    margin-bottom:5px;
+}
+.writer{
+	font-size:0.9em;
+	margin:0;
+}
+.hashTag{
+	font-family: 'BBTreeGL';
+	color:#00376b;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom:5px;
+	font-size: 1em;
+	font-weight: 600;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
+.where{
+	margin:0;
 }
 .matchingStatus {
+	width:100%;
+	text-align: center;
     font-weight: 900;
-    border: 1px solid whitesmoke;
+    background-color:#a5c3f43d;
     height: 30px;
     line-height: 30px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     border-radius: 4px;
     
 }
-/* �븯�떒 踰꾪듉 */
+/* 매칭페이징 */
 #matchingPagingUl {
     width: 40%;
     margin: 0 auto;
@@ -187,7 +205,6 @@ section>section{
 }
 .page-item {
 	float: left;
-    background-color: rgb(243, 243, 243);
     border-radius: 10px;
     width: 80px;
     height: 50px;
@@ -206,8 +223,10 @@ section>section{
     float: right;
 	margin-top: 10px;
 /* 	margin-right: 20px; */
-/* 	width: 70px; */
-/* 	height: 30px; */
+	width: 70px;
+	height: 30px;
+	line-height:30px;
+	text-align:center;
 	background-color: #00376b;
 	color: white;
 	border: none;
@@ -216,14 +235,14 @@ section>section{
 }
 
 #activePage {
-	background-color: #7752f8;
+	font-weight: bold;
 }
 
-a.button {
-	display: block;
-	max-width: 180px;
-	text-decoration: none;
-	border-radius: 4px;
-	padding: 5px 30px;
-    float: right;
-}
+/* a.button { */
+/* 	display: block; */
+/* 	max-width: 180px; */
+/* 	text-decoration: none; */
+/* 	border-radius: 4px; */
+/* 	padding: 5px 30px; */
+/*     float: right; */
+/* } */

@@ -15,9 +15,10 @@
 		<div id='pic'>
 			<c:forEach var="ivo" items="${list}">
 				<div>
-					<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
+					<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' name=""/></div>
 					<div>${ivo.board_subject}</div>
-					<div><img name='heartIcon' src='/itda/img/recommend4.png' />${ivo.b_goodhit} &nbsp;&nbsp;<img  name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+					<div><span class="injeungTag">${vo.board_select}#태그#태그</span></div>
+					<div><img name='goodhit' src='/itda/img/recommend4.png' />${ivo.b_goodhit} &nbsp;&nbsp;<img  name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 					<div class='injeungContentWriter'><!-- 작성자 -->
 						<div><img src='img/circle.png' name='profileShot' /></div>
 						<div>
@@ -34,8 +35,9 @@
 			</c:forEach>
 		<div>
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
-			<div>아줜나춥다아~~~~</div>
-			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div>아춥다아~~~~</div>
+			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
+			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>
@@ -52,8 +54,9 @@
 		</div>
 		<div>
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
-			<div>아줜나춥다아~~~~</div>
-			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div>아춥다아~~~~</div>
+			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
+			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>
@@ -70,8 +73,9 @@
 		</div>
 		<div>
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
-			<div>아줜나춥다아~~~~</div>
-			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div>아춥다아~~~~</div>
+			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
+			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>
@@ -88,8 +92,9 @@
 		</div>
 		<div>
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
-			<div>아줜나춥다아~~~~</div>
-			<div><img name='heartIcon' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div>아춥다아~~~~</div>
+			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
+			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>
@@ -104,12 +109,11 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-		<!-- 글쓰기 버튼 -->
-		<div class='boardBtnDiv'>
-			<input type='button' name='writeBtn' class='writeBtn' value='글쓰기' onclick='location.href="/itda/writeInjeung"'/>
-		</div>
+	<!-- 글쓰기 버튼 -->
+	<div class='boardBtnDiv'>
+		<input type='button' name='writeBtn' class='writeBtn' value='글쓰기' onclick='location.href="/itda/writeInjeung"'/>
+	</div>
 		<!-- 페이지 -->
 		<div class='pagingDiv'>
 			<ul>
