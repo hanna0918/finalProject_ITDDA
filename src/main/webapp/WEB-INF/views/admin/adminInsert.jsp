@@ -14,7 +14,7 @@
           <img style="margin-top: 200px;"src="src='img/circle.png'">
         </div>
         <div style=" width:50%; height: 100%; float: left;">
-          <form method="post" action="/itda/adminInsertOk">
+          <form method="post" action="/itda/adminInsertOk" style="margin-top: 20px ">
             <div>
               <label class="Modallabel">아아디<span class="asterisk">*</span></label>
               <input class="ModalInput" type='text' name='m_userid' placeholder="아아디"/>

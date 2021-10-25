@@ -19,20 +19,20 @@
 						</li>
 					</ul>
 				</div>
-				<div id='myRating'>
-					<p>나의 매너 점수<br/>
-					<span>⭐⭐⭐⭐⭐</span></p>
-				</div>
+<!-- 				<div id='myRating'> -->
+<!-- 					<p>나의 매너 점수<br/> -->
+<!-- 					<span>⭐⭐⭐⭐⭐</span></p> -->
+<!-- 				</div> -->
 			</div>
-			<div id='myPageAlertDiv'><!-- 알림 div -->
-				<ul>
-					<li>내가 쓴 글<br/> --회</li>
-					<li>내가 쓴 댓글 <br/> --회</li>
-					<li>구독 <br/> --명</li> 
-					<li>북마크 <br/> --개</li>
-					<li>쪽지 <br/> --</li>
-				</ul>
-			</div>
+<!-- 			<div id='myPageAlertDiv'>알림 div -->
+<!-- 				<ul> -->
+<!-- 					<li>내가 쓴 글<br/> --회</li> -->
+<!-- 					<li>내가 쓴 댓글 <br/> --회</li> -->
+<!-- 					<li>구독 <br/> --명</li>  -->
+<!-- 					<li>북마크 <br/> --개</li> -->
+<!-- 					<li>쪽지 <br/> --</li> -->
+<!-- 				</ul> -->
+<!-- 			</div> -->
 		</div>
 		</form>
 		<div id='tab'><!-- tab -->

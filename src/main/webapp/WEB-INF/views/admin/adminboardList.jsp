@@ -28,7 +28,6 @@
   </div>
   <div class="MainContent">
         <div style=" width:100%; height: 90%;">
-          <hr>
           <ul id="BoardView">
             <li>순번</li>
             <li>카테고리</li>

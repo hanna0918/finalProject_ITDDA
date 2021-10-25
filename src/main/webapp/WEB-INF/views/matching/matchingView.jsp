@@ -7,7 +7,7 @@
             주최자 소개<br />
         </div>
         <div id="hostPhoto">
-            <img src="/itda/img/retriever.jpg" alt="강아지">
+            <img src="/itda/img/cheeze.jpg" alt="강아지">
         </div>
         <div id="hostUserid">
             <b>${vo.m_nickname}</b><br />
@@ -16,7 +16,7 @@
             ${vo.m_info }
         </div>
         <div id="hostMatchingInfo">
-            ${vo.mc_where}<br/>${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br />
+            ${vo.mc_where}<span><br/>${vo.mc_start_date }<br />~ ${vo.mc_end_date}<br /></span>
         </div>
         <div>
 			<c:choose>
@@ -32,7 +32,7 @@
         <div id="partUserIntro">참가중인유저목록</div>
         <c:forEach var="matching" items="${part}">
 	        <div class="partUsers">
-		       <span style="color: blue">
+		       <span style="color: gray">
 		       <c:choose>
 		        	<c:when test='${matching.m_rank==0}'>
 		        		슈퍼 
@@ -59,13 +59,13 @@
     <div id='postViewDiv'><!-- 게시글뷰 페이지 -->
         <form>
             <div class='contentTitle'><!-- 카테고리,제목 -->
-                <div>매칭게시판</div>
+                <div>MATCHING</div>
                 <div>${vo.board_subject}</div>	
             </div>
             <div class='contentWriter'><!-- 작성자 -->
                 <div><img src='/itda/img/user.png' name='profileShot' /></div><!-- 프로필이미지 -->
                 <div>
-                    <div>${vo.m_nickname}(${vo.m_userid})</div>
+                    <div id='matchingWriter'>${vo.m_nickname}(${vo.m_userid})</div>
                     <div>
                         <ul>
                             <li>${vo.board_writedate}</li>
@@ -100,7 +100,7 @@
                     <img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${vo.replyCount}&nbsp;&nbsp;
                     <span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_call}</span>
                 </div>
-                <div id='replyList'><!-- 2 댓글박스 -->
+                <div id='replyList'>2 <!-- 댓글박스 -->
                 	
                 </div>
                 <div id="replyTextBox"><!-- 3 댓글 텍스트박스 -->

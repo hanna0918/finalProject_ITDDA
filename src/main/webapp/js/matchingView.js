@@ -115,7 +115,7 @@ $(function(){
 					tag += "<div class='replyDiv'>";
 					tag += "<div><img src='/itda/img/user.png' name='profileShot'></div>";
 					tag += `<div>`;
-					tag += `<div id='userid' class='userid'>${vo.m_nickname}(${vo.m_userid}) <span>${vo.br_writedate}</span></div>`;
+					tag += `<div id='matchingWriter'>${vo.m_nickname}(${vo.m_userid}) <span>${vo.br_writedate}</span></div>`;
 					tag += `<div class='replyView'>${vo.br_content}</div>`;
 					
 					if(vo.m_seq == m_seq){ // 자신이 쓴 댓글일때
