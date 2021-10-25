@@ -1,4 +1,6 @@
 @charset "UTF-8";
+
+
 @font-face {
     font-family: 'IBMPlexSansKR-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
@@ -31,7 +33,7 @@ img[name=profileShot]{
     line-height:30px;
     width:80px;
     text-align:center;
-    border-bottom:1px solid gray;
+    border-bottom:2px solid #00376b;
     margin:0 auto;
 }
 .contentTitle>div:last-child{
@@ -43,14 +45,16 @@ img[name=profileShot]{
 .contentWriter{
     width:100%;
     overflow:auto;
-    margin-bottom:2%;
 }
 
-.contentWriter>div:first-child, .contentReply>div:nth-child(2)>div:first-child{
+.contentReply>div:nth-child(2)>div:first-child{
     width: 100%;
     float:left;
 }
-
+.contentWriter>div:first-child{
+	width:7%;
+	float:left;
+}
 .contentWriter>div:last-child{
     width:80%;
     margin-top:0.5%;
@@ -61,23 +65,30 @@ img[name=profileShot]{
     float:left;
     margin-right:1%;
 }
+.contentWriter li:last-child:hover{
+	color:red;
+}
 .contentView{
     width:100%;
     min-height:300px;
     overflow:auto;
-    margin-top:5%;
+    margin-top:3%;
 }
 .contentView span {
-    font-size:1.1em;
-    color:blue;
+    font-size:1.18em;
+    color:#00376b;
+    font-weight:bold;
+    font-family: 'BBTreeGL';
 }
  .nextPrevTag {
 	font-size: 0.8em;
-	color: blue;
+	color: #00376b;
+	font-weight:bold;
 }
 .nextPrevWord {
 	font-size: 0.8em;
 	color: #464646;
+	margin-right:5px;
 }
 .contentView>div{
     height:30px;
@@ -113,12 +124,16 @@ img[name=profileShot]{
 #replyList {
 	width: 100%;
     float:left;
+    margin-bottom:2%;
 }
-#userid{
+#matchingWriter{
     font-size:0.9em;
+    padding-top:5px;
+    font-weight: bold;
 }
 .replyView{
-    margin-top:2%;
+    margin-top:1%;
+    overflow:auto;
 }
 .contentReply span{
     font-size:0.85em;
@@ -129,11 +144,12 @@ img[name=profileShot]{
     min-height:80px;
     border-radius:5px;
 }
-#replyCommentTextarea{
+.br_content, .br_content:focus{
     width:95%;
-    height:50px;
-    margin:1.5% 2.5%;
+    min-height:50px;
+    margin:1.5% 2.5% 0 1.5%;
     box-sizing:border-box;
+/*     outline:none; */
     resize:none;
     border:none;
 }
@@ -148,13 +164,13 @@ input[name=writeReplyBtn], input[name=loginPls]{
     margin-right:2%;
 }
 .contentReply>div:nth-child(3)>div{
-    margin:2% 0;
+    margin-bottom:2%;
     overflow:auto;
 }
 input[name=writeReplyBtn], input[name=loginPls]{
     width:70px;
     height:30px;
-    background-color:#0e08a7;
+    background-color:#00376b;
     color:white;
     border:none;
     border-radius:5px;
@@ -214,7 +230,7 @@ img[name=prevPost], img[name=nextPost]{
 #bottomBtn input[type=button]{
     width:70px;
     height:30px;
-    background-color:#0e08a7;
+    background-color:#00376b;
     color:white;
     border:none;
     border-radius:5px;
@@ -263,12 +279,12 @@ input[name=postWriteBtn]{
 .joinModalContent {
     position: relative;
     margin: 230px auto;
-    width: 800px;
+    width: 320px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
-    border-radius: 5px;
-    border: 2px solid #666;
+    border-radius: 10px;
+    border: 2px solid lightgray;
     overflow-y: auto;
 }
 
@@ -281,18 +297,19 @@ input[name=postWriteBtn]{
     font-size: 1.1em;
 }
 .joinModalContent input:nth-of-type(1) {
-    background-color: rgba(42, 135, 197, 0.2);
-    border: 1px solid rgba(255, 99, 72, 0.2);
+    background-color: #00376b;
+    border: 1px solid #00376b;
+    color:white;
 }
 .joinModalContent input:nth-of-type(2) {
-    background-color: rgba(192, 98, 82, 0.2);
-    border: 1px solid rgba(255, 99, 72, 0.2);
+    background-color: ghostwhite;
+    border: 1px solid lightgray;
 }
 .joinModalContent input:nth-of-type(1):hover {
-    background-color: rgba(42, 135, 197, 0.25);
+    background-color: #00407c;
 }
 .joinModalContent input:nth-of-type(2):hover {
-    background-color: rgba(192, 98, 82, 0.25);
+    background-color: #ececf9;
 }
 
 /*占쏙옙恬占쏙옙창*/
@@ -365,10 +382,10 @@ input[name=postWriteBtn]{
     overflow: auto;
     text-align: center;
     left: 1300px;
-    border: 2px solid gray;
+    border: 1px solid lightgray;
     background-color: white;
     font-size: 0.9em;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.349);
+/*     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.349); */
     cursor: default;
 }
 #hostPhoto {
@@ -377,10 +394,10 @@ input[name=postWriteBtn]{
     text-align: center;
 }
 #hostPhoto>img {
-    width: 190px;
+    width: 100%;
     position: relative;
     display: block;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 #hostIntro {
     font-size: 1.2em;
@@ -388,39 +405,61 @@ input[name=postWriteBtn]{
     padding: 10px;
 }
 #bannerBtn {
-    width: 100%;
-    background-color: whitesmoke;
-    border: 1px solid black;
-    border-radius: 5px;
+    width: 75%;
+    border: 2px solid #00376b;
+    background-color: white;
+    color:#00376b;
+    font-weight:bolder;
+    border-radius: 3px;
     padding-top: 3px;
     padding-bottom: 3px;
-    font-size: large;
+    font-size: 1em;
     cursor: pointer;
 }
 #hostUserid {
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 5px;
+}
+#hostUserid>b{
+	font-weight: bold;
 }
 #hostMatchingInfo {
     padding-top: 5px;
-    font-size: 0.8em;
+    font-size: 1.2em;
     font-weight: 600;
+    color:slateblue;
+}
+#hostMatchingInfo>span{
+	font-size: 0.8em;
+	color:black;
 }
 #matchingDetailBanner>.partUsers {
-    border-top: 1px solid gray;
+    border-top: 1px solid lightgray;
     font-size: 1em;
     font-weight: 500;
     padding-top: 5px;
     padding-bottom: 5px;
 }
+#matchingDetailBanner>div:nth-child(6){
+	margin:10px;
+}
 #partUserIntro {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1em;
+    margin-top: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 .replyDiv {
 	width: 100%;
+}
+.replyDiv>div:first-child{
+	width:7%;
+	float:left;
+	margin-bottom:25px;
+}
+.replyDiv>div:nth-child(2){
+	width:83%;
 }
 .replyImg {
 	width: 10%;
@@ -428,17 +467,6 @@ input[name=postWriteBtn]{
 .replyDivDiv {
 	width: 90%;
 }
-.replyView {
-	overflow: auto;
-}
-
-.br_content{
-	width: 100%;
-	border : 0;
-	overflow: auto;
-}
-
-
 
 
 /* 신고 모달 */
