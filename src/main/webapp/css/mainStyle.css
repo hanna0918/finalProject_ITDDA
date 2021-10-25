@@ -666,7 +666,19 @@ a:visited {
 
 /* 비디오 */
 .videoMain {
-  overflow: auto;
+  z-index: -1;
+  overflow: hidden;
   margin: 0 auto;
   text-align: center;
+  height: 800px;
+}
+.videoMain > div {
+  position: relative;
+  top: -200px;
+}
+.videoMain > div::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+.videoMain::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
