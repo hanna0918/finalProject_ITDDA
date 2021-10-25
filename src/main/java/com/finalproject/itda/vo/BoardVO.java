@@ -19,14 +19,15 @@ public class BoardVO {
 	private String board_content;
 	private String m_name; // �벑湲됱씠由� 
 	
+	private int board_prev_seq;
+	private int board_next_seq;
 	private String board_prev_subject;
 	private String board_next_subject;
 	private String board_prev_select;
 	private String board_next_select;
-	private String[] next_tag;
-	private String[] prev_tag;
 	
-
+	private String prevTags[];
+	private String nextTags[];
 	private String[] tag;
 	private int board_block;
 	private int replyCount;
@@ -177,7 +178,7 @@ public class BoardVO {
 	}
 	public void setBoard_select(String board_select) {
 		this.board_select = board_select;
-		tag=board_select.split("/");
+		tag = board_select.split("/");
 	}
 	public int getImageseq() {
 		return imageseq;
@@ -203,6 +204,18 @@ public class BoardVO {
 	public void setTag(String[] tag) {
 		this.tag = tag;
 	}
+	public int getBoard_prev_seq() {
+		return board_prev_seq;
+	}
+	public void setBoard_prev_seq(int board_prev_seq) {
+		this.board_prev_seq = board_prev_seq;
+	}
+	public int getBoard_next_seq() {
+		return board_next_seq;
+	}
+	public void setBoard_next_seq(int board_next_seq) {
+		this.board_next_seq = board_next_seq;
+	}
 	public String getBoard_prev_subject() {
 		return board_prev_subject;
 	}
@@ -220,27 +233,28 @@ public class BoardVO {
 	}
 	public void setBoard_prev_select(String board_prev_select) {
 		this.board_prev_select = board_prev_select;
-		prev_tag=board_prev_select.split("/");
+		prevTags=board_prev_select.split("/");
 	}
 	public String getBoard_next_select() {
 		return board_next_select;
 	}
 	public void setBoard_next_select(String board_next_select) {
 		this.board_next_select = board_next_select;
-		next_tag=board_next_select.split("/");
+		nextTags=board_next_select.split("/");
 	}
-	public String[] getNext_tag() {
-		return next_tag;
+	public String[] getPrevTags() {
+		return prevTags;
 	}
-	public void setNext_tag(String[] next_tag) {
-		this.next_tag = next_tag;
+	public void setPrevTags(String[] prevTags) {
+		this.prevTags = prevTags;
 	}
-	public String[] getPrev_tag() {
-		return prev_tag;
+	public String[] getNextTags() {
+		return nextTags;
 	}
-	public void setPrev_tag(String[] prev_tag) {
-		this.prev_tag = prev_tag;
+	public void setNextTags(String[] nextTags) {
+		this.nextTags = nextTags;
 	}
+	
 	
 
 }

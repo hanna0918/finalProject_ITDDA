@@ -23,8 +23,14 @@ public class InjeungServiceImp implements InjeungService{
 
 
 	@Override
-	public ModelAndView injeungView(BoardVO vo) {
+	public BoardVO injeungView(BoardVO vo) {
 		return injeungDao.injeungView(vo);
+	}
+
+
+	@Override
+	public int countHit(int board_seq) {
+		return injeungDao.countHit(board_seq);
 	}
 
 }

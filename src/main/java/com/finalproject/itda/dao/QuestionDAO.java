@@ -16,7 +16,23 @@ public interface QuestionDAO {
 	public List<BoardVO> questionBoardList();
 	
 	//QnA View
-	
+	@Select({" <script> ",
+		" select * from (select a.board_seq, board_subject, b_content, to_char(board_writedate,'YYYY-MM-DD') board_writedate, m_nickname, m_userid, board_select, b_goodhit, board_call, board_hit, ",
+		" (select count(board_seq) from board_comment e where a.board_seq=e.board_seq) replyCount, ",
+		" lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, ",
+		" lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject, ",
+		" lag(board_select, 1) over(order by a.board_seq) board_prev_select, ",
+		" lead(a.board_seq, 1) over(order by a.board_seq) board_next_seq, ",
+		" lead(board_subject, 1, '다음글이 없습니다.') over(order by a.board_seq) board_next_subject, ",
+		" lead(board_select) over(order by a.board_seq) board_next_select ",
+		" from boardbase a inner join board_content b on a.board_seq=b.board_seq ",
+		" join memberbase c on a.m_seq=c.m_seq ",
+		" where board_code=6 ",
+		" <if test='m_seq!=null and m_seq!=\"\"'> ",
+		" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+		" </if> ",
+		" ) where board_seq=${board_seq} ",
+		" </script>"})
 	public BoardVO boardView(int no);
 	
 	//QnA등록

@@ -28,9 +28,11 @@ public class InjeungController {
 	}
 	
 	//湲�蹂닿린
-	@RequestMapping(value="/injeungView")
+	@RequestMapping("/injeungView")
 	public ModelAndView injeungView(BoardVO vo) {
 		ModelAndView mav = new ModelAndView();
+		int cnt = injeungService.countHit(vo.getBoard_seq());
+		System.out.println(cnt);
 		mav.addObject("vo", injeungService.injeungView(vo));
 		mav.setViewName("injeung/injeungView");
 		return mav;
