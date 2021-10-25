@@ -5320,7 +5320,7 @@ var FullCalendar = (function (exports) {
         root: 'fc-theme-standard',
         tableCellShaded: 'fc-cell-shaded',
         buttonGroup: 'fc-button-group',
-        button: 'fc-button fc-button-primary',
+        button: 'fc-button fc-button',
         buttonActive: 'fc-button-active',
     };
     StandardTheme.prototype.baseIconClass = 'fc-icon';
@@ -14315,7 +14315,7 @@ var FullCalendar = (function (exports) {
         table: 'table-bordered',
         tableCellShaded: 'table-active',
         buttonGroup: 'btn-group',
-        button: 'btn btn-primary',
+        button: 'btn',
         buttonActive: 'active',
         popover: 'popover',
         popoverHeader: 'popover-header',
