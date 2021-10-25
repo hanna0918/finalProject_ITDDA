@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ include file="/inc/adminTop.jspf" %>
 <script>
 
-$('.AllboardSelect').click(function () {
-    $('.AllSelectBoardModal').css('display', 'block'); //모든 게시판 모달 뛰우기
-});
+
 
 
 </script>
@@ -29,8 +27,7 @@ $('.AllboardSelect').click(function () {
 
   </div>
   <div class="MainContent">
-    <div style=" background-color: blanchedalmond; width:100%; height: 90%;">
-          <hr>
+        <div style=" width:100%; height: 90%;">
           <ul id="BoardView">
             <li>순번</li>
             <li>카테고리</li>
@@ -75,7 +72,8 @@ $('.AllboardSelect').click(function () {
     <div class="modalOverlay"></div>
     <!-- 수정사항-->
     <article class="BoardModal">
-      <h2>페이지 관리</h2>
+    <div id="allBoardList"> </div>
+     <!--  <h2>페이지 관리</h2>
       <form method="get" action="123">
         <div style="display:none;">게시물 번호</div>
         <div>순번:vo.list</div>
@@ -90,6 +88,6 @@ $('.AllboardSelect').click(function () {
           <button style="float: right" type="submit" id="joinCancelBtn"  class="btnBlock"><a>블럭처리</a></button>
         </div>
         </form>
-      </form>
+      </form> -->
     </article>
   </div>

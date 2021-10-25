@@ -36,6 +36,10 @@ public interface AdminService {
 	// 모든 게시판 보기
 	public List<BoardVO> AllboardList();
 	
+	//모든 게시판 리스트 모달
+	public BoardVO Allboardmodal(BoardVO vo);
+	
+	
 	//블럭게시판 보기
 	public List<BoardVO> BlackBoardList();
 	
@@ -49,5 +53,12 @@ public interface AdminService {
 	public List<QuestionVO> QuestionList();
 	
 	//Q & A Wait 모달보기 보기
-	public QuestionVO QusetionWaitModal(QuestionVO vo);
+	public QuestionVO QusetionWaitModallist(QuestionVO vo);
+
+	//Q & A Wait 모달 업데이트
+	public int QusetionupdateModal(QuestionVO vo);	
+	
+	//Q & A  result 리스트 보기
+	public List<QuestionVO> QuestionResultList();
+
 }

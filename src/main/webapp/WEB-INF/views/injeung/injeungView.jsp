@@ -10,7 +10,7 @@
 			<div class='contentWriter'><!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
-					<div class='userid'>내가순찬</div>
+					<div class='postWirterNick'>내가순찬</div>
 					<div>
 						<ul>
 							<li>2021-09-18</li>
@@ -49,9 +49,9 @@
 				<div><!-- 2 댓글박스 -->
 					<div><img src='img/circle.png' name='profileShot'></div>
 					<div>
-						<div id='userid' class='userid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
+						<div class='boardWriter'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
 						<div class='replyView'>내글에 내가 댓글달기</div>
-						<div><span>댓글 / 수정 / 지우기</span></div>				
+						<div><span>수정</span> <span>지우기</span></div>				
 					</div>
 				</div>
 				<div><!-- 3 댓글 텍스트박스 -->
@@ -64,11 +64,11 @@
 			<div id='otherContent'><!-- 이전글/다음글 -->
 				<div>
 					<div class='arrowDiv'><img src='img/up-arrow.png' name='prevPost'/></div>
-					<div><a>이전글도 순찬이글 </a></div>
+					<div>이전글 <a>순찬이글 </a></div>
 				</div>
 				<div>
 					<div class='arrowDiv'><img src='img/down-arrow.png' name='nextPost'/></div>
-					<div><a>다음글도 순찬이글 </a></div>
+					<div>다음글 <a>순찬이글 </a></div>
 				</div>
 			</div>
 			<div id='bottomBtn'>

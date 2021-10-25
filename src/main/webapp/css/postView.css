@@ -18,7 +18,7 @@
 	img[name=profileShot]{
 		width:40px;
 		height:40px;
-		margin:5px;
+/* 		margin:5px; */
 	}
 	.contentTitle{
 		overflow:auto;
@@ -41,12 +41,15 @@
 	}
 	.contentWriter{
 		width:100%;
-		overflow:auto;
-		margin-bottom:2%;
+		height:60px;
+/* 		margin-bottom:2%; */
 	}
 	.contentWriter>div:first-child, .contentReply>div:nth-child(2)>div:first-child{
-		width:7%;
+		width:5%;
 		float:left;
+	}
+	.contentReply>div:nth-child(2)>div:last-child{
+		padding:2px 3px;
 	}
 	.contentWriter>div:last-child{
 		width:80%;
@@ -59,6 +62,9 @@
 		float:left;
 		margin-right:1%;
 	}
+	.contentWriter li:last-child:hover{
+		color:red;
+	}
 	.contentView{
 		width:100%;
 		min-height:300px;
@@ -66,8 +72,10 @@
 		margin-top:5%;
 	}
 	.contentView span{
-		font-size:1.1em;
-		color:blue;
+		font-size:1.15em;
+		color:#00376b;
+		font-weight: bold;
+		margin-right: 6px;
 	}
 	.contentView>div{
 		height:30px;
@@ -103,7 +111,7 @@
 	.contentReply>div:nth-child(2)>div{
 		float:left;
 	}
-	#userid{
+	#postWirterNick{
 		font-size:0.9em;
 	}
 	.replyView{

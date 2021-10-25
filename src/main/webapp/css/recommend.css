@@ -47,3 +47,72 @@
 #recommendCancelBtn:hover {
   background-color: rgba(192, 98, 82, 0.25);
 }
+
+/* 태그검색  */
+
+.searchText{
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.recommendSerchBox {
+  /*검색창 div*/
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+/* 페이징 */
+
+/* 매칭페이징 */
+#matchingPagingUl {
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 15px;
+    display: -webkit-flex;
+    display: flex;
+}
+#center {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.page-item {
+	float: left;
+    border-radius: 10px;
+    width: 80px;
+    height: 50px;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    line-height: 50px;
+    font-decoration: none;
+}
+#matchingWriteBtn{
+	width:100%;
+	margin-top:15px;
+	overflow: auto;
+}
+#matchingUploadBtn {
+    float: right;
+	margin-top: 10px;
+/* 	margin-right: 20px; */
+	width: 70px;
+	height: 30px;
+	line-height:30px;
+	text-align:center;
+	background-color: #00376b;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#activePage {
+	font-weight: bold;
+}
+
+

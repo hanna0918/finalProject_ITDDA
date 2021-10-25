@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="/itda/css/matchingView.css?version=111111">
+<link rel="stylesheet" href="/itda/css/matchingView.css?version=1111111">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <aside id="matchingDetailBanner">
         <div id="hostIntro">
             주최자 소개<br />
         </div>
         <div id="hostPhoto">
-            <img src="/itda/img/retriever.jpg" alt="강아지">
+            <img src="/itda/img/cheeze.jpg" alt="강아지">
         </div>
         <div id="hostUserid">
             <b>${vo.m_nickname}</b><br />
@@ -16,7 +16,7 @@
             ${vo.m_info }
         </div>
         <div id="hostMatchingInfo">
-            ${vo.mc_where}<br />${vo.mc_start_date }<br />~<br/> ${vo.mc_end_date}<br />
+            ${vo.mc_where}<span><br/>${vo.mc_start_date }<br />~ ${vo.mc_end_date}<br /></span>
         </div>
         <div>
 			<c:choose>
@@ -32,7 +32,7 @@
         <div id="partUserIntro">참가중인유저목록</div>
         <c:forEach var="matching" items="${part}">
 	        <div class="partUsers">
-		       <span style="color: blue">
+		       <span style="color: gray">
 		       <c:choose>
 		        	<c:when test='${matching.m_rank==0}'>
 		        		슈퍼 
@@ -59,29 +59,29 @@
     <div id='postViewDiv'><!-- 게시글뷰 페이지 -->
         <form>
             <div class='contentTitle'><!-- 카테고리,제목 -->
-                <div>매칭게시판</div>
+                <div>MATCHING</div>
                 <div>${vo.board_subject}</div>	
             </div>
             <div class='contentWriter'><!-- 작성자 -->
                 <div><img src='/itda/img/user.png' name='profileShot' /></div><!-- 프로필이미지 -->
                 <div>
-                    <div class='userid'>${vo.m_nickname}(${vo.m_userid})</div>
+                    <div id='matchingWriter'>${vo.m_nickname}(${vo.m_userid})</div>
                     <div>
                         <ul>
                             <li>${vo.board_writedate}</li>
                             <li>조회수 ${vo.board_hit}</li>
-                            <c:if test='${login != null && login != vo.m_userid}'>
-                            	<li>신고</li>
-                            </c:if>
-                            <c:if test='${vo.m_userid==login }'>
-                            	<li><a href='/itda/matchingEdit?board_seq_seq=${vo.board_seq}&m_seq=${vo.m_seq}'>글수정</a></li>
-                            	<li><a href='/itda/matchingDelete?board_seq=${vo.board_seq}&m_seq=${vo.m_seq}'>글삭제</a></li>
-                            </c:if>
+                            <c:choose>
+                            <c:when test='${login != null && login != vo.m_userid}'>
+                            	<li id='reportMatching'>신고</li>
+                            </c:when>
+                            <c:when test='${vo.m_userid==login }'>
+                            	<li><a href='/itda/matchingEdit?board_seq=${vo.board_seq}'>글수정</a></li>
+                            </c:when>
+                            </c:choose>
                         </ul>
                     </div>
                 </div>
             </div>
-            
             <div class='contentView'>
 	            <div>
 		            <c:forEach var='item' items='${vo.tags}'>
@@ -95,18 +95,25 @@
             </div>
             <div class='contentReply'>
                 <div><!-- 1 좋아요/댓글수 -->
-                    <img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit }&nbsp;&nbsp;
+                    <img alt="heart" id='heartIcon' class='goodHit' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit }&nbsp;&nbsp;
                     <!-- 해야함 -->
                     <img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${vo.replyCount}&nbsp;&nbsp;
                     <span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_call}</span>
                 </div>
-                <div id='replyList'><!-- 2 댓글박스 -->
+                <div id='replyList'>2 <!-- 댓글박스 -->
                 	
                 </div>
                 <div id="replyTextBox"><!-- 3 댓글 텍스트박스 -->
                     <textarea class='br_content' id='br_content'></textarea>
                     <div>
+                    	<c:choose>
+                    	<c:when test='${logseq!=null }'>
                         <input type='button' name='writeReplyBtn' id='writeReplyBtn' value='작성'/>
+                        </c:when>
+                        <c:otherwise>
+                        <input type='button' name='loginPls' id='loginPls' value='작성'/>
+                        </c:otherwise>
+						</c:choose>
                     </div>
                 </div>
             </div>
@@ -148,7 +155,9 @@
             </div>
             <div id='bottomBtn'>
                 <a href='/itda/matchingList'><input type='button' name='postListBtn' value='목록'/></a>
+                <c:if test='${logseq!=null}'>
                 <a href='/itda/matchingUpload'><input type='button' name='postWriteBtn' value='글쓰기'/></a>
+                </c:if>
             </div>
         </form>
     </div>
@@ -160,6 +169,13 @@
             
         </article>
     </div>
+    <!-- 신고모달, alert 대용 모달 -->
+    <div class="matchingReportModal" id="matchingReportModal">
+        <div class="matchingReportModalOverlay"></div>
+        <article class="matchingReportModalContent">
+            
+        </article>
+    </div>
     
 
-<script src="/itda/js/matchingView.js?version=111111111111111111111111111"></script>
+<script src="/itda/js/matchingView.js?version=1111111111111111111111111111111111111111"></script>

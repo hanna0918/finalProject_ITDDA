@@ -3,7 +3,9 @@ $('#summernote').summernote({
     placeholder: '매칭 정보를 입력해주세요',
     tabsize: 2,
     height: 300,
+    
 });
+
 
 // 모달창 띄우는 메소드
 //const mapBtnDoc = document.querySelector("#mapBtn");
@@ -105,23 +107,35 @@ function tagInValue(){
 }
 
 
-function preventDefaultFunction(event){
-    console.log("왜되는거야");
-    event.preventDefault();
-}
-
 $("#matchingSubmitBtn").click(function(){
+    if($("#matchingUploadTitle")==null || $.trim($("#matchingUploadTitle").val())==""){
+    	$("#hiddenTagAllDone").css('display', 'block');
+        $("#hiddenTagAllDone").text('제목을 입력해주세요.');
+    	return false;
+    } 
     if( tag.length <5 ) {
         $("#hiddenTagAllDone").css('display', 'block');
         $("#hiddenTagAllDone").text('태그를 5개 이상 작성해주세요');
         return false;
     }
-    if( $("#mc_state2").val() == "구/군 선택" ) {
+    if($("#startDate").val()=="" || $("#startTime").val()=="" || $("#endTime").val()==""){
+    	$("#hiddenTagAllDone").css('display', 'block');
+        $("#hiddenTagAllDone").text('매칭날짜와 시간을 선택해주세요.');
+        return false;
+    }
+    if( $("#gugun").text() == "구/군 선택" ) {
+    	$("#hiddenTagAllDone").css('display', 'block');
+        $("#hiddenTagAllDone").text('지역을 선택해주세요.');
+    	return false;
+    }
+    if($("#mc_max").val==null || $("#mc_max").val=="" ||$("#mc_max").val==1||$("#mc_max").val>10){
+    	$("#hiddenTagAllDone").css('display', 'block');
+        $("#hiddenTagAllDone").text('매칭 인원을 입력해주세요.');
     	return false;
     }
     $("#searchText").prop("disabled", true);
     $("#matchingUploadForm").attr("onsubmit", "");
-    
+    $("#matchingUploadForm").attr("action", "/itda/matchingWriteOk");
     $("#matchingUploadForm").submit();
 });
 

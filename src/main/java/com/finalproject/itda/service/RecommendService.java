@@ -2,11 +2,12 @@ package com.finalproject.itda.service;
 
 import java.util.List;
 
+import com.finalproject.itda.vo.RecommendPagingVO;
 import com.finalproject.itda.vo.RecommendVO;
 
 public interface RecommendService {
 	//추천게시판 리스트
-	public List<RecommendVO> recommendList(RecommendVO vo);
+	public List<RecommendVO> recommendList(RecommendPagingVO vo);
 	
 	//추천게시판 글쓰기
 	public int recommendWriteOk(RecommendVO vo);
@@ -23,6 +24,8 @@ public interface RecommendService {
 	//추천게시판 글 삭제
 	public int recommendDelete(int board_seq, int m_seq);
 	
+	//추천게시판 페이징 관련
+	public RecommendPagingVO page(RecommendPagingVO pVo); 
 	
 	
 }

@@ -18,6 +18,9 @@ public class BoardVO {
 	private String board_blockcontent;
 	private String board_content;
 	private String m_name; // 등급이름 
+
+	private int board_block;
+
 	
 	//댓글 수 
 	private int br_count;
@@ -39,6 +42,12 @@ public class BoardVO {
 	
 	
 	
+	public int getBoard_block() {
+		return board_block;
+	}
+	public void setBoard_block(int board_block) {
+		this.board_block = board_block;
+	}
 	public String getBoard_content() {
 		return board_content;
 	}

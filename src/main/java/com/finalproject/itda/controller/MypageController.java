@@ -74,13 +74,28 @@ public class MypageController {
 		return "mypage/mypage06Cutout";
 	}
 	//1:1문의--------------------------------------------------------------------------------------------
-	@RequestMapping(value="/mypageQnA")
-	public String mypageQnA(Model model) {
-		model.addAttribute("list",mypageService.MypageQnA());
-		System.out.println("test중입니다");	
-		return "mypage/mypage07Question";
-	}
+	/*
+	 * @RequestMapping(value="/mypageQnA") public ModelAndView Qusetion(QuestionVO
+	 * quesVo, HttpSession ses) { ModelAndView mav = new ModelAndView();
+	 * quesVo.setM_nickname((String)ses.getAttribute("lognick"));
+	 * 
+	 * int cnt = mypageService.MypageQnA(quesVo);
+	 * 
+	 * if(cnt>0) {
+	 * 
+	 * }
+	 * 
+	 * 
+	 * System.out.println("test중입니다"); return mav; }
+	 */
 	
+	
+	   @RequestMapping(value="/mypageQnA")
+	   public String mypageQnA(Model model) {
+	      model.addAttribute("list",mypageService.MypageQnA());
+	      System.out.println("test以묒엯 땲 떎");   
+	      return "mypage/mypage07Question";
+	   }
 	
 	//1:1문의 글등록
 	@RequestMapping(value="/askSomething", method=RequestMethod.POST)

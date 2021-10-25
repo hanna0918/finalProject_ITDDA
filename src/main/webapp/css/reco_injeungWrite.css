@@ -1,0 +1,157 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#reco_injeungFrame {
+    font-family: 'IBMPlexSansKR-Regular';
+    width: 1100px;
+    margin: 30px auto;
+    overflow: auto;
+}
+#reco_injeungInfoArea {
+    overflow: auto;
+    margin: 0 auto;
+    width: 100%;
+}
+#recommendWrite {
+    list-style-type: none;
+    overflow: auto;
+    margin: 10px auto;
+    padding: 0;
+    height: 162px;
+    
+}
+#reco_injeungMapBtn{
+	display: none;
+}
+
+#recommendWrite>div>input[type=text],
+#recommendWrite>div>input[type=text]:focus {
+    width: 94%;
+    height: 50px;
+	border:none;
+	outline:none;
+    border-bottom: 1px solid black;
+}
+#recommendWrite>div {
+    float: left;
+    margin: 5px 0;
+    padding: 0;
+    font-size: 1.2em;
+    font-size: 1.15em;
+}
+#recommendWrite>div:nth-of-type(2n+1) {
+    width: 92%;
+}
+
+#recommendWrite>div:last-child{
+	width:100%;
+	height:30px;
+	line-height: 30px;
+}
+.input-file-button{
+  padding: 6px 25px;
+  background-color:#00376b;
+  border-radius: 3px;
+  color: white;
+  font-size:0.9em;
+  cursor: pointer;
+  position:absolute;
+  /* height: 40px; */
+}
+#input-file,
+#input-file:focus{
+	padding:5px 0 0 4px;
+	outline:none;
+}
+
+/* �깭洹� 湲곕뒫 */
+#addTag{
+    float: left;
+    overflow: auto;
+    margin-bottom:10px;\
+}
+#addTag>div {
+    float: left;
+    border: 1px solid gray;
+    margin: 2px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    font-weight:bold;
+    color:#014f99;
+}
+#hiddenTagAllDone {
+    color: red;
+    border-radius: 0px;
+}
+
+.note-editing-area{
+	min-height: 500px;
+}
+/* 踰꾪듉 */
+#injeungSubmitBtn, #injeungCancelBtn, #recommendSubmitBtn, #matchingCancelBtn {
+    background-color: white;
+    width: 80px;
+    height:35px;
+    padding: 0;
+    border-radius: 3px;
+    margin: 10px;
+}
+#injeungSubmitBtn, #recommendSubmitBtn {
+    float: right;
+    background-color: #00376b;
+    border: #00376b;
+    color:white;
+}
+#injeungCancelBtn, #matchingCancelBtn {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+/*지도 모달*/
+.mapJoinModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+}
+.mapJoinModal::-webkit-scrollbar {
+    display: none;
+}
+
+/* 紐⑤떖李� 諛곌꼍 */
+.mapModalOverlay {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    overflow-y: auto;
+    position: fixed;
+}
+
+/* 紐⑤떖李� */
+.mapModalContent {
+    position: relative;
+    margin: 150px auto;
+    width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #666;
+    overflow-y: auto;
+}

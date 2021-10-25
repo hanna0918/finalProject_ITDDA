@@ -2,34 +2,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ include file="/inc/adminTop.jspf" %>
-<script>
-$(document).ready(function(){
 
-	$('.AdminQna').click(function () {
-	    $('.AdminSendQnqModal').css('display', 'block'); //1:1문의 모달
-	});
-
-	$('.modalOverlay').click(function () {
-	 
-	    $('.AdminSendQnqModal').css('display', 'none');
-	 
-	});
-});
-</script>
-  <div class="TopContent">
+ <div class="TopContent">
     <div class="TopSubContent">
       <div>
-        <div>1:1 문의확인</div>
- 	       <div style="text-align: right; ">
-  		</div> 
+        <div>1:1 wait 문의확인</div>
+ 	    <div style="text-align: right;">
+ 	    <a style="font-size:20px;" href="adminQnawait">wait처리 문의</a>
+ 	    <a style="font-size:20px; margin-left: 20px; font-weight: bold;" href="adminQnaresult">wa처리 완료</a></div>
     </div>
  </div>
  </div>
    <div class="MainContent">
-    <div style=" background-color: blanchedalmond; width:100%; height: 90%;">
-      <div style=" margin-left:600px;text-align: right; display: inline-block; font-size: 20px;"><h3 style="font-weight: 500;">처리대기</h3></div>
-      <div style="margin-left:100px; text-align: right; display: inline-block; font-size: 20px;"><strong>처리완료</strong></div>
-
+    <div style= "width:100%; height:100%;">
       <div class="QnaRightBox">
       <br>
       <div class="QnaBoardContent">
@@ -37,13 +22,13 @@ $(document).ready(function(){
           <li>NO</li>
           <li>문의내용</li>
           <li>문의자</li>
-          <li>등록일</li>
-
+		  <li>상태</li>	
+		
  		<c:forEach items="${list}" var="Question">
           <li>${Question.q_number}</li>
-          <li style="text-align: left;" class="AdminQna">${Question.q_title}</li>
+          <li style="text-align: left;" class="AdminQnaresult" name="${Question.q_number}">${Question.q_title}</li>
           <li>${Question.m_nickname}</li>
-          <li>${Question.q_date}</li>
+          <li>처리완료</li>
          <br>
          </c:forEach>
         </ul>
@@ -58,7 +43,7 @@ $(document).ready(function(){
           <li><a href="#">4</a></li>
           <li><a href="#">5</a></li>
           <li><a href="#">6</a></li>
-          <li><a href="#">></a></li>
+              <li><a href="#">></a></li>
         </ul>
       </div>
     </div>
@@ -69,19 +54,7 @@ $(document).ready(function(){
     <div class="modalOverlay"></div>
     <!-- 약관동의 창 -->
     <article class="AdminQnqModal">
-      <h2>처리 완료</h2>
-        <div>게시물번호 : 1</div>
-        <div>글쓴이:권순찬</div>
-        <div>등록일 : 2014-03-02</div>
-        <hr>
-        <div style="overflow-y: scroll; width:450px; height: 150px; margin: 0 auto">
-          내용:${content}내용:내용:${content}:${content}내용tent}내용:${content}내용:${content}tent}내용:${content}내용:${content}tent}내용:${content}내용:${content}tent}내용:${content}내용:${content}tent}내용:${content}내용:${content}
-        </div>
-        <hr>
-          <div style="text-align:center;">답변처리</div><br>
-        <textarea style='resize: none; width: 450px; height: 50px;'/>
-     	
-     
+    <div id="resultmodal">asdasd </div>
        
         
         <br>

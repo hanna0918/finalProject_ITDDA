@@ -43,6 +43,6 @@ public class MypageServiceImp implements MypageService {
 		return  mypageDao.MypageQnA();
 	}
 	
-
+//public int MypageQnA(QuestionVO quesVo) {
 
 }

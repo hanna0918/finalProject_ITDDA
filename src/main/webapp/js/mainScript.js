@@ -23,6 +23,9 @@ $(document).ready(function () {
 
     // 로그인창 닫기
     $(".loginModal").css("display", "none");
+    
+    //이용약관닫기
+    $(".loginMotermsOfServicedal").css("display", "none");
   });
 
   // 로그인창 -> 회원가입창 클릭 동작
@@ -310,4 +313,9 @@ $(document).ready(function () {
     console.log("아무것도 안됨");
     return false;
   });
+	//===================================================================================
+  $("#tos").click(function () {
+    $(".loginMotermsOfServicedal").css("display", "block");
+  });
+  
 });

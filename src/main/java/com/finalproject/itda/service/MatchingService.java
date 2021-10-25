@@ -12,14 +12,16 @@ public interface MatchingService {
 	public MatchingPagingVO page(MatchingPagingVO pVo);
 	public MatchingVO matchingView(int board_seq);
 	public int countHit(int board_seq);
-	public int matchingEdit(int board_seq, int m_seq);
-	public List<CalendarVO> dataForJson();
+	public MatchingVO matchingEdit(int board_seq);
+	public List<CalendarVO> dataForJson(MatchingPagingVO pVo);
 	public int matchingWriteOk(MatchingVO vo);
-	public int matchingDelete(int board_seq);
 	public List<MatchingVO> matchingUser(int board_seq);
 	public int matchingIn(int m_seq, int mc_seq);
 	public List<BoardCommentVO> matchingReply(int board_seq);
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq);
 	public int matchingCancel(int mc_seq, int m_seq);
 	public int matchingReplyWrite(BoardCommentVO vo);
+	public int matchingEditOk(MatchingVO vo);
+	public int matchingReplyEdit(BoardCommentVO vo);
+	public int matchingReplyDelete(BoardCommentVO vo);
 }

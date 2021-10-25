@@ -941,7 +941,6 @@ body{
 					   const ajaxData = $(this).parent().serialize();
 					    gudokYes(ajaxData);
 					    
-					    
 					   //보내기 yes 모달창
 					   $('.gudokDataInputModal2').css('display', 'block');
 					   $('.gudokJoinModal2').css('display', 'block');

@@ -9,7 +9,7 @@
 }
 .TopSubContent {
   font-size: 40px;
-  border-bottom: 1px solid wheat;
+  border-bottom: 1px solid black;
 }
 
 .MainContent {
@@ -113,72 +113,62 @@
 /* QnA */
 
 /*------------------------------------*bar Meun css*/
- #QnaList > li:nth-of-type(4n+1) {
+#QnaList > li:nth-of-type(4n + 1) {
+  width: 10%;
+}
+#QnaList > li:nth-of-type(4n + 2) {
+  overflow: hidden;
 
-      width: 10%;
-    }
-    #QnaList > li:nth-of-type(4n+2) {
+  width: 50%;
+}
 
-      overflow: hidden;
+#QnaList > li:nth-of-type(4n + 3) {
+  width: 20%;
+}
 
-      width: 50%;
-    }
+#QnaList > li:nth-of-type(4n + 4) {
+  width: 20%;
+}
 
-    #QnaList > li:nth-of-type(4n+3) {
+.AdminQnqModal > form > div {
+  font-size: 20px;
+}
+.QnaButton > li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: 60px;
+}
+.QnaRightBox {
+  width: 100%;
+  height: 600px;
+}
+.QnaButton {
+  width: 100%;
+  height: 55px;
+}
+.QnaButtonBox > ul > :nth-child(n) {
+  padding-left: 10px;
+}
 
-      width: 20%;
-    }
+#QnaList > li {
+  float: left;
+  height: 50px;
+  width: 100px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 15px;
+}
+.QnaDataBox > li {
+  margin: 0 auto;
+}
+.QnaBoardContent {
+  height: 600px;
+  width: 100%;
 
-    #QnaList > li:nth-of-type(4n+4) {
-
-      width: 20%;
-    }
-
-    .AdminQnqModal > form > div
-    {
-
-      font-size: 20px;
-    }
-    .QnaButton>li
-    {
-      float: left;
-      width: 50px;
-      height: 50px;
-      font-size: 20px;
-      margin-left: 60px;
-    }
-    .QnaRightBox
-    {
-      width: 100%;
-      height: 600px;
-    }
-    .QnaButton
-    {
-      width: 100%;
-      height: 55px;
-    }
-    .QnaButtonBox>ul>:nth-child(n){padding-left: 10px;}
-
-    #QnaList>li
-    {
-      float:left;
-      height: 50px;
-      width: 100px;
-      line-height:50px;
-      text-align: center;
-      font-size: 15px;
-    }
-    .QnaDataBox>li{
-      margin: 0 auto;
-    }
-    .QnaBoardContent
-    {
-      height: 600px;
-      width: 100%;
-      border:  1px solid red;
-      margin: 0 auto;
-      margin: 0 auto;
-    }
+  margin: 0 auto;
+}
 /* QnA */
 
 /*BoardList*/

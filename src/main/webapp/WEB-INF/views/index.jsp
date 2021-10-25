@@ -1,11 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<div class="mainImg" style="overflow: auto">
-	<div style=" height: 400px; opacity: 0.8; overflow: auto; background-image: url(https://starwalk.space/gallery/images/the-brightest-stars/1140x641)"></div>
-	<h1 style="position: absolute; top: 300px; left: 50%; transform: translate(-50%, -50%); color: black; opacity: 1; font-size: 50px; text-align: center">다른 사람과 '잇다'</h1>
-</div>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-  <!-- 베스트 게시판==================================================================== -->
+<section class="videoMain">
+  <div>
+    <video autoplay muted loop id="myVideo" height="1200">
+      <source
+        src="https://r1---sn-a5mekn6z.googlevideo.com/videoplayback?expire=1635166593&ei=IVV2YdeDGP3Pz7sPrrqG0Ak&ip=103.9.188.193&id=o-APJUYbsFwIdZ-C1NBJQcuKnRBI96rCDwvE2DPr82Sdzc&itag=137&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=eQVKn3yzWV04HS5eQ6hvTLYG&gir=yes&clen=11809997&otfp=1&dur=34.160&lmt=1634487624035448&keepalive=yes&fexp=24001373,24007246&c=WEB&txp=6216224&n=PlsM5lyRgI5QIA&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cotfp%2Cdur%2Clmt&sig=AOq0QJ8wRQIgMXAyx-YlxTxHtmtR-jhtb8tK3JWjCTTwfwdJ_o6V4fsCIQC4dc-HDgNkEAWsFjPI40HtNbp8ta-NbHi2XOgonCaxxw%3D%3D&rm=sn-uxajvuxji-2oil7e&req_id=9c3bae01da2ea3ee&redirect_counter=2&cm2rm=sn-30alz7s&cms_redirect=yes&mh=mq&mip=106.240.16.166&mm=34&mn=sn-a5mekn6z&ms=ltu&mt=1635144753&mv=m&mvi=1&pl=17&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgdFzfwsl62vTG4FwGSq1ppuFYf6NgxSf5muwS_K_kbSICICRnU__zOVaBQvB3zeVEdfMBHotMoWLehVaZZ4zS-uuH"
+        type="video/mp4"
+      />
+    </video>
+  </div>
+</section>
+
+<!-- 베스트 게시판==================================================================== -->
 <section class="bestBoardContent">
   <h1>베스트 게시판</h1>
   <ul class="bestBoard">
@@ -186,9 +192,4 @@
 <!-- 마켓 게시판==================================================================== -->
 <!-- 마켓 게시판==================================================================== -->
 
-<section class="maketBoard">
-
-</section>
-
-
-      
+<section class="maketBoard"></section>
