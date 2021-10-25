@@ -1,5 +1,8 @@
 package com.finalproject.itda.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -36,26 +39,37 @@ public class Board_CallController {
 	@RequestMapping(value="/boardCallBack", method=RequestMethod.POST)
 	@ResponseBody
 	public int boardCallBack(Board_CallVO vo) {
-		return board_CallService.boardCallBack(vo);
+		board_CallService.boardCallBack(vo);
+		return board_CallService.boardCount(vo);
 	}
 	
 	// 좋아요했던 게시글인지 확인
 	@RequestMapping("/goodHitCheck")
 	@ResponseBody
-	public int goodHitCheck(Board_CallVO vo) {
-		return board_CallService.goodHitCheck(vo);
+	public Map<String, Board_CallVO> goodHitCheck(Board_CallVO vo) {
+		Map<String,Board_CallVO> map = new HashMap<String,Board_CallVO>();
+		map.put("vo", board_CallService.reprint(vo));
+		vo.setB_goodhit(board_CallService.goodHitCheck(vo));
+		map.put("check", vo);
+		return map;
 	}
 	
+	// 좋아요 하기
 	@RequestMapping("/goodHit")
 	@ResponseBody
-	public int goodHit(Board_CallVO vo) {
-		return board_CallService.goodHit(vo);
+	public Board_CallVO goodHit(Board_CallVO vo) {
+		board_CallService.goodHit(vo);
+		board_CallService.goodHitCount(vo);
+		return board_CallService.reprint(vo);
 	}
 	
+	// 좋아요 철회
 	@RequestMapping("/goodHitBack")
 	@ResponseBody
-	public int goodHitBack(Board_CallVO vo) {
-		return board_CallService.goodHitBack(vo);
+	public Board_CallVO goodHitBack(Board_CallVO vo) {
+		board_CallService.goodHitBack(vo);
+		board_CallService.goodHitCount(vo);
+		return board_CallService.reprint(vo);
 	}
 	
 	

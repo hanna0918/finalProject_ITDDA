@@ -89,13 +89,15 @@ function matchingConfirm(){
 
 $("#loginPls").click(function(){
 	let tag = "";
-	tag += "<h1>로그인 후 이용해주세요</h1>";
-	tag += "<input type='button' id='loginPlsOk' value='확인'>";
-	$(".joinModalContent").html(tag);
-	$( ".matchingModal" ).css('display', 'block');
+	tag += "<h1>로그인 후</h1>";
+	tag += "<h1>이용해주세요</h1>";
+	tag += "<input type='button' id='loginPlease' value='확인'>";
+	$(".matchingReportModalContent").html(tag);
+	$('.matchingReportModal').css('display', 'block');
+	return false;
 });
 
-/* 댓글!!! */
+/* --------------------------------------------------댓글----------------------------------------------------- */
 $(function(){
     function replyList(){
     	var m_seq = $("#logseq").val();
@@ -233,6 +235,19 @@ $(function(){
 	console.log("댓글 replyList() 호출했음?");
 });
 
+/*    --------------------------         주석 풀고 사용하기 ------------------------------------*/ 
+/****
+$("#loginPls").click(function(){
+	let tag = "";
+	tag += "<h1>로그인 후</h1>";
+	tag += "<h1>이용해주세요</h1>";
+	tag += "<input type='button' id='loginPlease' value='확인'>";
+	$(".matchingReportModalContent").html(tag);
+	$('.matchingReportModal').css('display', 'block');
+	return false;
+});
+*/
+/* --------------------------------------------------댓글----------------------------------------------------- */
 
 
 /* --------------------------------------------------신고----------------------------------------------------- */
@@ -401,17 +416,21 @@ function goodHitCheck(){
         url: rUrl,
         data: rParam,
         success: function(result){
-        	console.log("result = "+result);
-            if(result==0){
-				tag += "";
-				// 좋아요 한 글이니 색 칠해진 죠아요 이미지 그리고 좋아요 취소하는 매핑 되있는 아이디 부여 id='goodHitBack'
-
+        	var rresult=$(result);
+        	console.log("rresult[0] = "+rresult[0]);
+        	
+            if(rresult[0].check.b_goodhit==0){
+				tag += `<img alt="heart" id='heartIcon' class='goodHit' src="img/goodHit.png"> ${rresult[0].vo.b_goodhit }&nbsp;&nbsp;`;
+				tag += `<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${rresult[0].vo.replyCount}&nbsp;&nbsp;`;
+				tag += `<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${rresult[0].vo.board_call}</span>`;
 			} else {
-				tag += "";
+				tag += `<img alt="heart" id='heartIcon' class='goodHitBack' src="img/goodHitBack.png"> ${rresult[0].vo.b_goodhit }&nbsp;&nbsp;`;
+				tag += `<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${rresult[0].vo.replyCount}&nbsp;&nbsp;`;
+				tag += `<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${rresult[0].vo.board_call}</span>`;
 				// 좋아요 안 한 글이니 색 안칠해진 죠아요 이미지 그리고 좋아요 하는 매핑 되있는 아이디 부여 id='goodHit'
 			}
 			// 밑에는 신고버튼용이고 여기서는 죠아요를 구현하는 곳이니 다른 장소를 찾아야함
-			// $(".matchingReportModalContent").html(tag);
+			$(".contentReply>div:first-child").html(tag);
         }, error: function(){
             console.log("죠아요 확인하는 ajax 에러입니다")
         },
@@ -429,9 +448,10 @@ function goodHit() {
         url: rUrl,
         data: rParam,
         success: function(result){
-            tag += "";
-			// 좋아요 db 들어갔는지 확인하고 색있는 죠아요 이미지 넣고 해당 위치에 삽입하기
-			// $("#???????").html(tag);
+            tag += `<img alt="heart" id='heartIcon' class='goodHitBack' src="img/goodHitBack.png"> ${result.b_goodhit }&nbsp;&nbsp;`;
+			tag += `<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${result.replyCount}&nbsp;&nbsp;`;
+			tag += `<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${result.board_call}</span>`;
+			$(".contentReply>div:first-child").html(tag);
 		}, error: function(){
 			console.log("죠아요 하는 ajax 에러입니다.");
 		}
@@ -449,9 +469,10 @@ function goodHitBack() {
         url: rUrl,
         data: rParam,
         success: function(result){
-            tag += "";
-			// 좋아요 db에서 잘 삭제되었는지 확인하고 색없는 죠아요 이미지 넣고 해당 위치에 삽입하기
-			// $("#???????").html(tag);
+            tag += `<img alt="heart" id='heartIcon' class='goodHit' src="img/goodHit.png"> ${result.b_goodhit }&nbsp;&nbsp;`;
+			tag += `<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${result.replyCount}&nbsp;&nbsp;`;
+			tag += `<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${result.board_call}</span>`;
+			$(".contentReply>div:first-child").html(tag);
 		}, error: function(){
 			console.log("죠아요 하는 ajax 에러입니다.");
 		}
@@ -460,7 +481,8 @@ function goodHitBack() {
 
 // 좋아요 눌렀을때 로그인 안되어있으면 신고 모달에 로그인 하라고 내용 넣고 확인누르면 로그인 모달 띄우기 
 // 로그인 되어있으면 좋아요 ajax ㄱㄱ
-$(document).on("click", "#goodHit", function(){
+$(document).on("click", ".goodHit", function(){
+	console.log("좋아요 하기 클릭");
 	if($("#logseq").val()=="") {
 		let tag = "";
 		tag += "<h1>로그인 후</h1>";
@@ -475,7 +497,8 @@ $(document).on("click", "#goodHit", function(){
 
 // 좋아요 눌렀을때 로그인 안되어있으면 신고 모달에 로그인 하라고 내용 넣고 확인누르면 로그인 모달 띄우기 
 // 로그인 되어있으면 좋아요 철회 ajax ㄱㄱ
-$(document).on("click", "#goodHitBack", function(){
+$(document).on("click", ".goodHitBack", function(){
+	console.log("좋아요 철회 클릭");
 	if($("#logseq").val()=="") {
 		let tag = "";
 		tag += "<h1>로그인 후</h1>";
@@ -493,11 +516,10 @@ if($("#logseq").val()!="") {
 	goodHitCheck();
 }
 
-/* 이건 로그인이 안되어있을때 뜨는 모달의 확인 버튼을 누르면 오는 곳이고 이전 모달이 꺼지면서 로그인 모달이 뜸
 $(document).on('click', '#loginPlease', function(){
+	console.log("확인 클릭");
 	$('.matchingReportModal').css('display', 'none');
 	$(".loginModal").css('display', 'block');
 });
-*/
 
 /* --------------------------------------------------져아요----------------------------------------------------- */

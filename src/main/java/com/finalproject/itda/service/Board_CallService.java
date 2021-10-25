@@ -10,4 +10,6 @@ public interface Board_CallService {
 	public int goodHitCheck(Board_CallVO vo);
 	public int goodHit(Board_CallVO vo);
 	public int goodHitBack(Board_CallVO vo);
+	public int goodHitCount(Board_CallVO vo);
+	public Board_CallVO reprint(Board_CallVO vo);
 }

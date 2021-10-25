@@ -82,7 +82,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class='contentView'>
 	            <div>
 		            <c:forEach var='item' items='${vo.tags}'>
@@ -96,7 +95,7 @@
             </div>
             <div class='contentReply'>
                 <div><!-- 1 좋아요/댓글수 -->
-                    <img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit }&nbsp;&nbsp;
+                    <img alt="heart" id='heartIcon' class='goodHit' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit }&nbsp;&nbsp;
                     <!-- 해야함 -->
                     <img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${vo.replyCount}&nbsp;&nbsp;
                     <span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_call}</span>
@@ -179,4 +178,4 @@
     </div>
     
 
-<script src="/itda/js/matchingView.js?version=1111111111111111111111111111111111"></script>
+<script src="/itda/js/matchingView.js?version=1111111111111111111111111111111111111111"></script>

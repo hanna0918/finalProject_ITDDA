@@ -40,5 +40,13 @@ public class Board_CallServiceImp implements Board_CallService {
 	public int goodHitBack(Board_CallVO vo) {
 		return board_CallDAO.goodHitBack(vo);
 	}
+	@Override
+	public int goodHitCount(Board_CallVO vo) {
+		return board_CallDAO.goodHitCount(vo);
+	}
+	@Override
+	public Board_CallVO reprint(Board_CallVO vo) {
+		return board_CallDAO.reprint(vo);
+	}
 	
 }

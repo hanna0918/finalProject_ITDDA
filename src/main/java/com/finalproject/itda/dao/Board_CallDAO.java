@@ -23,10 +23,15 @@ public interface Board_CallDAO {
 	@Select(" select count(goodhit_seq) from b_goodhit where board_seq=${board_seq} and m_seq=${m_seq} ")
 	public int goodHitCheck(Board_CallVO vo);
 	
-	@Insert(" insert into b_goodhit (b_goodhit, board_seq, m_seq) values (goodhit_seq.nextval, ${board_seq}, ${m_seq}) ")
+	@Update(" update boardbase set b_goodhit=(select count(goodhit_seq) from b_goodhit where board_seq=${board_seq}) where board_seq=${board_seq} ")
+	public int goodHitCount(Board_CallVO vo);
+	
+	@Insert(" insert into b_goodhit (goodhit_seq, board_seq, m_seq) values (goodhit_seq.nextval, ${board_seq}, ${m_seq}) ")
 	public int goodHit(Board_CallVO vo);
 	
 	@Delete(" delete from b_goodhit where board_seq=${board_seq} and m_seq=${m_seq} ")
 	public int goodHitBack(Board_CallVO vo);
 	
+	@Select(" select b_goodhit, board_call, (select count(board_seq) from board_comment e where a.board_seq=e.board_seq and a.board_seq=#{board_seq}) replyCount from boardbase a where board_seq=#{board_seq} ")
+	public Board_CallVO reprint(Board_CallVO vo);
 }
