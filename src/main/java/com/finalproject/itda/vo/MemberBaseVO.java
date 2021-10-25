@@ -20,7 +20,8 @@ public class MemberBaseVO {
 	private String m_addrdetail;
 	private String m_birth;
 	private String m_img;
-	private String b_note;
+	private String b_note;//차단사유
+	private String msg_content; // 쪽지내용
 	
 //	조인용 vo
 	private String m_content;
@@ -35,8 +36,14 @@ public class MemberBaseVO {
 	private int bookmark_count;
 	private int msg_count;
 	
+	
 
-
+	public String getMsg_content() {
+		return msg_content;
+	}
+	public void setMsg_content(String msg_content) {
+		this.msg_content = msg_content;
+	}
 	public String getM_addrdetail() {
 		return m_addrdetail;
 	}
