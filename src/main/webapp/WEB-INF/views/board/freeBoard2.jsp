@@ -403,27 +403,32 @@ body{
 		</div>	
 		
 		<c:forEach var="vo" items="${list}">
-			
 			<div class='list'>
 			<ul class='content'> 
 				<li>${vo.board_seq}</li>
 				<li><a href="/itda/freeview?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
 				<%--  /itda/view?no=${vo.board_seq --%>
-				<div class="dropdown">
-				<li> <label onclick="myFunction('${vo.m_nickname}');" class ="dropbtn">${vo.m_nickname} <input type="hidden" class="idtest" value="${vo.m_seq}"/></label></li>
-					
-					<!-- ---------------------------------------------------------------------- -->
-					<div id="myDropdown${vo.m_nickname}" class="dropdown-content">
-	    				<a class="profil" name="${vo.m_nickname}">프로필</a>
-	    				<a class="chadan" name="${vo.m_nickname}">차단하기</a>
-	    				<a class="gudok" name="${vo.m_nickname}">구독하기</a>
-	    				<a class="sendMail" name="${vo.m_nickname}">쪽지보내기</a>
-	    				<a href="/itda/writeList">게시글보기</a>
-  					</div>
-				</div>
+				
+						<div class="dropdown">
+				<li> <label onclick="myFunction('${vo.m_nickname}');" class ="dropbtn" id="droplogin">${vo.m_nickname} <input type="hidden" class="idtest" value="${vo.m_seq}"/></label></li>
+				<input type="hidden" value="${vo.m_name}"/>
+					<!--<c:if test="${login ne null}">  로그인 안되어있을 경우 드롭다운 안보이게  -->
+							<!-- ---------------------------------------------------------------------- -->
+							<div id="myDropdown${vo.m_nickname}" class="dropdown-content">
+			    				<a class="profil" name="${vo.m_nickname}">프로필</a>
+			    				<a class="chadan" name="${vo.m_nickname}">차단하기</a>
+			    				<a class="gudok" name="${vo.m_nickname}">구독하기</a>
+			    				<a class="sendMail" name="${vo.m_nickname}">쪽지보내기</a>
+			    				<a href="/itda/writeList?m_nickname=${vo.m_nickname}&m_name=${vo.m_name}" name="${vo.m_nickname}">게시글보기</a>
+		  					</div>   
+						</div>
+					<!-- </c:if> -->
+				
 				<li>${vo.board_writedate} </li>
 				<li>${vo.board_hit}</li>
-				<li>0</li>
+				<li>${vo.br_count}</li>
+				<input type="hidden" value="${vo.m_name}"/>
+				
 			</ul>
 			</div>
 		</c:forEach>
@@ -492,6 +497,9 @@ body{
 		<div class="mailJoinModal" id="mailJoinModal">
 				<article class="mailModalContent mailDataInputModal style="box-shadow: 10px 10px 5px lightgrey;" >
 					<div id = "testNote">
+					<form>
+					<input type='hidden' name='m_seq' value='${logseq}'/> 
+					</form>
 						<!--  
 						<form>
 							<h4 style="background:moccasin;" >🍊 쪽지 보내기</h4>
@@ -517,6 +525,7 @@ body{
 		 	<div class="mailJoinModal2" id="mailJoinModal2">
 				<article class="mailModalContent2 mailDataInputModal2" style="width: 315px; padding:0;">
 					<div id = "testNoteYes">
+					
 						<!--  
 						<div style="background: cornflowerblue; height: 25px;"></div>
 						<h4><strong>'${m_userid }'</strong>님에게 쪽지가 전송되었습니다 😊</h4>
@@ -535,14 +544,19 @@ body{
 		<!-- --------------구독 모달창-------------- -->
 		<div class="gudokJoinModal" id="gudokJoinModal">
 				<article class="gudokModalContent gudokDataInputModal">
+					
 					<div>
+					<form>
 						<h4 style="font-size: large;"> 구독하시겠습니까? </h4>
-						<input type="submit" value="네, 구독할래요." id="yesGudok"  />
+						
+						<input type="hidden" name="m_seq" value="${logseq}"/>
+						<input type="button" value="네, 구독할래요." id="yesGudok"/>
 						<input type="button" value="취소" id="noGudok" />
 						 
-						<a><img src="/itda/img/close1.png" class="close5" 
-				        style="position:absolute;top: 10px; right: 17px;"/></a>
+					<!-- 	<a><img src="/itda/img/close1.png" class="close5" 
+				        style="position:absolute;top: 10px; right: 17px;"/></a> -->
 				        <!-- <div><input type="button" value="확인"/></div> -->
+				     </form>
 					</div>
 				</article>
 		</div>
@@ -611,7 +625,9 @@ body{
     //받아온 값을 ajax로 db에 보내서 필요한 정보를 select해서 ajax(sucess시 필요한 곳에 넣어준다.)
 	   
     /*드롭다운 보여주기*/
+
 		/* 메뉴 드롭다운 */
+		
 	function myFunction(nickname) { /////////////////1
         document.getElementById("myDropdown" + nickname).classList.toggle("show");
         console.log(nickname);
@@ -772,8 +788,13 @@ body{
         } */
         
 		/*////////////////////////////////차단 모달창//////////////////////////////////////////// */
-		
+
+		    <c:set var="bani"  value="${m_seq}" />
+		        <c:set var="banyou" value="${m_seq_ban}" />
+		        <c:choose>
+		            <c:when test="banyou ne ${m_seq_ban} && bani ne {m_seq}">
 		  $(document).on("click", ".chadan", function(){
+			  
 			  $('.blockDataInputModal').css('display', 'block');
 			   $('.blockJoinModal').css('display', 'block');
 			   
@@ -787,16 +808,19 @@ body{
 					  $('.blockJoinModal').css('display', 'none');  
 			        	
 				    });
-		 
 		  });  //.chadan document 이벤트 
+		              
+		            </c:when>         
+		     
+		        </c:choose>
+		
+		
 		  
 		  
 		  //차단 ok ajax
-		  
 		  function chadanOk(ajaxData){
-			  console.log("이해가 안되는데?");
 			  console.log("ajaxData = " + ajaxData);
-			  console.log("nickname = " + nickname1);
+			  console.log("nickname = " + nickname);
 			  $.ajax({ /////////////////////////////////3
 		            url:'/itda/freeBoardmodalChadanOk', 
 		            data: ajaxData + "&" + nickname1,
@@ -805,9 +829,11 @@ body{
 		              var result = $(result);
 		              console.log(result);
 		              var tag = "";	
+		              
+		            
 			      	  
 		              tag+=`<div style="background: cornflowerblue; height: 25px;"></div>`;
-			          	tag+="<h4>" + result[0].m_nickname + "님이 차단되었습니다." +"</h4>";
+			          	tag+=`<h4> 차단이 완료되었습니다. </h4>`; //"<h4>" + result[0].m_nickname + "님이 차단되었습니다." +"</h4>";
 			           	tag+=`<div>`;
 			              	tag+= "<input type='submit' id ='chadanOk' value='확인'/>";
 			            tag+=`</div>`;
@@ -816,8 +842,6 @@ body{
 		              console.log(tag);
 		              $('#testChadanOk').html(tag);
 		              console.log(tag);
-		           
-		              
 
 		            }, error: function () {  //////////////4 
 		              console.log("싰빠이차단yes");
@@ -862,8 +886,37 @@ body{
 					});  //x확인버튼
 			 }); //차단 예쓰 */
 			 
-		
-		
+		function gudokYes(ajaxData){
+		console.log("ajaxData = " + ajaxData);
+		 console.log("nickname = " + nickname);
+			            
+			$.ajax({ /////////////////////////////////3
+	            url:'/itda/freeBoardmodalGudokOk', 
+	            data: ajaxData + "&" + nickname1,
+	            type: 'POST',
+	            success: function (result) { ///////////////////4
+	              var result = $(result);
+	              console.log(result);
+	              var tag = "";	
+		         	
+	              	tag+=`<div style='background : cornflowerblue; height: 25px;'></div>`;
+	      			tag+= `<h4> 구독신청이 완료되었습니다. </h4>`; //"<h4>" + result[0].m_nickname + "님 구독이 완료되었습니다." + "</h4>";
+	      			tag += `<div>`; 
+	      			tag += "<input type='button' id='gudokOk' value='확인'/>";
+	      			tag += `</div>`; 
+	      			
+	              console.log(tag);
+	              $('#testGudok').html(tag);
+	              console.log(tag);
+	           
+	            }, error: function () {  //////////////4 
+	              console.log("싰빠이구독");
+	            }
+
+	          });////////////////3 ajax
+	          nickname="";
+			  console.log("초기화후:"+nickname);   			 
+		}
         
        //////////////////////////////////////구독하기////////////////////////////////////////////// 
         
@@ -871,35 +924,7 @@ body{
 		  $(document).on("click", ".gudok", function(){
 			   $('.gudokDataInputModal').css('display', 'block');
 			   $('.gudokJoinModal').css('display', 'block');
-		///////////////////////////////////////////////////////////////////////////////////////////
 		
-		$.ajax({ /////////////////////////////////3
-            url:'/itda/freeBoardmodalGudok', 
-            data: nickname1,
-            type: 'POST',
-            success: function (result) { ///////////////////4
-              var result = $(result);
-              console.log(result);
-              var tag = "";	
-	         
-              	tag+=`<div style='background: cornflowerblue; height: 25px;'></div>`;
-      			tag+= "<h4>" + result[0].m_nickname + "님 구독이 완료되었습니다." + "</h4>";
-      			tag += `<div>`; 
-      			tag += "<input type='submit' id='gudokOk' value='확인'/>";
-      			tag += `</div>`; 
-      			
-              console.log(tag);
-              $('#testGudok').html(tag);
-              console.log(tag);
-           
-            }, error: function () {  //////////////4 
-              console.log("싰빠이구독");
-            }
-
-          });////////////////3 ajax
-          nickname="";
-		  console.log("초기화후:"+nickname);   
-			   
 			   //취소버튼
 			     $(document).on("click", "#noGudok", function(){
 					 $('.gudokJoinModal').css('display', 'none');  
@@ -913,22 +938,24 @@ body{
 			  //구독하기 버튼 
 			   $(document).on("click", "#yesGudok", function(){
 					   $('.gudokJoinModal').css('display', 'none');  
-					   
+					   const ajaxData = $(this).parent().serialize();
+					    gudokYes(ajaxData);
+					    
+					    
 					   //보내기 yes 모달창
 					   $('.gudokDataInputModal2').css('display', 'block');
 					   $('.gudokJoinModal2').css('display', 'block');
 					   
 					 //x확인버튼
-					   $('#gudokOk').click(function () {
+					 
+					    $(document).on("click", "#gudokOk", function(){
 							  $('.gudokJoinModal2').css('display', 'none');  
 						}); //x확인버튼
 				   }); //구독하기 
 				}); //구독하기 모달
     		
-				
 			//쪽지보내기 ajax	
 			function sendNote(nickname) { 
-					
 				$.ajax({ /////////////////////////////////3
 		            url:'/itda/freeBoardmodalNote', 
 		            data: nickname1,
@@ -937,16 +964,16 @@ body{
 		              var result = $(result);
 		              console.log(result);
 		              var tag = "";	
-			         	
-		             
+			           
 		               tag += `<form>`;
-	        			tag += `<h4 style='background:moccasin;'> 🍊 쪽지보내기 </h4>`; 
+	        			tag += `<h4 style='background:moccasin;'> 🍊 쪽지보내기 </h4>`;
 					    tag += `<ul class='mailInfo'>`;
 					    tag +=  "<li style='text-align: left; padding-left: 25px;'>" + "받는사람 : " + result[0].m_nickname +"</li>";  
 					    tag +=  `<li style='text-align: left; padding-left: 25px; padding-top: 10px;'>내용</li>`;
-					     tag +=  "<textarea class='mailTextarea' title='쪽지 내용을 입력하세요' placeholder='쪽지 내용을 입력하세요' style='margin:5px; width:325px; height:200px; resize:none; outline-style:none; padding:0; border-radius:3px 3px 0 0; font-size:14px; cursor:text'>";
+					    tag +=  "<textarea class='mailTextarea' name='msg_content' title='쪽지 내용을 입력하세요' placeholder='쪽지 내용을 입력하세요' style='margin:5px; width:325px; height:200px; resize:none; outline-style:none; padding:0; border-radius:3px 3px 0 0; font-size:14px; cursor:text'>";
 					    tag +=  "</textarea>"; 
 					     tag += `</ul>`;  
+					  /*    tag += "<input type='hidden' name='m_seq' value='${logseq}'/>";  */
 					     tag += "<input type='button' value='보내기' id='yesMail'/>";
 					     tag +=	"<input type='button' value='취소' id='noMail'/>";  
 				       tag += `</form>`; 
@@ -977,18 +1004,19 @@ body{
 			   //취소버튼
 			    $(document).on("click", "#noMail", function(){
 					 $('.mailJoinModal').css('display', 'none');  
+				
 			  });   
-			
 	   	 	});   
 	   	 	
-			  /////////////////////쪽지 yes ///////////////////////////////
+			  /////////////////////쪽지 yes ///////////////////////////////   
 			  	   //보내기 yes 모달창
 			   $(document).on("click", "#yesMail", function(){
 				    $('.mailJoinModal').css('display', 'none');  
+				    const ajaxData = $(this).parent().serialize();
+				    sendNoteYes(ajaxData);
 				   $('.mailJoinModal2').css('display', 'block');
 				   $('.mailDataInputModal2').css('display', 'block');
-				   sendNoteYes();
-				   
+				 
 				 //x버튼
 				    $(document).on("click", "#noteYesBtn", function(){
 						  $('.mailJoinModal2').css('display', 'none');  
@@ -996,11 +1024,13 @@ body{
 			   }); //보내기 버튼 
 			//}); 
   
-			   function sendNoteYes(nickname) {
-				   
+			   function sendNoteYes(ajaxData) {
+				   console.log("쪽지yes 들어오는지 확인???");
+				   console.log("ajaxData = " + ajaxData);
+				   console.log("nickname = " + nickname1);
 				   $.ajax({ /////////////////////////////////3
 			            url:'/itda/freeBoardmodalNoteYes', 
-			            data: nickname1,
+			            data: ajaxData + "&" + nickname1,
 			            type: 'POST',
 			            success: function (result) { ///////////////////4
 			              var result = $(result);
@@ -1008,7 +1038,7 @@ body{
 			              var tag = "";	
 						
 			              tag +=`<div style='background:cornflowerblue; height: 25px;'></div>`;
-						  tag +="<h4>"+ result[0].m_nickname +" 님에게 쪽지가 전송되었습니다 😊" + "</h4>"; 
+						  tag +=`<h4> 쪽지가 전송되었습니다 😊 </h4>`;  //"<h4>"+ result[0].m_nickname +" 님에게 쪽지가 전송되었습니다 😊" + "</h4>"; 
 						  tag += `<div>`;
 						  tag += "<input type='button' value='확인' id='noteYesBtn'/>";
 						  tag += `</div>`;  

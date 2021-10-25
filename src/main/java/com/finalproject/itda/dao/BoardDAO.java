@@ -92,12 +92,24 @@ public interface BoardDAO {
 		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
 		public MemberBaseVO freeBoardmodalGudok(MemberBaseVO mbVo);   
 	
+		//구독 ok 모달창 
+		@Insert("insert into user_sub(m_seq, m_seq_sub) values (${m_seq}, (select m_seq from memberbase where m_nickname=#{m_nickname})) ")
+		public int freeBoardmodalGudokOk(MemberBaseVO mbVo);
+		
+		
 	//쪽지 모달창
 		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
 		public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo);   
 		
 	//쪽지 YES 모달창
-		@Select("select m_nickname from memberbase where m_nickname=#{m_nickname}")
-		public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo);   
+		@Insert("insert into messagesend(msg_seq, m_seq1, m_seq2, msg_content) values (msg_seq.nextval, (select m_seq from memberbase where m_userid=#{m_userid}), (select m_seq from memberbase where m_nickname=#{m_nickname}), #{msg_content})  ")
+		public int freeBoardmodalNoteYes(MemberBaseVO mbVo);   
+		
+	//게시물보기 -- 닉네임, 등급이름, 게시물번호, 제목, 등록일, 조회수   
+		@Select("select mb.m_nickname, r.m_name, bb.board_seq, bb.board_subject, bb.board_writedate, bb.board_hit, bb.b_goodhit from boardbase bb join memberbase mb on "
+				+ " bb.m_seq = mb.m_seq join member_rank r on mb.m_rank = r.m_rank "
+				+ " where mb.m_seq=(select m_seq from memberbase where m_nickname=#{m_nickname}) ")
+		public List<BoardVO> writeList(BoardVO vo);
+		// public MemberBaseVO freeBoardWriteView(MemberBaseVO mbVo); 
 
 }

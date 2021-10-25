@@ -17,6 +17,7 @@ public class BoardVO {
 	private String b_content;
 	private String board_blockcontent;
 	private String board_content;
+	private String m_name; // 등급이름 
 	
 	//댓글 수 
 	private int br_count;
@@ -164,6 +165,13 @@ public class BoardVO {
 	public void setL_Url(String l_Url) {
 		this.l_Url = l_Url;
 	}
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+	
 
 }
 

@@ -13,11 +13,14 @@ public interface BoardService {
 	public List<BoardVO> boardList(PagingVO pVo); //글목록 리스트 origin
 
 	public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo); // 프로필 모달창 
-	public int freeBoardmodalChadanOk(MemberBaseVO mbVo); //차단 ok
+	public int freeBoardmodalChadanOk(MemberBaseVO mbVo); //차단 ok(insert)
+	
+	public int freeBoardmodalGudokOk(MemberBaseVO mbVo); //구독 ok(insert)
 	public MemberBaseVO freeBoardmodalGudok(MemberBaseVO mbVo);  //구독
 	public MemberBaseVO freeBoardmodalNote(MemberBaseVO mbVo); //쪽지 
-	public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo); //쪽지 yes
-	 
+	public int freeBoardmodalNoteYes(MemberBaseVO mbVo); //쪽지 yes
+	
+	public List<BoardVO> writeList(BoardVO vo); //게시물보기 
 
 	public PagingVO totalRecordCount(PagingVO pVo); //검색
 	public int freeboardWrite(BoardVO vo); //글쓰기
