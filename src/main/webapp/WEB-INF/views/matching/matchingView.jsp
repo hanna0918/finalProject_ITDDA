@@ -65,7 +65,7 @@
             <div class='contentWriter'><!-- 작성자 -->
                 <div><img src='/itda/img/user.png' name='profileShot' /></div><!-- 프로필이미지 -->
                 <div>
-                    <div class='userid'>${vo.m_nickname}(${vo.m_userid})</div>
+                    <div>${vo.m_nickname}(${vo.m_userid})</div>
                     <div>
                         <ul>
                             <li>${vo.board_writedate}</li>
@@ -169,7 +169,7 @@
             
         </article>
     </div>
-    
+    <!-- 신고모달, alert 대용 모달 -->
     <div class="matchingReportModal" id="matchingReportModal">
         <div class="matchingReportModalOverlay"></div>
         <article class="matchingReportModalContent">

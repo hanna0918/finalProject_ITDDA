@@ -28,7 +28,7 @@ public class MatchingController {
 		ModelAndView mav = new ModelAndView();
 		MatchingPagingVO pVo = new MatchingPagingVO();
 		mav.setViewName("matching/matchingList");
-		
+		pVo.setM_seq(vo.getM_seq());
 		mav.addObject("pVo", matchingService.page(pVo));
 		mav.addObject("list", matchingService.matchingList(pVo));
 		return mav; 
@@ -46,8 +46,8 @@ public class MatchingController {
 	}
 	@RequestMapping("/calendarAjax")
 	@ResponseBody
-	public List<CalendarVO> calendarAjax() {
-		return matchingService.dataForJson();
+	public List<CalendarVO> calendarAjax(MatchingPagingVO pVo) {
+		return matchingService.dataForJson(pVo);
 	}
 
 	@RequestMapping(value="matchingView")

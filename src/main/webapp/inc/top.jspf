@@ -39,7 +39,14 @@
             <a href="/itda"><img src="img/ITDDA01.png" /></a>
           </li>
           <li><a href="/itda/recommendList">RECOMMEND</a></li>
+          <c:choose>
+          <c:when test='${logseq!=null }'>
+          <li><a href="/itda/matchingList?m_seq=${logseq}">MATCHING</a></li>
+          </c:when>
+          <c:otherwise>
           <li><a href="/itda/matchingList">MATCHING</a></li>
+          </c:otherwise>
+          </c:choose>
           <li><a href="/itda/injeungBoard">HANGOUT</a></li>
           <li><a href="/itda/freeBoard2">FREEBOARD</a></li>
           <li><a href="/itda/questionBoard">Q&A</a></li>

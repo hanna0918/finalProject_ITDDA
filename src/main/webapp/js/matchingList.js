@@ -17,7 +17,12 @@ calendarAjax();
 
 
 function calendarAjax(){
-	var rUrl = "/itda/calendarAjax";
+	var logseq = $("#logseq").val();
+	if(logseq!=null || logseq!=""){
+		var rUrl = "/itda/calendarAjax?m_seq=" + logseq;
+	}else{
+		var rUrl = "/itda/calendarAjax";
+	}
 	$.ajax({
 		type : "GET",
 		url: rUrl,
@@ -170,6 +175,8 @@ function sendWithAjax(){
 	data += "&nowPage=" + nowPage;
 	data += "&frequency=" + frequency;
 	data += "&listup=" + selectedViewByTime;
+	data += "&m_seq=" + $("#logseq").val();
+	console.log("logseq="+$("#logseq").val());
 	var data = data;
 	var rUrl = "/itda/matchingListTagSearch";
 	console.log(data);
@@ -190,7 +197,7 @@ function sendWithAjax(){
 					var splitTag = vo.board_select.split('/');
 					newList += `<a href="/itda/matchingView?board_seq=${vo.board_seq}"><div class="matchingBox" id="matchingBox">`;
 					newList += `<div class="photo">`;
-					newList += `<img src="/itda/img/quoka.png" alt="매칭1" width="100%"/>`;
+					newList += `<img src="/itda/img/book.jpg" alt="매칭1" width="100%"/>`;
 					newList += `<div class="endSoon">`
 					if(vo.mc_state==1){
 						newList += '비정기매칭';
@@ -199,13 +206,13 @@ function sendWithAjax(){
 					}
 					newList += `</div>`;
 					newList += `</div>`;
+					newList += `<div class="writer">${vo.m_userid }</div>`;
 					newList += `<div class="hashTag">`;
 					for(i=0;i<splitTag.length;i++){
 						newList += `#${splitTag[i]} `;
 					}
 					newList += `</div>`;
 					newList += `<div class="where">${vo.mc_where}</div>`;
-					newList += `<div class="writer">${vo.m_userid }</div>`;
 					newList += `<div class="matchingDate">${vo.mc_start_date}</div>`;
 					newList += `<div class="matchingStatus">${vo.matchingCount} / ${vo.mc_max}</div>`;
 					newList += `</div></a>`;
@@ -216,10 +223,10 @@ function sendWithAjax(){
 			if(listResult.length != 0){
 				pageResult.each(function(idx, pVo){
 					if(pVo.nowPage > 1){
-						newPageNum += "<li class='page-item'><a href='javascript:matchingPagingPrev()' class='page-link'>Prev</a></li>"
+						newPageNum += "<li class='page-item'><a href='javascript:matchingPagingPrev()' class='page-link'>◁</a></li>"
 					}
 					if(pVo.nowPage == 1){
-						newPageNum += "<li class='page-item'><a class='page-link'>Prev</a></li>"
+						newPageNum += "<li class='page-item'><a class='page-link'>◁</a></li>"
 					}
 					for(i=pVo.startPage;i<=pVo.startPage + pVo.onePageNumCount-1;i++){
 						if(i <= pVo.totalPage){
@@ -233,7 +240,7 @@ function sendWithAjax(){
 						}
 					}
 					if(pVo.nowPage < pVo.totalPage){
-						newPageNum += "<li class='page-item'><a href='javascript:matchingPagingNext()'>Next</a></li>";
+						newPageNum += "<li class='page-item'><a href='javascript:matchingPagingNext()'>▷</a></li>";
 					}
 				});
 			}

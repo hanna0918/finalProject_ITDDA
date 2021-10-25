@@ -20,7 +20,10 @@ public interface MatchingDAO {
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
-		" where board_block=0 ",
+		" where board_block in (0, 2) ",
+		" <if test='m_seq!=null and m_seq!=\"\"'> ",
+		" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+		" </if> ",
 		" <if test='tag != null and tag != \"\"'> ",
 		" <foreach item='item' collection='tag' open='' separator='' close=''> ",
 		" and board_select like '%${item}%' ",
@@ -49,6 +52,9 @@ public interface MatchingDAO {
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
 		" where board_block in (0, 2) ",
+		" <if test='m_seq!=null and m_seq!=\"\"'> ",
+		" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+		" </if> ",
 		" <if test='tag != null and tag != \"\"'> ",
 		" <foreach item='item' collection='tag' open='' separator='' close=''> ",
 		" and board_select like '%${item}%' ",
@@ -122,9 +128,14 @@ public interface MatchingDAO {
 	public int countHit(int b_id);
 	
 	// 캘린더에 들어갈 값
-	@Select(" select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", "
-			+ " board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq")
-	public List<CalendarVO> dataForJson();
+	@Select({" <script> ",
+			"select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", ",
+			" board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq",
+			" <if test='m_seq!=null and m_seq!=\"\"'> ",
+			" where b.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+			" </if> ",
+			" </script>"})
+	public List<CalendarVO> dataForJson(MatchingPagingVO pVo);
 	
 	// 매칭 글등록
 	@Insert(" insert all "
