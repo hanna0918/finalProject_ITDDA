@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<div class="mainImg" style="overflow: auto">
-	<div style=" height: 400px; opacity: 0.8; overflow: auto; background-image: url(https://starwalk.space/gallery/images/the-brightest-stars/1140x641)"></div>
-	<h1 style="position: absolute; top: 300px; left: 50%; transform: translate(-50%, -50%); color: black; opacity: 1; font-size: 50px; text-align: center">다른 사람과 '잇다'</h1>
-</div>
+
 
   <!-- 베스트 게시판==================================================================== -->
 <section class="bestBoardContent">

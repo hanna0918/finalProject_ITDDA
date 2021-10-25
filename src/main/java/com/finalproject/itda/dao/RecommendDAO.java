@@ -5,29 +5,58 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
-import com.finalproject.itda.vo.MatchingVO;
 import com.finalproject.itda.vo.RecommendPagingVO;
 import com.finalproject.itda.vo.RecommendVO;
 
 public interface RecommendDAO {
 
-	@Select(""
-			+ " SELECT "
-			+ " B.BOARD_SEQ, "
-			+ " (SELECT I_URL FROM (SELECT ROWNUM AS ROWNUMBER, I_URL FROM BOARD_IMAGE B1 WHERE B1.BOARD_SEQ = B.BOARD_SEQ ORDER BY IMAGESEQ ASC) A WHERE A.ROWNUMBER=1) AS I_URL,"
-			+ " B.BOARD_SUBJECT, "
-			+ " (SELECT '#' || REPLACE(T1.BOARD_SELECT, '/', '#') FROM BOARD_CONTENT T1 WHERE B.BOARD_SEQ = T1.BOARD_SEQ) AS BOARD_SELECT  , "
-			+ " B.B_GOODHIT, "
-			+ " M.M_NICKNAME, "
-			+ " M.M_USERID, "
-			+ " TO_CHAR(B.BOARD_WRITEDATE, 'YYYY-MM-DD HH24:MI') BOARD_WRITEDATE, "
-			+ " B.BOARD_HIT, "
-			+ " B.BOARD_CALL, "
-			+ " (SELECT COUNT(*) CNT FROM BOARD_COMMENT C WHERE C.BOARD_SEQ = B.BOARD_SEQ) BR_CNT "
-			+ " FROM BOARDBASE B "
-			+ " JOIN MEMBERBASE M ON B.M_SEQ = M.M_SEQ"
-			+ " WHERE BOARD_CODE=1 ORDER BY BOARD_SEQ")
-	public List<RecommendVO> recommendList(RecommendVO vo);
+	@Select({" <script> ",
+		" select * from ",
+		" (select * from ",
+		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, b_content, ",
+		" board_select ",
+		" from boardbase b ",
+		" inner join board_content a on b.board_seq=a.board_seq ",
+		" inner join memberbase c on b.m_seq=c.m_seq ",
+		" where board_block in (0, 2) and board_code = 1 ",
+		" <if test='tag != null and tag != \"\"'> ",
+		" 	<foreach item='item' collection='tag' open='' separator='' close=''> ",
+		" 		and board_select like '%${item}%' ",
+		" 	</foreach> ",
+		" </if> ",
+		" order by board_seq desc) ",
+		" where rownum<![CDATA[<=]]>${onePageRecord} * ${nowPage} ",
+		" order by board_seq asc) ",
+		" where rownum<![CDATA[<= ]]> ",
+		" <choose> ",
+		" 	<when test='totalPage == nowPage and lastPage != 0'> ",
+		" 		mod(${totalRecord} , ${onePageRecord}) ",
+		" 	</when> ",
+		" 	<otherwise> ",
+		" 		${onePageRecord} ",
+		" 	</otherwise> ",
+		
+		" </choose> ",
+		" 	order by board_seq desc ",
+		" </script> "})
+	public List<RecommendVO> recommendList(RecommendPagingVO vo);
+//	@Select(""
+//			+ " SELECT "
+//			+ " B.BOARD_SEQ, "
+//			+ " (SELECT I_URL FROM (SELECT ROWNUM AS ROWNUMBER, I_URL FROM BOARD_IMAGE B1 WHERE B1.BOARD_SEQ = B.BOARD_SEQ ORDER BY IMAGESEQ ASC) A WHERE A.ROWNUMBER=1) AS I_URL,"
+//			+ " B.BOARD_SUBJECT, "
+//			+ " (SELECT '#' || REPLACE(T1.BOARD_SELECT, '/', ' #') FROM BOARD_CONTENT T1 WHERE B.BOARD_SEQ = T1.BOARD_SEQ) AS BOARD_SELECT  , "
+//			+ " B.B_GOODHIT, "
+//			+ " M.M_NICKNAME, "
+//			+ " M.M_USERID, "
+//			+ " TO_CHAR(B.BOARD_WRITEDATE, 'YYYY-MM-DD HH24:MI') BOARD_WRITEDATE, "
+//			+ " B.BOARD_HIT, "
+//			+ " B.BOARD_CALL, "
+//			+ " (SELECT COUNT(*) CNT FROM BOARD_COMMENT C WHERE C.BOARD_SEQ = B.BOARD_SEQ) BR_CNT "
+//			+ " FROM BOARDBASE B "
+//			+ " JOIN MEMBERBASE M ON B.M_SEQ = M.M_SEQ"
+//			+ " WHERE BOARD_CODE=1 ORDER BY BOARD_SEQ")
+//	public List<RecommendVO> recommendList(RecommendVO vo);
 	
 	
 	@Insert(" insert all "
@@ -82,7 +111,18 @@ public interface RecommendDAO {
 			+ "where board_seq=${param1}")
 	public RecommendVO recommendView(int board_seq);
 	
-	@Select("select count(*) from baordbase where board_code=1")
+	@Select({"<script>",
+		" select count(b.board_seq) totalRecord ",
+		" from boardbase b ",
+		" inner join board_content a on b.board_seq=a.board_seq ",
+		" inner join memberbase c on b.m_seq=c.m_seq ",
+		" where board_block in (0 , 2) and board_code=1 ",
+		" <if test='tag != null and tag != \"\"'> ",
+		" 	<foreach item='item' collection='tag' open='' separator='' close=''> ",
+		" 		and board_select like '%${item}%' ",
+		" 	</foreach> ",
+		" </if> ",
+		" </script>" })
 	public RecommendPagingVO page(RecommendPagingVO pVo);
 	
 }

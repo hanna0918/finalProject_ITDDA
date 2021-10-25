@@ -7,7 +7,7 @@ import com.finalproject.itda.vo.RecommendVO;
 
 public interface RecommendService {
 	//추천게시판 리스트
-	public List<RecommendVO> recommendList(RecommendVO vo);
+	public List<RecommendVO> recommendList(RecommendPagingVO vo);
 	
 	//추천게시판 글쓰기
 	public int recommendWriteOk(RecommendVO vo);

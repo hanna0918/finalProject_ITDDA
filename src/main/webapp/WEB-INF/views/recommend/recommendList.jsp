@@ -25,20 +25,7 @@
 			</form>
 		</div>
 	</header>
-	
-	
-	<!-- 추천 리스트 -->
-	<!-- 	<div class="boardList"> -->
-	<!-- 		<ul id="chucheonTitle"> -->
-	<!-- 			<li>NO</li> -->
-	<!-- 			<li>제목</li> -->
-	<!-- 			<li>작성자</li> -->
-	<!-- 			<li>등록일</li> -->
-	<!-- 			<li>조회수</li> -->
-	<!-- 			<li>댓글수</li> -->
-	<!-- 		</ul> -->
-	<!-- 		<hr /> -->
-	<!-- 	</div> -->
+
 	<div>
 		<form>
 			<div class="chucheonList">
@@ -54,7 +41,7 @@
 							<div>
 								<a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a>
 							</div>
-							<span class="tagspan">${vo.board_select}</span>
+							<span class="tagspan"><c:forEach var="tag" items="${vo.tags}">#${tag} </c:forEach></span>
 							<div>
 								<div>${vo.m_nickname}</div>
 								<div>${vo.board_writedate}</div>
@@ -89,13 +76,26 @@
 	<!-- 페이지번호 -->
 	<div class='pagingDiv'>
 		<ul>
-			<li><a href='#'>◁</a></li>
-			<li><a href='#'>1</a></li>
-			<li><a href='#'>2</a></li>
-			<li><a href='#'>3</a></li>
-			<li><a href='#'>4</a></li>
-			<li><a href='#'>5</a></li>
-			<li><a href='#'>▷</a></li>
+			<c:if test="${pVo.nowPage>1}">
+				<li class='page-item'><a href="javascript:recommendPaging(${pVo.nowPage-1})" class='page-link'>◁</a></li>
+			</c:if>
+			<c:if test="${pVo.nowPage==1 }">
+				<li class='page-item'><a class='page-link'>◁</a></li>
+			</c:if>
+			<c:forEach var="i" begin="${pVo.startPage}" end="${pVo.startPage+pVo.onePageNumCount-1}">
+				<c:if test="${i<=pVo.totalPage}">
+					<c:if test="${i==pVo.nowPage}">
+						<li class='page-item' id="activePage">
+					</c:if>
+					<c:if test="${i!=pVo.nowPage}">
+						<li class='page-item'>
+		    		</c:if>
+	    		<a href="javascript:recommendPaging(${i} , ${pVo.totalPage} , ${pVo.onePageNumCount} , ${pVo.totalRecord})">${i}</a></li>
+	    	</c:if>
+		</c:forEach>
+		<c:if test="${pVo.nowPage<pVo.totalPage}">
+	    	<li class='page-item'><a href="javascript:recommendPaging(${pVo.nowPage+1})">▷</a></li>
+	    </c:if>
 		</ul>
 	</div>
 </div>

@@ -15,8 +15,8 @@ public class RecommendServiceImpl implements RecommendService {
 	RecommendDAO recommendDAO;
 	
 	@Override
-	public List<RecommendVO> recommendList(RecommendVO vo) {//추천게시판 리스트
-		return recommendDAO.recommendList(vo);
+	public List<RecommendVO> recommendList(RecommendPagingVO pVo) {//추천게시판 리스트
+		return recommendDAO.recommendList(pVo);
 	}
 
 	@Override

@@ -4,7 +4,7 @@ public class RecommendPagingVO {
 	private int totalRecord;
 	private int nowPage = 1;
 	private int totalPage;
-	private int onePageRecord = 8;
+	private int onePageRecord = 5;
 	
 	// �˻���
 	private String searchKey;
@@ -20,17 +20,37 @@ public class RecommendPagingVO {
 	// ���Ĺ��
 	private String frequency;
 	private String listup;
+	
+	private int lastPage;
+	
+	
+	
+	
+	public int getLastPage() {
+		return lastPage;
+	}
+	public void setLastPage(int lastPage) {
+		this.lastPage = lastPage;
+		lastPage = totalRecord % onePageRecord;
+		System.out.println("lastPage=======>"+lastPage);
+	}
 	public int getTotalRecord() {
 		return totalRecord;
 	}
 	public void setTotalRecord(int totalRecord) {
 		this.totalRecord = totalRecord;
+		//총페이지수
+		totalPage = (int)Math.ceil(totalRecord/(double)onePageRecord);
 	}
 	public int getNowPage() {
 		return nowPage;
 	}
 	public void setNowPage(int nowPage) {
 		this.nowPage = nowPage;
+		
+		if(nowPage != 0) {
+			startPage = (nowPage - 1) / onePageNumCount * onePageNumCount + 1;
+		}
 	}
 	public int getTotalPage() {
 		return totalPage;
