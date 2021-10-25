@@ -50,15 +50,15 @@ public class BoardController {
 //			return resultvo;
 //	 }
 	 
-	 //차단 ok 모달
-	 @RequestMapping(value="/freeBoardmodalChadanOk" , method=RequestMethod.POST )
+	 //차단 ok 모달 (insert 새로 만든거)
+	 @RequestMapping(value="/freeBoardmodalChadanOk", method=RequestMethod.POST)
 	 @ResponseBody
 	 public int freeBoardmodalChadanOk(MemberBaseVO mbVo) {
 		 System.out.println("들어온거 맞니? 차단ok?");
 		 System.out.println(mbVo.getM_nickname());
 		 int result = boardService.freeBoardmodalChadanOk(mbVo);
 		 System.out.println("db작업 끝 리턴 직전");
-			return result;
+		 return result;
 	 }
 	
 	 //구독 모달
@@ -67,9 +67,22 @@ public class BoardController {
 	 public MemberBaseVO freeBoardmodalGudok(MemberBaseVO mbVo) {
 		 System.out.println("들어온거 맞니? 구독?");
 		 System.out.println(mbVo.getM_nickname());
-		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		 MemberBaseVO resultvo = boardService.freeBoardmodalGudok(mbVo);
 		return resultvo;
 	 }
+	 
+	 //구독 모달 ok (insert 새로 만든거)
+	 @RequestMapping(value="/freeBoardmodalGudokOk" , method=RequestMethod.POST )
+	 @ResponseBody
+	 public int freeBoardmodalGudokOk(MemberBaseVO mbVo) {
+		 System.out.println("들어온거 맞니? 구독 ok?");
+		 System.out.println(mbVo.getM_nickname());
+		 int result = boardService.freeBoardmodalGudokOk(mbVo);
+		 System.out.println("dao까지는 문제 없음");
+		return result;
+	 }
+	 
+	 
 	 
 	//쪽지보내기 모달
 	 @RequestMapping(value="/freeBoardmodalNote" , method=RequestMethod.POST )
@@ -78,21 +91,19 @@ public class BoardController {
 		 System.out.println("들어온거 맞니? 쪽지?");
 		 System.out.println(mbVo.getM_nickname());
 		 System.out.println();
-		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
+		 MemberBaseVO resultvo = boardService.freeBoardmodalNote(mbVo);
 			return resultvo;
 	 }
 	 //쪽지보내기 모달 yes
 	 @RequestMapping(value="/freeBoardmodalNoteYes", method=RequestMethod.POST )
 	 @ResponseBody
-	 public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo) {
-		 System.out.println("들어온거 맞니? 쪽지 yes?");
+	 public int freeBoardmodalNoteYes(MemberBaseVO mbVo, HttpSession ses) {
+		 System.out.println("이 ?");
 		 System.out.println(mbVo.getM_nickname());
-		 System.out.println();
-		 MemberBaseVO resultvo = boardService.freeBoardmodal(mbVo);
-			return resultvo;
+		 mbVo.setM_userid((String)ses.getAttribute("login"));
+		 int result = boardService.freeBoardmodalNoteYes(mbVo);
+			return result;
 	 }
-	 
-
 	 
 	/*
 	 * @RequestMapping(value="/freeBoard2") public String freeBoard2(Model model) {
@@ -100,14 +111,34 @@ public class BoardController {
 	 * "/board/freeBoard2"; }
 	 */
 	
-
-	
+	//게시물보기
+	@RequestMapping(value = "/writeList", method=RequestMethod.GET)
+	public String writeList(BoardVO vo, Model model) {
+		model.addAttribute("list", boardService.writeList(vo));
+		System.out.println(vo.getM_name());
+		System.out.println(vo.getM_nickname());
+		model.addAttribute("m_nickname", vo.getM_nickname());
+		model.addAttribute("m_name", vo.getM_name());
+		return "/board/writeList";
+	}
+ 
+	/*
+	 * //게시물보기 (//닉네임, 등급)
+	 * 
+	 * @RequestMapping(value="/freeBoardWriteView", method=RequestMethod.POST )
+	 * 
+	 * @ResponseBody public MemberBaseVO freeBoardWriteView(MemberBaseVO mbVo) {
+	 * System.out.println("들어온거 맞니? 게시물보기?");
+	 * System.out.println(mbVo.getM_nickname());
+	 * System.out.println(mbVo.getM_name()); System.out.println(); MemberBaseVO
+	 * resultvo = boardService.freeBoardmodalNote(mbVo); return resultvo; }
+	 */
+	 
 	//글내용보기
 	@RequestMapping("/freeview")
 	public String boardView(Model model, int board_seq) {
 		model.addAttribute("vo",boardService.freeView(board_seq));
 		return "board/freeview";
-
 	}
 
 	//글쓰기 폼 
@@ -196,16 +227,6 @@ public class BoardController {
 		return mav;
 	}
 	
-	//게시물보기
-	@RequestMapping("/writeList")
-	public String writeList() {
-		return "/board/writeList";
-	}
 
-	@RequestMapping("/test")
-	public String test() {
-		System.out.print("ASfsadf");
-		return null;
-	}
 
 }
