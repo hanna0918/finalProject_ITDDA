@@ -169,7 +169,7 @@
             
         </article>
     </div>
-    
+    <!-- 신고모달, alert 대용 모달 -->
     <div class="matchingReportModal" id="matchingReportModal">
         <div class="matchingReportModalOverlay"></div>
         <article class="matchingReportModalContent">
