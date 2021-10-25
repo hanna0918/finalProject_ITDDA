@@ -1,5 +1,8 @@
 package com.finalproject.itda.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -7,10 +10,13 @@ import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.RecommendService;
+import com.finalproject.itda.vo.MatchingPagingVO;
 import com.finalproject.itda.vo.MatchingVO;
+import com.finalproject.itda.vo.RecommendPagingVO;
 import com.finalproject.itda.vo.RecommendVO;
 
 @Controller
@@ -23,10 +29,22 @@ public class RecommendController {
 	@RequestMapping(value="/recommendList", method = RequestMethod.GET)
 	public ModelAndView recommendList(RecommendVO vo) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", recommendService.recommendList(vo));
-		
+		RecommendPagingVO pVo = new RecommendPagingVO();
+		mav.addObject("pVo", recommendService.page(pVo));
+		mav.addObject("list", recommendService.recommendList(pVo));
 		mav.setViewName("/recommend/recommendList");
 		return mav;
+	}
+	
+	@RequestMapping(value="/recommendListTagSearch", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> tagSearch(RecommendPagingVO pVo){
+		Map<String, Object> map = new HashMap<String, Object>();
+		RecommendPagingVO ppVo = recommendService.page(pVo);
+		ppVo.setNowPage(pVo.getNowPage());
+		map.put("pVo", ppVo);
+		map.put("vo", recommendService.recommendList(pVo));
+		return map;
 	}
 
 	//추천게시판 글작성 view
@@ -46,11 +64,9 @@ public class RecommendController {
 		ModelAndView mav = new ModelAndView();
 		if(cnt>0) {
 			mav.setViewName("redirect:recommendList");
-			
 		}else {
 			mav.setViewName("redirect:recommendWrite");
 		}
-		
 		return mav;
 	}
 	

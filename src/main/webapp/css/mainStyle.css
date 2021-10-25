@@ -29,10 +29,6 @@ body {
   height: 100%;
 }
 
-/* body::-webkit-scrollbar,
-.mainContent::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-} */
 a:link {
   color: black;
   text-decoration: none;
