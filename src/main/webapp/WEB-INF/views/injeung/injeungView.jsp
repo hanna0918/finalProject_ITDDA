@@ -10,7 +10,7 @@
 			<div class='contentWriter'><!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
-					<div class='postWirterNick'>내가순찬</div>
+					<div class='postWriterNick'>내가순찬</div>
 					<div>
 						<ul>
 							<li>2021-09-18</li>
@@ -47,11 +47,29 @@
 					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> 2</span>
 				</div>
 				<div><!-- 2 댓글박스 -->
-					<div><img src='img/circle.png' name='profileShot'></div>
-					<div>
-						<div class='boardWriter'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
-						<div class='replyView'>내글에 내가 댓글달기</div>
-						<div><span>수정</span> <span>지우기</span></div>				
+					<div class="replyBox">
+						<div><img src='img/circle.png' name='profileShot'></div>
+						<div>
+							<div class='boardWriter'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
+							<div class='replyView'>내글에 내가 댓글달기</div>
+							<div><span>수정</span> <span>지우기</span></div>				
+						</div>
+					</div>
+					<div class="replyBox">
+						<div><img src='img/circle.png' name='profileShot'></div>
+						<div>
+							<div class='boardWriter'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
+							<div class='replyView'>내글에 내가 댓글달기</div>
+							<div><span>수정</span> <span>지우기</span></div>				
+						</div>
+					</div>
+					<div class="replyBox">
+						<div><img src='img/circle.png' name='profileShot'></div>
+						<div>
+							<div class='boardWriter'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
+							<div class='replyView'>내글에 내가 댓글달기</div>
+							<div><span>수정</span> <span>지우기</span></div>				
+						</div>
 					</div>
 				</div>
 				<div><!-- 3 댓글 텍스트박스 -->

@@ -5,7 +5,7 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- ----------------------- 내가 쓴 글 ----------------------- -->
 <div id='myBoardList'>
-	<h2>내가 쓴 글</h2>
+	<h3 class="mypageH2">내가 쓴 글</h3>
 	<div class='list'>
 		<ul id='title'>
 			<li><select id='selectCategory'>
@@ -21,7 +21,6 @@
 			<li>조회수</li>
 			<li>댓글수</li>
 		</ul>
-		<hr />
 	</div>
 	<div class='list'>
 		<ul class='content'>

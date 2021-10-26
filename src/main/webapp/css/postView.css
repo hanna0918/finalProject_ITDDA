@@ -44,12 +44,9 @@
 		height:60px;
 /* 		margin-bottom:2%; */
 	}
-	.contentWriter>div:first-child, .contentReply>div:nth-child(2)>div:first-child{
+	.contentWriter>div:first-child{
 		width:5%;
 		float:left;
-	}
-	.contentReply>div:nth-child(2)>div:last-child{
-		padding:2px 3px;
 	}
 	.contentWriter>div:last-child{
 		width:80%;
@@ -63,6 +60,9 @@
 		font-size:0.89em;
 		margin-right:1%;
 	}
+/* 	.contentReply>div:nth-child(2)>div:last-child{ */
+/* 		padding:2px 3px; */
+/* 	} */
 	.contentWriter li:last-child:hover{
 		color:red;
 	}
@@ -95,33 +95,45 @@
 		width:100%;
 		overflow:auto;
 		margin-top:5%;
+		
 	}
 	.contentReply>div{
-		width:100%;
+/* 		width:100%; */
 		overflow:auto;		
 		margin-top:2%;
 		box-sizing:border-box;
 	}
-	.contentReply>div:first-child{
+	.replyBox>div:first-child{
 		padding-left:1%;
+		width:6%;
 		height:30px;
 		line-height:30px;
 		font-size:1.15em;
+		float:left;
+	}
+	.replyBox>div:last-child{
+		width:90%;
+		float:left;
+		margin-left:5px;
+		padding-top:5px;
 	}
 	#siren{
 		float:right;
 		color:black;
 		margin-right:10px;
 	}
+	.replyBox{
+		width:100%;
+		margin-bottom:12px;
+	}
 	.contentReply>div:nth-child(2)>div{
 		float:left;
 	}
-	.postWirterNick{
+	.postWriterNick{
 		font-size:0.95em;
 		font-weight:bold;
 	}
 	.replyView{
-		margin-top:2%;
 		font-size:0.9em;
 	}
 	.contentReply span{

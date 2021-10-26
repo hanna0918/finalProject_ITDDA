@@ -6,6 +6,7 @@
 <!-- ----------------------- 내가 쓴 글 ----------------------- -->
 <div id='myBoardList'>
 	<div id='mypageIntro'>
-		<div>너와 나를 '잇다'</div>
+		<div>너와 나 우리를 '잇다'</div>
+		<div><img src="/itda/img/intro04.jpg"/></div>
 	</div>
 </div>

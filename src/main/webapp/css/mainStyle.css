@@ -62,6 +62,10 @@ a:visited {
   letter-spacing: -1px;
   color: #000000ba;
 }
+.topMenu>li>a:hover{
+	color: coral;
+	font-weight: bold;
+}
 .topMenu > li > a > img {
   width: 150px;
   text-align: center;

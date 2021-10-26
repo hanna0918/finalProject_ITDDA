@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 	<!-- mypage 스타일 -->
-    <link rel="stylesheet" type="text/css" href="css/mypageTop.css?ab" />
-    <link rel="stylesheet" type="text/css" href="css/mypage.css?b" />
+    <link rel="stylesheet" type="text/css" href="css/mypageTop.css?abc" />
+    <link rel="stylesheet" type="text/css" href="css/mypage.css?bc" />
     <!--  index 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/mainStyle.css?abc" />
 	

@@ -5,7 +5,7 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- -----------------------  북마크 ----------------------- -->
 <div id='myBookmark'>
-	<h2>북마크</h2>
+	<h3>북마크</h3>
 	<div class='list'>
 		<ul id='title'>
 			<li>rownum</li>
@@ -14,7 +14,6 @@
 			<li>등록일</li>
 			<li></li>
 		</ul>
-		<hr />
 	</div>
 	<div class='list'>
 		<ul class='content'>
