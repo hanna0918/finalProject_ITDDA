@@ -6,10 +6,10 @@
   font-style: normal;
 }
 @font-face {
-    font-family: 'BBTreeGL';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "BBTreeGL";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 body,
 div,
@@ -25,28 +25,32 @@ li {
 /*컨테이너*/
 .boardContainer {
   width: 1100px;
+<<<<<<< HEAD
 /*   overflow: auto; */
+=======
+  /* overflow: auto; */
+>>>>>>> origin/main
   margin: 0 auto;
 }
 /* 게시판 타이틀 div */
-.boardName{
-	margin-top:40px;
+.boardName {
+  margin-top: 40px;
 }
-.boardName>h2{
-  font-weight:bold;
-  color:black;
-  margin:10px 0;
-  font-size:1.6em;
+.boardName > h2 {
+  font-weight: bold;
+  color: black;
+  margin: 10px 0;
+  font-size: 1.6em;
 }
-.boardName>h4{
-	margin-top:5px;
-	color:gray;
-    font-size:1.02em;
+.boardName > h4 {
+  margin-top: 5px;
+  color: gray;
+  font-size: 1.02em;
 }
 /* 페이지, 글쓰기벝은 */
 .boardBtnDiv {
   height: 40px;
-  margin-top:10px;
+  margin-top: 10px;
 }
 .writeBtn {
   /*글쓰기 버튼*/
@@ -87,36 +91,36 @@ li {
   flex-direction: row;
   justify-content: flex-end;
 }
-.allSearch>form{
-	border: 1px solid #80808073;
-    border-radius: 5px;
-    width: 360px;
-    height: 40px;
-    box-sizing: border-box;
+.allSearch > form {
+  border: 1px solid #80808073;
+  border-radius: 5px;
+  width: 360px;
+  height: 40px;
+  box-sizing: border-box;
 }
-select[name=searchSelect] {
+select[name="searchSelect"] {
   height: 36px;
   margin: 1.5px 0 0 9px;
   outline: none;
-  border:none;
-  font-size:1em; 
+  border: none;
+  font-size: 1em;
 }
-.allSearch>form>div>div{
-	float:right;
+.allSearch > form > div > div {
+  float: right;
 }
-.allSearch>form>div>div>img{
-	width:22px;
-	height:22px;
-	margin:8px 10px 7px 10px;
+.allSearch > form > div > div > img {
+  width: 22px;
+  height: 22px;
+  margin: 8px 10px 7px 10px;
 }
-input[name=search],
-input[name=search]:focus {
+input[name="search"],
+input[name="search"]:focus {
   height: 30px;
-  width:205px;
+  width: 205px;
   line-height: 30px;
   border: none;
   outline: none;
-/*   border-bottom: 1.5px solid #4c4646; */
+  /*   border-bottom: 1.5px solid #4c4646; */
 }
 input[name="searchContent"] {
   width: 32px;
@@ -127,7 +131,6 @@ input[name="searchContent"] {
   cursor: pointer;
 }
 /*----------------------------------------------------------------------------------------*/
-
 
 a {
   text-decoration: none;
@@ -140,7 +143,6 @@ span {
   color: blue;
   font-size: 0.85em;
 }
-
 
 .boardList {
   width: 100%;
@@ -157,7 +159,7 @@ span {
   height: 50px;
   line-height: 50px;
   font-size: 0.85em;
-  display:block;
+  display: block;
   border-top: 2px solid black;
   border-bottom: 1px solid black;
 }
@@ -178,21 +180,21 @@ span {
 }
 .basicBoardContent {
   width: 100%;
-  overflow:auto;
+  overflow: auto;
 }
 .basicBoardContent > div {
   float: left;
   height: 60px;
   line-height: 60px;
-  font-size:0.91em;
+  font-size: 0.91em;
   text-align: center;
   box-sizing: border-box;
-  border-bottom:1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 .basicBoardContent > div:nth-of-type(5n + 1) {
   width: 60%;
-  box-sizing:border-box;
-  padding-left:10px;
+  box-sizing: border-box;
+  padding-left: 10px;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -229,14 +231,14 @@ input[name="searchTag"]:focus {
 }
 #pic {
   /*컨텐츠 이미지 div*/
-	width: 100%;
-	overflow: auto;
-	margin: 0 auto;
-	box-sizing: border-box;
-	display:flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+  width: 100%;
+  overflow: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 #pic::-webkit-scrollbar {
@@ -258,15 +260,15 @@ input[name="searchTag"]:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-/*   margin-top: 5px; */
+  /*   margin-top: 5px; */
   padding-left: 3px;
   font-size: 0.9em;
 }
-.injeungTag{
-	font-family: 'BBTreeGL';
-	color:#00376b;
-	font-size: 0.8em;
-	font-weight: 600;
+.injeungTag {
+  font-family: "BBTreeGL";
+  color: #00376b;
+  font-size: 0.8em;
+  font-weight: 600;
 }
 #pic > div > div:nth-of-type(4) {
   margin-top: 6px;
@@ -286,7 +288,7 @@ img[name="goodhit"] {
 .injeungContentWriter {
   width: 100%;
   overflow: auto;
-/*   margin-top: 2%; */
+  /*   margin-top: 2%; */
 }
 .injeungContentWriter > div:first-child {
   width: 20%;
@@ -329,8 +331,8 @@ img[name="goodhit"] {
   width: 100%;
   height: 100px;
 }
-.chucheonList:first-child{
-	border-top:1px solid lightgray;
+.chucheonList:first-child {
+  border-top: 1px solid lightgray;
 }
 .chucheonList > div {
   float: left;
@@ -343,14 +345,14 @@ img[name="goodhit"] {
 .chucheonList > div:nth-of-type(3n + 1) {
   width: 7%;
   line-height: 100px;
-  font-size:0.75em;
+  font-size: 0.75em;
 }
 .chucheonList > div:nth-of-type(3n + 2) {
   width: 83%;
 }
 .chucheonList > div:nth-of-type(3n + 3) {
   width: 10%;
-  line-height:100px;
+  line-height: 100px;
 }
 .recommendContent {
   width: 80%;
@@ -358,12 +360,12 @@ img[name="goodhit"] {
 }
 .recommendContent > div {
   float: left;
-  box-sizing:border-box;
-  padding:13px 0;
+  box-sizing: border-box;
+  padding: 13px 0;
 }
 .recommendContent > div:nth-child(1) {
   width: 15%;
-  font-size: 0.87em;  
+  font-size: 0.87em;
 }
 .recommendContent > div:nth-child(2) {
   width: 85%;
@@ -372,17 +374,17 @@ img[name="goodhit"] {
   display: table-cell;
   vertical-align: middle;
 }
-.contentInfo>div:nth-of-type(2)>div{
-	float:left;
-	box-sizing: border-box;
-	margin-right:18px;
-	font-size: 0.75em;
+.contentInfo > div:nth-of-type(2) > div {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 18px;
+  font-size: 0.75em;
 }
-.contentInfo>.tagspan{
-	font-family: 'BBTreeGL';
-	color:#00376b;
-	font-size: 0.8em;
-	font-weight: 600;
+.contentInfo > .tagspan {
+  font-family: "BBTreeGL";
+  color: #00376b;
+  font-size: 0.8em;
+  font-weight: 600;
 }
 .chucheonImg {
   width: 80%;
@@ -393,217 +395,240 @@ img[name="goodhit"] {
   width: 15px;
 }
 
-   /*------------여기까지 자게 보드컨테이너----------------------------------------*/
-   
-   /*아이디 드롭다운 메뉴*/
-   .dropbtn {
-       
-     border: none;
-     cursor: pointer;
-   }
-   
-   .dropbtn:hover, .dropbtn:focus {
-     background-color: #2980B9;
-   }
-   
-   .dropdown {
-     position: relative;
-     /* display: inline-block; */
-   }
-   
-   .dropdown-content {
-     display: none;
-     position: absolute;
-     left: 70%;
-      top: 0px;
-      background-color: #f1f1f1; 
-     min-width: 160px;
-     overflow: auto;
-     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-     z-index: 1;
-   }
-   
-   .dropdown-content a {
-     text-align:center;
-     color: black;
-     padding: 12px 16px;
-     text-decoration: none;
-     display: block;
-   }
-   
-   .dropdown a:hover {background-color: #ddd;}
-   
-   .show {display: block;}
-   /* ---------------------------------------------*/
-   
-   /*차단 모달창 , 차단 yes 모달창*/
-   .blockJoinModal, .blockJoinModal2, .mailJoinModal, .mailJoinModal2, .gudokJoinModal, .gudokJoinModal2, .profilJoinModal{
-     display: none;
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     bottom: 0;
-     overflow-x: hidden;
-     overflow-y: auto;
-     -ms-overflow-style: none;
-   }
-   .blockJoinModal::-webkit-scrollbar {
-     display: none;
-   }
-   
-   .blockJoinModal2::-webkit-scrollbar {
-     display: none;
-   }
-   
-   .mailJoinModal::-webkit-scrollbar {
-     display: none;
-   }
-   
-   .mailJoinModal2::-webkit-scrollbar {
-     display: none;
-   }
-   
-   .gudokJoinModal::-webkit-scrollbar {
-     display: none;
-   }
-   
-   .gudokJoinModal2::-webkit-scrollbar {
-     display: none;
-   }
-   
-   .profilJoinModal::-webkit-scrollbar {
-     display: none;
-   }
-   .blockModalContent, .blockModalContent2, .mailModalContent, .mailModalContent2, .gudokModalContent, .gudokModalContent2, .profilModalContent  {
-     position: relative;
-     margin: 0 auto;
-     width: 380px;
-     padding: 20px;
-     background-color: #fafafa;
-     text-align: center;
-     border-radius: 10px;
-    /*  border: 2px solid #666; */
-     overflow-y: auto;
-   }
-   
-   .gudokModalContent{
-      width:340px;
-   }
-   
-   .blockDataInputModal , .blockDataInputModal2, .mailDataInputModal, .mailDataInputModal2, .gudokDataInputModal, .gudokDataInputModal2, .profilDataInputModal {
-     display: none;
-     background-color: whitesmoke;
-     box-shadow: 10px 10px 5px lightgrey;
-   }
-   
-   /*차단, 구독하기 확인 버튼 */
-   #yesChadan, #yesGudok{
-   border-color: white;
-    width: 160px;
-    height: 50px;
-    background-color: cornflowerblue;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-right: 5px;
-   }
-   
-   /*차단, 구독하기 취소버튼*/
-   #noChadan, #noGudok{
-   border-color: white;
-    width: 20;
-    width: 160px;
-    height: 50px;
-    background-color: white;
-    color: black;
-    /* border: none; */
-    border-radius: 10px;
-    cursor: pointer;
-   }
-   
-   #yesGudok, #noGudok{
-   width:120px;
-   }
-      
-   /*취소 버튼*/
-   #noMail{
-   background-color: white;
-    width: 160px;
-    height: 3o;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    font-weight: 700;
-    box-shadow: 1px 1px 0px 0px lightgrey;
-   }
-   
-   /*보내기 버튼*/
-      
-    #yesMail, #profilebtn{
-    background-color: cornflowerblue;
-    width: 160px;
-    height: 3o;
-    height: 30px;
-    color: white;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    font-weight: 700;
-    box-shadow: 1px 1px 0px 0px lightgrey;
-   }
-   
-   /*프로필 모달창*/
-   
-   /*프로필 */
-   #profileTop{
-   margin: 0 auto;
-    margin-bottom: 20px;
+/*------------여기까지 자게 보드컨테이너----------------------------------------*/
+
+/*아이디 드롭다운 메뉴*/
+.dropbtn {
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
+}
+
+.dropdown {
+  position: relative;
+  /* display: inline-block; */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 70%;
+  top: 0px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  text-align: center;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+/* ---------------------------------------------*/
+
+/*차단 모달창 , 차단 yes 모달창*/
+.blockJoinModal,
+.blockJoinModal2,
+.mailJoinModal,
+.mailJoinModal2,
+.gudokJoinModal,
+.gudokJoinModal2,
+.profilJoinModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+.blockJoinModal::-webkit-scrollbar {
+  display: none;
+}
+
+.blockJoinModal2::-webkit-scrollbar {
+  display: none;
+}
+
+.mailJoinModal::-webkit-scrollbar {
+  display: none;
+}
+
+.mailJoinModal2::-webkit-scrollbar {
+  display: none;
+}
+
+.gudokJoinModal::-webkit-scrollbar {
+  display: none;
+}
+
+.gudokJoinModal2::-webkit-scrollbar {
+  display: none;
+}
+
+.profilJoinModal::-webkit-scrollbar {
+  display: none;
+}
+.blockModalContent,
+.blockModalContent2,
+.mailModalContent,
+.mailModalContent2,
+.gudokModalContent,
+.gudokModalContent2,
+.profilModalContent {
+  position: relative;
+  margin: 0 auto;
+  width: 380px;
+  padding: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  border-radius: 10px;
+  /*  border: 2px solid #666; */
+  overflow-y: auto;
+}
+
+.gudokModalContent {
+  width: 340px;
+}
+
+.blockDataInputModal,
+.blockDataInputModal2,
+.mailDataInputModal,
+.mailDataInputModal2,
+.gudokDataInputModal,
+.gudokDataInputModal2,
+.profilDataInputModal {
+  display: none;
+  background-color: whitesmoke;
+  box-shadow: 10px 10px 5px lightgrey;
+}
+
+/*차단, 구독하기 확인 버튼 */
+#yesChadan,
+#yesGudok {
+  border-color: white;
+  width: 160px;
+  height: 50px;
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/*차단, 구독하기 취소버튼*/
+#noChadan,
+#noGudok {
+  border-color: white;
+  width: 20;
+  width: 160px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  /* border: none; */
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#yesGudok,
+#noGudok {
+  width: 120px;
+}
+
+/*취소 버튼*/
+#noMail {
+  background-color: white;
+  width: 160px;
+  height: 3o;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-weight: 700;
+  box-shadow: 1px 1px 0px 0px lightgrey;
+}
+
+/*보내기 버튼*/
+
+#yesMail,
+#profilebtn {
+  background-color: cornflowerblue;
+  width: 160px;
+  height: 3o;
+  height: 30px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-weight: 700;
+  box-shadow: 1px 1px 0px 0px lightgrey;
+}
+
+/*프로필 모달창*/
+
+/*프로필 */
+#profileTop {
+  margin: 0 auto;
+  margin-bottom: 20px;
   /*   background: beige; */
-    border-radius: 30px;
-   }
-   
-   .profileinfo{
-   padding: 20px;
-    width: -1px;
-    background: lightgray;
-    border-radius: 30px;
-    font-weight:bold;
-   }
-   
-   
-    .profileinfo img{
-   width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    border-radius: 50px;
-   } 
-   
-   /*인사말 관심분야*/
-   #profileHi { 
-   margin-top: 10px;
-    text-align: left;
-    padding-bottom: 10px;
-    font-weight: bold;
-    
-   }
-   
-   #profileLike{
-   margin-top: 10px;
-    text-align: left;
-    padding-bottom: 10px;
-    font-weight: bold;
-   }  
-   
-   .profilFoot input[type="text"]{
-   padding-bottom: 20px;
-   border: none;
-   cursor: text;
-   border-radius: 5px;
-   height: 30px; 
-   line-height: 30px; 
-   width: 300px; 
-   background: white;
-   }
-   
+  border-radius: 30px;
+}
+
+.profileinfo {
+  padding: 20px;
+  width: -1px;
+  background: lightgray;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.profileinfo img {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+/*인사말 관심분야*/
+#profileHi {
+  margin-top: 10px;
+  text-align: left;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+#profileLike {
+  margin-top: 10px;
+  text-align: left;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.profilFoot input[type="text"] {
+  padding-bottom: 20px;
+  border: none;
+  cursor: text;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+  width: 300px;
+  background: white;
+}

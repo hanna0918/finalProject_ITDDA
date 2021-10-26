@@ -23,12 +23,12 @@
    		<div id="reco_injeungInfoArea">
             <div>
                 <div id="recommendWrite">
-                    <div><input type="text" id="matchingUploadTitle" name="board_subject" placeholder="제목을 입력하세요" required/></div>
+                    <div><input type="text" id="recommendUploadTitle" name="board_subject" placeholder="제목을 입력하세요" required/></div>
                     <div><input type="button" value="지도" id="reco_injeungMapBtn"></div>
                     <div><input type="text" name="searchText" id="searchText" placeholder="태그를 입력하세요(최소 5개, 최대 10개)"/></div>
 	                <div>
-						<label class="input-file-button" for="input-file">썸네일</label> 
-						<input type="file" id="input-file" name="i_url"/>
+							<label class="input-file-button" for="input-file">썸네일</label> 
+							<input type="file" id="input-file" name="i_url"/>
 					</div>
 					
 						<script>
@@ -36,14 +36,18 @@
 							if(this.files && this.files[0]) {
 					    		var reader = new FileReader;
 						    	reader.onload = function(data) {
+						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
 						    		$(".select_img img").attr("src", data.target.result).width(500);        
 						    	}
 					    		reader.readAsDataURL(this.files[0]);
+									reader.readAsText(this.files[0]);
+									console.log(reader.readAsText(this.files[0]));
 					    	}
 				    	});
 						</script>
+						<div class="select_img"><img src=""/></div>
 						<%=request.getRealPath("/") %>
-                </div>
+            </div>
 		    </div>
 	            <div id="addTag">
 	                <div id="hiddenTag0" style="display: none;">#</div>
@@ -63,7 +67,7 @@
 	            </div>
             </div>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <textarea id="summernote" name="b_content"><div class="select_img"><img src=""/></div></textarea>
+    <textarea id="summernote" name="b_content"></textarea>
     <div id="matchingBtnDiv">
         <input type="submit" value="등록" class="recommendSubmitBtn" id="recommendSubmitBtn"/>
         <a href="/itda/recommendList"><input type="button" value="취소" id="matchingCancelBtn"/></a>
@@ -91,5 +95,4 @@
     </div>
   	</form>
 </section>
-<script src="/itda/js/matchingUpload.js?version=111111"></script>
-<script src="/itda/js/recommend.js?version=111111"></script>
+<script src="/itda/js/recommendUpload.js?version=111111"></script>

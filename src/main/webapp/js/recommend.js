@@ -1,12 +1,18 @@
+
+
 $("#recommendSubmitBtn").click(function () {
+  console.log("등록버튼 찍힌건가?1111");
   if (tag.length < 5) {
     $("#hiddenTagAllDone").css("display", "block");
     $("#hiddenTagAllDone").text("태그를 5개 이상 작성해주세요");
     return false;
   }
 
+  console.log("등록버튼 찍힌건가?222222");
   $("#searchText").prop("disabled", true);
+  console.log("등록버튼 찍힌건가?33333333");
   $("#recommendWriteOk").attr("onsubmit", "");
+  console.log("등록버튼 찍힌건가?44444444444");
 
   $("#recommendWriteOk").submit();
 });

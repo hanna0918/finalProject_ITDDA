@@ -109,6 +109,9 @@ public class BoardServiceImp implements BoardService {
 		return boardDAO.writeList(vo);
 	}
 
+	@Override
+	public List<BoardVO> freeViewSerch(BoardVO vo) { 
+		return boardDAO.freeViewSerch(vo); } 
 	
 	
 
