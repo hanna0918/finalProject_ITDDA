@@ -39,7 +39,7 @@
 					    		var reader = new FileReader;
 						    	reader.onload = function(data) {
 						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
-						    		$(".select_img img").attr("src", data.target.result).width(500);
+						    		$("#thumbnail").attr("src", data.target.result).width(500);
 					    		}
 					    		reader.readAsDataURL(this.files[0]);
 								//reader.readAsText(this.files[0]);
@@ -86,7 +86,7 @@
 	            </div>
             </div>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <textarea id="summernote" name="b_content"><div class="select_img"><img src="" /></div></textarea>
+    <textarea id="summernote" name="b_content"><img id="thumbnail" src="" /></textarea>
     <div id="matchingBtnDiv">
         <input type="submit" value="등록" class="recommendSubmitBtn" id="recommendSubmitBtn"/>
         <a href="/itda/recommendList"><input type="button" value="취소" id="matchingCancelBtn"/></a>

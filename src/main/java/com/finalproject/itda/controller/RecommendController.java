@@ -120,7 +120,7 @@ public class RecommendController {
 //            mav.addObject("file", "error");
 //        }
         
-    	int cnt = recommendService.recommendWriteOk(vo);
+    	
 		
 //    	String path = req.getSession().getServletContext().getRealPath("/img");
     	String contextPath = req.getSession().getServletContext().getRealPath("/img");
@@ -180,13 +180,17 @@ public class RecommendController {
 			} // if
 		}
 		
+		String[] image = vo.getB_content().split("<img");
+		String[] imageSplit = image[1].split("width");
+		String thumbnail = "<img" + imageSplit[0] + "width: 120px;\" ";
+		vo.setThumbImg(thumbnail);
+		int cnt = recommendService.recommendWriteOk(vo);
+		
 		if(cnt>0) {
 			mav.setViewName("redirect:recommendList");
 		}else {
 			mav.setViewName("redirect:recommendWrite");
 		}
-		
-		System.out.println(vo.getI_url());
 		mav.setViewName("redirect:recommendList");
 		
 		return mav;

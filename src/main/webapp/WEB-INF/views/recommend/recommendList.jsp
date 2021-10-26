@@ -36,7 +36,7 @@
                <div>${vo.board_seq}</div>
                <div class="recommendContent">
                   <div>
-                     <img src="/itda/upload/${vo.i_url}" class="chucheonImg" />
+                     ${vo.thumbImg} class="chucheonImg" />
                   </div>
                   <div class="contentInfo">
                      <!-- 2 -->
