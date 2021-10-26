@@ -20,4 +20,16 @@ public class InjeungServiceImp implements InjeungService{
 		return injeungDao.injeungBoardList();
 	}
 
+
+	@Override
+	public BoardVO injeungView(BoardVO vo) {
+		return injeungDao.injeungView(vo);
+	}
+
+
+	@Override
+	public int countHit(int board_seq) {
+		return injeungDao.countHit(board_seq);
+	}
+
 }

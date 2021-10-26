@@ -17,8 +17,8 @@ calendarAjax();
 
 
 function calendarAjax(){
-	var logseq = $("#logseq").val();
-	if(logseq!=null || logseq!=""){
+	if( $("#logseq").val()!=""){
+		var logseq = $("#logseq").val();
 		var rUrl = "/itda/calendarAjax?m_seq=" + logseq;
 	}else{
 		var rUrl = "/itda/calendarAjax";

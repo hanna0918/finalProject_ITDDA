@@ -22,8 +22,8 @@ public interface MypageService {
 	public int QuestionInsert(QuestionVO quesVo);
 	
 	//1:1문의 글뿌리면서 시작
-	public List<QuestionVO> MypageQnA();
+	public List<QuestionVO> MypageQnA(int seq);
 	
-	//public int MypageQnA(QuestionVO quesVo);
+	public List<QuestionVO> MypageQnaList(int seq);
 	
 }

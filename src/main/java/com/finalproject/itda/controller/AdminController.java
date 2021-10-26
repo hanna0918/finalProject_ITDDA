@@ -1,7 +1,5 @@
 package com.finalproject.itda.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.AdminService;
 import com.finalproject.itda.vo.BoardVO;
-
 import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.QuestionVO;
 

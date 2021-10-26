@@ -34,7 +34,7 @@
 				<li class="question">
 					<div>
 						<div>${quesVo.q_category} <input type='hidden' name='q_number' value='${quesVo.q_number}'></div>
-						<div>문의내용<br/>${quesVo.q_title}</div>
+						 <div>문의내용<br/>${quesVo.q_title}</div>
 						<div>작성일 ${quesVo.q_date}</div>
 					</div>
 				</li>
@@ -52,7 +52,7 @@
 							<div class="inProgress">아직 처리중입니다.</div>
 						</div>
 					</c:when>
-				</c:choose>
+				</c:choose> 
 			</c:forEach>
 		</ul>
 	</div>

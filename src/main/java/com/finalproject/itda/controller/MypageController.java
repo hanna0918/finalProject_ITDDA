@@ -14,6 +14,7 @@ import com.finalproject.itda.service.MypageService;
 import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.QuestionVO;
 
+
 @Controller
 public class MypageController {
 	@Inject
@@ -74,29 +75,28 @@ public class MypageController {
 		return "mypage/mypage06Cutout";
 	}
 	//1:1문의--------------------------------------------------------------------------------------------
+	
+	
+	@RequestMapping("/mypageQnA")
+	public String mypageQnA(Model model,HttpSession session)
+	{
+		System.out.println(Integer.parseInt(session.getAttribute("logseq").toString()));
+		int seq=Integer.parseInt(session.getAttribute("logseq").toString());
+		System.out.println("갓순찬은 해날것이다 나로인햐");
+		model.addAttribute("list", mypageService.MypageQnaList(seq));
+		return "mypage/mypage07Question";
+	}
+	
+	
 	/*
-	 * @RequestMapping(value="/mypageQnA") public ModelAndView Qusetion(QuestionVO
-	 * quesVo, HttpSession ses) { ModelAndView mav = new ModelAndView();
-	 * quesVo.setM_nickname((String)ses.getAttribute("lognick"));
+	 * @RequestMapping(value="/mypageQnA") public String mypageQnA(Model
+	 * model,HttpSession ses,QuestionVO vo) {
 	 * 
-	 * int cnt = mypageService.MypageQnA(quesVo);
+	 * Integer seq= (Integer)ses.getAttribute("logseq"); QuestionVO rvo =
+	 * (QuestionVO) model.addAttribute("list",mypageService.MypageQnA(seq));
 	 * 
-	 * if(cnt>0) {
-	 * 
-	 * }
-	 * 
-	 * 
-	 * System.out.println("test중입니다"); return mav; }
+	 * System.out.println("test以묒엯 땲 떎"); return "mypage/mypage07Question"; }
 	 */
-	
-	
-	   @RequestMapping(value="/mypageQnA")
-	   public String mypageQnA(Model model) {
-	      model.addAttribute("list",mypageService.MypageQnA());
-	      System.out.println("test以묒엯 땲 떎");   
-	      return "mypage/mypage07Question";
-	   }
-	
 	//1:1문의 글등록
 	@RequestMapping(value="/askSomething", method=RequestMethod.POST)
 	public ModelAndView AskSomething(QuestionVO quesVo, HttpSession ses) {

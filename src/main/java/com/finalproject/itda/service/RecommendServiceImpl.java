@@ -15,7 +15,7 @@ public class RecommendServiceImpl implements RecommendService {
 	RecommendDAO recommendDAO;
 	
 	@Override
-	public List<RecommendVO> recommendList(RecommendPagingVO pVo) {//추천게시판 리스트
+	public List<RecommendVO> recommendList(RecommendPagingVO pVo) {//異붿쿇寃뚯떆�뙋 由ъ뒪�듃
 		return recommendDAO.recommendList(pVo);
 	}
 
@@ -26,13 +26,12 @@ public class RecommendServiceImpl implements RecommendService {
 
 	@Override
 	public RecommendVO recommendView(int board_seq) {
-		return recommendDAO.recommendView(0);
+		return recommendDAO.recommendView(board_seq);
 	}
 
 	@Override
 	public int countHit(int board_seq) {
-		// TODO Auto-generated method stub
-		return 0;
+		return recommendDAO.countHit(board_seq);
 	}
 
 	@Override

@@ -20,11 +20,24 @@
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/video/**" location="/video/" />
 	<resources mapping="/fullcalendar/**" location="/fullcalendar/" />
-
+	<resources mapping="/upload/**" location="/upload/" />
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- 업로드 패스 설정 --> 
+	<beans:bean class="java.lang.String" id="uploadPath">
+	 <beans:constructor-arg value="C:\mypro\workspaceSpring\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\itdaProject\" />
+	</beans:bean>
+	
+	<!-- 일반 파일 업로드 경로 -->
+	<resources mapping="/imgUpload/**" location="/img/" />
+	
+	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+	 <beans:property name="maxUploadSize" value="10485760"/>
 	</beans:bean>
 
 	<context:component-scan base-package="com.finalproject.itda" />

@@ -25,9 +25,11 @@ public class QuestionController {
 	
 	//뷰어
 	@RequestMapping(value="/questionView")
-	public String questionView(Model model, int no) {
-		model.addAttribute(model);
-		return "question/questionView";
+	public ModelAndView questionView(int board_seq) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("vo", questionService.boardView(board_seq));
+		mav.setViewName("question/questionView");
+		return mav;
 	}
 	
 	

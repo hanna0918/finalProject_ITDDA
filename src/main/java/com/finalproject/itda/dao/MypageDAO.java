@@ -32,10 +32,16 @@ public interface MypageDAO {
 	
 	//1:1문의는 글을 뿌리면서 시작합니다.
 	@Select("select q_number, q_title, q_date, q_category, m_seq, q_result_state,q_result from question where m_seq=2 order by q_date desc")
-	public List<QuestionVO> MypageQnA();
+	public List<QuestionVO> MypageQnA(int seq);
 	
 	
-	//public int MypageQnA(QuestionVO quesVo);s
+	//1:1문의는 글을 뿌리면서 시작합니다.
+		@Select("select q_number, q_title, q_date, q_category, m_seq, q_result_state,q_result from question where m_seq=${param1} order by q_date desc")
+		public List<QuestionVO> MypageQnaList(int seq);
+		//1:1문의는 글을 뿌리면서 시작합니다.
+	
+		
+		
 	//1:1문의 글 써봅니다.
 	@Insert("insert into question(q_number, q_category, q_title, m_seq) "
 			+ " values(q_number_seq.nextval, #{q_category}, #{q_title}, #{m_seq})")

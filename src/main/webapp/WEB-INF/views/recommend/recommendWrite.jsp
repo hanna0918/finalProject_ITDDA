@@ -10,12 +10,16 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<stylie>
+
+</stylie>
+
 <section id="reco_injeungFrame">
 	<div class="boardName">
 		<h2>RECOMMEND</h2>
 		<h4>모두에게 유용한 정보를 추천해보세요!</h4>
 	</div>
-    <form method="post" action="/itda/recommendWriteOk" id="recommendWriteOk" action="/itda/recommendWriteOk" onsubmit="return false">
+    <form method="post" action="/itda/recommendWriteOk" id="recommendWriteOk" action="/itda/recommendWriteOk" onsubmit="return false" enctype="multipart/form-data">
    		<div id="reco_injeungInfoArea">
             <div>
                 <div id="recommendWrite">
@@ -24,8 +28,21 @@
                     <div><input type="text" name="searchText" id="searchText" placeholder="태그를 입력하세요(최소 5개, 최대 10개)"/></div>
 	                <div>
 						<label class="input-file-button" for="input-file">썸네일</label> 
-						<input type="file" id="input-file" />
+						<input type="file" id="input-file" name="i_url"/>
 					</div>
+					
+						<script>
+						$("#input-file").change(function(){
+							if(this.files && this.files[0]) {
+					    		var reader = new FileReader;
+						    	reader.onload = function(data) {
+						    		$(".select_img img").attr("src", data.target.result).width(500);        
+						    	}
+					    		reader.readAsDataURL(this.files[0]);
+					    	}
+				    	});
+						</script>
+						<%=request.getRealPath("/") %>
                 </div>
 		    </div>
 	            <div id="addTag">
@@ -46,7 +63,7 @@
 	            </div>
             </div>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <textarea id="summernote" name="b_content"></textarea>
+    <textarea id="summernote" name="b_content"><div class="select_img"><img src=""/></div></textarea>
     <div id="matchingBtnDiv">
         <input type="submit" value="등록" class="recommendSubmitBtn" id="recommendSubmitBtn"/>
         <a href="/itda/recommendList"><input type="button" value="취소" id="matchingCancelBtn"/></a>

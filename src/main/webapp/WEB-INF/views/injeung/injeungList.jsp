@@ -18,7 +18,7 @@
 					<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' name=""/></div>
 					<div>${ivo.board_subject}</div>
 					<div><span class="injeungTag">${vo.board_select}#태그#태그</span></div>
-					<div><img name='goodhit' src='/itda/img/recommend4.png' />${ivo.b_goodhit} &nbsp;&nbsp;<img  name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+					<div><img name='goodhit' src='/itda/img/goodHit.png' />${ivo.b_goodhit} &nbsp;&nbsp;<img  name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 					<div class='injeungContentWriter'><!-- 작성자 -->
 						<div><img src='img/circle.png' name='profileShot' /></div>
 						<div>
@@ -37,7 +37,7 @@
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
 			<div>아춥다아~~~~</div>
 			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
-			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div><img name='goodhit' src='/itda/img/goodHit.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>
@@ -56,7 +56,7 @@
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
 			<div>아춥다아~~~~</div>
 			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
-			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div><img name='goodhit' src='/itda/img/goodHit.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>
@@ -75,7 +75,7 @@
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
 			<div>아춥다아~~~~</div>
 			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
-			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div><img name='goodhit' src='/itda/img/goodHit.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>
@@ -94,7 +94,7 @@
 			<div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'><img src='/itda/img/bukhansan.jpg' class='injeungImg' /></div>
 			<div>아춥다아~~~~</div>
 			<div><span class="injeungTag">${vo.board_select}#아무거나</span></div>
-			<div><img name='goodhit' src='/itda/img/recommend4.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
+			<div><img name='goodhit' src='/itda/img/goodHit.png' />4&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' /> 2</div>
 			<div class='injeungContentWriter'>
 				<!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div>

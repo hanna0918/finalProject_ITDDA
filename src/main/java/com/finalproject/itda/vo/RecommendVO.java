@@ -1,5 +1,7 @@
 package com.finalproject.itda.vo;
 
+import java.util.List;
+
 public class RecommendVO {
 	private int board_seq; // 게시물 번호
 	private int m_seq; // 회원 번호
@@ -61,11 +63,19 @@ public class RecommendVO {
 	private int matchingCount;
 	private int replyCount;
 	
+	//파일 업로드
+	private List<String> fileList;
 
 	
 	
 	
 	
+	public List<String> getFileList() {
+		return fileList;
+	}
+	public void setFileList(List<String> fileList) {
+		this.fileList = fileList;
+	}
 	public int getBoard_code() {
 		return board_code;
 	}

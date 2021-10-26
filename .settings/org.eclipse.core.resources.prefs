@@ -2,6 +2,7 @@
 <<<<<<<=HEAD
 >>>>>>>=origin/main
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/BoardController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/MatchingController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/MemberController.java=UTF-8
