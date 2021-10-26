@@ -15,7 +15,7 @@ public interface RecommendDAO {
 		" select * from ",
 		" (select * from ",
 		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, b_content, ",
-		" board_select, i_url ",
+		" board_select, i_url, thumbimg ",
 		" from boardbase b ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
@@ -84,11 +84,13 @@ public interface RecommendDAO {
 			+ " into board_image ("
 			+ "			board_seq,"
 			+ "			imageseq, "
-			+ "			i_url )"
+			+ "			i_url, "
+			+ "			thumbimg )"
 			+ "		values ("
 			+ "			board_seq.currval,"
 			+ "			imageseq.nextval, "
-			+ "			#{i_url} ) "
+			+ "			#{i_url},"
+			+ "			#{thumbImg} ) "
 			+ " select * from dual ")
 	public int recommendWriteOk(RecommendVO vo);
 
