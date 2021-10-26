@@ -65,11 +65,19 @@ public class RecommendVO {
 	
 	//파일 업로드
 	private List<String> fileList;
+	private String thumbImg;
+	
 
 	
 	
 	
 	
+	public String getThumbImg() {
+		return thumbImg;
+	}
+	public void setThumbImg(String thumbImg) {
+		this.thumbImg = thumbImg;
+	}
 	public List<String> getFileList() {
 		return fileList;
 	}

@@ -227,6 +227,17 @@ public class BoardController {
 		return mav;
 	}
 	
+	//검색
+	@RequestMapping(value="/test", method=RequestMethod.POST )
+    public ModelAndView SerachFreeboard2(BoardVO vo)
+    {
+       ModelAndView mav = new ModelAndView();
+        mav.addObject("list",boardService.freeViewSerch(vo));
+        System.out.println(vo.getSearchkeyword());
+        System.out.println(vo.getKeywordselect());
+       mav.setViewName("board/freeBoard2");
+       return mav;
+    }
 
 
 }

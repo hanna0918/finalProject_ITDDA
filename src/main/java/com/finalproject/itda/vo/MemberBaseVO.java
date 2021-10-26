@@ -29,6 +29,7 @@ public class MemberBaseVO {
 	private String m_name;  
 	private String m_state;
 	
+	
 	//카운트용
 	private int board_count;
 	private int comment_count;

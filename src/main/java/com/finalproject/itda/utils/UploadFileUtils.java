@@ -17,7 +17,7 @@ public class UploadFileUtils {
 			throws Exception {
 
 		UUID uid = UUID.randomUUID();
-
+		
 		String newFileName = uid + "_" + fileName;
 		String imgPath = uploadPath + ymdPath;
 
