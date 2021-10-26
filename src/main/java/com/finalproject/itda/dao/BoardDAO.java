@@ -21,7 +21,7 @@ public interface BoardDAO {
 			 	("select distinct b.m_seq, b.board_seq,b.board_subject,to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, m.m_userid, m.m_nickname ,b.board_hit, "
 			+ " (select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count "
 			+ "	 from boardbase b join memberbase m on b.m_seq=m.m_seq full join board_comment bc on b.board_seq=bc.board_seq "
-			+ "	 where b.board_code=5 and b.board_block=0 order by board_writedate desc ") 
+			+ "	 where b.board_code=5 and b.board_block in(0,2) order by board_seq desc ") 
 		/*	+ "  where rownum<=#{nowPage}*#{onePageRecord} order by board_writedate desc ")*/
 //			+ "	 where rownum<=#{lastPage} order by board_seq desc ")
 	public List<BoardVO> boardList(PagingVO pVo);
@@ -45,9 +45,8 @@ public interface BoardDAO {
 	
 	//글내용보기 
 
-		 @Select(" select board_code, board_seq, m_seq, board_subject, b_content, board_hit, b_goodhit, (select count(br_id) "
-		 		+ " from board_comment where board_seq=${param1}) commentcount "
-		  + " from boardbase where board_code=5 and board_seq=${param1} ") //board_code=5;
+		 @Select(" select m_nickname, m_userid, board_code, board_seq, b.m_seq, board_subject, b_content, board_hit, b_goodhit  "
+		  + " from boardbase b join memberbase mb on b.m_seq= mb.m_seq where board_code=5 and board_seq=${param1} ") //board_code=5;
 		 public BoardVO freeView(int board_seq); 
 		 
 	//수정
@@ -109,5 +108,8 @@ public interface BoardDAO {
 		@Select("select mb.m_nickname, mb.m_rank, bb.board_code, bb.board_seq, bb.board_subject, bb.board_writedate, bb.board_hit from boardbase bb join memberbase mb on bb.m_seq= mb.m_seq where mb.m_seq=(select m_seq from memberbase where m_nickname=#{m_nickname})")
 		public List<BoardVO> writeList(BoardVO vo);
 		// public MemberBaseVO freeBoardWriteView(MemberBaseVO mbVo); 
-
+		
+		@Update(" update boardbase set board_hit = board_hit+1 where board_seq=${param1} ")
+		public int hitCount(int board_seq);
+		
 }

@@ -29,7 +29,7 @@ public interface BoardService {
 	public int freeDelete(Map<String, Object> map);//삭제
 	public List<Board_CommentVO> commentList(int board_seq); //댓글 리스트 
 	public int commentInsert(Board_CommentVO commentVo); //댓글쓰기
-	
+	public int hitCount(int board_seq);
 	
 
 }

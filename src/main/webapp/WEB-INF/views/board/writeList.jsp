@@ -113,12 +113,37 @@ body, ul, li, img, a {
 #viewBoardwritedate{
 	width:20%;
 }
+
+
+#writeListTitleName{
+
+	text-align: center;
+    font-size: 1.5em;
+    font-family: cursive;
+    color: white;
+    line-height: 80px;
+ 
+    background-color: rgba(236,104,39, 1);
+    content: ' ';
+    display: block;
+    height: 80px;
+    width: 100%;
+    left: 7px;
+    bottom: 4px;
+    /* opacity: 0.5; */
+    transition: all 0.3s ease-out;
+    z-index: 1000;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+
 </style>
 <body>
 
+		<div><img src='/itda/img/what is your story.jpg' style="height: 600px; width: 100%;" /></div> <!-- class='injeungImg' -->
+	 	<h2 id="writeListTitleName" >${m_nickname}'s STORY BOARD</h2> 
 	<div id='writerListDivDiv'>
-		<div><img src='/itda/img/what is your story.jpg' style="height:300px; width:1400px;" /></div> <!-- class='injeungImg' -->
-	<%-- 	<h2 style="text-align:center; font-size:2em;">${m_nickname}'s STORY BOARD</h2> --%>
 		<form >
 			<div id='profileBoxBox'>
 			 <!-- 프로필박스  -->

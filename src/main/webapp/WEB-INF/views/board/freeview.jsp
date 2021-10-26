@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
 		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
 		crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -20,7 +17,7 @@
 		/* 	<li><a href="/itda/freeview?board_seq=${vo.board_seq}">${vo.board_subject}</a></li> */	
 	}
 </script>
-</head>
+
 <style>
 @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
 @font-face {
@@ -577,8 +574,44 @@ border-radius: 5px;
 	}
 	
 	
+/* 신고 모달 */
+
+.matchingReportModal {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 101%;
+    height: 700px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+}
+
+.matchingReportModalOverlay {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    overflow-y: auto;
+    position: fixed;
+}
+
+.matchingReportModal::-webkit-scrollbar {
+    display: none;
+}
+
+.matchingReportModalContent {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    background-color: #fafafa;
+    text-align: center;
+    border-radius: 10px;
+}
+	
 </style>
-<body>
 <section>
 	<div class="freeBoardView">
 		<div class="freeBoardTop">
@@ -599,7 +632,7 @@ border-radius: 5px;
 							<a href="#"><img src="/itda/img/circle.png" alt="프로필이미지"/></a>
 						</div>
 					</div>
-					<div style="z-index:40; position:absolute; left:86px; top:-1px; margin-top: 24px;"><a href=""><label style="padding-right:3px;">${logname}</label>  @${login}</a></div>
+					<div style="z-index:40; position:absolute; left:86px; top:-1px; margin-top: 24px;"><a href=""><label style="padding-right:3px;">${vo.m_nickname}</label>  @${vo.m_userid}</a></div>
 					<div style="position: absolute; top:-0.1px; margin-top: 50px; left: 87px;">${vo.board_writedate}</div>
 					
 					<span>
@@ -638,30 +671,24 @@ border-radius: 5px;
 			
 			<div class="freeContent">
 			<div class="freeContentView">${vo.b_content}</div>
-			<div class="freeComment" style="margin-bottom:24px;">
-				<div class="commentBtn" style="display:inline-block; float:left;">
-					<a href="" style="font-size:16px;"><img src="/itda/img/like.png" alt="좋아요수"/>${vo.b_goodhit}</a> 
-					<span>
-					<img src="/itda/img/message3.png" alt="댓글수" style="top:1px; transform:none; position:relative"/>
-					${vo.commentcount }
-					</span>  
-				</div>
-			</div>
 			
-			<!------- 댓글 목록 나오는 리스트---------->
-			<div style=" position: relative; left: -55px; top: 25px;"><!-- 2 댓글박스 -->
-				<div><img src='/itda/img/circle.png' name='freeprofileShot'></div>
-				<div>
-					<div id='freeuserid' class='freeuserid'>내가순찬${usernick}(sunchan123${userid}) <span>2021-06-21</span></div>
-					<div class='freereplyView'>${bcVo.br_content}</div>
-					<div><span>댓글 / 수정 / 지우기</span></div>				
+			
+			<div class='contentReply'>
+				<div><!-- 1 좋아요/댓글수 -->
+                    <img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit}&nbsp;&nbsp;
+					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
+					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_black}</span>
 				</div>
-			</div>
+                
+				<div id="replyList"><!-- 2 댓글박스 -->
+					
+				</div>
 			
 			
 			
 			
 			<!----------------------------------댓글쓰기 --------------------------------->
+			<input type="hidden" name="board_seq" id="board_seq" value="${vo.board_seq}"/> <!-- 원글 글번호 board_seq -->
 			
 			<!-- 로그인이 되어있을 경우  -->
 			<c:if test="${login ne null}">
@@ -672,8 +699,9 @@ border-radius: 5px;
 							<textarea id="freecoment" name="br_content" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" style="overflow:hidden; overflow-wrap:break-word; height:100px;"></textarea>
 							<input type="submit" id="freeComentBtn" value="작성" style="margin-top:-25px;"/>
 							
-							<input type="hidden" name="board_seq" value="${vo.board_seq}"/> <!-- 원글 글번호 board_seq -->
 							<input type="hidden" name="m_userid" value="${vo.m_userid}"/>
+				            <input type="hidden" id="logseq" value="${logseq}"/>
+				            <input type="hidden" id="lognick" value="${lognick}"/>
 							</div>
 						</div>
 					</form>
@@ -834,6 +862,14 @@ border-radius: 5px;
     	</div>
   	</article>
 	</div>
+	
+	<!-- 신고모달, alert 대용 모달 -->
+    <div class="matchingReportModal" id="matchingReportModal">
+        <div class="matchingReportModalOverlay"></div>
+        <article class="matchingReportModalContent">
+            
+        </article>
+    </div>
 				
 <script type="text/javascript">
 
@@ -1036,7 +1072,7 @@ $('#guitarBtn').click(function () {
 </ul> --%>
 
 
-
+<script src="/itda/js/injeungView.js"></script>
 
 
 

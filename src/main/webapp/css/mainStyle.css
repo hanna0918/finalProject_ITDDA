@@ -110,7 +110,7 @@ a:visited {
 
 /* 실제 content 들어가는 영역 스타일 */
 .mainContent {
-  flex: 1;
+  /* flex: 1; */
   width: 100%;
   margin: 0 auto;
   overflow: auto;

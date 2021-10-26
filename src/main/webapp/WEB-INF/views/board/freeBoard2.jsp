@@ -9,6 +9,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 body{
 	font-family: 'IBMPlexSansKR-Regular';
 	}
@@ -21,6 +22,7 @@ body{
 		width:1100px;
 		/*background-color:lightblue;*/
 		margin:0 auto;
+		height:2000px;
 	}
 	ul, li{
 		margin:0;
@@ -368,7 +370,6 @@ body{
 	width: 300px; 
 	background: white;
 	}
-	
 </style>
 <script>
 
@@ -408,9 +409,7 @@ body{
 				<li>${vo.board_seq}</li>
 				<li><a href="/itda/freeview?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
 				
-				<%--  /itda/view?no=${vo.board_seq --%>
-				
-						<div class="dropdown">
+				<div class="dropdown">
 				<li> <label onclick="myFunction('${vo.m_nickname}');" class ="dropbtn" id="droplogin">${vo.m_nickname} <input type="hidden" class="idtest" value="${vo.m_seq}"/></label></li>
 				<input type="hidden" value="${vo.m_name}"/>
 					<!--<c:if test="${login ne null}">  로그인 안되어있을 경우 드롭다운 안보이게  -->
@@ -421,7 +420,7 @@ body{
 			    				<a class="gudok" name="${vo.m_nickname}">구독하기</a>
 			    				<a class="sendMail" name="${vo.m_nickname}">쪽지보내기</a>
 			    				<a href="/itda/writeList?m_nickname=${vo.m_nickname}&m_name=${vo.m_name}" name="${vo.m_nickname}">게시글보기</a>
-		  					</div>   
+		  					</div>
 						</div>
 					<!-- </c:if> -->
 				
@@ -630,7 +629,6 @@ body{
 		/* 메뉴 드롭다운 */
 	var check = 0;
 	if(check==0){
-	
 	function myFunction(nickname) { /////////////////1
         document.getElementById("myDropdown" + nickname).classList.toggle("show");
         console.log(nickname);
@@ -719,7 +717,6 @@ body{
 		    //x버튼
 		    
 		    $(document).on("click", "#profilebtn", function(){
-		    	console.log("버튼 클릭 이벤트 안들어감");
 	        	  $('.profilJoinModal').css('display', 'none');
 		    });
 		    
@@ -731,12 +728,13 @@ body{
           /*드롭다운 다른 곳 누를경우 */
           
           window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
+            if (!event.target.matches('.dropbtn')) { //.dropbtn
               var dropdowns = document.getElementsByClassName("dropdown-content");
               var i;
               for (i = 0; i < dropdowns.length; i++) {
                 var openDropdown = dropdowns[i];
                 if (openDropdown.classList.contains('show')) {
+                	check++;
                   openDropdown.classList.remove('show');
                 }
               }
@@ -748,6 +746,10 @@ body{
             x = (event.pageX - 270) + 'px';
             y = (event.pageY - 300) + 'px';
             $('.dropdown-content').css('left', x).css('top', y);
+            
+                var popH = $(this).offset().top; //fe_laypopH 의 top 좌표값
+             
+           
        //alert('x좌표:' +x + ', y좌표:' + y);
           });
 

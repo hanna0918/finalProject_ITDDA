@@ -146,6 +146,7 @@ public class BoardController {
 	//글내용보기
 	@RequestMapping("/freeview")
 	public String boardView(Model model, int board_seq) {
+		boardService.hitCount(board_seq);
 		model.addAttribute("vo",boardService.freeView(board_seq));
 		return "board/freeview";
 	}
