@@ -16,7 +16,7 @@ local.properties
 .recommenders
 /target/
 **/target
-
+Admin.js
 
 # External tool builders
 .externalToolBuilders/
