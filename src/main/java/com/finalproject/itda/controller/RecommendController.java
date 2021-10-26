@@ -25,7 +25,7 @@ public class RecommendController {
 	RecommendService recommendService;
 	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(MemberController.class);
 	
-	// 추천게시판 리스트
+	// 異붿쿇寃뚯떆�뙋 由ъ뒪�듃
 	@RequestMapping(value="/recommendList", method = RequestMethod.GET)
 	public ModelAndView recommendList(RecommendVO vo) {
 		ModelAndView mav = new ModelAndView();
@@ -47,19 +47,19 @@ public class RecommendController {
 		return map;
 	}
 
-	//추천게시판 글작성 view
+	//異붿쿇寃뚯떆�뙋 湲��옉�꽦 view
 	@RequestMapping(value="/recommendWrite")
 	public String recommendWrite() {
 		return "/recommend/recommendWrite";
 	}
 	
-	//추천게시판 글작성 insert
+	//異붿쿇寃뚯떆�뙋 湲��옉�꽦 insert
 	@RequestMapping(value="/recommendWriteOk", method = RequestMethod.POST)
 	public ModelAndView recommendWriteOk(RecommendVO vo, HttpSession ses) {
-		System.out.println("추천게시판 접속 1");
+		System.out.println("異붿쿇寃뚯떆�뙋 �젒�냽 1");
 		vo.setM_seq(Integer.parseInt(ses.getAttribute("logseq").toString()));
 		int cnt = recommendService.recommendWriteOk(vo);
-		System.out.println(cnt+"추천게시판 글들어갔다");
+		System.out.println(cnt+"異붿쿇寃뚯떆�뙋 湲��뱾�뼱媛붾떎");
 		
 		ModelAndView mav = new ModelAndView();
 		if(cnt>0) {
@@ -70,12 +70,12 @@ public class RecommendController {
 		return mav;
 	}
 	
-	// 글보기
+	// 湲�蹂닿린
 	@RequestMapping(value="recommendView")
 	public ModelAndView recommentView(int board_seq) {
 		ModelAndView mav = new ModelAndView();
 		int cnt = recommendService.countHit(board_seq);
-		System.out.println(cnt+"__________________글보기가 안들어온다");
+		System.out.println(cnt+"__________________湲�蹂닿린媛� �븞�뱾�뼱�삩�떎");
 		mav.addObject("vo", recommendService.recommendView(board_seq));
 		mav.setViewName("recommend/recommendView");
 		return mav;
