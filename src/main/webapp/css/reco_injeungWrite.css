@@ -21,8 +21,7 @@
     overflow: auto;
     margin: 10px auto;
     padding: 0;
-    height: 162px;
-    
+    /* height: 165px; */
 }
 #reco_injeungMapBtn{
 	display: none;
