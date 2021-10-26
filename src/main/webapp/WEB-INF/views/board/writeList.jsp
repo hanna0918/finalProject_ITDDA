@@ -117,7 +117,7 @@ body, ul, li, img, a {
 <body>
 
 	<div id='writerListDivDiv'>
-		<div><img src='/itda/img/what is your story.jpg' style="height:400px; width:100%;" /></div> <!-- class='injeungImg' -->
+		<div><img src='/itda/img/what is your story.jpg' style="height:300px; width:1400px;" /></div> <!-- class='injeungImg' -->
 	<%-- 	<h2 style="text-align:center; font-size:2em;">${m_nickname}'s STORY BOARD</h2> --%>
 		<form >
 			<div id='profileBoxBox'>
