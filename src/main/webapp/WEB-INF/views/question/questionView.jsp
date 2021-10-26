@@ -11,7 +11,7 @@
 			<div class='contentWriter'><!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
-					<div>${vo.m_seq}</div>
+					<div>${vo.m_nickname}</div>
 					<div>
 						<ul>
 							<li>${vo.board_writedate }</li>
@@ -29,11 +29,6 @@
 				</div>
 			</div>
 			<div class='contentView'>
-				<div>
-					<c:forEach var='tags' items='${vo.tag}'>
-					<span>#${tags}</span>
-					</c:forEach>
-				</div>
 				<!-- 글내용박스 -->
 				${vo.b_content}
 				
@@ -41,7 +36,7 @@
 			<div class='contentReply'>
 				<div><!-- 1 좋아요/댓글수 -->
 					<img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit}&nbsp;&nbsp;
-					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
+					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${vo.replyCount }&nbsp;&nbsp;
 					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_black}</span>
 				</div>
 				<div id="replyList"><!-- 2 댓글박스 -->
@@ -75,9 +70,6 @@
                     </c:when>
                     <c:otherwise>
 	                    <div class='nextPrevDiv'><a href="/itda/questionView?board_seq=${vo.board_next_seq}"><span class='nextPrevWord'>다음글</span> ${vo.board_next_subject}
-	                    	<c:forEach var='nextTag' items='${vo.nextTags}'>
-	                    		<span class='nextPrevTag'>#${nextTag}</span>
-	                    	</c:forEach>
 	                    </a></div>
                     </c:otherwise>
                     </c:choose>
@@ -90,9 +82,6 @@
                     </c:when>
                     <c:otherwise>
 	                    <div class='nextPrevDiv'><a href="/itda/questionView?board_seq=${vo.board_prev_seq}"><span class='nextPrevWord'>이전글</span> ${vo.board_prev_subject}
-	                    	<c:forEach var='prevTag' items='${vo.prevTags}'>
-	                    		<span class='nextPrevTag'>#${prevTag}</span>
-	                    	</c:forEach>
 	                    </a></div>
                     </c:otherwise>
                     </c:choose>
