@@ -117,18 +117,20 @@ body, ul, li, img, a {
 <body>
 
 	<div id='writerListDivDiv'>
-		<h2>게시글 보기</h2>
+		<div><img src='/itda/img/what is your story.jpg' style="height:400px; width:100%;" /></div> <!-- class='injeungImg' -->
+	<%-- 	<h2 style="text-align:center; font-size:2em;">${m_nickname}'s STORY BOARD</h2> --%>
 		<form >
 			<div id='profileBoxBox'>
 			 <!-- 프로필박스  -->
 				<div id='introDivDiv'>
 					<div>
-						<img src='img/circle.png' name='profileImg' id='profileImg' />
+						<img src='img/moveprofile.gif' name='profileImg' id='profileImg' style="width:80px; height:80px; border-radius:80px;" />
 					</div>
 					<div>
 					<!-- <input value='"${m_nickname}"'>
 					<input value="test= ${m_name}"> -->
-						<div name="m_nickname">닉네임 : ${m_nickname} 님 </div> <br /> <div name="m_name">등급 : ${m_name} </div>
+					
+						<div name="m_nickname">닉네임 : ${m_nickname} 님 </div> <br /> <div name="m_name">등급 : ${m_rank} </div>
 					</div>
 				</div>
 			</div>
@@ -157,8 +159,31 @@ body, ul, li, img, a {
 				<ul class='contentContent'>
 					<c:forEach var="vo" items="${list}">
 						<li class='selectListList' id="#viewBoardcode">${vo.board_seq}</li>
-						<!--selectLi-->   
-						<li id="viewBoardSubject"><a href=''>${vo.board_subject}</a></li>
+						<!--selectLi-->  
+						<!-- 게시글보기 제목 클릭시 각 게시판 내용보기로 이동  -->
+						<c:choose> 
+						
+							<c:when test="${vo.board_code==1 }">
+							<li id="viewBoardSubject"><a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
+							</c:when>
+							
+							<c:when test="${vo.board_code==2 }">
+							<li id="viewBoardSubject"><a href="/itda/matchingView?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
+							</c:when>
+							
+							<c:when test="${vo.board_code==3 }">
+							<li id="viewBoardSubject"><a href="/itda/injeungView?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
+							</c:when>
+							
+							<c:when test="${vo.board_code==5 }">
+							<li id="viewBoardSubject"><a href="/itda/freeview?board_seq=${vo.board_seq}&board_code=${vo.board_code}">${vo.board_subject}</a></li>
+							</c:when>
+							
+							<c:when test="${vo.board_code==6 }">
+							<li id="viewBoardSubject"><a href="/itda/questionView?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
+							</c:when>
+							
+						</c:choose>
 						<li id="viewBoardwritedate">${vo.board_writedate}</li>
 						<li id="viewBoardHit">${vo.board_hit}</li>
 						<li id="viewGoodHit">${vo.b_goodhit}</li>

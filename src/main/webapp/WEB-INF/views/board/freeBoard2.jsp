@@ -407,6 +407,7 @@ body{
 			<ul class='content'> 
 				<li>${vo.board_seq}</li>
 				<li><a href="/itda/freeview?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
+				
 				<%--  /itda/view?no=${vo.board_seq --%>
 				
 						<div class="dropdown">
@@ -627,7 +628,9 @@ body{
     /*드롭다운 보여주기*/
 
 		/* 메뉴 드롭다운 */
-		
+	var check = 0;
+	if(check==0){
+	
 	function myFunction(nickname) { /////////////////1
         document.getElementById("myDropdown" + nickname).classList.toggle("show");
         console.log(nickname);
@@ -789,10 +792,6 @@ body{
         
 		/*////////////////////////////////차단 모달창//////////////////////////////////////////// */
 
-		    <c:set var="bani"  value="${m_seq}" />
-		        <c:set var="banyou" value="${m_seq_ban}" />
-		        <c:choose>
-		            <c:when test="banyou ne ${m_seq_ban} && bani ne {m_seq}">
 		  $(document).on("click", ".chadan", function(){
 			  
 			  $('.blockDataInputModal').css('display', 'block');
@@ -810,12 +809,6 @@ body{
 				    });
 		  });  //.chadan document 이벤트 
 		              
-		            </c:when>         
-		     
-		        </c:choose>
-		
-		
-		  
 		  
 		  //차단 ok ajax
 		  function chadanOk(ajaxData){
@@ -829,9 +822,7 @@ body{
 		              var result = $(result);
 		              console.log(result);
 		              var tag = "";	
-		              
-		            
-			      	  
+	
 		              tag+=`<div style="background: cornflowerblue; height: 25px;"></div>`;
 			          	tag+=`<h4> 차단이 완료되었습니다. </h4>`; //"<h4>" + result[0].m_nickname + "님이 차단되었습니다." +"</h4>";
 			           	tag+=`<div>`;
@@ -889,7 +880,7 @@ body{
 		function gudokYes(ajaxData){
 		console.log("ajaxData = " + ajaxData);
 		 console.log("nickname = " + nickname);
-			            
+		 
 			$.ajax({ /////////////////////////////////3
 	            url:'/itda/freeBoardmodalGudokOk', 
 	            data: ajaxData + "&" + nickname1,
@@ -940,6 +931,7 @@ body{
 					   $('.gudokJoinModal').css('display', 'none');  
 					   const ajaxData = $(this).parent().serialize();
 					    gudokYes(ajaxData);
+					    
 					    
 					   //보내기 yes 모달창
 					   $('.gudokDataInputModal2').css('display', 'block');
@@ -1076,6 +1068,7 @@ body{
     	
     }///////////////1
 	
+    }//if문 끝
 	 ///////////////////////////////////////////////////////////////////////////
 	
 			

@@ -18,7 +18,8 @@ public class BoardVO {
 	private String board_blockcontent;
 	private String board_content;
 	private String m_name; // 등급이름 
-
+	private int m_rank;
+	
 	private int board_block;
 
 	
@@ -42,6 +43,12 @@ public class BoardVO {
 	
 	
 	
+	public int getM_rank() {
+		return m_rank;
+	}
+	public void setM_rank(int m_rank) {
+		this.m_rank = m_rank;
+	}
 	public int getBoard_block() {
 		return board_block;
 	}
