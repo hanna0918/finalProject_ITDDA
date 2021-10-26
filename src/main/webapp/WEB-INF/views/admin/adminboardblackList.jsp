@@ -8,18 +8,18 @@
     </div>
   </div>
   <div class="MainContent">
-    <div style=" width:100%; height: 90%;">
-          <hr>
-          <ul id="BoardView">
-            <li>순번</li>
+    <div style=" width:100%; margin-top:50px; overflow:auto;">
+          <ul class="sirenTitle">
+          	<li>no</li>
             <li>카테고리</li>
             <li>제목</li>
             <li>글쓴이</li>
             <li>신고수</li>
             <li>등록일</li>
-            <li></li>
-            <br>
+            <li>&nbsp;</li>
+          </ul>
             <!-- 데이터내용-->
+          <ul id="BoardView">
             <c:forEach items="${list}" var="black">
             <li>${black.board_seq}</li>
             <li>${black.board_content}</li>
@@ -28,24 +28,22 @@
             <li>${black.board_hit}</li>
              <li>${black.board_writedate}</li>
             <li class="BlackboardSelect" name="${black.board_seq}"/>관리</li>
-              <br>
             </c:forEach>
-            
           </ul>
-    </div>
-    <div class="AdminBoardButtonBox">
-      <ul class="AdminBoardListButton">
-        <li><a href="#"><</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">></a></li>
-      </ul>
-    </div>
-  </div>
+	    </div>
+	    <div class="AdminBoardButtonBox">
+	      <ul class="AdminBoardListButton">
+	        <li><a href="#"><</a></li>
+	        <li><a href="#">1</a></li>
+	        <li><a href="#">2</a></li>
+	        <li><a href="#">3</a></li>
+	        <li><a href="#">4</a></li>
+	        <li><a href="#">5</a></li>
+	        <li><a href="#">6</a></li>
+	        <li><a href="#">></a></li>
+	      </ul>
+	    </div>
+  	</div>
   <!-- 모달창... -->
   <div class="BlackBoardSelectModal">
     <div class="modalOverlay"></div>

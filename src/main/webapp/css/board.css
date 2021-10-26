@@ -25,7 +25,7 @@ li {
 /*컨테이너*/
 .boardContainer {
   width: 1200px;
-  overflow: auto;
+/*   overflow: auto; */
   margin: 0 auto;
 }
 /* 게시판 타이틀 div */

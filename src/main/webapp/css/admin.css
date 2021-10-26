@@ -18,8 +18,8 @@
 }
 .MainContent {
   width: 1200px;
-  height: 800px;
   margin: 0 auto;
+  overflow:auto;
 }
 
 .BarMeunSelect {
@@ -54,25 +54,32 @@
   height: 10%;
 }
 
+.userListTitle{
+	width:100%;
+	height: 50px;
+	line-height: 50px;
+	border-top: 2px solid;
+	border-bottom: 1px solid;
+}
+.userListTitle>li{
+	float:left;
+	font-size:17px;
+	font-weight:bold;
+}
 /* Member */
 #MemberList {
   width: 100%;
-  height: 600px;
+  overflow:auto;
 }
 
 #MemberList > li {
   float: left;
-  height: 40px;
-  line-height: 40px;
+  height: 50px;
+  line-height: 50px;
   width: 11%;
   text-align: center;
-  font-size: 18px;
-}
-.userListTitle{
-	width:100%;
-}
-.userListTitle>li{
-	float:left;
+  font-size: 15px;
+  border-bottom:1px solid lightgray;
 }
 .userListTitle>li:nth-child(9n+1),
 #MemberList > li:nth-of-type(9n + 1) {
@@ -109,6 +116,9 @@
 .userListTitle>li:nth-child(9n+9),
 #MemberList > li:nth-of-type(9n + 9) {
   width: 9%;
+  cursor: pointer;
+  color: #ec6827;
+  font-weight: bold;
 }
 .MemberListButtonBox > ul > :nth-child(n) {
   padding-left: 10px;
@@ -132,43 +142,65 @@
 /* QnA */
 
 /*------------------------------------*bar Meun css*/
+.QnaListTitle{
+	border-top:2px solid;
+	border-bottom:1px solid;
+	height:50px;
+	line-height: 50px;
+}
+.QnaListTitle>li{
+	float:left;
+	font-size:17px;
+	font-weight: bold;
+	text-align: center;
+}
+#QnaList>li{
+	height:50px;
+	line-height: 50px
+}
+.QnaListTitle>li:nth-child(1),
 #QnaList > li:nth-of-type(4n + 1) {
-  width: 10%;
+  width: 15%;
 }
+.QnaListTitle>li:nth-child(2),
 #QnaList > li:nth-of-type(4n + 2) {
-  overflow: hidden;
-  width: 50%;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap;
+  width: 55%;
+  text-align: center;
+  cursor: pointer;
 }
 
+.QnaListTitle>li:nth-child(3),
 #QnaList > li:nth-of-type(4n + 3) {
-  width: 20%;
+  width: 15%;
 }
-
+.QnaListTitle>li:nth-child(4),
 #QnaList > li:nth-of-type(4n + 4) {
-  width: 20%;
+  width: 15%;
 }
 
 .AdminQnqModal > form > div {
   font-size: 20px;
 }
-.QnaButton > li {
-  float: left;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  margin-left: 60px;
-}
+/* .QnaButton > li { */
+/*   float: left; */
+/*   width: 50px; */
+/*   height: 50px; */
+/*   font-size: 20px; */
+/*   margin-left: 60px; */
+/* } */
 .QnaRightBox {
-  width: 100%;
-  height: 600px;
+  overflow:auto;
 }
-.QnaButton {
-  width: 100%;
-  height: 55px;
-}
-.QnaButtonBox > ul > :nth-child(n) {
-  padding-left: 10px;
-}
+/* .QnaButton { */
+/*   width: 100%; */
+/*   height: 55px; */
+/* } */
+/* .QnaButtonBox > ul > :nth-child(n) { */
+/*   padding-left: 10px; */
+/* } */
 
 #QnaList > li {
   float: left;
@@ -182,99 +214,111 @@
   margin: 0 auto;
 }
 .QnaBoardContent {
-  height: 600px;
   width: 100%;
-
   margin: 0 auto;
+  overflow:auto;
 }
 /* QnA */
-
-/*BoardList*/
-
-.AdminBoardButtonBox > ul > :nth-child(n) {
-  padding-left: 10px;
+/*==========페이징=======================================*/
+.AdminBoardButtonBox {
+  margin-top:50px;
 }
 
 .AdminBoardListButton {
-  width: 100%;
+  width: 45%;
   height: 55px;
+  margin: 0 auto;
 }
 
 .AdminBoardListButton > li {
   float: left;
-  width: 50px;
   height: 50px;
-  font-size: 30px;
-  margin-left: 60px;
+  font-size: 20px;
+  margin-left: 50px;
 }
-
-#BoardView > li {
-  float: left;
-
-  height: 30px;
-  height: -44px;
-  height: 91px;
-
-  width: 10%;
-  margin-top: 5px;
-  text-align: center;
-}
-
-#BoardView {
-  width: 100%;
-  height: 500px;
-}
-
+/*======================================================*/
 .BoardViewImg {
   width: 100px;
   height: 90px;
 }
-
-#BoardView > li {
-  font-size: 20px;
-  width: 10%;
-  height: 30px;
+.sirenTitle{
+	border-top:2px solid;
+	border-bottom:1px solid;
+	height:50px;
+	line-height: 50px;
 }
-
-#BoardView > li:nth-of-type(7n + 2) {
-  width: 15%;
-  overflow: hidden;
+.sirenTitle>li{
+	float:left;
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+	height:50px;
+	line-height: 50px;
+	width:7%;
 }
-
-#BoardView > li:nth-of-type(7n + 3) {
-  width: 30%;
+#BoardView > li{
+	width:7%;
+	float:left;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size:15px;
+	border-bottom:1px solid lightgray;
+}
+.sirenTitle>li:nth-child(3),
+#BoardView > li:nth-of-type(7n+3) {
+  width: 42%;
   text-align: left;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap;
+  padding-left:10px;
 }
-
-#BoardView > li:nth-of-type(7n + 6) {
+.sirenTitle>li:nth-child(3){
+	text-align: center;
+	padding:0;
+}
+.sirenTitle>li:nth-child(4),
+#BoardView > li:nth-of-type(7n+4) {
   width: 15%;
 }
-
-#BoardView > li:nth-of-type(1) {
-  height: 10%;
+.sirenTitle>li:nth-child(6),
+#BoardView > li:nth-of-type(7n+6) {
+  width: 15%;
+}
+#BoardView > li:nth-of-type(7n+7){
+	font-weight: bold;
+	color:#ec6827;
+	cursor: pointer;
+}
+.MemberListButtonBox {
+  margin: 0 auto;
+  width: 100%;
+  height: 55px;
+}
+.MemberListButtonBox > ul > li {
+  margin: 0 auto;
+  float: left;
+  font-size: 15px;
+  padding-left: 80px;
+  text-align: center;
 }
 
-#BoardView > li:nth-of-type(2) {
-  height: 10%;
+.MemberListButtonBox > ul > :nth-child(n) {
+  padding-left: 10px;
 }
 
-#BoardView > li:nth-of-type(3) {
-  height: 10%;
+.MemberListButton {
+  width: 100%;
+  height: 55px;
 }
 
-#BoardView > li:nth-of-type(4) {
-  height: 10%;
-}
-
-#BoardView > li:nth-of-type(5) {
-  height: 10%;
-}
-
-#BoardView > li:nth-of-type(6) {
-  height: 10%;
-}
-#BoardView > li:nth-of-type(7) {
-  height: 10%;
+.MemberListButton > li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: 60px;
 }
 
 .MemberListButtonBox {
@@ -307,100 +351,3 @@
   margin-left: 60px;
 }
 
-/*BoardList*/
-
-/*boardList*/
-
-#BoardView > li {
-  float: left;
-  height: 90px;
-  width: 10%;
-  margin-top: 5px;
-  text-align: center;
-}
-
-#BoardView {
-  width: 100%;
-  height: 500px;
-}
-
-.BoardViewImg {
-  width: 100px;
-  height: 90px;
-}
-
-#BoardView > li {
-  font-size: 20px;
-  width: 10%;
-}
-
-#BoardView > li:nth-of-type(7n + 2) {
-  width: 15%;
-  overflow: hidden;
-}
-
-#BoardView > li:nth-of-type(7n + 3) {
-  width: 30%;
-  text-align: left;
-}
-
-#BoardView > li:nth-of-type(7n + 6) {
-  width: 15%;
-}
-
-#BoardView > li:nth-of-type(1) {
-  height: 10%;
-}
-
-#BoardView > li:nth-of-type(2) {
-  height: 10%;
-}
-
-#BoardView > li:nth-of-type(3) {
-  height: 10%;
-}
-
-#BoardView > li:nth-of-type(4) {
-  height: 10%;
-}
-
-#BoardView > li:nth-of-type(5) {
-  height: 10%;
-}
-
-#BoardView > li:nth-of-type(6) {
-  height: 10%;
-}
-#BoardView > li:nth-of-type(7) {
-  height: 10%;
-}
-
-.MemberListButtonBox {
-  margin: 0 auto;
-  width: 100%;
-  height: 55px;
-}
-.MemberListButtonBox > ul > li {
-  margin: 0 auto;
-  float: left;
-  font-size: 15px;
-  padding-left: 80px;
-  text-align: center;
-}
-
-.MemberListButtonBox > ul > :nth-child(n) {
-  padding-left: 10px;
-}
-
-.MemberListButton {
-  width: 100%;
-  height: 55px;
-}
-
-.MemberListButton > li {
-  float: left;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  margin-left: 60px;
-}
