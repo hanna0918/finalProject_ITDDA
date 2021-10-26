@@ -112,3 +112,7 @@ $("#recommendSubmitBtn").click(function () {
   $("#recommendWriteOk").attr("action", "/itda/recommendWriteOk");
   $("#recommendWriteOk").submit();
 });
+
+$(document).on('click', '#recommendSubmitBtn', function(){
+	$('#recommendWriteOk').submit();
+});

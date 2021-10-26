@@ -81,7 +81,14 @@ public interface RecommendDAO {
 			+ "		values ( "
 			+ "			board_seq.currval, "
 			+ "			#{board_select} )"
-			+ ""
+			+ " into board_image ("
+			+ "			board_seq,"
+			+ "			imageseq, "
+			+ "			i_url )"
+			+ "		values ("
+			+ "			board_seq.currval,"
+			+ "			imageseq.nextval, "
+			+ "			#{i_url} ) "
 			+ " select * from dual ")
 	public int recommendWriteOk(RecommendVO vo);
 

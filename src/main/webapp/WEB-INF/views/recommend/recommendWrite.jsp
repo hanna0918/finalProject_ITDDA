@@ -19,7 +19,7 @@
 		<h2>RECOMMEND</h2>
 		<h4>모두에게 유용한 정보를 추천해보세요!</h4>
 	</div>
-    <form method="post" action="/itda/recommendWriteOk" id="recommendWriteOk" action="/itda/recommendWriteOk" onsubmit="return false" enctype="multipart/form-data">
+    <form method="post" action="/itda/recommendWriteOk" id="recommendWriteOk"  onsubmit="return false" enctype="multipart/form-data">
    		<div id="reco_injeungInfoArea">
             <div>
                 <div id="recommendWrite">
@@ -28,25 +28,44 @@
                     <div><input type="text" name="searchText" id="searchText" placeholder="태그를 입력하세요(최소 5개, 최대 10개)"/></div>
 	                <div>
 							<label class="input-file-button" for="input-file">썸네일</label> 
-							<input type="file" id="input-file" name="i_url"/>
+							<input type="file" id="input-file" name="input-file"/>
+							<input type="hidden" name="i_url" id="i_url"/>
 					</div>
 					
 						<script>
 						$("#input-file").change(function(){
+							console.log(this.files && this.files[0]);
 							if(this.files && this.files[0]) {
 					    		var reader = new FileReader;
 						    	reader.onload = function(data) {
 						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
-						    		$(".select_img img").attr("src", data.target.result).width(500);        
-						    	}
+						    		$(".select_img img").attr("src", data.target.result).width(500);
+					    		}
 					    		reader.readAsDataURL(this.files[0]);
-									reader.readAsText(this.files[0]);
-									console.log(reader.readAsText(this.files[0]));
+								//reader.readAsText(this.files[0]);
+								//console.log(reader.readAsText(this.files[0]));
+								fileCheck();
 					    	}
 				    	});
+						function fileCheck() {
+							//input file 태그.
+							var file = document.getElementById('input-file');
+							//파일 경로.
+							var filePath = file.value;
+							//전체경로를 \ 나눔.
+							var filePathSplit = filePath.split('\\'); 
+							//전체경로를 \로 나눈 길이.
+							var filePathLength = filePathSplit.length;
+							//마지막 경로를 .으로 나눔.
+							var fileName = filePathSplit[filePathLength-1];
+							
+							console.log('파일 경로 : ' + filePath);
+							console.log('파일명 : ' + fileName);
+							$("#i_url").val(fileName);
+						}
 						</script>
-						<div class="select_img"><img src=""/></div>
-						<%=request.getRealPath("/") %>
+						
+						<!-- <%=request.getRealPath("/") %> -->
             </div>
 		    </div>
 	            <div id="addTag">
@@ -67,7 +86,7 @@
 	            </div>
             </div>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <textarea id="summernote" name="b_content"></textarea>
+    <textarea id="summernote" name="b_content"><div class="select_img"><img src="" /></div></textarea>
     <div id="matchingBtnDiv">
         <input type="submit" value="등록" class="recommendSubmitBtn" id="recommendSubmitBtn"/>
         <a href="/itda/recommendList"><input type="button" value="취소" id="matchingCancelBtn"/></a>
