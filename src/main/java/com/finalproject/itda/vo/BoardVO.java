@@ -30,7 +30,6 @@ public class BoardVO {
 	private String prevTags[];
 	private String nextTags[];
 	private String[] tag;
->>>>>>> origin/main
 	private int board_block;
 	private int replyCount;
 	
