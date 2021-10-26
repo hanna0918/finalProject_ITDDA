@@ -26,6 +26,7 @@ public class CommonController {
 			//기존 파일 이름을 받고 확장자 저장
 			String orifileName = f.getOriginalFilename();
 			String ext = orifileName.substring(orifileName.lastIndexOf("."));
+			
 		}
 		
 		return null;

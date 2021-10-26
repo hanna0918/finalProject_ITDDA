@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.dao.InjeungDAO;
 import com.finalproject.itda.vo.BoardVO;
@@ -18,6 +19,18 @@ public class InjeungServiceImp implements InjeungService{
 	@Override
 	public List<BoardVO> injeungBoardList() {
 		return injeungDao.injeungBoardList();
+	}
+
+
+	@Override
+	public BoardVO injeungView(BoardVO vo) {
+		return injeungDao.injeungView(vo);
+	}
+
+
+	@Override
+	public int countHit(int board_seq) {
+		return injeungDao.countHit(board_seq);
 	}
 
 }

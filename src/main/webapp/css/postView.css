@@ -110,6 +110,7 @@
 	}
 	.contentReply>div:nth-child(2)>div{
 		float:left;
+		width: 100%;
 	}
 	#postWirterNick{
 		font-size:0.9em;
