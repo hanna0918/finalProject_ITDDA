@@ -12,9 +12,9 @@
 						<li><img src='img/circle.png' name='1' id='profileImg'/></li>
 						<li>
 							<div>
-							 {lognick}({login})님 <br/>
+							 <span style="font-size:1em; font-weight:bold;">${lognick}(${login})</span>님 <br/>
 							 안녕하세요 : )<br/>
-							 등급 : bronze
+							 등급 : ${m_name}
 							</div>	
 						</li>
 					</ul>

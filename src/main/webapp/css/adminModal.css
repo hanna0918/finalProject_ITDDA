@@ -222,10 +222,19 @@
 /* BoardBlack 모달 */
 
 /*공통 모달*/
+.Modallabel{
+  line-height: 40px;
+  font-size: 20px;
+  width: 100px;
+  height: 40px;
+  float: left;
+  margin-left:50px;
+}
 .ModalInput {
   width: 200px;
-  height: 50px;
+  height: 40px;
   text-align: left;
+  margin-right: 160px;
 }
 
 .ModalInput:focus {
@@ -234,15 +243,19 @@
 
 .Modalselect {
   width: 200px;
-  height: 50px;
+  height: 40px;
   text-align: left;
 }
-.Modallabel {
-  font-size: 20px;
-  width: 100px;
-  height: 30px;
-  float: left;
+.submitbutton{
+	width:80px;
+	height:40px;
+	font-size:1em;
+	background-color: #00376b;
+	border:1px solid #00376b;
+	border-radius: 3px;
+	color:white;
 }
+
 
 .modalOverlay {
   background: rgba(0, 0, 0, 0.5);
@@ -252,4 +265,5 @@
   overflow-y: auto;
   position: fixed;
 }
+
 /*공통 모달*/

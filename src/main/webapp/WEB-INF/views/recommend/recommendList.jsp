@@ -67,7 +67,7 @@
 
 </div>
 
-<div>
+<div class="writePageDiv">
 	<!-- 글쓰기 버튼 -->
 	<div class="boardBtnDiv">
 		<input type="button" value="글쓰기" class="writeBtn recommendBtn"

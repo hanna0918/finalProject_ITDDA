@@ -6,7 +6,9 @@
 
 </script>
   <div class="TopContent">
-    <div class="TopSubContent">신고 게시판</div>
+    <div class="TopSubContent">
+    	<div>신고 게시판</div>
+    </div>
   </div>
   <div class="MainContent">
        <div style=" width:100%; height: 90%;">

@@ -17,9 +17,9 @@
     <link rel="stylesheet" type="text/css" href="css/postView.css?a11" /> 
 	
 	<!--  관리자 스타일  -->
-    <link rel="stylesheet" type="text/css" href="css/adminTop.css?32" />
-	<link rel="stylesheet" type="text/css" href="css/adminModal.css"/> 
-    <link rel="stylesheet" type="text/css" href="css/admin.css?ver1" />
+    <link rel="stylesheet" type="text/css" href="css/adminTop.css?321" />
+	<link rel="stylesheet" type="text/css" href="css/adminModal.css?1"/> 
+    <link rel="stylesheet" type="text/css" href="css/admin.css?ver11" />
     
     
     <!-- 영상관련 -->

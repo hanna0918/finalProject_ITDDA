@@ -12,8 +12,7 @@
   <div class="TopContent">
     <div class="TopSubContent">
       <div>회원관리</div>
-
-    <div style="text-align: right; ">
+    <div>
     <form action="#" method="post">
       <select name="MemberSelect" id="MemberSelect">
         <option value="이름">이름</option>
@@ -27,8 +26,8 @@
 
   <div class="MainContent">
       <div style="width:100%; height: 90%;">
-        <ul id="MemberList">
-          <li></li>
+      	<ul class="userListTitle">
+      	  <li>번호</li>
           <li>아이디</li>
           <li>이름</li>
           <li>별명</li>
@@ -36,23 +35,21 @@
           <li>가입일자</li>
           <li>게시글</li>
           <li>활동상태</li>
-          <li> </li>
-          <br>
- 
-	  <c:forEach items="${list}" var="list">
-	  	<li> ${list.m_seq}</li>
-        <li> ${list.m_userid }</li>
-        <li> ${list.m_username }</li>
-        <li> ${list.m_nickname }</li>
-        <li> ${list.m_tel }</li>
-        <li> ${list.m_regdate }</li>
-        <li> ${list.board_seq }</li>
-        <li> ${list.m_state }</li>
-        <li class="AdminMember" name="${list.m_seq}"/>회원관리</li>
-		<br>
-      </c:forEach>
-  
-  
+          <li>&nbsp;</li>
+      	</ul>
+        <ul id="MemberList">
+		  <c:forEach items="${list}" var="list">
+		  	<li> ${list.m_seq}</li>
+	        <li> ${list.m_userid }</li>
+	        <li> ${list.m_username }</li>
+	        <li> ${list.m_nickname }</li>
+	        <li> ${list.m_tel }</li>
+	        <li> ${list.m_regdate }</li>
+	        <li> ${list.board_seq }</li>
+	        <li> ${list.m_state }</li>
+	        <li class="AdminMember" name="${list.m_seq}"/>회원관리</li>
+			<br>
+	      </c:forEach>
         </ul>
       </div>
      <div class="AdminBoardButtonBox">

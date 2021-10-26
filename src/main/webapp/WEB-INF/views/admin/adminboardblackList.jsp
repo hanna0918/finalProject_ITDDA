@@ -3,7 +3,9 @@
 
 <%@ include file="/inc/adminTop.jspf" %>
   <div class="TopContent">
-    <div class="TopSubContent">블럭게시판관리</div>
+    <div class="TopSubContent">
+    	<div>블럭게시판 관리</div>
+    </div>
   </div>
   <div class="MainContent">
     <div style=" width:100%; height: 90%;">

@@ -394,7 +394,10 @@ img[name="goodhit"] {
 .recommendImg {
   width: 15px;
 }
-
+.writePageDiv{
+	width:1200px;
+	margin: 0 auto;
+}
    /*------------여기까지 자게 보드컨테이너----------------------------------------*/
    
    /*아이디 드롭다운 메뉴*/
