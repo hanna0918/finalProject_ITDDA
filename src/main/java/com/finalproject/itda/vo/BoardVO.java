@@ -44,14 +44,30 @@ public class BoardVO {
 	//--�옣�꽣 愿�由�--
 	//--�깭洹� 愿�由�--
 	private String board_select;
-	//--�깭洹� 愿�由�--
-	//--�씠誘몄� 愿�由�--
-	private int imageseq;
-	private String l_Url;
+	//--태그 관리--
+	//--이미지 관리--
+	private int imageseq;	//이미지 관련
+	private String l_Url;	//이미지 관련
+	
+	private String Searchkeyword; //검색 관련 
+	private String Keywordselect; //검색어
 	
 	
 	
 	
+	
+	public String getSearchkeyword() {
+		return Searchkeyword;
+	}
+	public void setSearchkeyword(String searchkeyword) {
+		Searchkeyword = searchkeyword;
+	}
+	public String getKeywordselect() {
+		return Keywordselect;
+	}
+	public void setKeywordselect(String keywordselect) {
+		Keywordselect = keywordselect;
+	}
 	public int getBoard_block() {
 		return board_block;
 	}
@@ -254,8 +270,5 @@ public class BoardVO {
 	public void setNextTags(String[] nextTags) {
 		this.nextTags = nextTags;
 	}
-	
-	
-
 }
 

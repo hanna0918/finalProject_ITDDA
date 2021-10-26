@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.finalproject.itda.vo.RecommendPagingVO;
 import com.finalproject.itda.vo.RecommendVO;
@@ -14,10 +15,11 @@ public interface RecommendDAO {
 		" select * from ",
 		" (select * from ",
 		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, b_content, ",
-		" board_select ",
+		" board_select, i_url ",
 		" from boardbase b ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
+		" inner join board_image d on a.board_seq=d.board_seq ",
 		" where board_block in (0, 2) and board_code = 1 ",
 		" <if test='tag != null and tag != \"\"'> ",
 		" 	<foreach item='item' collection='tag' open='' separator='' close=''> ",
@@ -110,6 +112,9 @@ public interface RecommendDAO {
 			+ "    where board_code=1) "
 			+ "where board_seq=${param1}")
 	public RecommendVO recommendView(int board_seq);
+	
+	@Update("update boardbase set board_hit=board_hit+1 where board_seq=${param1}")
+	public int countHit(int b_id);
 	
 	@Select({"<script>",
 		" select count(b.board_seq) totalRecord ",

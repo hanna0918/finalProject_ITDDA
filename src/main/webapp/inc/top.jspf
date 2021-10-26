@@ -14,7 +14,7 @@
 	
     <!--  추천게시판 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/board.css?abcdef" />
-    <link rel="stylesheet" type="text/css" href="css/postView.css?a" /> 
+    <link rel="stylesheet" type="text/css" href="css/postView.css?a11" /> 
 	
 	<!--  관리자 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/adminTop.css?32" />

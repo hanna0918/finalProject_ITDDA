@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link rel="stylesheet" href="/itda/css/injeungView.css?version=1111111">
+<link rel="stylesheet" href="/itda/css/injeungView.css?version=11111111">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<div id='postViewDiv'><!-- 게시글뷰 페이지 -->
 		<form>
 			<div class='contentTitle'><!-- 카테고리,제목 -->
-				<div>인증</div>
+				<div>HANGOUT</div>
 				<div>${vo.board_subject}</div>
 			</div>
 			<div class='contentWriter'><!-- 작성자 -->
 				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
-					<div class='postWirterNick'>${vo.m_nickname }</div>
+					<div class='postWriterNick'>${vo.m_nickname }</div>
 					<div>
 						<ul>
 							<li>${vo.board_writedate }</li>
@@ -118,4 +118,4 @@
             
         </article>
     </div>
-<script src="/itda/js/injeungView.js?version=11"></script>
+<script src="/itda/js/injeungView.js?version=111"></script>

@@ -91,7 +91,6 @@
    	           </div>
                 <!-- 글내용박스 -->
                 ${vo.b_content}
-                <br/>
                 
             </div>
             <div class='contentReply'>

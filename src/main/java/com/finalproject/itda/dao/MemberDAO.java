@@ -8,7 +8,7 @@ import com.finalproject.itda.vo.MemberBaseVO;
 public interface MemberDAO {
 	//로그인
 //	@Select("select m_userid, m_username from memberbase where m_userid=#{m_userid} and m_userpwd=#{m_userpwd}")
-	@Select("select m_seq, m_userid, m_userpwd, m_username from memberbase where m_userid=#{m_userid}")
+	@Select("select A1.m_seq, A1.m_userid, A1.m_userpwd, A1.m_username, A1.m_rank, A2.m_rank from memberbase A1 join member_rank A2 on A2.m_rank = A1.m_rank where m_userid=#{m_userid}")
 	public MemberBaseVO login(MemberBaseVO vo);
 
 	

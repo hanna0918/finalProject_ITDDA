@@ -175,8 +175,10 @@ function sendWithAjax(){
 	data += "&nowPage=" + nowPage;
 	data += "&frequency=" + frequency;
 	data += "&listup=" + selectedViewByTime;
-	data += "&m_seq=" + $("#logseq").val();
 	console.log("logseq="+$("#logseq").val());
+	if($("#logseq").val()!=null || $("#logseq").val() != ""){
+		data += "&m_seq=" + $("#logseq").val();
+	}
 	var data = data;
 	var rUrl = "/itda/matchingListTagSearch";
 	console.log(data);

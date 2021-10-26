@@ -10,23 +10,44 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<stylie>
+
+</stylie>
+
 <section id="reco_injeungFrame">
 	<div class="boardName">
 		<h2>RECOMMEND</h2>
 		<h4>모두에게 유용한 정보를 추천해보세요!</h4>
 	</div>
-    <form method="post" action="/itda/recommendWriteOk" id="recommendWriteOk" action="/itda/recommendWriteOk" onsubmit="return false">
+    <form method="post" action="/itda/recommendWriteOk" id="recommendWriteOk" action="/itda/recommendWriteOk" onsubmit="return false" enctype="multipart/form-data">
    		<div id="reco_injeungInfoArea">
             <div>
                 <div id="recommendWrite">
-                    <div><input type="text" id="matchingUploadTitle" name="board_subject" placeholder="제목을 입력하세요" required/></div>
+                    <div><input type="text" id="recommendUploadTitle" name="board_subject" placeholder="제목을 입력하세요" required/></div>
                     <div><input type="button" value="지도" id="reco_injeungMapBtn"></div>
                     <div><input type="text" name="searchText" id="searchText" placeholder="태그를 입력하세요(최소 5개, 최대 10개)"/></div>
 	                <div>
-						<label class="input-file-button" for="input-file">썸네일</label> 
-						<input type="file" id="input-file" />
+							<label class="input-file-button" for="input-file">썸네일</label> 
+							<input type="file" id="input-file" name="i_url"/>
 					</div>
-                </div>
+					
+						<script>
+						$("#input-file").change(function(){
+							if(this.files && this.files[0]) {
+					    		var reader = new FileReader;
+						    	reader.onload = function(data) {
+						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
+						    		$(".select_img img").attr("src", data.target.result).width(500);        
+						    	}
+					    		reader.readAsDataURL(this.files[0]);
+									reader.readAsText(this.files[0]);
+									console.log(reader.readAsText(this.files[0]));
+					    	}
+				    	});
+						</script>
+						<div class="select_img"><img src=""/></div>
+						<%=request.getRealPath("/") %>
+            </div>
 		    </div>
 	            <div id="addTag">
 	                <div id="hiddenTag0" style="display: none;">#</div>
@@ -74,5 +95,4 @@
     </div>
   	</form>
 </section>
-<script src="/itda/js/matchingUpload.js?version=111111"></script>
-<script src="/itda/js/recommend.js?version=111111"></script>
+<script src="/itda/js/recommendUpload.js?version=111111"></script>
