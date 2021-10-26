@@ -55,6 +55,7 @@
         </c:forEach>
     </aside>
     
+    <!-- -------------------------------------------------------------------------------------------------------------위는 매칭게시판 한정---------------------------------------------------------------------------------------------------------------------------------->
 
     <div id='postViewDiv'><!-- 게시글뷰 페이지 -->
         <form>
@@ -90,7 +91,6 @@
    	           </div>
                 <!-- 글내용박스 -->
                 ${vo.b_content}
-                <br/>
                 
             </div>
             <div class='contentReply'>
@@ -169,7 +169,7 @@
             
         </article>
     </div>
-    
+    <!-- 신고모달, alert 대용 모달 -->
     <div class="matchingReportModal" id="matchingReportModal">
         <div class="matchingReportModalOverlay"></div>
         <article class="matchingReportModalContent">

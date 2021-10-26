@@ -1,42 +1,53 @@
 package com.finalproject.itda.vo;
 
 public class BoardVO {
-	private int m_seq; //회원번호 
-	private int board_seq; //게시물번호
-	private int board_code;//카테고리 번호
-	private String board_subject; //제목
-	private String board_writedate; //등록일
-	private int board_hit; //조회수
-	private int b_goodhit;//좋아요
-	private int board_call; //신고
-	private int board_black; //블럭처리
-	private String m_userid; //아이디
-	private String m_nickname;//닉네임
-	private int commentcount; //댓글수 
-	private int br_id; //댓글번호
+	private int m_seq; //�쉶�썝踰덊샇 
+	private int board_seq; //寃뚯떆臾쇰쾲�샇
+	private int board_code;//移댄뀒怨좊━ 踰덊샇
+	private String board_subject; //�젣紐�
+	private String board_writedate; //�벑濡앹씪
+	private int board_hit; //議고쉶�닔
+	private int b_goodhit;//醫뗭븘�슂
+	private int board_call; //�떊怨�
+	private int board_black; //釉붾윮泥섎━
+	private String m_userid; //�븘�씠�뵒
+	private String m_nickname;//�땳�꽕�엫
+	private int commentcount; //�뙎湲��닔 
+	private int br_id; //�뙎湲�踰덊샇
 	private String b_content;
 	private String board_blockcontent;
 	private String board_content;
-
-	private int board_block;
-
+	private String m_name; // �벑湲됱씠由� 
 	
-	//댓글 수 
+	private int board_prev_seq;
+	private int board_next_seq;
+	private String board_prev_subject;
+	private String board_next_subject;
+	private String board_prev_select;
+	private String board_next_select;
+	
+	private String prevTags[];
+	private String nextTags[];
+	private String[] tag;
+	private int board_block;
+	private int replyCount;
+	
+	//�뙎湲� �닔 
 	private int br_count;
-	//--닉네임 관리--
-	//--닉네임 관리--
-	//--카테고리 관리--
-	//--카테고리 관리--
+	//--�땳�꽕�엫 愿�由�--
+	//--�땳�꽕�엫 愿�由�--
+	//--移댄뀒怨좊━ 愿�由�--
+	//--移댄뀒怨좊━ 愿�由�--
 
-	//--장터 관리--
+	//--�옣�꽣 愿�由�--
 	private String board_shopcontent;
-	//--장터 관리--
-	//--태그 관리--
+	//--�옣�꽣 愿�由�--
+	//--�깭洹� 愿�由�--
 	private String board_select;
 	//--태그 관리--
 	//--이미지 관리--
-	private int imageseq;
-	private String l_Url;
+	private int imageseq;	//이미지 관련
+	private String l_Url;	//이미지 관련
 	
 	
 	
@@ -110,6 +121,13 @@ public class BoardVO {
 	public int getBoard_black() {
 		return board_black;
 	}
+	
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
 	public void setBoard_black(int board_black) {
 		this.board_black = board_black;
 	}
@@ -160,6 +178,7 @@ public class BoardVO {
 	}
 	public void setBoard_select(String board_select) {
 		this.board_select = board_select;
+		tag = board_select.split("/");
 	}
 	public int getImageseq() {
 		return imageseq;
@@ -173,6 +192,67 @@ public class BoardVO {
 	public void setL_Url(String l_Url) {
 		this.l_Url = l_Url;
 	}
-
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+	public String[] getTag() {
+		return tag;
+	}
+	public void setTag(String[] tag) {
+		this.tag = tag;
+	}
+	public int getBoard_prev_seq() {
+		return board_prev_seq;
+	}
+	public void setBoard_prev_seq(int board_prev_seq) {
+		this.board_prev_seq = board_prev_seq;
+	}
+	public int getBoard_next_seq() {
+		return board_next_seq;
+	}
+	public void setBoard_next_seq(int board_next_seq) {
+		this.board_next_seq = board_next_seq;
+	}
+	public String getBoard_prev_subject() {
+		return board_prev_subject;
+	}
+	public void setBoard_prev_subject(String board_prev_subject) {
+		this.board_prev_subject = board_prev_subject;
+	}
+	public String getBoard_next_subject() {
+		return board_next_subject;
+	}
+	public void setBoard_next_subject(String board_next_subject) {
+		this.board_next_subject = board_next_subject;
+	}
+	public String getBoard_prev_select() {
+		return board_prev_select;
+	}
+	public void setBoard_prev_select(String board_prev_select) {
+		this.board_prev_select = board_prev_select;
+		prevTags=board_prev_select.split("/");
+	}
+	public String getBoard_next_select() {
+		return board_next_select;
+	}
+	public void setBoard_next_select(String board_next_select) {
+		this.board_next_select = board_next_select;
+		nextTags=board_next_select.split("/");
+	}
+	public String[] getPrevTags() {
+		return prevTags;
+	}
+	public void setPrevTags(String[] prevTags) {
+		this.prevTags = prevTags;
+	}
+	public String[] getNextTags() {
+		return nextTags;
+	}
+	public void setNextTags(String[] nextTags) {
+		this.nextTags = nextTags;
+	}
 }
 

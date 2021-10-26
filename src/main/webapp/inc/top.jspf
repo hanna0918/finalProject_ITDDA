@@ -14,7 +14,7 @@
 	
     <!--  추천게시판 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/board.css?abcdef" />
-    <link rel="stylesheet" type="text/css" href="css/postView.css?a" /> 
+    <link rel="stylesheet" type="text/css" href="css/postView.css?a11" /> 
 	
 	<!--  관리자 스타일  -->
     <link rel="stylesheet" type="text/css" href="css/adminTop.css?32" />
@@ -23,15 +23,12 @@
     
     
     <!-- 영상관련 -->
-    <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-	<script src="inc/jquery.mb.YTPlayer.js"></script>
-	<script>
-	$(function(){
-		  $("#player").YTPlayer();
-		});
-	</script>
+	<style>
+      .jb-box { width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative; }
+      video { width: 100%; }
+      .jb-text { position: absolute; top: 50%; width: 100%; }
+      .jb-text p { margin-top: -24px; text-align: center; font-size: 48px; color: #ffffff; }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -42,7 +39,14 @@
             <a href="/itda"><img src="img/ITDDA01.png" /></a>
           </li>
           <li><a href="/itda/recommendList">RECOMMEND</a></li>
+          <c:choose>
+          <c:when test='${logseq!=null }'>
+          <li><a href="/itda/matchingList?m_seq=${logseq}">MATCHING</a></li>
+          </c:when>
+          <c:otherwise>
           <li><a href="/itda/matchingList">MATCHING</a></li>
+          </c:otherwise>
+          </c:choose>
           <li><a href="/itda/injeungBoard">HANGOUT</a></li>
           <li><a href="/itda/freeBoard2">FREEBOARD</a></li>
           <li><a href="/itda/questionBoard">Q&A</a></li>

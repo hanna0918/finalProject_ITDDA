@@ -93,9 +93,24 @@ public class BoardServiceImp implements BoardService {
 
 	//쪽지 yes
 	@Override
-	public MemberBaseVO freeBoardmodalNoteYes(MemberBaseVO mbVo) {
+	public int freeBoardmodalNoteYes(MemberBaseVO mbVo) {
 		return boardDAO.freeBoardmodalNoteYes(mbVo);
 	}
+
+	//구독ok 
+	@Override
+	public int freeBoardmodalGudokOk(MemberBaseVO mbVo) {
+		return boardDAO.freeBoardmodalGudokOk(mbVo);
+	}
+
+	// 게시물보기 
+	@Override
+	public List<BoardVO> writeList(BoardVO vo) {
+		return boardDAO.writeList(vo);
+	}
+
+	
+	
 
 	
 }

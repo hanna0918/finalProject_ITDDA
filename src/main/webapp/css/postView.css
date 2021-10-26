@@ -60,9 +60,6 @@
 		font-size:0.89em;
 		margin-right:1%;
 	}
-/* 	.contentReply>div:nth-child(2)>div:last-child{ */
-/* 		padding:2px 3px; */
-/* 	} */
 	.contentWriter li:last-child:hover{
 		color:red;
 	}
@@ -128,6 +125,7 @@
 	}
 	.contentReply>div:nth-child(2)>div{
 		float:left;
+		width: 100%;
 	}
 	.postWriterNick{
 		font-size:0.95em;

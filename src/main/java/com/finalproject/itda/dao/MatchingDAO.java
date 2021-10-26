@@ -20,7 +20,10 @@ public interface MatchingDAO {
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
-		" where board_block=0 ",
+		" where board_block in (0, 2) ",
+		" <if test='m_seq!=null and m_seq!=\"\"'> ",
+		" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+		" </if> ",
 		" <if test='tag != null and tag != \"\"'> ",
 		" <foreach item='item' collection='tag' open='' separator='' close=''> ",
 		" and board_select like '%${item}%' ",
@@ -49,6 +52,9 @@ public interface MatchingDAO {
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
 		" where board_block in (0, 2) ",
+		" <if test='m_seq!=null and m_seq!=\"\"'> ",
+		" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+		" </if> ",
 		" <if test='tag != null and tag != \"\"'> ",
 		" <foreach item='item' collection='tag' open='' separator='' close=''> ",
 		" and board_select like '%${item}%' ",
@@ -101,20 +107,27 @@ public interface MatchingDAO {
 	public List<MatchingVO> matchingList(MatchingPagingVO pVo);
 	
 	// 매칭 글보기
-	@Select(" select * from (select a.board_seq, mc_seq, a.m_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, "
-			+ "	mc_max, mc_where, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select,"
-			+ " (select count(board_seq) from board_comment e where a.board_seq=e.board_seq) replyCount, "
-			+ " lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, "
-			+ " lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject, "
-			+ " lag(board_select, 1) over(order by a.board_seq) board_prev_select, "
-			+ " lead(a.board_seq, 1) over(order by a.board_seq) board_next_seq, "
-			+ " lead(board_subject, 1, '다음글이 없습니다.') over(order by a.board_seq) board_next_subject, "
-			+ " lead(board_select) over(order by a.board_seq) board_next_select "
-			+ "	from boardbase a inner join memberbase b on a.m_seq=b.m_seq "
-			+ "	inner join mc_table c on a.board_seq=c.board_seq "
-			+ "	inner join board_content d on a.board_seq=d.board_seq "
-			+ "	where board_code=2) "
-			+ " where board_seq=${param1}")
+	@Select({" <script> ",
+			" select * from ",
+			" (select a.board_seq, mc_seq, a.m_seq, m_userid, m_nickname, m_info, board_subject, board_writedate, board_hit, b_goodhit, board_call, b_content, ",
+			"	mc_max, mc_where, mc_state, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, board_select,",
+			" (select count(board_seq) from board_comment e where a.board_seq=e.board_seq) replyCount, ",
+			" lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, ",
+			" lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject, ",
+			" lag(board_select, 1) over(order by a.board_seq) board_prev_select, ",
+			" lead(a.board_seq, 1) over(order by a.board_seq) board_next_seq, ",
+			" lead(board_subject, 1, '다음글이 없습니다.') over(order by a.board_seq) board_next_subject, ",
+			" lead(board_select) over(order by a.board_seq) board_next_select ",
+			"	from boardbase a inner join memberbase b on a.m_seq=b.m_seq ",
+			"	inner join mc_table c on a.board_seq=c.board_seq ",
+			"	inner join board_content d on a.board_seq=d.board_seq ",
+			"	where board_code=2 ",
+			" <if test='m_seq!=null and m_seq!=\"\"'> ",
+			" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+			" </if> ",
+			" ) ",
+			" where board_seq=${param1} ",
+			" </script> "})
 	public MatchingVO matchingView(int b_id);
 	
 	// 매칭 글 조회수 증가
@@ -122,9 +135,14 @@ public interface MatchingDAO {
 	public int countHit(int b_id);
 	
 	// 캘린더에 들어갈 값
-	@Select(" select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", "
-			+ " board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq")
-	public List<CalendarVO> dataForJson();
+	@Select({" <script> ",
+			"select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", ",
+			" board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq",
+			" <if test='m_seq!=null and m_seq!=\"\"'> ",
+			" where b.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+			" </if> ",
+			" </script>"})
+	public List<CalendarVO> dataForJson(MatchingPagingVO pVo);
 	
 	// 매칭 글등록
 	@Insert(" insert all "

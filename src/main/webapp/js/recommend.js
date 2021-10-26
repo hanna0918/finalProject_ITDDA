@@ -130,10 +130,10 @@ function sendWithAjax() {
       if (listResult.length != 0) {
         pageResult.each(function (idx, pVo) {
           if (pVo.nowPage > 1) {
-            newPageNum += "<li class='page-item'><a href='javascript:recommendPagingPrev()' class='page-link'>Prev</a></li>";
+            newPageNum += "<li class='page-item'><a href='javascript:recommendPagingPrev()' class='page-link'>◁</a></li>";
           }
           if (pVo.nowPage == 1) {
-            newPageNum += "<li class='page-item'><a class='page-link'>Prev</a></li>";
+            newPageNum += "<li class='page-item'><a class='page-link'>◁</a></li>";
           }
           for (i = pVo.startPage; i <= pVo.startPage + pVo.onePageNumCount - 1; i++) {
             if (i <= pVo.totalPage) {
@@ -147,7 +147,7 @@ function sendWithAjax() {
             }
           }
           if (pVo.nowPage < pVo.totalPage) {
-            newPageNum += "<li class='page-item'><a href='javascript:recommendPagingNext()'>Next</a></li>";
+            newPageNum += "<li class='page-item'><a href='javascript:recommendPagingNext()'>▷</a></li>";
           }
         });
       }

@@ -39,10 +39,11 @@ public class MypageServiceImp implements MypageService {
 	}
 	//1:1문의 
 	@Override
-	public List<QuestionVO> MypageQnA() {
-		return  mypageDao.MypageQnA();
+	public List<QuestionVO> MypageQnA(int seq) {
+		return  mypageDao.MypageQnA(seq);
 	}
 	
-
-
+	public List<QuestionVO> MypageQnaList(int seq) {
+		return  mypageDao.MypageQnaList(seq);
+	}
 }

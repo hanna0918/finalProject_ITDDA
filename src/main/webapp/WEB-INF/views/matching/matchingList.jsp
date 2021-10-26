@@ -10,6 +10,7 @@
 		<div class="boardName">
 		    <h2>MATCHING</h2>
 		    <h4>나와 다른사람을 이어보세요!</h4>
+		    <input type="hidden" id="logseq" value="${logseq }"/>
 	  	</div>
 		<div id="searchAndCalendar">
 			<form method="post" id="tagTranfer" onsubmit="return false">
@@ -75,7 +76,7 @@
 		<div>
 			<ul class='pagination' id='matchingPagingUl'>
 				<c:if test="${pVo.nowPage>1}">
-			    	<li class='page-item'><a href="javascript:matchingPaging(${pVo.nowPage-1})" class='page-link'>Prev</a></li>
+			    	<li class='page-item'><a href="javascript:matchingPaging(${pVo.nowPage-1})" class='page-link'>◁</a></li>
 			    </c:if>
 				<c:if test="${pVo.nowPage==1 }">
 					<li class='page-item'><a class='page-link'>◁</a></li>
@@ -98,4 +99,4 @@
 		</div>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=1"></script>
+<script src="/itda/js/matchingList.js?version=111111111111"></script>

@@ -44,8 +44,8 @@ public class MatchingServiceImp implements MatchingService {
 	}
 
 	@Override
-	public List<CalendarVO> dataForJson() {
-		return matchingDAO.dataForJson();
+	public List<CalendarVO> dataForJson(MatchingPagingVO pVo) {
+		return matchingDAO.dataForJson(pVo);
 	}
 
 	@Override

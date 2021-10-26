@@ -2,7 +2,7 @@
 $('#summernote').summernote({
     placeholder: '매칭 정보를 입력해주세요',
     tabsize: 2,
-    height: 300,
+    height: 600,
 });
 function setTagData() {
 	const board_select = document.querySelector("#databoard_select").value;
