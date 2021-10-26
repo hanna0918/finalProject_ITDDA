@@ -79,7 +79,8 @@ public class RecommendController {
 		mav.addObject("vo", recommendService.recommendView(board_seq));
 		mav.setViewName("recommend/recommendView");
 		return mav;
-		
 	}
+	
+	
 	
 }

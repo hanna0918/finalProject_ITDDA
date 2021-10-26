@@ -14,11 +14,22 @@ public class MemberVO {
 	private String m_statecode;
 	private String m_content;
 	private String m_info;
+	private String m_img;
+	
+	
+	
+	public String getM_img() {
+		return m_img;
+	}
+	public void setM_img(String m_img) {
+		this.m_img = m_img;
+	}
+	
+	public void setM_seq(int m_seq) {
+		this.m_seq = m_seq;
+	}
 	public int getM_seq() {
 		return m_seq;
-	}
-	public void setm_seq(int m_seq) {
-		this.m_seq = m_seq;
 	}
 	public String getM_username() {
 		return m_username;

@@ -20,6 +20,8 @@ public class BoardVO {
 	private String m_name; // 등급이름 
 
 	private int board_block;
+	
+	
 
 	
 	//댓글 수 
@@ -36,8 +38,8 @@ public class BoardVO {
 	private String board_select;
 	//--태그 관리--
 	//--이미지 관리--
-	private int imageseq;
-	private String l_Url;
+	private int imageseq;	//이미지 관련
+	private String l_Url;	//이미지 관련
 	
 	
 	
