@@ -89,7 +89,7 @@ public interface MatchingDAO {
 		" where rownum<![CDATA[<= ]]> ",
 		" <choose> ",
 		" <when test='totalPage==nowPage and totalRecord*onePageRecord != 0'> ",
-		" ${totalRecord} % ${onePageRecord} ",
+		" mod(${totalRecord} , ${onePageRecord}) ",
 		" </when> ",
 		" <otherwise> ",
 		" ${onePageRecord} ",
