@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" type="text/css" href="/itda/css/postView.css" />
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" type="text/css" href="/itda/css/postView.css?version=11" />
+<link rel="stylesheet" type="text/css" href="/itda/css/injeungView.css?version=11111111" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <div id="postViewDiv">
   <!-- 게시글뷰 페이지 -->
@@ -36,7 +36,7 @@
 
     <div class="contentView">
       <div>
-        <c:forEach var="item" items="${vo.tag}">
+        <c:forEach var="item" items="${vo.tags}">
           <span>#${item}</span>
         </c:forEach>
       </div>
@@ -47,8 +47,8 @@
     <div class="contentReply">
       <div>
         <img alt="heart" id='heartIcon' src="https://cdn-icons-png.flaticon.com/512/812/812327.png"> ${vo.b_goodhit}&nbsp;&nbsp;
-					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
-					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_black}</span>
+					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> ${vo.replyCount}&nbsp;&nbsp;
+					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_block}</span>
 				</div>
       <div id="replyList">
        
@@ -119,6 +119,4 @@
             
         </article>
     </div>
-<script src="/itda/js/injeungView.js?version=11"></script>
-
-<script src="/itda/js/matchingView.js?version=1111111111111111"></script>
+<script src="/itda/js/injeungView.js?version=111"></script>

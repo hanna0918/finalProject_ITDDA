@@ -30,7 +30,7 @@
 		line-height:30px;
 		width:80px;
 		text-align:center;
-		border-bottom:1px solid gray;
+		border-bottom:2px solid #00376b;
 		margin:0 auto;
 	}
 	.contentTitle>div:last-child{
@@ -44,26 +44,31 @@
 		height:60px;
 /* 		margin-bottom:2%; */
 	}
-	.contentWriter>div:first-child, .contentReply>div:nth-child(2)>div:first-child{
-		width:5%;
-		float:left;
-	}
-	.contentReply>div:nth-child(2)>div:last-child{
-		padding:2px 3px;
-	}
+/* 	.contentWriter>div:first-child{ */
+/* 		width:5%; */
+/* 		float:left; */
+/* 	} */
 	.contentWriter>div:last-child{
 		width:80%;
 		margin-top:0.5%;
 		overflow:auto;
-		line-height:
+		padding-top: 5px;
 		font-size:0.9em;
 	}
 	.contentWriter li{
 		float:left;
+		font-size:0.89em;
 		margin-right:1%;
 	}
+/* 	.contentReply>div:nth-child(2)>div:last-child{ */
+/* 		padding:2px 3px; */
+/* 	} */
 	.contentWriter li:last-child:hover{
 		color:red;
+	}
+	.boardWriter{
+		font-weight:bold;
+		font-size:0.9em;
 	}
 	.contentView{
 		width:100%;
@@ -90,36 +95,50 @@
 		width:100%;
 		overflow:auto;
 		margin-top:5%;
+		
 	}
 	.contentReply>div{
-		width:100%;
+/* 		width:100%; */
 		overflow:auto;		
 		margin-top:2%;
 		box-sizing:border-box;
 	}
-	.contentReply>div:first-child{
+	.replyBox>div:first-child{
 		padding-left:1%;
+		width:6%;
 		height:30px;
 		line-height:30px;
 		font-size:1.15em;
+		float:left;
+	}
+	.replyBox>div:last-child{
+		width:90%;
+		float:left;
+		margin-left:5px;
+		padding-top:5px;
 	}
 	#siren{
 		float:right;
 		color:black;
 		margin-right:10px;
 	}
+	.replyBox{
+		width:100%;
+		margin-bottom:12px;
+	}
 	.contentReply>div:nth-child(2)>div{
 		float:left;
 	}
-	#postWirterNick{
-		font-size:0.9em;
+	.postWriterNick{
+		font-size:0.95em;
+		font-weight:bold;
 	}
 	.replyView{
-		margin-top:2%;
+		font-size:0.9em;
 	}
 	.contentReply span{
 		font-size:0.85em;
-		color:#ddd;
+		color:gray;
 	}
 	.contentReply>div:nth-child(3){
 		border:1px solid #0000002b;
@@ -129,29 +148,30 @@
 	#replyCommentTextarea{
 		width:95%;
 		height:50px;
-		margin:1.5% 2.5%;
+		margin:1.5% 2.5% 0 2.5%;
 		box-sizing:border-box;
 		resize:none;
 		border:none;
 	}
+	#replyCommentTextarea::-webkit-scrollbar{
+		display: none;
+	}
 	#replyCommentTextarea:focus{
 		outline:none;
 	}
-	input[name=replyFileUpload]{
-		margin-left:2.5%;
-	}
-	input[name=writeReplyBtn]{
+	
+	#writeReplyBtn{
 		float:right;
 		margin-right:2%;
 	}
 	.contentReply>div:nth-child(3)>div{
-		margin:2% 0;
+		margin-bottom:2%;
 		overflow:auto;
 	}
 	.viewBtn{
 		width:70px;
 		height:30px;
-		background-color:#0e08a7;
+		background-color:#00376b;
 		color:white;
 		border:none;
 		border-radius:5px;
@@ -211,7 +231,7 @@
 	#bottomBtn input[type=button]{
 		width:70px;
 		height:30px;
-		background-color:#0e08a7;
+		background-color:#00376b;
 		color:white;
 		font-size:0.8em;
 		border:none;
@@ -219,6 +239,6 @@
 		font-weight:bold;
 		cursor:pointer;
 	}
-	input[name=postWriteBtn]{
+	#postWriteBtn{
 		float:right;
 	}
