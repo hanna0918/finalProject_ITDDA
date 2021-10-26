@@ -25,7 +25,11 @@ li {
 /*컨테이너*/
 .boardContainer {
   width: 1100px;
+<<<<<<< HEAD
   /* overflow: auto; */
+=======
+/*   overflow: auto; */
+>>>>>>> origin/hyuntae
   margin: 0 auto;
 }
 /* 게시판 타이틀 div */

@@ -2,7 +2,6 @@
 <<<<<<<=HEAD
 >>>>>>>=origin/main
 eclipse.preferences.version=1
-encoding//src/main/java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/BoardController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/InjeungController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/MatchingController.java=UTF-8
@@ -16,5 +15,6 @@ encoding//src/main/java/com/finalproject/itda/service/RecommendService.java=UTF-
 encoding//src/main/java/com/finalproject/itda/service/RecommendServiceImpl.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/vo/BoardCommentVO.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/vo/BoardVO.java=UTF-8
+encoding//src/main/java/com/finalproject/itda/vo/RecommendPagingVO.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/vo/RecommendVO.java=UTF-8
 encoding//src/main/webapp/css/matchingView.css=UTF-8

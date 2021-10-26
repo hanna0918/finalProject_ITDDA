@@ -20,7 +20,6 @@ public class RecommendPagingVO {
 	// ���Ĺ��
 	private String frequency;
 	private String listup;
-	
 	private int lastPage;
 	
 	
