@@ -24,12 +24,8 @@ li {
 /* 게시판 공통 부분 */
 /*컨테이너*/
 .boardContainer {
-  width: 1100px;
-<<<<<<< HEAD
+  width: 1200px;
   /* overflow: auto; */
-=======
-/*   overflow: auto; */
->>>>>>> origin/hyuntae
   margin: 0 auto;
 }
 /* 게시판 타이틀 div */
@@ -113,14 +109,16 @@ select[name="searchSelect"] {
   height: 22px;
   margin: 8px 10px 7px 10px;
 }
-input[name="search"],
-input[name="search"]:focus {
+input[name="search"] {
   height: 30px;
   width: 205px;
   line-height: 30px;
   border: none;
-  outline: none;
   /*   border-bottom: 1.5px solid #4c4646; */
+}
+input[name="search"]:focus {
+  background: white;
+  outline: none;
 }
 input[name="searchContent"] {
   width: 32px;
@@ -140,7 +138,7 @@ a:hover {
   color: #5e83d1;
 }
 span {
-  color: blue;
+  /*   color: blue; */
   font-size: 0.85em;
 }
 
@@ -211,7 +209,7 @@ span {
 /*------------인증----------------------------------------*/
 #container {
   /*컨테이너*/
-  width: 1100px;
+  width: 1200px;
   min-width: 400px;
   margin: 0 auto;
   overflow: auto;
@@ -309,8 +307,8 @@ img[name="goodhit"] {
 
 /*----추천------------------------------------------------*/
 /* boardList>hr{ */
-/* 	margin:0; */
-/* 	padding:0; */
+/*    margin:0; */
+/*    padding:0; */
 /* } */
 /* #chucheonTitle { */
 /*   height: 40px; */
@@ -394,7 +392,10 @@ img[name="goodhit"] {
 .recommendImg {
   width: 15px;
 }
-
+.writePageDiv {
+  width: 1200px;
+  margin: 0 auto;
+}
 /*------------여기까지 자게 보드컨테이너----------------------------------------*/
 
 /*아이디 드롭다운 메뉴*/

@@ -15,35 +15,70 @@
 
 <!-- 베스트 게시판==================================================================== -->
 <section class="bestBoardContent">
-  <h1>베스트 게시판</h1>
-  <ul class="bestBoard">
-    <li>
-      <div class="bestBoardImgBox1">
-        <img src="img/bk2.jpg" alt="" />
-      </div>
-    </li>
-    <li>
-      <div>
-        <span class="bestBoardTegList"> #캠핑 #서울 #캠핑장</span><br />
-        <span class="bestBoardUseridNic">캠핑요정 @camper</span><br />
-        <span class="bestBoardDate">2021-10-29(월)</span><br />
-      </div>
-    </li>
-    <li>
-      <div>
-        <img src="img/recommend.png" alt="" />
-        <label>80</label>
-      </div>
-    </li>
-    <li>
-      <div>
-        <img src="img/replImg.png" alt="" />
-        <label>22</label>
-      </div>
-    </li>
-  </ul>
-  <hr />
+	<h1>베스트 게시판</h1>
+	<ul class="bestBoard">
+		<li>
+			<div class="bestBoardImgBox1">
+				<img src="img/bk2.jpg" alt="" />
+			</div>
+		</li>
+		<li>
+			<div>
+				<span class="bestBoardTegList"> #캠핑 #서울 #캠핑장</span><br /> <span
+					class="bestBoardUseridNic">캠핑요정 @camper</span><br /> <span
+					class="bestBoardDate">2021-10-29(월)</span><br />
+			</div>
+		</li>
+		<li>
+			<div>
+				<img src="img/recommend.png" alt="" /> <label>80</label>
+			</div>
+		</li>
+		<li>
+			<div>
+				<img src="img/replImg.png" alt="" /> <label>22</label>
+			</div>
+		</li>
+	</ul>
+	<hr />
+	<h1>베스트 게시판</h1>
+	<c:forEach var="vo" items="${list}">
+		<div>${vo.board_seq}</div>
+		<div class="recommendContent">
+			<div>
+				<img src="/itda/img/${vo.i_url}" class="chucheonImg" />
+			</div>
+			<div class="contentInfo">
+				<!-- 2 -->
+				<div>
+					<a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a>
+				</div>
+				<span class="tagspan"><c:forEach var="tag" items="${vo.tags}">#${tag} </c:forEach></span>
+				<div>
+					<div>${vo.m_nickname}</div>
+					<div>${vo.board_writedate}</div>
+					<div>조회수 ${vo.board_hit}</div>
+					<div>
+						<img src="img/recommend.png" class="recommendImg" /> <span>${vo.b_goodhit}</span>
+					</div>
+					<div>
+						<img src="img/siren3.png" class="commentImg" /> <span>${vo.board_call}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 3 -->
+		<div>
+			<img src="img/replImg.png" class="commentImg" /> ${vo.br_cnt}
+		</div>
+		<hr />
+	</c:forEach>
 </section>
+
+<div class="chucheonList">
+            <!-- 추천 리스트 start-------------------------------------------------->
+            
+         </div>
 <!-- 추천 게시판==================================================================== -->
 <section class="recommendBoard">
   <h1>추천 게시판</h1>
