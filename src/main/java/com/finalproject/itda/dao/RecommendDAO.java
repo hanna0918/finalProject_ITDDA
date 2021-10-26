@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.finalproject.itda.vo.RecommendPagingVO;
 import com.finalproject.itda.vo.RecommendVO;
@@ -110,6 +111,9 @@ public interface RecommendDAO {
 			+ "    where board_code=1) "
 			+ "where board_seq=${param1}")
 	public RecommendVO recommendView(int board_seq);
+	
+	@Update("update boardbase set board_hit=board_hit+1 where board_seq=${param1}")
+	public int countHit(int b_id);
 	
 	@Select({"<script>",
 		" select count(b.board_seq) totalRecord ",
