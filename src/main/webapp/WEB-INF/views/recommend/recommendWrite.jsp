@@ -36,16 +36,33 @@
 							if(this.files && this.files[0]) {
 					    		var reader = new FileReader;
 						    	reader.onload = function(data) {
-						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
 						    		$(".select_img img").attr("src", data.target.result).width(500);        
 						    	}
 					    		reader.readAsDataURL(this.files[0]);
-									reader.readAsText(this.files[0]);
-									console.log(reader.readAsText(this.files[0]));
+								reader.readAsText(this.files[0]);
 					    	}
 				    	});
+						
+						function fileCheck() {
+		                     //input file 태그.
+		                     var file = document.getElementById('input-file');
+		                     //파일 경로.
+		                     var filePath = file.value;
+		                     //전체경로를 \ 나눔.
+		                     var filePathSplit = filePath.split('\\'); 
+		                     //전체경로를 \로 나눈 길이.
+		                     var filePathLength = filePathSplit.length;
+		                     //마지막 경로를 .으로 나눔.
+		                     var fileName = filePathSplit[filePathLength-1];
+		                     
+		                     console.log('파일 경로 : ' + filePath);
+		                     console.log('파일명 : ' + fileName);
+		                     $("#i_url").val(fileName);
+		                  }
 						</script>
-						<div class="select_img"><img src=""/></div>
+						
+						
+					
 						<%=request.getRealPath("/") %>
             </div>
 		    </div>
@@ -67,7 +84,7 @@
 	            </div>
             </div>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <textarea id="summernote" name="b_content"></textarea>
+    <textarea id="summernote" name="b_content"><div class="select_img"><img src="" /></div></textarea>
     <div id="matchingBtnDiv">
         <input type="submit" value="등록" class="recommendSubmitBtn" id="recommendSubmitBtn"/>
         <a href="/itda/recommendList"><input type="button" value="취소" id="matchingCancelBtn"/></a>
