@@ -10,3 +10,10 @@
 		<div><img src="/itda/img/intro04.jpg"/></div>
 	</div>
 </div>
+<style>
+#tab{
+	border-bottom:none;
+	background-color:#f5f5f5;
+}
+
+</style>

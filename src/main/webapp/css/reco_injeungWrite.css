@@ -21,8 +21,8 @@
     overflow: auto;
     margin: 10px auto;
     padding: 0;
-    height: 162px;
-    
+/*     height: 162px; */
+	overflow:auto;    
 }
 #reco_injeungMapBtn{
 	display: none;
@@ -71,7 +71,7 @@
 /* �깭洹� 湲곕뒫 */
 #addTag{
     float: left;
-    overflow: auto;
+    height:35px;
     margin-bottom:10px;\
 }
 #addTag>div {
