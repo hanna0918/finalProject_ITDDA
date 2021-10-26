@@ -161,7 +161,7 @@
 		outline:none;
 	}
 	
-	#writeReplyBtn{
+	#writeReplyBtn, loginPls{
 		float:right;
 		margin-right:2%;
 	}

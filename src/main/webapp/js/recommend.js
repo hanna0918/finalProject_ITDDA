@@ -16,7 +16,7 @@ var tag = new Array();
 
 // Text 이벤트리스너
 const searchTextArea = document.querySelector("#searchText");
-// searchTextArea.addEventListener("keyup", keyupTest);
+searchTextArea.addEventListener("keyup", keyupTest);
 
 // 태그 배열에 값 넣기
 function keyupTest(e) {
@@ -166,11 +166,11 @@ const hiddenTagDiv1 = document.querySelector("#hiddenTag1");
 const hiddenTagDiv2 = document.querySelector("#hiddenTag2");
 const hiddenTagDiv3 = document.querySelector("#hiddenTag3");
 const hiddenTagDiv4 = document.querySelector("#hiddenTag4");
-// hiddenTagDiv0.addEventListener("click", eraseTag);
-// hiddenTagDiv1.addEventListener("click", eraseTag);
-// hiddenTagDiv2.addEventListener("click", eraseTag);
-// hiddenTagDiv3.addEventListener("click", eraseTag);
-// hiddenTagDiv4.addEventListener("click", eraseTag);
+hiddenTagDiv0.addEventListener("click", eraseTag);
+hiddenTagDiv1.addEventListener("click", eraseTag);
+hiddenTagDiv2.addEventListener("click", eraseTag);
+hiddenTagDiv3.addEventListener("click", eraseTag);
+hiddenTagDiv4.addEventListener("click", eraseTag);
 
 // 페이징
 function recommendPaging(pageNumber, totalPg, oneRec, totalRec) {

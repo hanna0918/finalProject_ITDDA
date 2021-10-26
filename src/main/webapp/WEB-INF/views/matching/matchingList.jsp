@@ -67,7 +67,9 @@
 					</div>
 			</c:forEach>
 		</section>
-		<div id="matchingWriteBtn"><a href="/itda/matchingUpload" class="button" id="matchingUploadBtn">글쓰기</a></div>
+		<c:if test='${logseq!=null}'>
+			<div id="matchingWriteBtn"><a href="/itda/matchingUpload" class="button" id="matchingUploadBtn">글쓰기</a></div>
+		</c:if>
 		<!-- 페이징 -->
 		<div>
 			<ul class='pagination' id='matchingPagingUl'>
@@ -95,4 +97,4 @@
 		</div>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=111111111111"></script>
+<script src="/itda/js/matchingList.js?version=1111111111111"></script>
