@@ -13,7 +13,7 @@
 		    <h2>MATCHING</h2>
 		    <h4>나와 다른사람을 이어보세요!</h4>
 	  	</div>
-	    <form method="post" action="/itda/matchingWriteOk" id="matchingUploadForm" action="/itda/matchingWriteOk" onsubmit="return false" enctype="multipart/form-data">
+	    <form method="post" action="/itda/matchingWriteOk" id="matchingUploadForm" action="/itda/matchingWriteOk" onsubmit="return false">
 	    	<div id="matchingBasicInfoArea">
 	            <div>
 	                <div id="titleAndMap">
@@ -40,41 +40,8 @@
 			            </div>
 			        </div>
 			        <div>
-				        <label class="input-file-button" for="input-file">썸네일</label> 
-							<input type="file" id="input-file" name="input-file"/>
-							<input type="hidden" name="i_url" id="i_url"/>
-				    <script>
-						$("#input-file").change(function(){
-							console.log(this.files && this.files[0]);
-							if(this.files && this.files[0]) {
-					    		var reader = new FileReader;
-						    	reader.onload = function(data) {
-						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
-						    		$("#thumbnail").attr("src", data.target.result).width(500);
-					    		}
-					    		reader.readAsDataURL(this.files[0]);
-								//reader.readAsText(this.files[0]);
-								//console.log(reader.readAsText(this.files[0]));
-								fileCheck();
-					    	}
-				    	});
-						function fileCheck() {
-							//input file 태그.
-							var file = document.getElementById('input-file');
-							//파일 경로.
-							var filePath = file.value;
-							//전체경로를 \ 나눔.
-							var filePathSplit = filePath.split('\\'); 
-							//전체경로를 \로 나눈 길이.
-							var filePathLength = filePathSplit.length;
-							//마지막 경로를 .으로 나눔.
-							var fileName = filePathSplit[filePathLength-1];
-							
-							console.log('파일 경로 : ' + filePath);
-							console.log('파일명 : ' + fileName);
-							$("#i_url").val(fileName);
-						}
-						</script>
+				        <label class="input-file-button" for="input-file">썸네일</label>
+						<input type="file" id="input-file"/>
 			        </div>
 	                </div>
 	            </div>
@@ -96,7 +63,7 @@
 	            </div>
 	    </div>
 	    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-	    <textarea id="summernote" name="b_content"><img id="thumbnail" src="" /></textarea>
+	    <textarea id="summernote" name="b_content"></textarea>
 	    <div id="matchingBtnDiv">
 	        <input type="submit" value="등록" id="matchingSubmitBtn"/>
 	        <a href="redirect:matchingList"><input type="button" value="취소" id="matchingCancelBtn"/></a>
