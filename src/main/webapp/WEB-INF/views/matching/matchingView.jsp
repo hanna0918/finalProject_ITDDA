@@ -121,6 +121,7 @@
             <input type="hidden" id="mc_seq" value="${vo.mc_seq}"/>
             <input type="hidden" id="logseq" value="${logseq}"/>
             <input type="hidden" id="lognick" value="${lognick}"/>
+            <input type="hidden" id="m_rank" value="${m_rank}"/>
             <div id='otherContent'><!-- 이전글/다음글 -->
                 <div>
                     <div class='arrowDiv'><img src='/itda/img/up-arrow.png' name='prevPost'/></div>
@@ -178,4 +179,4 @@
     </div>
     
 
-<script src="/itda/js/matchingView.js?version=1111111111111111111111111111111111111111"></script>
+<script src="/itda/js/matchingView.js?version=11111111111111111111111111111111111111111"></script>

@@ -15,7 +15,7 @@ public interface RecommendDAO {
 		" select * from ",
 		" (select * from ",
 		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, b_content, ",
-		" board_select, i_url, thumbimg ",
+		" board_select, i_url, thumbimg, nvl(m_img,'img/user.png') m_img ",
 		" from boardbase b ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",

@@ -102,7 +102,7 @@ function sendWithAjax() {
           newList += `<div>${vo.board_seq}</div>`;
           newList += `<div class="recommendContent">`;
           newList += `<div>`;
-          newList += `<img src="/itda/img/${vo.i_url}" class="chucheonImg" />`;
+          newList += `${vo.thumbImg} style="width: 120px;" class="chucheonImg" />`;
           newList += `</div>`;
           newList += `<div class="contentInfo">`;
           newList += `<div>`;
