@@ -41,7 +41,7 @@
 			        </div>
 			         <div>
 							<label class="input-file-button" for="input-file">썸네일</label> 
-							<input type="file" id="input-file" name="input-file"/>
+							<input type="file" id="input-file" />
 							<input type="hidden" name="i_url" id="i_url"/>
 					</div>
 					
