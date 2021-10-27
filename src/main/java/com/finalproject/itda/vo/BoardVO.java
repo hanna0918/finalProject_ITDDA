@@ -34,6 +34,7 @@ public class BoardVO {
 	private int replyCount;
 	private String i_url;
 	private String thumbImg;
+	private String m_img;
 	
 	//占쎈솊疫뀐옙 占쎈땾 
 	private int br_count;
@@ -290,6 +291,12 @@ public class BoardVO {
 	}
 	public void setThumbImg(String thumbImg) {
 		this.thumbImg = thumbImg;
+	}
+	public String getM_img() {
+		return m_img;
+	}
+	public void setM_img(String m_img) {
+		this.m_img = m_img;
 	}
 }
 

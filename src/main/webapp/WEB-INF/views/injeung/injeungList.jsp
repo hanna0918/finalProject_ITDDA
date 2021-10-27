@@ -20,7 +20,7 @@
 					<div><span class="injeungTag">${vo.board_select}#태그#태그</span></div>
 					<div><img name='goodhit' src='/itda/img/goodHit.png' />${ivo.b_goodhit} &nbsp;&nbsp;<img  name='bubbleIcon' src='/itda/img/replImg.png' /> ${ivo.br_count }</div>
 					<div class='injeungContentWriter'><!-- 작성자 -->
-						<div><img src='img/circle.png' name='profileShot' /></div>
+						<div><img src='${ivo.m_img}' name='profileShot' /></div>
 						<div>
 							<div id='injeungWriter'>${ivo.m_nickname}</div>
 							<div>

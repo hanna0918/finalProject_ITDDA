@@ -27,7 +27,8 @@ public class RecommendVO {
 	// 이미지
 	private int imageseq; // 이미지번호
 	private String i_url; // 이미지제목? 경로?
-
+	private String m_img;
+	
 	// 회원정보
 	private String m_userid; // 아이디
 	private String m_nickname; // 닉네임
@@ -370,5 +371,11 @@ public class RecommendVO {
 	}
 	public void setNextTags(String[] nextTags) {
 		this.nextTags = nextTags;
+	}
+	public String getM_img() {
+		return m_img;
+	}
+	public void setM_img(String m_img) {
+		this.m_img = m_img;
 	}
 }

@@ -679,7 +679,7 @@ border-radius: 5px;
                <div id="freeleftIdImg">
                   <div id="profilImg">
                      
-                     <a href="#"><img src="/itda/img/circle.png" alt="프로필이미지"/></a>
+                     <a href="#"><img src="${vo.m_img}" alt="프로필이미지"/></a>
                   </div>
                </div>
                <div style="z-index:40; position:absolute; left:86px; top:-1px; margin-top: 24px;"><a href=""><label style="padding-right:3px;">${vo.m_nickname}</label>  @${vo.m_userid}</a></div>
