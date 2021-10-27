@@ -8,7 +8,7 @@ public class QuestionVO {
 	private String q_result;	//답변
 	private int q_result_state;	//답변상태
 	private int m_seq;	//회원번호
-	private String m_nicknam e;
+	private String m_nickname;
 	
 	
 	
