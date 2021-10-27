@@ -26,4 +26,10 @@ public interface MypageService {
 	
 	public List<QuestionVO> MypageQnaList(int seq);
 	
+	//순찬 수정
+	public MemberBaseVO MyMemberView(MemberBaseVO vo);
+	
+	public int editMyInfoUpdate(MemberBaseVO vo);
+	//순찬 수정
+	
 }

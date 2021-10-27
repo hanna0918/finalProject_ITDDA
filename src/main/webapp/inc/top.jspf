@@ -58,6 +58,7 @@
               <label class="joinBtn" id="joinBtn">회원가입</label>
             </c:if>
             <c:if test="${logname != null}">
+     
               <label class="" id=""><a href="/itda/mypage">${logname}</a></label>
               <a href="/itda/logout" class="logOutBtn" id="logOutBtn">로그아웃</a>
             </c:if>

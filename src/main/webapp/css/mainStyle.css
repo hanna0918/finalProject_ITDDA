@@ -62,9 +62,9 @@ a:visited {
   letter-spacing: -1px;
   color: #000000ba;
 }
-.topMenu>li>a:hover{
-	color: coral;
-	font-weight: bold;
+.topMenu > li > a:hover {
+  color: coral;
+  font-weight: bold;
 }
 .topMenu > li > a > img {
   width: 150px;
@@ -118,7 +118,7 @@ a:visited {
   width: 100%;
   margin: 0 auto;
   overflow: auto;
-  margin-bottom:120px;
+  margin-bottom: 120px;
 }
 .mainContent::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
@@ -131,7 +131,7 @@ a:visited {
   width: 1100px;
 }
 .bestBoardContent h1:nth-child(1) {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 .bestBoard {
   overflow: auto;
@@ -306,12 +306,12 @@ a:visited {
   background: #f5f5f5;
   /*   text-align: center; */
 }
-#footerDiv{
-	width:1200px;
-	margin:0 auto;
-	box-sizing:border-box;
-	line-height:20px;
-	color:gray;
+#footerDiv {
+  width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  line-height: 20px;
+  color: gray;
 }
 #footerDiv > div {
   width: 50%;
@@ -662,7 +662,7 @@ a:visited {
 }
 /* 메인페이지 스타일 정의 */
 
-.recommendBoard{
+.recommendBoard {
   width: 1200px;
   margin: 0 auto;
   overflow: auto;
@@ -674,11 +674,11 @@ a:visited {
   overflow: hidden;
   margin: 0 auto;
   text-align: center;
-  height: 800px;
+  height: 700px;
 }
 .videoMain > div {
   position: relative;
-  top: -200px;
+  top: -250px;
 }
 .videoMain > div::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/

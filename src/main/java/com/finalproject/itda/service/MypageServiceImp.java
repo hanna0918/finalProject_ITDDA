@@ -46,4 +46,18 @@ public class MypageServiceImp implements MypageService {
 	public List<QuestionVO> MypageQnaList(int seq) {
 		return  mypageDao.MypageQnaList(seq);
 	}
+	
+	//순찬 수정
+	public MemberBaseVO MyMemberView(MemberBaseVO vo)
+	{
+		return mypageDao.MyMemberView(vo);
+	}
+	
+	public int editMyInfoUpdate(MemberBaseVO vo)
+	{
+		return mypageDao.editMyInfoUpdate(vo);
+	}
+	//순찬 수정
+	
 }
+

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
@@ -47,6 +48,13 @@ public interface MypageDAO {
 			+ " values(q_number_seq.nextval, #{q_category}, #{q_title}, #{m_seq})")
 	public int QuestionInsert(QuestionVO quesVo);
 	
+	
+	@Select("select m_seq,m_userid,m_nickname,m_username,m_email,m_tel,m_addr,m_addrdetail,to_char(m_birth, 'YYYY-MM-DD') m_birth,nvl(m_info,' ') m_info,nvl(m_tag,' ') m_tag from MEMBERBASE where m_seq=#{m_seq}")
+	public MemberBaseVO MyMemberView(MemberBaseVO vo);
+
+	
+	@Update("update memberbase set m_email=#{m_email},m_addr=#{m_addr},m_addrdetail=#{m_addrdetail},m_info =#{m_info},m_tag=#{m_tag} where m_seq= #{m_seq}")
+	public int editMyInfoUpdate(MemberBaseVO vo);
 	
 	
 

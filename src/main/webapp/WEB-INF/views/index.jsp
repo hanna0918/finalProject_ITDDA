@@ -1,115 +1,72 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<link rel="stylesheet" href="/itda/css/matchingList.css?version=indexpage" />
 <section class="videoMain">
   <div>
     <video autoplay muted loop id="myVideo" height="1200">
-      <!-- <source
-        src="https://r1---sn-a5mekn6z.googlevideo.com/videoplayback?expire=1635166593&ei=IVV2YdeDGP3Pz7sPrrqG0Ak&ip=103.9.188.193&id=o-APJUYbsFwIdZ-C1NBJQcuKnRBI96rCDwvE2DPr82Sdzc&itag=137&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=eQVKn3yzWV04HS5eQ6hvTLYG&gir=yes&clen=11809997&otfp=1&dur=34.160&lmt=1634487624035448&keepalive=yes&fexp=24001373,24007246&c=WEB&txp=6216224&n=PlsM5lyRgI5QIA&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cotfp%2Cdur%2Clmt&sig=AOq0QJ8wRQIgMXAyx-YlxTxHtmtR-jhtb8tK3JWjCTTwfwdJ_o6V4fsCIQC4dc-HDgNkEAWsFjPI40HtNbp8ta-NbHi2XOgonCaxxw%3D%3D&rm=sn-uxajvuxji-2oil7e&req_id=9c3bae01da2ea3ee&redirect_counter=2&cm2rm=sn-30alz7s&cms_redirect=yes&mh=mq&mip=106.240.16.166&mm=34&mn=sn-a5mekn6z&ms=ltu&mt=1635144753&mv=m&mvi=1&pl=17&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgdFzfwsl62vTG4FwGSq1ppuFYf6NgxSf5muwS_K_kbSICICRnU__zOVaBQvB3zeVEdfMBHotMoWLehVaZZ4zS-uuH"
-        type="video/mp4"/> -->
-        <source
-        src="/itda/video/itda.mp4"
-        type="video/mp4"/>
+      <source src="/itda/video/itda.mp4" type="video/mp4" />
     </video>
   </div>
 </section>
 
-<!-- 베스트 게시판==================================================================== -->
-<section class="bestBoardContent">
-	<h1>베스트 게시판</h1>
-	<ul class="bestBoard">
-		<li>
-			<div class="bestBoardImgBox1">
-				<img src="img/bk2.jpg" alt="" />
-			</div>
-		</li>
-		<li>
-			<div>
-				<span class="bestBoardTegList"> #캠핑 #서울 #캠핑장</span><br /> <span
-					class="bestBoardUseridNic">캠핑요정 @camper</span><br /> <span
-					class="bestBoardDate">2021-10-29(월)</span><br />
-			</div>
-		</li>
-		<li>
-			<div>
-				<img src="img/recommend.png" alt="" /> <label>80</label>
-			</div>
-		</li>
-		<li>
-			<div>
-				<img src="img/replImg.png" alt="" /> <label>22</label>
-			</div>
-		</li>
-	</ul>
-	<hr />
-	<h1>베스트 게시판</h1>
-	<c:forEach var="vo" items="${list}">
-		<div>${vo.board_seq}</div>
-		<div class="recommendContent">
-			<div>
-				<img src="/itda/img/${vo.i_url}" class="chucheonImg" />
-			</div>
-			<div class="contentInfo">
-				<!-- 2 -->
-				<div>
-					<a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a>
-				</div>
-				<span class="tagspan"><c:forEach var="tag" items="${vo.tags}">#${tag} </c:forEach></span>
-				<div>
-					<div>${vo.m_nickname}</div>
-					<div>${vo.board_writedate}</div>
-					<div>조회수 ${vo.board_hit}</div>
-					<div>
-						<img src="img/recommend.png" class="recommendImg" /> <span>${vo.b_goodhit}</span>
-					</div>
-					<div>
-						<img src="img/siren3.png" class="commentImg" /> <span>${vo.board_call}</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- 3 -->
-		<div>
-			<img src="img/replImg.png" class="commentImg" /> ${vo.br_cnt}
-		</div>
-		<hr />
-	</c:forEach>
-</section>
-
-<div class="chucheonList">
-            <!-- 추천 리스트 start-------------------------------------------------->
-            
-         </div>
 <!-- 추천 게시판==================================================================== -->
+<div style="margin: 0 auto; width: 1200px">
+  <h1><a href="/itda/recommendList">RECOMMEND BOARD</a></h1>
+</div>
 <section class="recommendBoard">
-  <h1>추천 게시판</h1>
-  <ul class="bestBoard">
-    <li>
-      <div class="bestBoardImgBox1">
-        <img src="img/bk2.jpg" alt="" />
+  <div>
+    <form>
+      <div class="chucheonList">
+        <!-- 추천 리스트 start-------------------------------------------------->
+        <c:forEach var="vo" items="${list_RC}" begin="0" end="4">
+          <div>${vo.board_seq}</div>
+          <div class="recommendContent">
+            <div>${vo.thumbImg} style="width: 120px;" class="chucheonImg" /></div>
+            <div class="contentInfo">
+              <!-- 2 -->
+              <div>
+                <a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a>
+              </div>
+              <span class="tagspan"><c:forEach var="tag" items="${vo.tags}">#${tag} </c:forEach></span>
+              <div>
+                <div>${vo.m_nickname}</div>
+                <div>${vo.board_writedate}</div>
+                <div>조회수 ${vo.board_hit}</div>
+                <div><img src="img/recommend.png" class="recommendImg" /> <span>${vo.b_goodhit}</span></div>
+                <div><img src="img/siren3.png" class="commentImg" /> <span>${vo.board_call}</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div><img src="img/replImg.png" class="commentImg" /> ${vo.br_cnt}</div>
+        </c:forEach>
       </div>
-    </li>
-    <li>
+      <!-- 추천 리스트 end-------------------------------------------------->
+    </form>
+  </div>
+</section>
+<div style="margin: 0 auto; width: 1200px">
+  <h1><a href="/itda/matchingList">MATCHING BOARD</a></h1>
+</div>
+<section id="matchingSection" style="width: 1200px; margin: 0 auto; overflow: auto">
+  <c:forEach var="vo_mc" items="${list_MC}" begin="0" end="3">
+    <div class="matchingBox" id="matchingBox">
+      <div class="photo">
+        <a href="/itda/matchingView?board_seq=${vo_mc.board_seq}"> ${vo_mc.thumbImg} alt="매칭1" width="100%" /></a>
+        <div class="endSoon"><c:if test="${vo_mc.mc_state==1}">비정기매칭</c:if><c:if test="${vo_mc.mc_state==2}">정기매칭</c:if></div>
+      </div>
+      <div class="writer">${vo_mc.m_userid }</div>
+      <div class="hashTag">
+        <c:forEach var="tag" items="${vo_mc.tags}">#${tag} </c:forEach>
+      </div>
       <div>
-        <span class="bestBoardTegList"> #캠핑 #서울 #캠핑장</span><br />
-        <span class="bestBoardUseridNic">캠핑요정 @camper</span><br />
-        <span class="bestBoardDate">2021-10-29(월)</span><br />
+        <div>
+          <div class="where">${vo_mc.mc_where}</div>
+          <div class="matchingDate">${vo_mc.mc_start_date}</div>
+        </div>
+        <div class="matchingStatus">${vo_mc.matchingCount} / ${vo_mc.mc_max}</div>
       </div>
-    </li>
-    <li>
-      <div>
-        <img src="img/recommend4.png" alt="" />
-        <label>80</label>
-      </div>
-    </li>
-    <li>
-      <div>
-        <img src="img/replImg.png" alt="" />
-
-        <label>22</label>
-      </div>
-    </li>
-  </ul>
-  <hr />
+    </div>
+  </c:forEach>
 </section>
 
 <!-- 매칭 게시판==================================================================== -->
@@ -218,15 +175,3 @@
     </li>
   </ul>
 </section>
-
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-<!-- 마켓 게시판==================================================================== -->
-
-<section class="maketBoard"></section>

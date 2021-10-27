@@ -10,6 +10,17 @@
     width: 100%;
     overflow:auto;
 }
+#searchAndCalendar a{
+   float: right;
+    border: 2px solid #00376b;
+    border-radius: 3px;
+    color:#00376b;
+    font-weight:bold;
+    width: 50px;
+    text-align: center;
+    padding: 7px;
+    cursor: pointer;
+}
 #searchAndCalendar input[name=searchText], input[name=searchText]:focus{
 	border:none;
 	height:30px;
