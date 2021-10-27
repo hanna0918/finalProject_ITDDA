@@ -2,6 +2,7 @@ package com.finalproject.itda.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -10,13 +11,14 @@ import com.finalproject.itda.vo.BoardVO;
 public interface InjeungDAO {
 		
 		@Select({" <script> ",
-				" select distinct b.board_seq, b.board_subject, to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, b.board_hit, m.m_nickname, ",
-				" (select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count ",
+				" select b.board_seq, b.board_subject, to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, b.board_hit, m.m_nickname, ",
+				" (select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count, i_url, thumbimg ",
 				" from boardbase b join memberbase m on b.m_seq=m.m_seq ",
-				" join board_comment bc on b.m_seq=bc.m_seq where b.board_code=3 ",
-				" <if test='m_seq!=null and m_seq!=\"\"'> ",
-				" where c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
-				" </if> ",
+				" join board_image i on b.board_seq=i.board_seq ",
+				" where b.board_code=3 ",
+//				" <if test='m_seq!=null and m_seq!=\"\"'> ",
+//				" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
+//				" </if> ",
 				" order by board_writedate desc ",
 				" </script> "})
 		public List<BoardVO> injeungBoardList();
@@ -42,4 +44,36 @@ public interface InjeungDAO {
 		
 		@Update("update boardbase set board_hit=board_hit+1 where board_seq=${param1}")
 		public int countHit(int b_id);
+		
+		@Insert(" insert all "
+				+ "into boardbase ("
+				+ "			board_seq,"
+				+ "			m_seq, "
+				+ "			board_code, "
+				+ "			board_subject, "
+				+ "			b_content) "
+				+ "		values ("
+				+ "			board_seq.nextval, "
+				+ "			${m_seq}, "
+				+ "			3, "
+				+ "			#{board_subject}, "
+				+ "			#{b_content}) "
+				+ " into board_content ( "
+				+ "			board_seq, "
+				+ "			board_select ) "
+				+ "		values ( "
+				+ "			board_seq.currval, "
+				+ "			#{board_select} )"
+				+ " into board_image ("
+				+ "			board_seq,"
+				+ "			imageseq, "
+				+ "			i_url, "
+				+ "			thumbimg )"
+				+ "		values ("
+				+ "			board_seq.currval,"
+				+ "			imageseq.nextval, "
+				+ "			#{i_url},"
+				+ "			#{thumbImg} ) "
+				+ " select * from dual ")
+		public int injeungWriteOk(BoardVO vo);
 }
