@@ -617,7 +617,7 @@ border-radius: 5px;
 		<div class="freeBoardTop">
 			<div>
 				<div>
-					<a href=""><h4>자유게시판</h4></a>
+					<a href=""><h4>아무말 대잔치</h4></a>
 					<h1 style="background: linear-gradient(45deg, whitesmoke, transparent);">${vo.board_subject }</h1>
 					<div>
 					<!-- <span><a href='#'>#벌써</a>&nbsp<a href='#'>#10월이라니</a>&nbsp<a href="#">#말도안돼</a></span> -->
