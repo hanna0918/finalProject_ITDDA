@@ -84,6 +84,11 @@ body, ul, li, img, a {
 	text-overflow: ellipsis;
 }
 
+#contentContent>li:nth-of-type(5n+2){
+	text-align:left;
+	padding-left:10px;
+}
+
 #titleTitle>li:nth-of-type(3), #contentContent>li:nth-of-type(5n+3) {
 	width: 20%;
 }
@@ -108,40 +113,51 @@ body, ul, li, img, a {
 }
 
 #viewBoardSubject{
-	width:50%;
+	width: 50%;
+    text-align: left;
+    padding-left: 50px;
 }
 #viewBoardwritedate{
 	width:20%;
 }
 
-
 #writeListTitleName{
 
-	text-align: center;
-    font-size: 1.5em;
+	position: absolute;
+    top: 580px;
+    text-align: center;
     font-family: cursive;
     color: white;
-    line-height: 80px;
- 
+    line-height: 50px;
     background-color: rgba(236,104,39, 1);
     content: ' ';
     display: block;
-    height: 80px;
+    height: 50px;
     width: 100%;
-    left: 7px;
     bottom: 4px;
-    /* opacity: 0.5; */
+   /*  opacity: 0; */
     transition: all 0.3s ease-out;
     z-index: 1000;
     margin-top: 0px;
     margin-bottom: 0px;
+    font-size: 2em;
 
+}
+
+#profileImg{
+	width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    position: absolute;
+    top: 490px;
+    left: 790px;
+    z-index: 1000;
 }
 
 </style>
 <body>
 
-		<div><img src='/itda/img/what is your story.jpg' style="height: 600px; width: 100%;" /></div> <!-- class='injeungImg' -->
+		<div><img src='/itda/img/writepen.jpg' style="height: 500px; width: 100%;" /></div> <!-- class='injeungImg' -->
 	 	<h2 id="writeListTitleName" >${m_nickname}'s STORY BOARD</h2> 
 	<div id='writerListDivDiv'>
 		<form >
@@ -149,13 +165,13 @@ body, ul, li, img, a {
 			 <!-- 프로필박스  -->
 				<div id='introDivDiv'>
 					<div>
-						<img src='img/moveprofile.gif' name='profileImg' id='profileImg' style="width:80px; height:80px; border-radius:80px;" />
+						<img src='img/moveprofile.gif' name='profileImg' id='profileImg' " />
 					</div>
 					<div>
 					<!-- <input value='"${m_nickname}"'>
 					<input value="test= ${m_name}"> -->
 					
-						<div name="m_nickname">닉네임 : ${m_nickname} 님 </div> <br /> <div name="m_name">등급 : ${m_rank} </div>
+						<!-- <div name="m_nickname" style="margin-bottom:5px;"><span style="font-weight:bold;">${m_nickname}</span> 님 </div> <div name="m_name">등급 : 브론즈 </div> -->
 					</div>
 				</div>
 			</div>
@@ -163,15 +179,7 @@ body, ul, li, img, a {
 			<div class='listList'>
 				<!-- postList  / list / title-->
 				<ul id='titleTitle'>
-					<li><select id='selectCategoryGory'>
-							<option>전체</option>
-							<option>추천</option>
-							<option>매칭</option>
-							<option>장터</option>
-							<option>자유</option>
-							<option>Q&A</option>
-					</select></li>
-					
+					<li>NO</li>					
 					<li>제목</li>
 					<li>등록일</li>
 					<li>조회수</li>
@@ -229,13 +237,15 @@ body, ul, li, img, a {
 					</ul>
 				</div>
 			</div>
-
 		</form>
 	</div>
+
 </body>
 </html>
+
 <script>
-/* function writtenView(nickname){
+/*
+function writtenView(nickname){
 	
 $.ajax({ /////////////////////////////////3
     url:'/itda/freeBoardWriteView', 

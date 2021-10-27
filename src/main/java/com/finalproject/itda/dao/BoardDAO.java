@@ -56,7 +56,6 @@ public interface BoardDAO {
 		 public int freeUpdate(BoardVO vo);
 		 
 		 
-		 
 	//삭제 
 		 @Delete("delete from boardbase where board_seq=${board_seq} and m_seq=(select m_seq from memberbase where m_userid=#{userid})")
 		 public int freeDelete(Map<String, Object> map);
@@ -105,7 +104,7 @@ public interface BoardDAO {
 		public int freeBoardmodalNoteYes(MemberBaseVO mbVo);   
 		
 	//게시물보기 -- 닉네임, 등급이름, 게시판번호,  게시물번호, 제목, 등록일, 조회수   
-		@Select("select mb.m_nickname, mb.m_rank, bb.board_code, bb.board_seq, bb.board_subject, bb.board_writedate, bb.board_hit from boardbase bb join memberbase mb on bb.m_seq= mb.m_seq where mb.m_seq=(select m_seq from memberbase where m_nickname=#{m_nickname})")
+		@Select("select mb.m_nickname, mb.m_rank, bb.board_code, bb.board_seq, bb.board_subject, bb.board_writedate, bb.board_hit from boardbase bb join memberbase mb on bb.m_seq= mb.m_seq where mb.m_seq=(select m_seq from memberbase where m_nickname=#{m_nickname}) order by board_writedate desc")
 		public List<BoardVO> writeList(BoardVO vo);
 		// public MemberBaseVO freeBoardWriteView(MemberBaseVO mbVo); 
 		
