@@ -75,14 +75,18 @@ public class MypageController {
 	}
 	//매칭--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageMatching")
-	public String mypageMatching() {
+	public String mypageMatching(Model model, HttpSession ses) {
+		int m_seq = Integer.parseInt(ses.getAttribute("logseq").toString());
+		model.addAttribute("matchingList",mypageService.myMatchingList(m_seq));
+
 		return "mypage/mypage03Matching";
 	}
-	//북마크--------------------------------------------------------------------------------------------
-	@RequestMapping(value="/mypageBookmark")
-	public String mypageBookmark() {
-		return "mypage/mypage04Bookmark";
-	}
+	
+//	//북마크--------------------------------------------------------------------------------------------
+//	@RequestMapping(value="/mypageBookmark")
+//	public String mypageBookmark() {
+//		return "mypage/mypage04Bookmark";
+//	}
 	//구독--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageSubscribe")
 	public ModelAndView mypageSubscribe(HttpSession ses) {
@@ -93,33 +97,44 @@ public class MypageController {
 		mav.setViewName("mypage/mypage05Subscribe");
 		return mav;
 	}
-	//차단--------------------------------------------------------------------------------------------
-	@RequestMapping(value="/mypageCutout")
-	public String mypageCutout() {
-		return "mypage/mypage06Cutout";
+	
+	//구독취소
+	@RequestMapping(value="/cancleSubscribe")
+	public ModelAndView cancleSubscribe(String m_nickname, HttpSession ses) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("서비스 잘들어옴 확인");
+		int m_seq = Integer.parseInt(ses.getAttribute("logseq").toString());
+		System.out.println(m_nickname);
+		System.out.println(m_seq);
+		
+		
+		int cnt = mypageService.cancleSubscribe(m_seq, m_nickname);
+		if(cnt>0) {//구독 취소 성고오오오오옹~~~~~
+			mav.setViewName("redirect:mypageSubscribe");
+		}else {//구취실패 ㅠㅠ
+			mav.addObject("m_seq", m_seq);
+			mav.setViewName("redirect:mypageSubscribe");
+		}
+		return mav;
 	}
+	
+//	//차단--------------------------------------------------------------------------------------------
+//	@RequestMapping(value="/mypageCutout")
+//	public String mypageCutout() {
+//		return "mypage/mypage06Cutout";
+//	}
 	//1:1문의--------------------------------------------------------------------------------------------
 	
 	
 	@RequestMapping("/mypageQnA")
 	public String mypageQnA(Model model,HttpSession session){
-		System.out.println(Integer.parseInt(session.getAttribute("logseq").toString()));
 		int seq=Integer.parseInt(session.getAttribute("logseq").toString());
-		System.out.println("갓순찬은 해날것이다 나로인햐");
+		
 		model.addAttribute("list", mypageService.MypageQnaList(seq));
 		return "mypage/mypage07Question";
 	}
 	
 	
-	/*
-	 * @RequestMapping(value="/mypageQnA") public String mypageQnA(Model
-	 * model,HttpSession ses,QuestionVO vo) {
-	 * 
-	 * Integer seq= (Integer)ses.getAttribute("logseq"); QuestionVO rvo =
-	 * (QuestionVO) model.addAttribute("list",mypageService.MypageQnA(seq));
-	 * 
-	 * System.out.println("test以묒엯 땲 떎"); return "mypage/mypage07Question"; }
-	 */
 	//1:1문의 글등록
 	@RequestMapping(value="/askSomething", method=RequestMethod.POST)
 	public ModelAndView AskSomething(QuestionVO quesVo, HttpSession ses) {

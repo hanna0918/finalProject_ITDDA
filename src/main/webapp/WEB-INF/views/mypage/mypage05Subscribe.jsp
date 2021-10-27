@@ -22,7 +22,7 @@
 				<li><span>${vo.m_tag }</span></li>
 				<li>
 					<input type='button' name='viewList' value='글보기' onclick="location.href='/itda/writeList?m_nickname=${vo.m_nickname}'"/>
-					<input type='button' name='cancleSubscribe' value='구독취소' onclick="location.href=''"/>
+					<input type='button' name='cancleSubscribe' value='구독취소' onclick="location.href='/itda/cancleSubscribe?m_nickname=${vo.m_nickname}'"/>
 				</li>
 			</c:forEach>
 		</ul>
