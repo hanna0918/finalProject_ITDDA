@@ -31,6 +31,7 @@ public interface BoardService {
 	public int commentInsert(Board_CommentVO commentVo); //댓글쓰기
     public List<BoardVO> freeViewSerch(BoardVO vo); //검색기능 순찬!
 	
+	public int hitCount(int board_seq);
 	
 
 }

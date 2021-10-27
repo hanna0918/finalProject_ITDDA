@@ -112,8 +112,10 @@ public class BoardServiceImp implements BoardService {
 	@Override
 	public List<BoardVO> freeViewSerch(BoardVO vo) { 
 		return boardDAO.freeViewSerch(vo); } 
-	
-	
 
-	
+	@Override
+	public int hitCount(int board_seq) {
+		return boardDAO.hitCount(board_seq);
+	}
+
 }

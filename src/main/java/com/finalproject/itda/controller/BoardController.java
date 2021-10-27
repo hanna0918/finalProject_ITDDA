@@ -1,6 +1,7 @@
 package com.finalproject.itda.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -112,15 +113,23 @@ public class BoardController {
 	 */
 	
 	//게시물보기
-	@RequestMapping(value = "/writeList", method=RequestMethod.GET)
-	public String writeList(BoardVO vo, Model model) {
-		model.addAttribute("list", boardService.writeList(vo));
-		System.out.println(vo.getM_name());
-		System.out.println(vo.getM_nickname());
-		model.addAttribute("m_nickname", vo.getM_nickname());
-		model.addAttribute("m_name", vo.getM_name());
-		return "/board/writeList";
-	}
+	 @RequestMapping(value = "/writeList", method=RequestMethod.GET)
+		public String writeList(BoardVO vo, Model model) {
+			model.addAttribute("m_nickname", vo.getM_nickname());
+			model.addAttribute("m_rank", vo.getM_rank());
+		
+			List<BoardVO> result = boardService.writeList(vo);
+			
+			model.addAttribute("list", result);
+		
+			//	
+			/*m
+			 * model.addAttribute("m_rank",vo.getM_rank()); model.addAttribute("m_nickname",
+			 * vo.getM_nickname());
+			 */
+
+			return "/board/writeList";
+		}
  
 	/*
 	 * //게시물보기 (//닉네임, 등급)
@@ -137,6 +146,7 @@ public class BoardController {
 	//글내용보기
 	@RequestMapping("/freeview")
 	public String boardView(Model model, int board_seq) {
+		boardService.hitCount(board_seq);
 		model.addAttribute("vo",boardService.freeView(board_seq));
 		return "board/freeview";
 	}

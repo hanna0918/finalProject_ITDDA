@@ -1,23 +1,24 @@
 package com.finalproject.itda.vo;
 
 public class BoardVO {
-	private int m_seq; //�쉶�썝踰덊샇 
-	private int board_seq; //寃뚯떆臾쇰쾲�샇
-	private int board_code;//移댄뀒怨좊━ 踰덊샇
-	private String board_subject; //�젣紐�
-	private String board_writedate; //�벑濡앹씪
-	private int board_hit; //議고쉶�닔
-	private int b_goodhit;//醫뗭븘�슂
-	private int board_call; //�떊怨�
-	private int board_black; //釉붾윮泥섎━
-	private String m_userid; //�븘�씠�뵒
-	private String m_nickname;//�땳�꽕�엫
-	private int commentcount; //�뙎湲��닔 
-	private int br_id; //�뙎湲�踰덊샇
+	private int m_seq; //占쎌돳占쎌뜚甕곕뜇�깈 
+	private int board_seq; //野껊슣�뻻�눧�눖苡뀐옙�깈
+	private int board_code;//燁삳똾�믤�⑥쥓�봺 甕곕뜇�깈
+	private String board_subject; //占쎌젫筌륅옙
+	private String board_writedate; //占쎈쾻嚥≪빘�뵬
+	private int board_hit; //鈺곌퀬�돳占쎈땾
+	private int b_goodhit;//�넫�뿭釉섓옙�뒄
+	private int board_call; //占쎈뻿�⑨옙
+	private int board_black; //�뇡遺얠쑏筌ｌ꼶�봺
+	private String m_userid; //占쎈툡占쎌뵠占쎈탵
+	private String m_nickname;//占쎈빏占쎄퐬占쎌뿫
+	private int commentcount; //占쎈솊疫뀐옙占쎈땾 
+	private int br_id; //占쎈솊疫뀐옙甕곕뜇�깈
 	private String b_content;
 	private String board_blockcontent;
 	private String board_content;
 	private String m_name; // �벑湲됱씠由� 
+	private int m_rank;
 	
 	private int board_prev_seq;
 	private int board_next_seq;
@@ -34,22 +35,22 @@ public class BoardVO {
 	private String i_url;
 	private String thumbImg;
 	
-	//�뙎湲� �닔 
+	//占쎈솊疫뀐옙 占쎈땾 
 	private int br_count;
-	//--�땳�꽕�엫 愿�由�--
-	//--�땳�꽕�엫 愿�由�--
-	//--移댄뀒怨좊━ 愿�由�--
-	//--移댄뀒怨좊━ 愿�由�--
+	//--占쎈빏占쎄퐬占쎌뿫 �꽴占썹뵳占�--
+	//--占쎈빏占쎄퐬占쎌뿫 �꽴占썹뵳占�--
+	//--燁삳똾�믤�⑥쥓�봺 �꽴占썹뵳占�--
+	//--燁삳똾�믤�⑥쥓�봺 �꽴占썹뵳占�--
 
-	//--�옣�꽣 愿�由�--
+	//--占쎌삢占쎄숲 �꽴占썹뵳占�--
 	private String board_shopcontent;
-	//--�옣�꽣 愿�由�--
-	//--�깭洹� 愿�由�--
+	//--占쎌삢占쎄숲 �꽴占썹뵳占�--
+	//--占쎄묶域뱄옙 �꽴占썹뵳占�--
 	private String board_select;
-	//--태그 관리--
-	//--이미지 관리--
-	private int imageseq;	//이미지 관련
-	private String l_Url;	//이미지 관련
+	//--�깭洹� 愿�由�--
+	//--�씠誘몄� 愿�由�--
+	private int imageseq;	//�씠誘몄� 愿��젴
+	private String l_Url;	//�씠誘몄� 愿��젴
 	
 	private String Searchkeyword; //검색 관련 
 	private String Keywordselect; //검색어
@@ -69,6 +70,12 @@ public class BoardVO {
 	}
 	public void setKeywordselect(String keywordselect) {
 		Keywordselect = keywordselect;
+	}
+	public int getM_rank() {
+		return m_rank;
+	}
+	public void setM_rank(int m_rank) {
+		this.m_rank = m_rank;
 	}
 	public int getBoard_block() {
 		return board_block;

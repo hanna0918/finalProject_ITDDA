@@ -93,6 +93,7 @@ li {
   height: 40px;
   box-sizing: border-box;
 }
+select[name="keywordselect"], 	
 select[name="searchSelect"] {
   height: 36px;
   margin: 1.5px 0 0 9px;
