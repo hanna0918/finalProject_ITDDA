@@ -27,7 +27,7 @@
   <div class="MainContent">
       <div style="width:100%; height: 90%;">
       	<ul class="userListTitle">
-      	  <li>번호</li>
+      	  <li>no</li>
           <li>아이디</li>
           <li>이름</li>
           <li>별명</li>
