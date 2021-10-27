@@ -171,13 +171,7 @@ public class MatchingController {
 	@RequestMapping("/matchingConfirm")
 	@ResponseBody
 	public MatchingVO matchingConfirm(int mc_seq, int m_seq){
-		MatchingVO mvo = matchingService.getRank(m_seq);
-		System.out.println("rank=" + mvo.getM_rank());
-		if(mvo.getM_rank() == 2) {
-			return mvo;
-		}
-		MatchingVO vo = matchingService.matchingConfirm(mc_seq, m_seq);
-		return vo;
+		return matchingService.matchingConfirm(mc_seq, m_seq);
 	}
 	
 	// 매칭 참가
