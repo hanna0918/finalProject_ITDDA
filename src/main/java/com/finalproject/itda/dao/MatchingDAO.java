@@ -47,10 +47,11 @@ public interface MatchingDAO {
 		" (select * from ",
 		" (select b.board_seq, c.m_userid, board_code, board_subject, to_char(board_writedate, 'YYYY-MM-DD') board_writedate, board_hit, b_goodhit, board_call, b_content, ",
 		" mc_state, mc_max, to_char(mc_start_date,'YYYY-MM-DD HH24:MI') mc_start_date, to_char(mc_end_date,'YYYY-MM-DD HH24:MI') mc_end_date, mc_where, board_select, ",
-		" (select count(m_seq) from mc_part d where d.mc_seq=m.mc_seq) matchingCount ",
+		" (select count(m_seq) from mc_part d where d.mc_seq=m.mc_seq) matchingCount, i_url, thumbimg ",
 		" from boardbase b inner join mc_table m on b.board_seq=m.board_seq ",
 		" inner join board_content a on b.board_seq=a.board_seq ",
 		" inner join memberbase c on b.m_seq=c.m_seq ",
+		" inner join board_image d on b.board_seq=d.board_seq ",
 		" where board_block in (0, 2) ",
 		" <if test='m_seq!=null and m_seq!=\"\"'> ",
 		" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
@@ -188,6 +189,16 @@ public interface MatchingDAO {
 			+ "			values ( "
 			+ "			mc_seq.currval, "
 			+ "			${m_seq}) "
+			+ " into board_image ("
+			+ "			board_seq,"
+			+ "			imageseq, "
+			+ "			i_url, "
+			+ "			thumbimg )"
+			+ "		values ("
+			+ "			board_seq.currval,"
+			+ "			imageseq.nextval, "
+			+ "			#{i_url},"
+			+ "			#{thumbImg} ) "
 			+ " select * from dual ")
 	public int matchingWriteOk(MatchingVO vo);
 

@@ -31,6 +31,8 @@ public class BoardVO {
 	private String[] tag;
 	private int board_block;
 	private int replyCount;
+	private String i_url;
+	private String thumbImg;
 	
 	//�뙎湲� �닔 
 	private int br_count;
@@ -269,6 +271,18 @@ public class BoardVO {
 	}
 	public void setNextTags(String[] nextTags) {
 		this.nextTags = nextTags;
+	}
+	public String getI_url() {
+		return i_url;
+	}
+	public void setI_url(String i_url) {
+		this.i_url = i_url;
+	}
+	public String getThumbImg() {
+		return thumbImg;
+	}
+	public void setThumbImg(String thumbImg) {
+		this.thumbImg = thumbImg;
 	}
 }
 

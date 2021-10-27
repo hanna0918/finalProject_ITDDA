@@ -21,6 +21,8 @@ public class MatchingVO {
 	private String endTime;
 	private String sido;
 	private String gugun;
+	private String thumbImg;
+	private String i_url;
 	
 	private int board_prev_seq;
 	private int board_next_seq;
@@ -269,5 +271,17 @@ public class MatchingVO {
 	}
 	public void setNextTags(String[] nextTags) {
 		this.nextTags = nextTags;
+	}
+	public String getThumbImg() {
+		return thumbImg;
+	}
+	public void setThumbImg(String thumbImg) {
+		this.thumbImg = thumbImg;
+	}
+	public String getI_url() {
+		return i_url;
+	}
+	public void setI_url(String i_url) {
+		this.i_url = i_url;
 	}
 }

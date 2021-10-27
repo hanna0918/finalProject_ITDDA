@@ -54,7 +54,7 @@
 				<div class="matchingBox" id="matchingBox">
 						<div class="photo">
 							<a href="/itda/matchingView?board_seq=${vo.board_seq}">
-							<img src="/itda/img/book.jpg" alt="매칭1" width="100%" /></a>
+							${vo.thumbImg} alt="매칭1" width="100%" /></a>
 							<div class="endSoon"><c:if test='${vo.mc_state==1}'>비정기매칭</c:if><c:if test='${vo.mc_state==2}'>정기매칭</c:if></div>
 						</div>
 						<div class="writer">${vo.m_userid }</div>

@@ -36,7 +36,7 @@
                <div>${vo.board_seq}</div>
                <div class="recommendContent">
                   <div>
-                     ${vo.thumbImg} class="chucheonImg" />
+                     ${vo.thumbImg} style="width: 120px;" class="chucheonImg" />
                   </div>
                   <div class="contentInfo">
                      <!-- 2 -->
