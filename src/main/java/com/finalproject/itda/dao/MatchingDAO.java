@@ -238,7 +238,9 @@ public interface MatchingDAO {
 			+ "		where board_seq = ${board_seq} ")
 	public int matchingEditOkMcTable(MatchingVO vo);
 	
-	
+	// 매칭 참가하려는 사람 rank 확인
+	@Select(" select a.m_rank, m_name from memberbase a join member_rank b on a.m_rank=b.m_rank where a.m_seq=${param} ")
+	public MatchingVO getRank(int m_seq);
 	
 	// 매칭 인원 불러오는 쿼리문
 	@Select(" select m_nickname, m_rank from mc_part a join mc_table b on a.mc_seq = b.mc_seq join memberbase c on a.m_seq=c.m_seq where board_seq=${param1} ")

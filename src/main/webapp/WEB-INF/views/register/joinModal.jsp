@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- 회원 가입창 -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <div class="loginJoinModal" id="loginJoinModal">
   <div class="modalOverlay"></div>
   <!-- 약관동의 창 -->
@@ -51,10 +51,47 @@
 
   <!-- 회원가입 정보 입력 창 -->
   <article class="joinModalContent joinDataInputModal">
-    <form method="post" id="joinOk" action="joinOk">
+    <form method="post" id="joinOk" action="joinOk"  enctype="multipart/form-data">
       <div class="closeBtn">close</div>
       <h3>회원가입</h3>
-      <div><img src="img/member.png" style="width: 50px" alt="" srcset="" /></div>
+      	<div>
+   			<label class="input-file-button" for="input-files"><img src="img/member.png" style="width: 100px;height: 100px;border-radius: 50px;" id="profilePic" /></label>
+			<input type="file" id="input-files" name="input-files" style="display:none;"/>
+			<input type="hidden" name="m_img" id="m_img"/>
+		</div>
+		<script>
+		$("#input-files").change(function(){
+			console.log(this.files && this.files[0]);
+			if(this.files && this.files[0]) {
+	    		var reader = new FileReader;
+		    	reader.onload = function(data) {
+		    		console.log(data.target.result+ 'dddddddd나오냐이미지');
+		    		$("#profilePic").attr("src", data.target.result);
+		    		$("#m_img").val(data.target.result);
+	    		}
+	    		reader.readAsDataURL(this.files[0]);
+				//reader.readAsText(this.files[0]);
+				//console.log(reader.readAsText(this.files[0]));
+				fileCheck();
+	    	}
+    	});
+		function fileCheck() {
+			//input file 태그.
+			var file = document.getElementById('input-files');
+			//파일 경로.
+			var filePath = file.value;
+			//전체경로를 \ 나눔.
+			var filePathSplit = filePath.split('\\'); 
+			//전체경로를 \로 나눈 길이.
+			var filePathLength = filePathSplit.length;
+			//마지막 경로를 .으로 나눔.
+			var fileName = filePathSplit[filePathLength-1];
+			
+			console.log('파일 경로 : ' + filePath);
+			console.log('파일명 : ' + fileName);
+			$("#m_img").val(fileName);
+		}
+		</script>
       <div class="joinCautionText">
         <p>가입시 아래의 항목을 지켜주세요</p>
         <p>-이메일: 실제 사용하시는 이메일</p>

@@ -53,8 +53,8 @@
 	<div class="loginJoinModal" id="loginEidtModal">
 		<div class="modalOverlay"></div>
 		<article class="joinModalContent joinDataInputModal">
-				<div id="test"></div>
-			</article>
-		</div>
+			<div id="test"></div>
+		</article>
+	</div>
 </div>
 

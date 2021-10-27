@@ -193,19 +193,18 @@ function sendWithAjax(){
 			var newPageNum = "";
 			if(listResult.length != 0){
 				listResult.each(function(idx, vo){
-					if(vo == null) {
-						newList += '<h1>데이터가 없습니다</h1>';
-					}
 					var splitTag = vo.board_select.split('/');
-					newList += `<a href="/itda/matchingView?board_seq=${vo.board_seq}"><div class="matchingBox" id="matchingBox">`;
+					newList += `<div class="matchingBox" id="matchingBox">`;
 					newList += `<div class="photo">`;
-					newList += `<img src="/itda/img/book.jpg" alt="매칭1" width="100%"/>`;
-					newList += `<div class="endSoon">`
+					newList += `<a href="/itda/matchingView?board_seq=${vo.board_seq}">`;
+					newList += `${vo.thumbImg} alt="매칭1" width="100%" /></a>`;
+					newList += `<div class="endSoon">`;
 					if(vo.mc_state==1){
 						newList += '비정기매칭';
 					} else if(vo.mc_state==2) {
 						newList += '정기매칭';
 					}
+					
 					newList += `</div>`;
 					newList += `</div>`;
 					newList += `<div class="writer">${vo.m_userid }</div>`;
@@ -214,10 +213,14 @@ function sendWithAjax(){
 						newList += `#${splitTag[i]} `;
 					}
 					newList += `</div>`;
+					newList += `<div>`;
+					newList += `<div>`;
 					newList += `<div class="where">${vo.mc_where}</div>`;
 					newList += `<div class="matchingDate">${vo.mc_start_date}</div>`;
+					newList += `</div>`;
 					newList += `<div class="matchingStatus">${vo.matchingCount} / ${vo.mc_max}</div>`;
-					newList += `</div></a>`;
+					newList += `</div>`;
+					newList += `</div>`;
 				});
 			} else {
 				newList += `<img src="/itda/img/teong.jpg" alt="텅" width="100%"/>`
@@ -308,3 +311,17 @@ function matchingPagingPrev() {
 	nowPage -= 1;
 	sendWithAjax();
 }
+$(document).on('click', '#matchingUploadBtn', function(){
+	if($("#m_rank").val()==2){
+		let tag = "";
+		tag += "<h1>매칭은 실버 이상부터</h1>";
+		tag += "<h1>이용가능합니다.</h1>";
+		tag += "<input type='button' id='closeBtn' value='확인'>";
+		$(".matchingReportModalContent").html(tag);
+		$('.matchingReportModal').css('display', 'block');
+		return false;
+	}
+}); 
+$(document).on('click', '#closeBtn', function () {
+    $('.matchingReportModal').css('display', 'none');
+});

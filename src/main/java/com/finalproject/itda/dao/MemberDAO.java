@@ -13,9 +13,11 @@ public interface MemberDAO {
 
 	
 	//회원가입
-	@Insert("insert into memberbase("
-			+ "m_seq, m_userid, m_userpwd, m_username, m_nickname, m_tel, m_email, m_addr, m_addrdetail, m_birth, m_gender) "
-			+ " values(m_seq.nextval, #{m_userid}, #{m_userpwd}, #{m_username}, #{m_nickname}, #{m_tel}, #{m_email}, #{m_addr}, #{m_addrdetail}, #{m_birth}, #{m_gender})")
+	@Insert("insert into"
+			+ "		memberbase("
+			+ "			m_seq, m_userid, m_userpwd, m_username, m_nickname, m_tel, m_email, m_addr, m_addrdetail, m_birth, m_gender, m_img) "
+			+ " 	values("
+			+ "			m_seq.nextval, #{m_userid}, #{m_userpwd}, #{m_username}, #{m_nickname}, #{m_tel}, #{m_email}, #{m_addr}, #{m_addrdetail}, #{m_birth}, #{m_gender}, #{m_img}) ")
 	public int join(MemberBaseVO vo);
 	
 	
