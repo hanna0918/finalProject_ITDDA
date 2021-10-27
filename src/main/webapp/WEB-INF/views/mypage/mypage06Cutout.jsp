@@ -5,7 +5,7 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- -----------------------  차단목록 ----------------------- -->
 <div id='blockDiv'>
-	<h2>차단목록</h2>
+	<h3 class="mypageH2">차단목록</h3>
 	<div>
 		<ul id='title'>
 			<li>닉네임</li>
@@ -13,7 +13,6 @@
 			<li>차단이유</li>
 			<li></li>
 		</ul>
-		<hr />
 	</div>
 	<div>
 		<form>

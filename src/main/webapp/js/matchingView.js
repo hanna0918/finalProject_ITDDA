@@ -268,7 +268,7 @@ function boardCallCheck(){
             	tag += `<form method="post" id="callBoardForm" method="post" >`;
 				tag += `<div id="sirenPopup">`;
 				tag += `<div id="sirenHeader">`;
-				tag += `<h1><img src="/itda/img/siren3.png"/><label>신고하기</label></h1>`;
+				tag += `<h1 id="sirenH1"><img src="/itda/img/siren3.png"/><label>신고하기</label></h1>`;
 				tag += `<a><img src="/itda/img/close1.png" class="close" style="position:absolute;top: 18px; right: 17px;"/></a>`;
 				tag += `</div>`;
 				tag += `<div id="sirenContainer">`;
@@ -278,7 +278,7 @@ function boardCallCheck(){
 				tag += `</li>`;
 				tag += `</ul>`;
 				tag += `<div class="sirenWhy">`;
-				tag += `<p>"여러 사유에 해당되는 경우, 대표적인 사유 1개를 선택해 주세요"</p>`;
+				tag += `<p>"여러 사유에 해당되는 경우, <br/>대표적인 사유 1개를 선택해 주세요"</p>`;
 				tag += `<ul class="sirenWhySelect">`;
 				tag += `<li>`;
 				tag += `<input type="radio" name="call_code" id="commercialIssue" value="1" checked/>`;

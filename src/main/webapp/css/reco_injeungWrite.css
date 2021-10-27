@@ -7,7 +7,7 @@
 }
 #reco_injeungFrame {
     font-family: 'IBMPlexSansKR-Regular';
-    width: 1100px;
+    width: 1200px;
     margin: 30px auto;
     overflow: auto;
 }
@@ -21,7 +21,6 @@
     overflow: auto;
     margin: 10px auto;
     padding: 0;
-    /* height: 165px; */
 }
 #reco_injeungMapBtn{
 	display: none;
@@ -70,7 +69,7 @@
 /* �깭洹� 湲곕뒫 */
 #addTag{
     float: left;
-    overflow: auto;
+    height:35px;
     margin-bottom:10px;\
 }
 #addTag>div {

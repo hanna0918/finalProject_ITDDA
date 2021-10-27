@@ -3,8 +3,9 @@
 <%@ include file="/inc/adminTop.jspf" %>
 
   <div class="TopContent">
-    <div class="TopSubContent">신고 게시판</div>
-  </div>
+    <div class="TopSubContent">
+    	<div>신고 게시판</div>
+  	</div>
   <div class="MainContent">
     <div style=" background-color: blanchedalmond; width:100%; height: 90%;">
           <hr>
@@ -69,8 +70,4 @@
     </article>
   </div>
 
-</head>
-<body>
-
-</body>
-</html>
+<

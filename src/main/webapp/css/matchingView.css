@@ -501,7 +501,26 @@ input[name=postWriteBtn]{
     margin: 0 auto;
     width: 400px;
     padding: 20px;
-    background-color: #fafafa;
+    background-color: white;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 3px;
+}
+.sirenInfo>span{
+	font-size:1em;
+	font-weight: bold;
+}
+.sirenWhySelect{
+	text-align: left;	
+	padding-left:75px;
+}
+#sirenFooter [type=button]{
+	width: 70px;
+	height:28px;
+	margin: 0 20px;
+}
+#sirenFooter{
+	margin-top:20px;
+}
+#sirenH1{
+	margin-bottom:0;
 }

@@ -61,9 +61,13 @@
 						<div class="hashTag">
 							<c:forEach var="tag" items="${vo.tags}">#${tag} </c:forEach>
 						</div>
-						<div class="where">${vo.mc_where}</div>
-						<div class="matchingDate">${vo.mc_start_date}</div>
-						<div class="matchingStatus">${vo.matchingCount} / ${vo.mc_max}</div>
+						<div>
+							<div>
+								<div class="where">${vo.mc_where}</div>
+								<div class="matchingDate">${vo.mc_start_date}</div>
+							</div>
+							<div class="matchingStatus">${vo.matchingCount} / ${vo.mc_max}</div>
+						</div>
 					</div>
 			</c:forEach>
 		</section>

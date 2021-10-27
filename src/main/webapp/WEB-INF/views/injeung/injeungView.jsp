@@ -44,12 +44,9 @@
 					<img alt="bubble" id='bubbleIcon' src="https://cdn-icons-png.flaticon.com/512/1246/1246332.png"> 3&nbsp;&nbsp;
 					<span id='siren'><img alt="siren" id='sirenIcon' src="https://cdn-icons-png.flaticon.com/512/811/811954.png"> ${vo.board_black}</span>
 				</div>
-                
 				<div id="replyList"><!-- 2 댓글박스 -->
-					
+				
 				</div>
-				
-				
 				<div><!-- 3 댓글 텍스트박스 -->
 					<textarea name='replyCommentTextarea' id='replyCommentTextarea'></textarea>
 					<div>

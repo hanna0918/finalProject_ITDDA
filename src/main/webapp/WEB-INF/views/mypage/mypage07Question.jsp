@@ -5,7 +5,7 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- ----------------------- 1:1 문의 ----------------------- -->
 <div id='qNa'>
-	<h2>1:1 문의</h2>
+	<h3 class="mypageH2">1:1 문의</h3>
 	<div>
 		<input type='button' name='ask' id='ask' value='문의하기' />
 	</div>

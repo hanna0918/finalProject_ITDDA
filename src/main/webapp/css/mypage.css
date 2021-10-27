@@ -1,18 +1,35 @@
 @charset "UTF-8";
-
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 #myBoardList, #myReply, #matching, #myBookmark, #subscribeDiv, #blockDiv, #qNa, #messageBox{
-	width:1100px;
+	width:1200px;
 	margin:0 auto;
 }
 #mypageIntro{
-	width:100%%;
+	width:100%;
 	min-height:800px;
+	position:relative;
 }
 #mypageIntro>div{
     text-align:center;
-    margin:120px;
-    font-size:1.17em;
-    
+/*     margin:120px; */
+    font-family: 'GmarketSansBold';
+}
+#mypageIntro>div:first-child{
+	position:absolute;
+	font-size: 2.4em;
+	color: darkslateblue;
+	margin: 19px;
+	z-index: 10000;
+	
+}
+#mypageIntro>div>img{
+	width:100%;
+	opacity: 0.6;
 }
 .page { /*페이지 div*/
 	width: 250px;
@@ -24,6 +41,10 @@
 .page li { /*페이지 1,2,3,4*/
 	float: left;
 	margin: 10px 10px;
+}
+.mypageH2{
+	margin-left: 12px;
+    font-size: 1.4em;
 }
 /*---------------------------------내가 쓴 글----------------------------------*/
 BoardList>.list li { /*li 기본값*/
@@ -51,8 +72,9 @@ BoardList>.list li { /*li 기본값*/
 }
 
 #title {
-	height: 40px;
-	line-height: 40px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 2px solid gray;
 }
 
 #title>li:nth-child(1) { /*리스트 폭*/
@@ -94,9 +116,10 @@ BoardList>.list li { /*li 기본값*/
 /*------------------------------------- 내가 쓴 댓글--------------------------------------*/
 
 #myReply>div:first-of-type {
-	height: 40px;
-	line-height: 40px;
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
+	border-bottom: 2px solid gray;
 }
 
 #myReply>div:nth-of-type(2) {
@@ -130,6 +153,7 @@ BoardList>.list li { /*li 기본값*/
 
 .replyList>li>div>div:nth-child(1) {
 	font-size: 1.17em;
+	margin-top: 6px;
 }
 
 .replyList>li>div>div:nth-child(2) { /*작성자 아이디*/
@@ -166,7 +190,7 @@ BoardList>.list li { /*li 기본값*/
 input[name=replyDelBtn] {
 	width: 70px;
 	height: 30px;
-	background-color: #0e08a7;
+	background-color: #00376b;
 	color: white;
 	border: none;
 	border-radius:5px;
@@ -179,13 +203,17 @@ input[name=replyDelBtn] {
 	width: 10%;
 	text-align: center;
 }
-
-#matching #title { /*리스트 상단 제목, 작성자, 등록일 등등 */
-	height: 40px;
-	line-height: 40px;
+.list span>a{
+	color:#00376b;
+	font-weight: bold;
 }
 
-#matching #title>li:nth-child(1) { /*컬럼 폭 사이즈*/
+#matching #title { /*리스트 상단 제목, 작성자, 등록일 등등 */
+	height: 50px;
+	line-height: 50px;
+}
+
+#title>li:nth-child(1) { /*컬럼 폭 사이즈*/
 	width: 10%;
 }
 
@@ -207,6 +235,7 @@ input[name=replyDelBtn] {
 
 #matching .content>li:nth-of-type(5n+1) { /*rownum*/
 	line-height: 70px;
+	font-size:0.9em;
 }
 
 #matching .content>li:nth-of-type(5n+2) { /*제목*/
@@ -219,7 +248,7 @@ input[name=replyDelBtn] {
 
 #matching .content>li:nth-of-type(5n+3) { /*작성자*/
 	width: 15%;
-	margin-top: 10px;
+	line-height: 70px;
 }
 
 #matching .content>li:nth-of-type(5n+4) { /*등록일*/
@@ -238,8 +267,8 @@ span a {
 input[name=ratingBtn] {
 	width: 70px;
 	height: 30px;
-	background-color: #fcf295;
-	color: gray;
+	background-color: #00376b;
+	color: white;
 	border: none;
 	border-radius:5px;
 	cursor: pointer;
@@ -342,7 +371,7 @@ input[name=unbookmark] {
 input[name=cancleSubscribe] {
 	width: 70px;
 	height: 30px;
-	background-color: #facdd1;
+	background-color: #00376b;
 	color: white;
 	border: none;
 	border-radius:5px;
@@ -354,6 +383,7 @@ input[name=cancleSubscribe] {
 	text-align: center;
 	height: 50px;
 	line-height: 50px;
+	border-bottom: 1px solid lightgray;
 }
 
 #blockDiv #title>li { /*구독리스트 컬럶 폭*/
@@ -383,7 +413,8 @@ input[name=cancleSubscribe] {
 input[name=unblock] {
 	width: 70px;
 	height: 30px;
-	background-color: #c3ebf7;
+	background-color: #00376b;
+	color: white;
 	border: none;
 	border-radius:5px;
 	cursor: pointer;
@@ -416,7 +447,7 @@ input[name=unblock] {
 input[name=ask] {
 	width: 70px;
 	height: 30px;
-	background-color:#0e08a7;
+	background-color:#00376b;
 	color: white;
 	border: none;
 	border-radius:5px;
@@ -550,7 +581,7 @@ input[name=ask] {
 input[name=msgDelBtn] {
 	width: 70px;
 	height: 30px;
-	background-color:#0e08a775;
+	background-color:#00376b;
 	color: white;
 	border: none;
 	border-radius:5px;

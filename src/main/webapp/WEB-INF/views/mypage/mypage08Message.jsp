@@ -6,7 +6,7 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- -----------------------  쪽지함 ----------------------- -->
 <div id='messageBox'>
-	<h2>쪽지함</h2>
+	<h3 class="mypageH2">쪽지함</h3>
 	<div id='msgTab'>
 		<ul>
 			<li id='receiveMsg'>받은쪽지함</li>

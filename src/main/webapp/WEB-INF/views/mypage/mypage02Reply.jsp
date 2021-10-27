@@ -5,9 +5,8 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- -----------------------  쓴댓글 ----------------------- -->
 <div id='myReply'>
-	<h2>내가 쓴 댓글</h2>
+	<h3 class="mypageH2">내가 쓴 댓글</h3>
 	<div>댓글</div>
-	<hr />
 	<div>
 		<form method='post' action=''>
 			<c:forEach var="vo" items="${replyList}">

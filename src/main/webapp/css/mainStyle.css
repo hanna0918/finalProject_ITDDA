@@ -48,7 +48,7 @@ a:visited {
 /* 네비게이션 start */
 .mainHeader {
   margin: 0 auto;
-  width: 1100px;
+  width: 1200px;
   height: 115px;
   box-sizing: border-box;
 }
@@ -61,6 +61,10 @@ a:visited {
   font-size: 20px;
   letter-spacing: -1px;
   color: #000000ba;
+}
+.topMenu>li>a:hover{
+	color: coral;
+	font-weight: bold;
 }
 .topMenu > li > a > img {
   width: 150px;
@@ -209,7 +213,7 @@ a:visited {
 /* 매칭게시판 설정 ----------------------------------------------- */
 /* section 설정 */
 .matchingBoard {
-  width: 1100px;
+  width: 1200px;
   overflow: auto;
   margin: 0 auto;
 }
@@ -302,12 +306,12 @@ a:visited {
   background: #f5f5f5;
   /*   text-align: center; */
 }
-#footerDiv {
-  width: 1100px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  line-height: 20px;
-  color: gray;
+#footerDiv{
+	width:1200px;
+	margin:0 auto;
+	box-sizing:border-box;
+	line-height:20px;
+	color:gray;
 }
 #footerDiv > div {
   width: 50%;
@@ -658,8 +662,8 @@ a:visited {
 }
 /* 메인페이지 스타일 정의 */
 
-.recommendBoard {
-  width: 1100px;
+.recommendBoard{
+  width: 1200px;
   margin: 0 auto;
   overflow: auto;
 }

@@ -5,7 +5,7 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- -----------------------  구독목록 ----------------------- -->
 <div id='subscribeDiv'>
-	<h2>구독목록</h2>
+	<h3>구독목록</h3>
 	<div>
 		<ul id='title'>
 			<li>닉네임</li>
@@ -13,7 +13,6 @@
 			<li>주요관심태그</li>
 			<li></li>
 		</ul>
-		<hr />
 	</div>
 	<div>
 		<ul class='content'>

@@ -5,69 +5,63 @@
 <%@ include file="/inc/mypageTop.jspf"%>
 <!-- ----------------------- 매칭현황 ----------------------- -->
 <div id='matching'>
-	<h2>나의 매칭 현황</h2>
+	<h3 class="mypageH2">나의 매칭 현황</h3>
 	<div class='list'>
 		<ul id='title'>
-			<li>rownum</li>
+			<li>no</li>
 			<li>제목</li>
 			<li>작성자</li>
 			<li>등록일</li>
 			<li>평가하기</li>
 		</ul>
-		<hr />
 	</div>
 
 	<div class='list'>
 		<form>
 			<ul class='content'>
 				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
+				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
+					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
+				<li><a href='#'>위기탈출넘버원</a></li>
 				<li>2021-07-01</li>
 				<li><input type='button' name='ratingBtn' value='평가' /></li>
 				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
+				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
+					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
+				<li><a href='#'>위기탈출넘버원</a></li>
 				<li>2021-07-01</li>
 				<li><input type='button' name='ratingBtn' value='평가' /></li>
 				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
+				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
+					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
+				<li><a href='#'>위기탈출넘버원</a></li>
 				<li>2021-07-01</li>
 				<li><input type='button' name='ratingBtn' value='평가' /></li>
 				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
+				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
+					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
+				<li><a href='#'>위기탈출넘버원</a></li>
 				<li>2021-07-01</li>
 				<li><input type='button' name='ratingBtn' value='평가' /></li>
 				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
+				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
+					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
+				<li><a href='#'>위기탈출넘버원</a></li>
 				<li>2021-07-01</li>
 				<li><input type='button' name='ratingBtn' value='평가' /></li>
 				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
+				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
+					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
+				<li><a href='#'>위기탈출넘버원</a></li>
 				<li>2021-07-01</li>
 				<li><input type='button' name='ratingBtn' value='평가' /></li>
 				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
+				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
+					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
+				<li><a href='#'>위기탈출넘버원</a></li>
 				<li>2021-07-01</li>
 				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> <span><a
-						href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a><br /> <span>(numberone)</span></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
+				
 			</ul>
 		</form>
 	</div>

@@ -5,33 +5,33 @@
   
   <div class="TopContent">
     <div class="TopSubContent">
-      <div>어드민 추가하기</div>
+      <div>관리자 추가하기</div>
   </div>
 
   <div class="MainContent">
-      <div style= "width:100%; height: 90%;">
-        <div style=" width:50%; height: 100%; float: left;">
-          <img style="margin-top: 200px;"src="src='img/circle.png'">
+      <div style= "width:100%; height: 90%; margin-top:30px;">
+        <div style=" width:50%; height: 90%; float: left;">
+          <img style="margin-top: 200px;"src="img/circle.png">
         </div>
-        <div style=" width:50%; height: 100%; float: left;">
+        <div style=" width:50%; height: 90%; margin-top:20px; float: left;">
           <form method="post" action="/itda/adminInsertOk" style="margin-top: 20px ">
             <div>
-              <label class="Modallabel">아아디<span class="asterisk">*</span></label>
+              <label class="Modallabel">아이디<span class="asterisk">*</span></label>
               <input class="ModalInput" type='text' name='m_userid' placeholder="아아디"/>
             </div>
             <br>
             
              <div>
-              <label class="Modallabel">아아디<span class="asterisk">*</span></label>
+              <label class="Modallabel">이름<span class="asterisk">*</span></label>
               <input class="ModalInput" type='text' name='m_username' placeholder="이름"/>
             </div>
             <br>
             
             
             <div>
-              <label class="Modallabel">비밀번호<span class="asterisk">*</span></label>
+              <label class="Modallabel" style="margin-bottom:20px;">비밀번호<span class="asterisk">*</span></label>
               <input class="ModalInput" type='password' name='m_userpwd' id='m_userpwd' placeholder="비밀번호"/>
-              <input style="margin-left: 100px;"class="ModalInput" type='password' name='m_userpwdcheck' id="m_userpwdcheck" placeholder="비밀번호 확인"/><br>
+              <input style="margin-left: 150px;"class="ModalInput" type='password' name='m_userpwdcheck' id="m_userpwdcheck" placeholder="비밀번호 확인"/><br>
               <div name="check" size="2" color="red"></div>
             </div>
             <br>
@@ -62,9 +62,10 @@
             </div>
             <br>
             
-            <div>
-        	<label>성별<span class="asterisk">*</span></label>
-        	<input type="radio" name="m_gender" value="남자" />남자 <input type="radio" name="m_gender" value="여자" />여자</div>
+            <div style="padding-right: 270px;">
+        	<label class="Modallabel" style="line-height:25px;">성별<span class="asterisk">*</span></label>
+        	<input type="radio" name="m_gender" value="남자" />남자 <input type="radio" name="m_gender" value="여자" />여자
+        	</div>
       		</div>
       		   <br>
       		    <br>
@@ -76,7 +77,7 @@
             </div>
             
             <div>
-              <button class="submitbutton" type="submit"><a>회원가입</a></button>
+              <button class="submitbutton" type="submit">추가</button>
             </div>
           </form>
         </div>

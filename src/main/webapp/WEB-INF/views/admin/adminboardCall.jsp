@@ -6,34 +6,31 @@
 
 </script>
   <div class="TopContent">
-    <div class="TopSubContent">신고 게시판</div>
+    <div class="TopSubContent">
+    	<div>신고 게시판</div>
+    </div>
   </div>
   <div class="MainContent">
-       <div style=" width:100%; height: 90%;">
-          <hr>
-          <ul id="BoardView">
-            <li>순번</li>
+       <div style=" width:100%; margin-top:50px; overflow:auto;">
+          <ul class="sirenTitle">
+          	<li>no</li>
             <li>카테고리</li>
             <li>제목</li>
             <li>글쓴이</li>
             <li>신고수</li>
             <li>등록일</li>
-            <li>버튼</li>
-            <br>
-            <!-- 데이터내용-->
-            
+            <li>&nbsp;</li>
+          </ul>
+          <ul id="BoardView">
             <c:forEach items="${list}" var="call">
               <li>${call.board_seq}</li>
               <li>${call.board_content}</li>
-              <li style="overflow:hidden;"> ${call.board_subject} <br> ${call.b_content} </li>
+              <li> ${call.board_subject}</li>
               <li>${call.m_nickname}</li>
               <li>${call.board_call}</li>
               <li>${call.board_writedate}</li>
               <li class="BoardBlack" name="${call.board_seq}">관리</li>
-              <br>
           	</c:forEach>
-          	<!-- 데이터내용 end-->
-            
           </ul>
     </div>
     <div class="AdminBoardButtonBox">

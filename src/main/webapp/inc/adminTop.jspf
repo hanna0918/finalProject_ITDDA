@@ -3,37 +3,39 @@
 
 <div id='myPageTop'>
   <div id='myPageContentDiv'>
-    <div id='profileBox'><!-- 프로필박스 -->
-      <div><!-- 사진, 매너점수div -->
-        <div>
-          <ul id='introDiv'>
-            <li><img style="width:127px; height: 20px; "name='profileImg'/></li>
-            <li>
-              <div>
-                sunchan123(내가순찬)님 <br/>
-                안녕하세요 : )<br/>
-                등급 : bronze
-              </div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-      <div id='myPageAlertDiv'><!-- 알림 div -->
-        <ul>
-          <li>내가 쓴 글<br/> --회</li>
-          <li>내가 쓴 댓글 <br/> --회</li>
-          <li>구독 <br/> --명</li>
-          <li>북마크 <br/> --개</li>
-          <li>쪽지  <br/> 1/10</li>
-        </ul>
-      </div>
-    </div>
+		<form>
+			<div id='profileBox'><!-- 프로필박스 -->
+				<div><!-- 사진, 매너점수div -->
+					<div>
+						<ul id='introDiv'>
+							<li><img src='img/circle.png' name='1' id='profileImg' /></li>
+							<li>
+								<div>
+									<span style="font-size:1em; font-weight:bold;">${lognname}(${login})</span>님 <br/> 
+									안녕하세요 : )<br/> 
+									등급 : ${rank}
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--       <div id='myPageAlertDiv'>알림 div -->
+<!--         <ul> -->
+<!--           <li>내가 쓴 글<br/> --회</li> -->
+<!--           <li>내가 쓴 댓글 <br/> --회</li> -->
+<!--           <li>구독 <br/> --명</li> -->
+<!--           <li>북마크 <br/> --개</li> -->
+<!--           <li>쪽지  <br/> 1/10</li> -->
+<!--         </ul> -->
+<!--       </div> -->
+    
 
     <div id='tab'><!-- tab -->
       <ul>
-        <li class="menu"><a href="/itda/MemberList">유저관리</a></li>
-        <li class="menu"><a href="/itda/BoardAllView">모든 게시판</a></li>
+        <li class="menu"><a href="/itda/MemberList">회원관리</a></li>
+<!--         <li class="menu"><a href="/itda/BoardAllView">모든 게시판</a></li> -->
         <li class="menu"><a href="/itda/BoardCallList">신고 게시판</a></li>
         <li class="menu"><a href="/itda/BoardBlackList">블럭게시판</a></li>
         <li class="menu"><a href="/itda/adminQnawait">1:1 문의 관리</a></li>

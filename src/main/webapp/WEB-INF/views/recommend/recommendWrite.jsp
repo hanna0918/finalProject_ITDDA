@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link rel="stylesheet" href="/itda/css/reco_injeungWrite.css?a">
+<link rel="stylesheet" href="/itda/css/reco_injeungWrite.css?abc">
 <!-- <link rel="stylesheet" href="/itda/css/recommend.css?version=1"> -->
 <!-- include libraries(jQuery, bootstrap) -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
