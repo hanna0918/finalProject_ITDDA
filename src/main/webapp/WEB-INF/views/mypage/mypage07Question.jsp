@@ -34,7 +34,7 @@
 				<li class="question">
 					<div>
 						<div>${quesVo.q_category} <input type='hidden' name='q_number' value='${quesVo.q_number}'></div>
-						 <div>문의내용<br/>${quesVo.q_title}</div>
+						 <div>${quesVo.q_title}</div>
 						<div>작성일 ${quesVo.q_date}</div>
 					</div>
 				</li>
@@ -42,7 +42,7 @@
 				<c:if test="${quesVo.q_result_state eq 1}">
 					<li class="answer">
 						<div>
-							<div style="text-align: center">답변내용<br/>${quesVo.q_result}</div>
+							<div style="text-align: center"><p>답변내용</p>${quesVo.q_result}</div>
 						</div>
 					</li>
 				</c:if>

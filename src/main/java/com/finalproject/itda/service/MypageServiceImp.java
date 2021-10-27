@@ -23,8 +23,8 @@ public class MypageServiceImp implements MypageService {
 	 */
 	//마이페이지 내가쓴글 리스트
 	@Override
-	public List<BoardVO> mypagePostList(MemberBaseVO vo) {
-		return  mypageDao.mypagePostList(vo);
+	public List<BoardVO> mypagePostList(int m_seq) {
+		return  mypageDao.mypagePostList(m_seq);
 	}
 	//내가쓴댓글 뿌리고 시작
 	@Override
@@ -58,6 +58,10 @@ public class MypageServiceImp implements MypageService {
 		return mypageDao.editMyInfoUpdate(vo);
 	}
 	//순찬 수정
+	@Override
+	public List<MemberBaseVO> mypageSubscribeList(int m_seq) {
+		return mypageDao.mypageSubscribeList(m_seq);
+	}
 	
 }
 

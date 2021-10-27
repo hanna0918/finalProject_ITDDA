@@ -2,7 +2,7 @@
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" type="text/css" href="css/recommend.css" />
-<div class="boardContainer">
+<div class="boardContainer" style="overflow:visible;">
    <!-- 게시판제목 -->
    <!-- 검색창 -->
    <header>
@@ -69,7 +69,7 @@
 
 </div>
 
-<div>
+<div style="width:1200px; margin:0 auto;">
    <!-- 글쓰기 버튼 -->
    <div class="boardBtnDiv">
       <input type="button" value="글쓰기" class="writeBtn recommendBtn"

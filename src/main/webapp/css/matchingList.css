@@ -11,7 +11,7 @@
     overflow:auto;
 }
 #searchAndCalendar a{
-   float: right;
+	float: right;
     border: 2px solid #00376b;
     border-radius: 3px;
     color:#00376b;
@@ -219,7 +219,7 @@ section>section{
 }
 /* 매칭페이징 */
 #matchingPagingUl {
-    width: 40%;
+    width: 22%;
     margin: 0 auto;
     border-radius: 15px;
     display: -webkit-flex;

@@ -13,17 +13,11 @@ import com.finalproject.itda.vo.QuestionVO;
 
 public interface MypageDAO {
 	
-	//내정보수정 정보가지고오기
-	/*
-	 * @Select("select m_userid, m_email, m_nickname, m_tel, m_addr, m_birth, m_username, m_info, m_tag "
-	 * + " from memberbase where m_seq=1") public MemberBaseVO editMyInfo(MemberBaseVO vo);
-	 */
+
 	//내가쓴글
-	@Select("select bc.board_content, b.board_subject, to_char(b.board_writedate, 'YYYY-MM-DD'), b.board_hit, count(br.br_id) br_count "
-			+ " from boardbase b full outer join board_code bc on b.board_code=bc.board_code "
-			+ " join board_comment br on b.m_seq=br.m_seq where br.m_seq=#{m_seq} "
-			+ " group by bc.board_content, b.board_subject, b.board_writedate, b.board_hit")
-	public List<BoardVO> mypagePostList(MemberBaseVO vo);
+	@Select("select b.board_seq, bc.board_content, b.board_subject, b.board_writedate, b.board_hit, b.b_goodhit, b.board_code "
+			+ " from boardBase b join board_code bc on b.board_code=bc.board_code where m_seq='${m_seq}' order by board_writedate desc")
+	public List<BoardVO> mypagePostList(int m_seq);
 	
 	//내가 쓴 댓글
 	@Select("select bc.br_id, b.board_subject, bc.board_seq, m.m_nickname, bc.br_content, to_char(bc.br_writedate, 'YYYY-MM-DD') br_writedate "
@@ -55,6 +49,10 @@ public interface MypageDAO {
 	
 	@Update("update memberbase set m_email=#{m_email},m_addr=#{m_addr},m_addrdetail=#{m_addrdetail},m_info =#{m_info},m_tag=#{m_tag} where m_seq= #{m_seq}")
 	public int editMyInfoUpdate(MemberBaseVO vo);
+	//구독구독구독
+	@Select("select m_nickname, m_info, m_tag from memberbase where m_seq= "
+			+ " (select m_seq_sub from memberbase m join user_sub us on m.m_seq=us.m_seq_sub where us.m_seq='${param1}')")
+	public List<MemberBaseVO> mypageSubscribeList(int m_seq);
 	
 	
 
