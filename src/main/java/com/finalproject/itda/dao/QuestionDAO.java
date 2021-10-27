@@ -9,12 +9,24 @@ import com.finalproject.itda.vo.BoardVO;
 
 public interface QuestionDAO {
 	//QnA리스트
-	@Select("select distinct b.board_seq, b.board_subject, to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, b.board_hit, m.m_nickname, "
-			+ "(select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count "
-			+ "from boardbase b join memberbase m on b.m_seq=m.m_seq "
-			+ "join board_comment bc on b.m_seq=bc.m_seq where b.board_code=6 order by board_writedate desc")
+	@Select("select b.board_seq,"
+		+ "     	b.board_subject,"
+		+ "     	to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate,"
+		+ "     	b.board_hit, "
+		+ "     	m.m_nickname,"
+		+ "     	(select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count "
+		+ "	   from boardbase b "
+		+ "    join memberbase m on b.m_seq = m.m_seq "
+		+ "   where b.board_code=6 "
+		+ "			order by board_writedate desc")
 	public List<BoardVO> questionBoardList();
 	
+//	@Select("select distinct b.board_seq, b.board_subject, to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, b.board_hit, m.m_nickname, "
+//			+ "(select count(board_seq) from board_comment bc where b.board_seq=bc.board_seq) br_count "
+//			+ "from boardbase b join memberbase m on b.m_seq=m.m_seq "
+//			+ "join board_comment bc on b.m_seq=bc.m_seq where b.board_code=6 order by board_writedate desc")
+//	public List<BoardVO> questionBoardList();
+//	
 	//QnA View
 	@Select({" <script> ",
 		" select * from (select a.board_seq, board_subject, b_content, to_char(board_writedate,'YYYY-MM-DD') board_writedate, m_nickname, m_userid, b_goodhit, board_call, board_hit, nvl(m_img,'img/user.png') m_img, ",

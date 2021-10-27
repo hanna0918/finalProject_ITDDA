@@ -1,526 +1,529 @@
 @charset "UTF-8";
 
-
 @font-face {
-    font-family: 'IBMPlexSansKR-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "IBMPlexSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-body, ul, li{
-    margin:0;
-    padding:0;
-    font-family:'IBMPlexSansKR-Regular';
-    list-style:none;
+body,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  font-family: "IBMPlexSansKR-Regular";
+  list-style: none;
 }
-#postViewDiv{
-    width:900px;
-    margin:0 auto;
-    overflow:auto;
+#postViewDiv {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: auto;
 }
-img[name=profileShot]{
-    width:40px;
-    height:40px;
-    margin:5px;
+img[name="profileShot"] {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
 }
-.contentTitle{
-    overflow:auto;
-    box-sizing:border-box;
-    margin:5px;
+.contentTitle {
+  overflow: auto;
+  box-sizing: border-box;
+  margin: 5px;
 }
-.contentTitle>div:first-child{
-    height:30px;
-    line-height:30px;
-    width:80px;
-    text-align:center;
-    border-bottom:2px solid #00376b;
-    margin:0 auto;
+.contentTitle > div:first-child {
+  height: 30px;
+  line-height: 30px;
+  width: 80px;
+  text-align: center;
+  border-bottom: 2px solid #00376b;
+  margin: 0 auto;
 }
-.contentTitle>div:last-child{
-    height:100px;
-    line-height:110px;
-    width:100%;
-    font-size:2em;
+.contentTitle > div:last-child {
+  height: 100px;
+  line-height: 110px;
+  width: 100%;
+  font-size: 2em;
 }
-.contentWriter{
-    width:100%;
-    overflow:auto;
+.contentWriter {
+  width: 100%;
+  overflow: auto;
 }
 
-.contentReply>div:nth-child(2)>div:first-child{
-    width: 100%;
-    float:left;
+.contentReply > div:nth-child(2) > div:first-child {
+  width: 100%;
+  float: left;
 }
-.contentWriter>div:first-child{
-	width:7%;
-	float:left;
+.contentWriter > div:first-child {
+  width: 7%;
+  float: left;
 }
-.contentWriter>div:last-child{
-    width:80%;
-    margin-top:0.5%;
-    overflow:auto;
-    font-size: 0.9em;
+.contentWriter > div:last-child {
+  width: 80%;
+  margin-top: 0.5%;
+  overflow: auto;
+  font-size: 0.9em;
 }
-.contentWriter li{
-    float:left;
-    margin-right:1%;
+.contentWriter li {
+  float: left;
+  margin-right: 1%;
 }
-.contentWriter li:last-child:hover{
-	color:red;
+.contentWriter li:last-child:hover {
+  color: red;
 }
-.contentView{
-    width:100%;
-    min-height:300px;
-    overflow:auto;
-    margin-top:3%;
+.contentView {
+  width: 100%;
+  min-height: 300px;
+  overflow: auto;
+  margin-top: 3%;
 }
 .contentView span {
-    font-size:1.18em;
-    color:#00376b;
-    font-weight:bold;
-    font-family: 'BBTreeGL';
+  font-size: 1.18em;
+  color: #00376b;
+  font-weight: bold;
+  font-family: "BBTreeGL";
 }
- .nextPrevTag {
-	font-size: 0.8em;
-	color: #00376b;
-	font-weight:bold;
+.nextPrevTag {
+  font-size: 0.8em;
+  color: #00376b;
+  font-weight: bold;
 }
 .nextPrevWord {
-	font-size: 0.8em;
-	color: #464646;
-	margin-right:5px;
+  font-size: 0.8em;
+  color: #464646;
+  margin-right: 5px;
 }
-.contentView>div{
-    height:30px;
-    overflow:auto;
-    margin-bottom:1%;
+.contentView > div {
+  height: 30px;
+  overflow: auto;
+  margin-bottom: 1%;
 }
-#bubbleIcon, #heartIcon, #sirenIcon{
-    width:16px;
-    height:16px;		
+#bubbleIcon,
+#heartIcon,
+#sirenIcon {
+  width: 16px;
+  height: 16px;
 }
-.contentReply{
-    width:100%;
-    overflow:auto;
-    margin-top:5%;
+.contentReply {
+  width: 100%;
+  overflow: auto;
+  margin-top: 5%;
 }
-.contentReply>div{
-    width:100%;
-    overflow:auto;		
-    margin-top:2%;
-    box-sizing:border-box;
+.contentReply > div {
+  width: 100%;
+  overflow: auto;
+  margin-top: 2%;
+  box-sizing: border-box;
 }
-.contentReply>div:first-child{
-    padding-left:1%;
-    height:30px;
-    line-height:30px;
-    font-size:1.15em;
+.contentReply > div:first-child {
+  padding-left: 1%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 1.15em;
 }
-#siren{
-    float:right;
-    color:black;
-    margin-right:10px;
+#siren {
+  float: right;
+  color: black;
+  margin-right: 10px;
 }
 #replyList {
-	width: 100%;
-    float:left;
-    margin-bottom:2%;
+  width: 100%;
+  float: left;
+  margin-bottom: 2%;
 }
-#matchingWriter{
-    font-size:0.9em;
-    padding-top:5px;
-    font-weight: bold;
+#matchingWriter {
+  font-size: 0.9em;
+  padding-top: 5px;
+  font-weight: bold;
 }
-.replyView{
-    margin-top:1%;
-    overflow:auto;
+.replyView {
+  margin-top: 1%;
+  overflow: auto;
 }
-.contentReply span{
-    font-size:0.85em;
-    color:#ddd;
+.contentReply span {
+  font-size: 0.85em;
+  color: #ddd;
 }
 #replyTextBox {
-    border:1px solid #0000002b;
-    min-height:80px;
-    border-radius:5px;
+  border: 1px solid #0000002b;
+  min-height: 80px;
+  border-radius: 5px;
 }
-.br_content, .br_content:focus{
-    width:95%;
-    min-height:50px;
-    margin:1.5% 2.5% 0 1.5%;
-    box-sizing:border-box;
-/*     outline:none; */
-    resize:none;
-    border:none;
+.br_content,
+.br_content:focus {
+  width: 95%;
+  min-height: 50px;
+  margin: 1.5% 2.5% 0 1.5%;
+  box-sizing: border-box;
+  /*     outline:none; */
+  resize: none;
+  border: none;
 }
-#replyCommentTextarea:focus{
-    outline:none;
+#replyCommentTextarea:focus {
+  outline: none;
 }
-input[name=replyFileUpload]{
-    margin-left:2.5%;
+input[name="replyFileUpload"] {
+  margin-left: 2.5%;
 }
-input[name=writeReplyBtn], input[name=loginPls]{
-    float:right;
-    margin-right:2%;
+input[name="writeReplyBtn"],
+input[name="loginPls"] {
+  float: right;
+  margin-right: 2%;
 }
-.contentReply>div:nth-child(3)>div{
-    margin-bottom:2%;
-    overflow:auto;
+.contentReply > div:nth-child(3) > div {
+  margin-bottom: 2%;
+  overflow: auto;
 }
-input[name=writeReplyBtn], input[name=loginPls]{
-    width:70px;
-    height:30px;
-    background-color:#00376b;
-    color:white;
-    border:none;
-    border-radius:5px;
-    font-weight:bold;
-    cursor:pointer;
+input[name="writeReplyBtn"],
+input[name="loginPls"] {
+  width: 70px;
+  height: 30px;
+  background-color: #00376b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
-#otherContent{
-    width:100%;
-    overflow:auto;
-    margin-top:3%;
-    box-sizing:border-box;
+#otherContent {
+  width: 100%;
+  overflow: auto;
+  margin-top: 3%;
+  box-sizing: border-box;
 }
-#otherContent>div{
-    box-sizing:border-box;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-    height:50px;
+#otherContent > div {
+  box-sizing: border-box;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  height: 50px;
 }
-#otherContent>div:last-child{
-    border-top:none;
+#otherContent > div:last-child {
+  border-top: none;
 }
-img[name=prevPost], img[name=nextPost]{
-    width:24px;
-    height:24px;
+img[name="prevPost"],
+img[name="nextPost"] {
+  width: 24px;
+  height: 24px;
 }
-#otherContent>div:first-child>div:first-child{
-    width:30px;
-    overflow:auto;
-    margin:7px 15px;
+#otherContent > div:first-child > div:first-child {
+  width: 30px;
+  overflow: auto;
+  margin: 7px 15px;
 }
-#otherContent>div:last-child>div:first-child{
-    width:30px;
-    overflow:auto;
-    margin:0 15px;
-    margin-top:13px;
+#otherContent > div:last-child > div:first-child {
+  width: 30px;
+  overflow: auto;
+  margin: 0 15px;
+  margin-top: 13px;
 }
-.arrowDiv:last-child{
-    margin:7px 16px;
+.arrowDiv:last-child {
+  margin: 7px 16px;
 }
-.arrowDiv+div{
-    margin-top:12px;
+.arrowDiv + div {
+  margin-top: 12px;
 }
-#otherContent>div>div{
-    float:left;
+#otherContent > div > div {
+  float: left;
 }
-#bottomBtn{
-    width:100%;
-    overflow:auto;
-    margin:2% 0;
-    box-sizing:border-box;
-    margin-top:3%;
+#bottomBtn {
+  width: 100%;
+  overflow: auto;
+  margin: 2% 0;
+  box-sizing: border-box;
+  margin-top: 3%;
 }
-#bottomBtn>div{
-    width:40%;
-    float:left;
+#bottomBtn > div {
+  width: 40%;
+  float: left;
 }
-#bottomBtn input[type=button]{
-    width:70px;
-    height:30px;
-    background-color:#00376b;
-    color:white;
-    border:none;
-    border-radius:5px;
-    font-weight:bold;
-    cursor:pointer;
+#bottomBtn input[type="button"] {
+  width: 70px;
+  height: 30px;
+  background-color: #00376b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
-input[name=postWriteBtn]{
-    float:right;
+input[name="postWriteBtn"] {
+  float: right;
 }
 .nextPrevDiv {
-	overflow: hidden;
+  overflow: hidden;
 }
-
-
-
 
 /* ---------------------------------------------------------- */
 /*占쏙옙占시�*/
 .matchingModal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -ms-overflow-style: none;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
 }
 .matchingModal::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* 占쏙옙占시� 占쏙옙占� */
 .matchingModalOverlay {
-    background: rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    overflow-y: auto;
-    position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y: auto;
+  position: fixed;
 }
 
 /* 占쏙옙占시� */
 .joinModalContent {
-    position: relative;
-    margin: 230px auto;
-    width: 320px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    border-radius: 10px;
-    border: 2px solid lightgray;
-    overflow-y: auto;
+  position: relative;
+  margin: 230px auto;
+  width: 320px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid lightgray;
+  overflow-y: auto;
 }
 
 /* 占쏙옙占시� 占쏙옙튼 */
 .joinModalContent input {
-    width: 100px;
-    height: 40px;
-    margin: 10px;
-    border-radius: 3px;
-    font-size: 1.1em;
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 3px;
+  font-size: 1.1em;
 }
 .joinModalContent input:nth-of-type(1) {
-    background-color: #00376b;
-    border: 1px solid #00376b;
-    color:white;
+  background-color: #00376b;
+  border: 1px solid #00376b;
+  color: white;
 }
 .joinModalContent input:nth-of-type(2) {
-    background-color: ghostwhite;
-    border: 1px solid lightgray;
+  background-color: ghostwhite;
+  border: 1px solid lightgray;
 }
 .joinModalContent input:nth-of-type(1):hover {
-    background-color: #00407c;
+  background-color: #00407c;
 }
 .joinModalContent input:nth-of-type(2):hover {
-    background-color: #ececf9;
+  background-color: #ececf9;
 }
 
 /*占쏙옙恬占쏙옙창*/
 .matchingCancelModal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -ms-overflow-style: none;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
 }
 .matchingCancelModal::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* 占쏙옙占시� 占쏙옙占� */
 .matchingCancelModalOverlay {
-    background: rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    overflow-y: auto;
-    position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y: auto;
+  position: fixed;
 }
 
 /* 占쏙옙占시� */
 .joinCancelModalContent {
-    position: relative;
-    margin: 230px auto;
-    width: 800px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    border-radius: 5px;
-    border: 2px solid #666;
-    overflow-y: auto;
+  position: relative;
+  margin: 230px auto;
+  width: 800px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #666;
+  overflow-y: auto;
 }
 
 /* 占쏙옙占시� 占쏙옙튼 */
 .joinCancelModalContent input {
-    width: 100px;
-    height: 40px;
-    margin: 10px;
-    border-radius: 3px;
-    font-size: 1.1em;
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 3px;
+  font-size: 1.1em;
 }
 .joinCancelModalContent input:nth-of-type(1) {
-    background-color: rgba(42, 135, 197, 0.2);
-    border: 1px solid rgba(255, 99, 72, 0.2);
+  background-color: rgba(42, 135, 197, 0.2);
+  border: 1px solid rgba(255, 99, 72, 0.2);
 }
 .joinCancelModalContent input:nth-of-type(2) {
-    background-color: rgba(192, 98, 82, 0.2);
-    border: 1px solid rgba(255, 99, 72, 0.2);
+  background-color: rgba(192, 98, 82, 0.2);
+  border: 1px solid rgba(255, 99, 72, 0.2);
 }
 .joinCancelModalContent input:nth-of-type(1):hover {
-    background-color: rgba(42, 135, 197, 0.25);
+  background-color: rgba(42, 135, 197, 0.25);
 }
 .joinCancelModalContent input:nth-of-type(2):hover {
-    background-color: rgba(192, 98, 82, 0.25);
+  background-color: rgba(192, 98, 82, 0.25);
 }
 /* 占쏙옙占� */
-#matchingDetailBanner{
-    border-radius: 4px;
-    position: absolute;
-    width: 200px;
-    overflow: auto;
-    text-align: center;
-    left: 1300px;
-    border: 1px solid lightgray;
-    background-color: white;
-    font-size: 0.9em;
-/*     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.349); */
-    cursor: default;
+#matchingDetailBanner {
+  border-radius: 4px;
+  position: absolute;
+  width: 200px;
+  overflow: auto;
+  text-align: center;
+  left: 1300px;
+  border: 1px solid lightgray;
+  background-color: white;
+  font-size: 0.9em;
+  /*     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.349); */
+  cursor: default;
 }
 #hostPhoto {
-    width: 190px;
-    margin: 0 auto;
-    text-align: center;
+  width: 190px;
+  margin: 0 auto;
+  text-align: center;
 }
-#hostPhoto>img {
-    width: 100%;
-    position: relative;
-    display: block;
-    border-radius: 3px;
+#hostPhoto > img {
+  width: 100%;
+  position: relative;
+  display: block;
+  border-radius: 3px;
 }
 #hostIntro {
-    font-size: 1.2em;
-    font-weight: 600;
-    padding: 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 10px;
 }
 #bannerBtn {
-    width: 75%;
-    border: 2px solid #00376b;
-    background-color: white;
-    color:#00376b;
-    font-weight:bolder;
-    border-radius: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    font-size: 1em;
-    cursor: pointer;
+  width: 75%;
+  border: 2px solid #00376b;
+  background-color: white;
+  color: #00376b;
+  font-weight: bolder;
+  border-radius: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 1em;
+  cursor: pointer;
 }
 #hostUserid {
-    font-size: 1em;
-    padding: 5px;
+  font-size: 1em;
+  padding: 5px;
 }
-#hostUserid>b{
-	font-weight: bold;
+#hostUserid > b {
+  font-weight: bold;
 }
 #hostMatchingInfo {
-    padding-top: 5px;
-    font-size: 1.2em;
-    font-weight: 600;
-    color:slateblue;
+  padding-top: 5px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: slateblue;
 }
-#hostMatchingInfo>span{
-	font-size: 0.8em;
-	color:black;
+#hostMatchingInfo > span {
+  font-size: 0.8em;
+  color: black;
 }
-#matchingDetailBanner>.partUsers {
-    border-top: 1px solid lightgray;
-    font-size: 1em;
-    font-weight: 500;
-    padding-top: 5px;
-    padding-bottom: 5px;
+#matchingDetailBanner > .partUsers {
+  border-top: 1px solid lightgray;
+  font-size: 1em;
+  font-weight: 500;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
-#matchingDetailBanner>div:nth-child(6){
-	margin:10px;
+#matchingDetailBanner > div:nth-child(6) {
+  margin: 10px;
 }
 #partUserIntro {
-    font-weight: bold;
-    font-size: 1em;
-    margin-top: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .replyDiv {
-	width: 100%;
+  width: 100%;
 }
-.replyDiv>div:first-child{
-	width:7%;
-	float:left;
-	margin-bottom:25px;
+.replyDiv > div:first-child {
+  width: 7%;
+  float: left;
+  margin-bottom: 25px;
 }
-.replyDiv>div:nth-child(2){
-	width:83%;
+.replyDiv > div:nth-child(2) {
+  width: 83%;
 }
 .replyImg {
-	width: 10%;
+  width: 10%;
 }
 .replyDivDiv {
-	width: 90%;
+  width: 90%;
 }
-
 
 /* 신고 모달 */
 
 .matchingReportModal {
-    display: none;
-    position: fixed;
-    left: 0;
-    width: 101%;
-    height: 700px;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -ms-overflow-style: none;
+  display: none;
+  position: fixed;
+  left: 0;
+  width: 101%;
+  height: 700px;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
 }
 
 .matchingReportModalOverlay {
-    background: rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    overflow-y: auto;
-    position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y: auto;
+  position: fixed;
 }
 
 .matchingReportModal::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .matchingReportModalContent {
-    position: relative;
-    margin: 0 auto;
-    width: 400px;
-    padding: 20px;
-    background-color: white;
-    text-align: center;
-    border-radius: 3px;
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+  border-radius: 3px;
 }
-.sirenInfo>span{
-	font-size:1em;
-	font-weight: bold;
+.sirenInfo > span {
+  font-size: 1em;
+  font-weight: bold;
 }
-.sirenWhySelect{
-	text-align: left;	
-	padding-left:75px;
+.sirenWhySelect {
+  text-align: left;
+  padding-left: 75px;
 }
-#sirenFooter [type=button]{
-	width: 70px;
-	height:28px;
-	margin: 0 20px;
+#sirenFooter [type="button"] {
+  width: 70px;
+  height: 28px;
+  margin: 0 20px;
 }
-#sirenFooter{
-	margin-top:20px;
+#sirenFooter {
+  margin-top: 20px;
 }
-#sirenH1{
-	margin-bottom:0;
+#sirenH1 {
+  margin-bottom: 0;
 }

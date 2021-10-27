@@ -14,18 +14,18 @@
    </div>
       <div id="recommendSerchBox">
          <form method="post" id="tagTranfer" onsubmit="return false">
-            <div>
+            <div class="searchTextBox">
                <input type="text" name="searchText" id="searchText" placeholder="#태그를 입력하세요."/>
             </div>
-		<div id="tagAndDate">
-            <div id="addTag">
-               <div id="hiddenTag0" ></div>
-               <div id="hiddenTag1" ></div>
-               <div id="hiddenTag2" ></div>
-               <div id="hiddenTag3" ></div>
-               <div id="hiddenTag4" ></div>
-            </div>
-        </div>
+            <div id="tagAndDate">
+               <div id="addTag" class="recommendAddTag">
+                  <div id="hiddenTag0" ></div>
+                  <div id="hiddenTag1" ></div>
+                  <div id="hiddenTag2" ></div>
+                  <div id="hiddenTag3" ></div>
+                  <div id="hiddenTag4" ></div>
+               </div>
+         </div>
          </form>
       </div>
    </header>
