@@ -192,12 +192,10 @@ public interface MatchingDAO {
 			+ " into board_image ("
 			+ "			board_seq,"
 			+ "			imageseq, "
-			+ "			i_url, "
 			+ "			thumbimg )"
 			+ "		values ("
 			+ "			board_seq.currval,"
 			+ "			imageseq.nextval, "
-			+ "			#{i_url},"
 			+ "			#{thumbImg} ) "
 			+ " select * from dual ")
 	public int matchingWriteOk(MatchingVO vo);

@@ -40,7 +40,9 @@
         <li class="menu"><a href="/itda/BoardBlackList">블럭게시판</a></li>
         <li class="menu"><a href="/itda/adminQnawait">1:1 문의 관리</a></li>
         <li class="menu"><a href="/itda/AdminMemberlist">관리자 관리</a></li>
-        <li class="menu"><a href="/itda/MemberInsert">관리자 추가</a></li>
+        <c:if test="${m_rank == 0}">
+        	<li class="menu"><a href="/itda/MemberInsert">관리자 추가</a></li>
+        </c:if>
       </ul>
     </div>
   </div>
