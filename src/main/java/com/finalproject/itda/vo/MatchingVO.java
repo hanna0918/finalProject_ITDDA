@@ -23,6 +23,7 @@ public class MatchingVO {
 	private String gugun;
 	private String thumbImg;
 	private String i_url;
+	private String m_name;
 	
 	private int board_prev_seq;
 	private int board_next_seq;
@@ -283,5 +284,11 @@ public class MatchingVO {
 	}
 	public void setI_url(String i_url) {
 		this.i_url = i_url;
+	}
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
 	}
 }

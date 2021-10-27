@@ -39,7 +39,7 @@ public class MatchingServiceImp implements MatchingService {
 
 	@Override
 	public MatchingVO matchingEdit(int board_seq) {
-		System.out.println("serviceImpµµ µé¾î¿È");
+		System.out.println("serviceImpï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		return matchingDAO.matchingEdit(board_seq);
 	}
 
@@ -98,6 +98,11 @@ public class MatchingServiceImp implements MatchingService {
 	@Override
 	public int matchingReplyDelete(BoardCommentVO vo) {
 		return matchingDAO.matchingReplyDelete(vo);
+	}
+
+	@Override
+	public MatchingVO getRank(int m_seq) {
+		return matchingDAO.getRank(m_seq);
 	}
 	
 	

@@ -67,20 +67,30 @@ function matchingConfirm(){
         success: function(result){
         	console.log(result);
             var result = $(result);
-            if(result.length==0){
-            	tag += "<form method='post' id='regForm' action='/itda/matchingIn?mc_seq="+mc_seq+"&m_seq="+m_seq+"&board_seq="+board_seq+"'>"
-                tag += "<h1>정말 참가하시겠습니까?</h1>";
-                tag += "<input type='submit' id='participateBtn' value='참가'>";
-                tag += "<input type='button' id='closeBtn' value='취소'>";
-                tag += "</form>";
-            } else {
-            	tag += "<form method='post' id='regForm' action='/itda/matchingCancel?mc_seq="+mc_seq+"&m_seq="+m_seq+"&board_seq="+board_seq+"'>"
-                tag += "<h1>정말 취소하시겠습니까?</h1>";
-            	tag += "<input type='submit' id='cancelBtn value='확인'>";
-                tag += "<input type='button' id='closeBtn' value='취소'></input>";
-                tag += "</form>"
+            if(result[0].m_rank==2){
+            	let tag = "";
+				tag += "<h1>매칭은 실버 이상부터</h1>";
+				tag += "<h1>이용가능합니다.</h1>";
+				tag += "<input type='button' id='closeBtn' value='확인'>";
+				$(".joinModalContent").html(tag);
+            	return false;
+            }else{
+	            if(result.length==0){
+	            	tag += "<form method='post' id='regForm' action='/itda/matchingIn?mc_seq="+mc_seq+"&m_seq="+m_seq+"&board_seq="+board_seq+"'>"
+	                tag += "<h1>정말 참가하시겠습니까?</h1>";
+	                tag += "<input type='submit' id='participateBtn' value='참가'>";
+	                tag += "<input type='button' id='closeBtn' value='취소'>";
+	                tag += "</form>";
+	                $(".joinModalContent").html(tag);
+	            } else {
+	            	tag += "<form method='post' id='regForm' action='/itda/matchingCancel?mc_seq="+mc_seq+"&m_seq="+m_seq+"&board_seq="+board_seq+"'>"
+	                tag += "<h1>정말 취소하시겠습니까?</h1>";
+	            	tag += "<input type='submit' id='cancelBtn value='확인'>";
+	                tag += "<input type='button' id='closeBtn' value='취소'></input>";
+	                tag += "</form>"
+		            $(".joinModalContent").html(tag);
+	            }
             }
-            $(".joinModalContent").html(tag);
         }, error: function(){
             console.log("매칭컨펌에러입니다")
         },

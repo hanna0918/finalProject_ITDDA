@@ -11,6 +11,7 @@
 		    <h2>MATCHING</h2>
 		    <h4>나와 다른사람을 이어보세요!</h4>
 		    <input type="hidden" id="logseq" value="${logseq }"/>
+		    <input type="hidden" id="m_rank" value="${m_rank}"/>
 	  	</div>
 		<div id="searchAndCalendar">
 			<form method="post" id="tagTranfer" onsubmit="return false">
@@ -101,4 +102,11 @@
 		</div>
 	</section>
 </div>
-<script src="/itda/js/matchingList.js?version=1111111111111"></script>
+
+<div class="matchingReportModal" id="matchingReportModal">
+    <div class="matchingReportModalOverlay"></div>
+    <article class="matchingReportModalContent">
+        
+    </article>
+</div>
+<script src="/itda/js/matchingList.js?version=111111111111111"></script>

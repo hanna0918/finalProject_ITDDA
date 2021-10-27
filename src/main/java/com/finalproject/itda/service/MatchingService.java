@@ -22,6 +22,7 @@ public interface MatchingService {
 	public int matchingCancel(int mc_seq, int m_seq);
 	public int matchingReplyWrite(BoardCommentVO vo);
 	public int matchingEditOk(MatchingVO vo);
+	public MatchingVO getRank(int m_seq);
 	public int matchingReplyEdit(BoardCommentVO vo);
 	public int matchingReplyDelete(BoardCommentVO vo);
 }

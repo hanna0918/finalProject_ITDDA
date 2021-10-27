@@ -1,5 +1,7 @@
 package com.finalproject.itda.vo;
 
+import java.util.List;
+
 public class MemberBaseVO {
 	private int m_seq;
 	private String m_userid;
@@ -37,7 +39,9 @@ public class MemberBaseVO {
 	private int bookmark_count;
 	private int msg_count;
 	
-	
+	//파일 업로드
+	private List<String> fileList;
+	private String thumbImg;
 
 	public String getMsg_content() {
 		return msg_content;
@@ -212,5 +216,17 @@ public class MemberBaseVO {
 	}
 	public void setMsg_count(int msg_count) {
 		this.msg_count = msg_count;
+	}
+	public List<String> getFileList() {
+		return fileList;
+	}
+	public void setFileList(List<String> fileList) {
+		this.fileList = fileList;
+	}
+	public String getThumbImg() {
+		return thumbImg;
+	}
+	public void setThumbImg(String thumbImg) {
+		this.thumbImg = thumbImg;
 	}
 }
