@@ -2,12 +2,14 @@ package com.finalproject.itda.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
+import com.finalproject.itda.vo.MatchingVO;
 import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.QuestionVO;
 
@@ -54,6 +56,25 @@ public interface MypageDAO {
 			+ " (select m_seq_sub from memberbase m join user_sub us on m.m_seq=us.m_seq_sub where us.m_seq='${param1}')")
 	public List<MemberBaseVO> mypageSubscribeList(int m_seq);
 	
+	//구취구취
+	@Delete("delete from user_sub where m_seq=#{param1} and m_seq_sub=(select m_seq from memberbase where m_nickname='${param2}')")
+	public int cancleSubscribe(int m_seq, String nickname);
+	
+	//매칭
+	@Select("select "
+			+ "    b.board_seq, "
+			+ "    b.board_subject, "
+			+ "    m.m_nickname, "
+			+ "    to_char(b.board_writedate, 'YYYY-MM-DD') board_writedate, "
+			+ "    bc.board_select "
+			+ " from mc_part mp "
+			+ "    join mc_table mt on mp.mc_seq = mt.mc_seq "
+			+ "    join boardbase b on mt.board_seq = b.board_seq "
+			+ "    join board_content bc on b.board_seq = bc.board_seq "
+			+ "    join memberbase m on b.m_seq = m.m_seq "
+			+ " where mp.m_seq = #{param1}"
+			+ " order by board_writedate desc")
+	public List<MatchingVO> myMatchingList(int m_seq);
 	
 
 }

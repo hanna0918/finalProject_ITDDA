@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.finalproject.itda.dao.MypageDAO;
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
+import com.finalproject.itda.vo.MatchingVO;
 import com.finalproject.itda.vo.MemberBaseVO;
 import com.finalproject.itda.vo.QuestionVO;
 
@@ -58,9 +59,18 @@ public class MypageServiceImp implements MypageService {
 		return mypageDao.editMyInfoUpdate(vo);
 	}
 	//순찬 수정
+	
 	@Override
 	public List<MemberBaseVO> mypageSubscribeList(int m_seq) {
 		return mypageDao.mypageSubscribeList(m_seq);
+	}
+	@Override
+	public int cancleSubscribe(int m_seq, String nickname){
+		return mypageDao.cancleSubscribe(m_seq, nickname);
+	}
+	@Override
+	public List<MatchingVO> myMatchingList(int m_seq) {
+		return mypageDao.myMatchingList(m_seq);
 	}
 	
 }
