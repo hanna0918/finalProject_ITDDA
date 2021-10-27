@@ -50,6 +50,9 @@
           <li><a href="/itda/injeungBoard">HANGOUT</a></li>
           <li><a href="/itda/freeBoard2">FREEBOARD</a></li>
           <li><a href="/itda/questionBoard">Q&A</a></li>
+          <c:if test="${m_rank < 2}">
+          	<li><a href="/itda/MemberList">ADMIN</a></li>
+          </c:if>
         </ul>
         <div class="topMenu_r">
           <div class="loginBtnBox">

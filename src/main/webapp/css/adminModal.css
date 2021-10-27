@@ -222,18 +222,18 @@
 /* BoardBlack 모달 */
 
 /*공통 모달*/
-.Modallabel{
+.Modallabel {
   line-height: 40px;
   font-size: 20px;
   width: 100px;
   height: 40px;
   float: left;
-  margin-left:50px;
+  margin-left: 50px;
 }
 .ModalInput {
   width: 200px;
   height: 40px;
-  text-align: left;
+  text-align: center;
   margin-right: 160px;
 }
 
@@ -246,16 +246,15 @@
   height: 40px;
   text-align: left;
 }
-.submitbutton{
-	width:80px;
-	height:40px;
-	font-size:1em;
-	background-color: #00376b;
-	border:1px solid #00376b;
-	border-radius: 3px;
-	color:white;
+.submitbutton {
+  width: 80px;
+  height: 40px;
+  font-size: 1em;
+  background-color: #00376b;
+  border: 1px solid #00376b;
+  border-radius: 3px;
+  color: white;
 }
-
 
 .modalOverlay {
   background: rgba(0, 0, 0, 0.5);
@@ -265,9 +264,9 @@
   overflow-y: auto;
   position: fixed;
 }
-input [name=M_UserId],
-input [name=M_NickName],
-input [name=m_regdate]{
-	margin-right:0px;
+input [name="M_UserId"],
+input [name="M_NickName"],
+input [name="m_regdate"] {
+  margin-right: 0px;
 }
 /*공통 모달*/

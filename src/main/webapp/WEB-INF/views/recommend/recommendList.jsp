@@ -3,8 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" type="text/css" href="css/recommend.css" />
 <div class="boardContainer" style="overflow:visible;">
+
    <!-- 게시판제목 -->
    <!-- 검색창 -->
+
    <header>
    <div class="boardName">
       <h2>RECOMMEND</h2>

@@ -775,7 +775,7 @@ input[name=msgDelBtn] {
 	.joinDataInputModal input[type="email"] {
 	  width: 350px;
 	  /* height: 30px; */
-	  margin-bottom: 25px;
+	  /* margin-bottom: 25px; */
 	  font-size: 12px;
 	}
 	
@@ -785,8 +785,7 @@ input[name=msgDelBtn] {
 	  float: left;
 	  width: 100%;
 	  padding-left: 20px;
-	  margin-bottom:7px;
-	  
+	  /* margin-bottom:7px; */
 	}
 	
 	/* 아이디, 비밀번호, 확인 인풋박스 */
