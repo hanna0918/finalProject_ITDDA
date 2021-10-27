@@ -116,7 +116,7 @@ public class BoardController {
 	 @RequestMapping(value = "/writeList", method=RequestMethod.GET)
 		public String writeList(BoardVO vo, Model model) {
 			model.addAttribute("m_nickname", vo.getM_nickname());
-			model.addAttribute("m_rank", vo.getM_rank());
+//			model.addAttribute("m_rank", vo.getM_rank());
 		
 			List<BoardVO> result = boardService.writeList(vo);
 			

@@ -12,9 +12,8 @@
 						<li><img src='img/circle.png' name='1' id='profileImg'/></li>
 						<li>
 							<div>
-							 <span style="font-size:1em; font-weight:bold;">${lognickd}(${login})</span>님 <br/>
-							 안녕하세요 : )<br/>
-							 등급 : ${m_name}
+							 <span style="font-size:1em; font-weight:bold;">${lognick}(${login})</span>님 <br/>
+							 안녕하세요 : )
 							</div>	
 						</li>
 					</ul>
@@ -41,10 +40,10 @@
 				<li><a href="/itda/mypageReplyList">내가 쓴 댓글</a></li>
 				<li><a href="/itda/mypageMatching">나의 매칭</a></li>
 <!-- 				<li><a href="/itda/mypageBookmark">북마크</a></li> -->
-<!-- 				<li><a href="/itda/mypageSubscribe">구독목록</a></li> -->
-				<li><a href="/itda/mypageCutout">차단목록</a></li>
+				<li><a href="/itda/mypageSubscribe">구독목록</a></li>
+<!-- 				<li><a href="/itda/mypageCutout">차단목록</a></li> -->
 				<li><a href="/itda/mypageQnA">1:1문의</a></li>
-				<li><a href="/itda/mypageMsg">쪽지함</a></li>
+<!-- 				<li><a href="/itda/mypageMsg">쪽지함</a></li> -->
 			</ul>
 		</div>
 	</div>

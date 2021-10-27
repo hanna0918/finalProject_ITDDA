@@ -16,7 +16,7 @@ public class BoardVO {
 	private int br_id; //占쎈솊疫뀐옙甕곕뜇�깈
 	private String b_content;
 	private String board_blockcontent;
-	private String board_content;
+	private String board_content;//category
 	private String m_name; // �벑湲됱씠由� 
 	private int m_rank;
 	

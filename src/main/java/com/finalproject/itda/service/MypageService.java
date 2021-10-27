@@ -5,6 +5,7 @@ import java.util.List;
 import com.finalproject.itda.vo.BoardCommentVO;
 import com.finalproject.itda.vo.BoardVO;
 import com.finalproject.itda.vo.MemberBaseVO;
+import com.finalproject.itda.vo.MemberVO;
 import com.finalproject.itda.vo.QuestionVO;
 
 public interface MypageService {
@@ -13,7 +14,7 @@ public interface MypageService {
 	 */ 
 	
 	//마이페이지 내가쓴글 리스트
-	public List<BoardVO> mypagePostList(MemberBaseVO vo);
+	public List<BoardVO> mypagePostList(int m_seq);
 	
 	//내가쓴댓글 뿌리고 시작
 	public List<BoardCommentVO>mypageReplyList(MemberBaseVO vo);
@@ -25,5 +26,8 @@ public interface MypageService {
 	public List<QuestionVO> MypageQnA(int seq);
 	
 	public List<QuestionVO> MypageQnaList(int seq);
+	
+	//구독리스트 뿌립니당~~~~
+	public List<MemberBaseVO> mypageSubscribeList(int m_seq);
 	
 }
