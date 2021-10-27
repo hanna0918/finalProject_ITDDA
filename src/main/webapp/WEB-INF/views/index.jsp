@@ -9,8 +9,8 @@
 </section>
 
 <!-- 매칭 게시판-------------------------------------------------->
-<div style="margin: 0 auto; width: 1200px; margin-top: 60px; margin-bottom: 30px;" >
-  <h1><a href="/itda/matchingList" style="font-weight:bold;">MATCHING BOARD</a></h1>
+<div class="indexBoardName" style="">
+  <h1><a href="/itda/matchingList" style="font-weight: bold">MATCHING BOARD</a></h1>
 </div>
 <section id="matchingSection" style="width: 1200px; margin: 0 auto; overflow: auto">
   <c:forEach var="vo_mc" items="${list_MC}" begin="0" end="3">
@@ -34,50 +34,46 @@
   </c:forEach>
 </section>
 
-
 <!-- 인증 게시판--------------------------------------------------------------->
-<div style="margin: 0 auto; width: 1200px; margin-top: 60px; margin-bottom: 30px;" >
-  <h1><a href="/itda/injeungList" style="font-weight:bold;" >HANGOUT BOARD</a></h1>
+<div class="indexBoardName">
+  <h1><a href="/itda/injeungBoard" style="font-weight: bold">HANGOUT BOARD</a></h1>
 </div>
 <section class="matchingBoard">
-	<div id='pic'>
-		<c:forEach var="ivo" items="${list_ij}" begin="0" end="3" >
-			<div>
-				<div
-					onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'>
-					${ivo.thumbImg} class='injeungImg'/></div>
-				<div>${ivo.board_subject}</div>
-				<div>
-					<span class="injeungTag">${vo.board_select}#태그#태그</span>
-				</div>
-				<div>
-					<img name='goodhit' src='/itda/img/goodHit.png' />${ivo.b_goodhit}&nbsp;&nbsp;<img name='bubbleIcon' src='/itda/img/replImg.png' />
-					${ivo.br_count }
-				</div>
-				<div class='injeungContentWriter'>
-					<!-- 작성자 -->
-					<div>
-						<img src='img/circle.png' name='profileShot' />
-					</div>
-					<div>
-						<div id='injeungWriter'>${ivo.m_nickname}</div>
-						<div>
-							<ul>
-								<li>${ivo.board_writedate }</li>
-								<li>조회수 ${ivo.board_hit}</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
+  <div id="pic">
+    <c:forEach var="ivo" items="${list_ij}" begin="0" end="3">
+      <div>
+        <div onclick='location.href="/itda/injeungView?board_seq=${ivo.board_seq}"'>${ivo.thumbImg} class='injeungImg'/></div>
+        <div>${ivo.board_subject}</div>
+        <div>
+          <span class="injeungTag">${vo.board_select}#태그#태그</span>
+        </div>
+        <div>
+          <img name="goodhit" src="/itda/img/goodHit.png" />${ivo.b_goodhit}&nbsp;&nbsp;<img name="bubbleIcon" src="/itda/img/replImg.png" />
+          ${ivo.br_count }
+        </div>
+        <div class="injeungContentWriter">
+          <!-- 작성자 -->
+          <div>
+            <img src="img/circle.png" name="profileShot" />
+          </div>
+          <div>
+            <div id="injeungWriter">${ivo.m_nickname}</div>
+            <div>
+              <ul>
+                <li>${ivo.board_writedate }</li>
+                <li>조회수 ${ivo.board_hit}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </c:forEach>
+  </div>
 </section>
 
-
 <!-- 추천 게시판==================================================================== -->
-<div style="margin: 0 auto; width: 1200px; margin-top: 60px; margin-bottom: 30px;" >
-  <h1><a href="/itda/recommendList" style="font-weight:bold;">RECOMMEND BOARD</a></h1>
+<div class="indexBoardName">
+  <h1><a href="/itda/recommendList" style="font-weight: bold">RECOMMEND BOARD</a></h1>
 </div>
 <section class="recommendBoard">
   <div>
@@ -110,5 +106,3 @@
     </form>
   </div>
 </section>
-
-
