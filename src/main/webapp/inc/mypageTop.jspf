@@ -10,7 +10,7 @@
 			<div><!-- 사진, 매너점수div -->
 				<div>
 					<ul id='introDiv'>
-					<li><img src='img/circle.png' name="${logseq}" id='profileImg'/></li>
+					<li><img src='img/circle.png' name="${logseq}" id='profileImg' style="border-radius:50px;"/></li>
 						<li>
 							<div>
 							 <span style="font-size:1em; font-weight:bold;">${lognick}(${login})</span>님 <br/>

@@ -16,14 +16,17 @@ $(document).ready(function(){
               success: function(result){
                 var result = $(result);
                 console.log(result);
-/*disabled*/
+			/*disabled*/
               var tag="";
-              tag +=` <form method="post" id="regForm" action="/itda/editMyInfoUpdate">`;
-              tag +=`<h2>정보 수정</h2>`;
+              tag += `<form method="post" id="regForm" action="/itda/editMyInfoUpdate">`;
+              tag += `<h2>정보 수정</h2>`;
               tag +=`  <a> <img src="img/close1.png" class="close" style="position: absolute; top: 10px; right: 10px;"/></a>`;
-              tag +=`  <div><input type="hidden"class="joinTextBox" name="m_seq" id="m_seq" value="${result[0].m_seq}" /></div>`; //번호로 업데이트
-              tag +=`  <div><img src='img/circle.png' style='width: 100px; padding-bottom:40px'/></div> `;
-              tag +=`  <div style='height:77.33px;'><input class='joinTextBox' type='text' name='userid' id='joinUserid' placeholder='아이디' value="${result[0].m_userid}" disabled/></div> `;
+              tag += `<div>`;
+   			  tag += `<label class='input-file-button' style="text-align: center" for='input-files'><img src='${result[0].m_img}' style='width: 100px;height: 100px;border-radius: 50px;' id='profilePic' /></label>`;
+		 	  tag += `<input type='file' id='input-files' name='input-files' style='display:none;'/>`;
+			  tag += `<input type="hidden" name="m_img" id="m_img"/>`;
+			  tag += `<input type="hidden" name="m_seq" value="${result[0].m_seq}"/>`;
+			  tag += `</div>`;
               tag +=`  <div> <label>이메일<span class="asterisk">*</span></label> <div><input class="joinTextBox" type="text" name="m_email" id="m_email" value="${result[0].m_email}"/></div><div id="error_mail" class="result-email result-check"></div></div>`;
               tag +=`  <div> <label>닉네임<span class="asterisk">*</span></label> <div><input class="joinTextBox" type="text" name="m_nickname" id="m_nickname" value="${result[0].m_nickname}" disabled/></div> </div>`;
               tag +=`  <div> <label>핸드폰번호<span class="asterisk">*</span></label><div><input class="joinTextBox" type="text" name="m_tel" id="m_tel" value="${result[0].m_tel}" disabled/></div> </div>`;
@@ -42,8 +45,60 @@ $(document).ready(function(){
         });
 
     });
+    // ajax로 사진 불러와 해당 위치에 삽입하는 함수
+    function getProfile(){
+    	var test = $("#profileImg").attr("name");
+    	console.log("test=" + test);
+        const testInt = "m_seq=" + parseInt(test);
+        console.log("testInt");
+
+        $.ajax({
+            url:'/itda/editMyInfo',
+            data: testInt,
+            type: 'POST',
+              success: function(result){
+                var result = $(result);
+                $("#profileImg").attr("src", result[0].m_img).width(100).height(100);
+              }, error: function() {
+              	console.log("배껴온ajax 문제");
+              },
+         });
+    }
+    // 위 ajax 실행해서 사진 넣기
+    getProfile();
     
-   
+    
+    $(document).on('change', "#input-files", function(){
+			console.log(this.files && this.files[0]);
+			if(this.files && this.files[0]) {
+	    		var reader = new FileReader;
+		    	reader.onload = function(data) {
+		    		console.log(data.target.result+ 'dddddddd나오냐이미지');
+		    		$("#profilePic").attr("src", data.target.result);
+		    		$("#m_img").val(data.target.result);
+	    		}
+	    		reader.readAsDataURL(this.files[0]);
+				//reader.readAsText(this.files[0]);
+				//console.log(reader.readAsText(this.files[0]));
+				fileCheck();
+	    	}
+    	});
+		function fileCheck() {
+			//input file 태그.
+			var file = document.getElementById('input-files');
+			//파일 경로.
+			var filePath = file.value;
+			//전체경로를 \ 나눔.
+			var filePathSplit = filePath.split('\\'); 
+			//전체경로를 \로 나눈 길이.
+			var filePathLength = filePathSplit.length;
+			//마지막 경로를 .으로 나눔.
+			var fileName = filePathSplit[filePathLength-1];
+			
+			console.log('파일 경로 : ' + filePath);
+			console.log('파일명 : ' + fileName);
+			$("#m_img").val(fileName);
+		}
  
       
 /*  tag +`   <div><div><label>생년월일<span class="asterisk">*</span> </label> </div>  <input type="date" class="m_birth" name="m_birth" value="${result[0].m_birth}"/></div> <div>`;*/

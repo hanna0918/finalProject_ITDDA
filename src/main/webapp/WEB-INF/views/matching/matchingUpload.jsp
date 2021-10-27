@@ -13,7 +13,7 @@
 		    <h2>MATCHING</h2>
 		    <h4>나와 다른사람을 이어보세요!</h4>
 	  	</div>
-	    <form method="post" action="/itda/matchingWriteOk" id="matchingUploadForm" action="/itda/matchingWriteOk" onsubmit="return false" enctype="multipart/form-data">
+	    <form method="post" action="/itda/matchingWriteOk" id="matchingUploadForm" action="/itda/matchingWriteOk" onsubmit="return false">
 	    	<div id="matchingBasicInfoArea">
 	            <div>
 	                <div id="titleAndMap">
@@ -39,11 +39,13 @@
 			                <label for="mc_state2">정기모임</label>
 			            </div>
 			        </div>
-			        <div>
-				        <label class="input-file-button" for="input-file">썸네일</label> 
+			         <div>
+							<label class="input-file-button" for="input-file">썸네일</label> 
 							<input type="file" id="input-file" name="input-file"/>
 							<input type="hidden" name="i_url" id="i_url"/>
-				    <script>
+					</div>
+					
+						<script>
 						$("#input-file").change(function(){
 							console.log(this.files && this.files[0]);
 							if(this.files && this.files[0]) {
@@ -75,7 +77,6 @@
 							$("#i_url").val(fileName);
 						}
 						</script>
-			        </div>
 	                </div>
 	            </div>
 	            <div id="addTag">
@@ -96,7 +97,7 @@
 	            </div>
 	    </div>
 	    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-	    <textarea id="summernote" name="b_content"><img id="thumbnail" src="" /></textarea>
+	    <textarea id="summernote" name="b_content"><img src="" id="thumbnail" /></textarea>
 	    <div id="matchingBtnDiv">
 	        <input type="submit" value="등록" id="matchingSubmitBtn"/>
 	        <a href="redirect:matchingList"><input type="button" value="취소" id="matchingCancelBtn"/></a>
