@@ -420,10 +420,6 @@ select, input[type="text"] {
 			<h4>JUST WRITE IT! 다양한 주제의 글을 자유롭게 올려보세요!</h4>
 		</div>
 		<!-- 검색창 -->
-		
-
-
-			
 		<div class='allSearch'>
 			<form action="/itda/test" method="post">
 				<div>

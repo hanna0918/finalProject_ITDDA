@@ -9,4 +9,5 @@ public interface InjeungService {
 	public List<BoardVO> injeungBoardList();
 	public BoardVO injeungView(BoardVO vo);
 	public int countHit(int board_seq);
+	public int injeungWriteOk(BoardVO vo);
 }

@@ -16,7 +16,7 @@
 		<h2>HANGOUT</h2>
     	<h4>나의 활동을 인증해보자!</h4>
 	</div>
-	<form method="post" action="/itda/injeungWriteOk" id="matchingUploadForm" action="/itda/injeungWriteOk">
+	<form method="post" action="/itda/injeungWriteOk" id="matchingUploadForm" action="/itda/injeungWriteOk" enctype="multipart/form-data">
 		<div id="reco_injeungInfoArea">
 			<div>
 				<div id="recommendWrite">

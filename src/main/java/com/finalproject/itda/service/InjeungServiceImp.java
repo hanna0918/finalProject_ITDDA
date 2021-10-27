@@ -32,4 +32,10 @@ public class InjeungServiceImp implements InjeungService{
 		return injeungDao.countHit(board_seq);
 	}
 
+
+	@Override
+	public int injeungWriteOk(BoardVO vo) {
+		return injeungDao.injeungWriteOk(vo);
+	}
+
 }
