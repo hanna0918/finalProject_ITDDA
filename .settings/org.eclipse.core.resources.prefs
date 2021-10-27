@@ -1,18 +1,14 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=origin/main
+>>>>>>>=origin/jiyun5
 eclipse.preferences.version=1
-encoding//src/main/java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/BoardController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/MatchingController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/controller/MemberController.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/dao/MatchingDAO.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/vo/BoardCommentVO.java=UTF-8
-<<<<<<< HEAD
 encoding//src/main/java/com/finalproject/itda/vo/BoardVO.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/vo/RecommendPagingVO.java=UTF-8
 encoding//src/main/java/com/finalproject/itda/vo/RecommendVO.java=UTF-8
-=======
->>>>>>> origin/jiyun5
 encoding//src/main/webapp/css/matchingView.css=UTF-8
 encoding/<project>=UTF-8
