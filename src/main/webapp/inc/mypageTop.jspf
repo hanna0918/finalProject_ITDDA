@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
+
 <div id='myPageTop'>
 	<div id='myPageContentDiv'>
 		<form>
@@ -9,12 +10,11 @@
 			<div><!-- 사진, 매너점수div -->
 				<div>
 					<ul id='introDiv'>
-						<li><img src='img/circle.png' name='1' id='profileImg'/></li>
+					<li><img src='img/circle.png' name="${logseq}" id='profileImg'/></li>
 						<li>
 							<div>
-							 <span style="font-size:1em; font-weight:bold;">${lognickd}(${login})</span>님 <br/>
-							 안녕하세요 : )<br/>
-							 등급 : ${m_name}
+							 <span style="font-size:1em; font-weight:bold;">${lognick}(${login})</span>님 <br/>
+							 안녕하세요 : )
 							</div>	
 						</li>
 					</ul>
@@ -41,103 +41,19 @@
 				<li><a href="/itda/mypageReplyList">내가 쓴 댓글</a></li>
 				<li><a href="/itda/mypageMatching">나의 매칭</a></li>
 <!-- 				<li><a href="/itda/mypageBookmark">북마크</a></li> -->
-<!-- 				<li><a href="/itda/mypageSubscribe">구독목록</a></li> -->
-				<li><a href="/itda/mypageCutout">차단목록</a></li>
+				<li><a href="/itda/mypageSubscribe">구독목록</a></li>
+<!-- 				<li><a href="/itda/mypageCutout">차단목록</a></li> -->
 				<li><a href="/itda/mypageQnA">1:1문의</a></li>
-				<li><a href="/itda/mypageMsg">쪽지함</a></li>
+<!-- 				<li><a href="/itda/mypageMsg">쪽지함</a></li> -->
 			</ul>
 		</div>
 	</div>
 	<!-- ------------------------------------------------------------내정보수정 모달창------------------------------------------------------- -->
 	<div class="loginJoinModal" id="loginEidtModal">
-			<div class="modalOverlay"></div>
-				<article class="joinModalContent joinDataInputModal">
-					<form method="post" id="regForm" action="formOk">
-				    	<h2>정보 수정</h2>
-				        <label for="input-file"> <img src="img/close1.png" class="close" name="1" for="input-file"
-				        style="position: absolute; top: 10px; right: 10px;"/></label>
-							<input type="file" id="input-file" name="input-file"/>
-							<input type="hidden" name="i_url" id="i_url"/>
-				    <script>
-						$("#input-file").change(function(){
-							console.log(this.files && this.files[0]);
-							if(this.files && this.files[0]) {
-					    		var reader = new FileReader;
-						    	reader.onload = function(data) {
-						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
-						    		$("#thumbnail").attr("src", data.target.result).width(500);
-					    		}
-					    		reader.readAsDataURL(this.files[0]);
-								//reader.readAsText(this.files[0]);
-								//console.log(reader.readAsText(this.files[0]));
-								fileCheck();
-					    	}
-				    	});
-						function fileCheck() {
-							//input file 태그.
-							var file = document.getElementById('input-file');
-							//파일 경로.
-							var filePath = file.value;
-							//전체경로를 \ 나눔.
-							var filePathSplit = filePath.split('\\'); 
-							//전체경로를 \로 나눈 길이.
-							var filePathLength = filePathSplit.length;
-							//마지막 경로를 .으로 나눔.
-							var fileName = filePathSplit[filePathLength-1];
-							
-							console.log('파일 경로 : ' + filePath);
-							console.log('파일명 : ' + fileName);
-							$("#i_url").val(fileName);
-						}
-						</script>
-				        <div><img src="img/circle.png" style="width: 100px; padding-bottom:40px"/></div>
-				        <!-- 아이디 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
-				        <div style="height:77.33px;"><input class="joinTextBox" type="text" name="userid" id="joinUserid" placeholder="아이디" /></div>
-				         
-				        <!-- 이메일 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
-				        <div>
-				        	<label>이메일<span class="asterisk">*</span></label>
-				            <div><input class="joinTextBox" type="email" name=userEmail" id="userEmail" /></div>
-				            <div id="error_mail" class="result-email result-check"></div>
-				        </div>
-				        <!-- 닉네임 입력시 서버에서 바로바로 확인하여 아래 중복확인내용 출력 예정 -->
-				        <div>
-				        	<label>닉네임<span class="asterisk">*</span></label>
-				            <div><input class="joinTextBox" type="text" name="userNick" id="userNick" /></div>
-				        </div>
-				        <div>
-				              <label>핸드폰번호<span class="asterisk">*</span></label>
-				              <div><input class="joinTextBox" type="text" name="userTel" id="userTel" /></div>
-				        </div>
-				        <div>
-				              <label>주소<span class="asterisk">*</span></label>
-				              <div><input class="joinTextBox" type="text" name="addr" id="addr" style="margin-bottom: 0px;"/></div>
-				              <div><input class="joinTextBox" type="text" name="addrdetail" id="addrdetail" placeholder="상세주소"/></div>
-				        </div>
-				        <div>
-				        	<div>
-				            	<label>생년월일<span class="asterisk">*</span> </label>
-				            </div>
-				            <input type='date' class='m_birth' name='m_birth'/>
-				       </div>
-				       <div>
-				              <label>이름(실명)<span class="asterisk">*</span></label>
-				              <div><input class="joinTextBox" type="text" name="username" id="username" /></div>
-				       </div>
-				       <div>
-				            	<label>인사말</label>
-				            	<div><input class="joinTextBox" type="text" name="introduce" id="introduce" /></div>
-				       </div>
-				       <div>
-				            	<label>관심분야태그<span class="asterisk">*</span></label>
-				            	<div><input class="joinTextBox" type="text" name="liketag" id="liketag" /></div>
-				       </div>
-				           
-				 </form>
-				       <div class="">
-				       	<button id="joinCancelBtn" class="btnBlock">확인</button>
-     				   </div>
-			</article>
-		</div>
+		<div class="modalOverlay"></div>
+		<article class="joinModalContent joinDataInputModal">
+			<div id="test"></div>
+		</article>
+	</div>
 </div>
 

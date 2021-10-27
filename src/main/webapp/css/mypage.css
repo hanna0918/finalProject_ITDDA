@@ -367,7 +367,7 @@ input[name=unbookmark] {
 #subscribeDiv .content>li:nth-of-type(4n+3) {
 	width: 30%;
 }
-
+input[name=viewList],
 input[name=cancleSubscribe] {
 	width: 70px;
 	height: 30px;
@@ -511,7 +511,7 @@ input[name=ask] {
 
 .question, .answer{
 	width:100%;
-	border:2px solid #407dc74a;
+	border:2px solid #00376b;
 	border-radius:5px;
 }
 .question>div, .answer>div{
@@ -528,6 +528,7 @@ input[name=ask] {
 
 .question>div>div:first-child{
 	border-bottom:1.5px solid #ddd;
+	font-weight: bold;
 }
 .question>div>div:nth-child(2){
 	padding-top:5px;
@@ -537,10 +538,17 @@ input[name=ask] {
 	color:gray;
 }
 .answer {
-	border:2px solid #0e08a717;
+	border:2px solid coral;
 	display: none;
+	color: black;
 }
-
+.answer p{
+	font-weight: bold;
+	color:black;
+}
+.inProgress{
+	font-weight: bold;
+}
 
 
 /*--------------------------------------- 쪽지함 -------------------------------------*/

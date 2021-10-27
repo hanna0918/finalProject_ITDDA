@@ -1,5 +1,7 @@
 package com.finalproject.itda.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -11,36 +13,53 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalproject.itda.service.MypageService;
+import com.finalproject.itda.vo.BoardVO;
 import com.finalproject.itda.vo.MemberBaseVO;
+
 import com.finalproject.itda.vo.QuestionVO;
 
 
 @Controller
 public class MypageController {
-	@Inject
-	MypageService mypageService;
-	
-	
-	@RequestMapping(value="/mypage")
-	public String mypage() {
-		return "mypage/mypage00Intro";
-	}
-	
-	//내정보수정
-	@RequestMapping(value="/editMyInfo", method=RequestMethod.POST)
-	@ResponseBody 
-	public ModelAndView editMyInfo(MemberBaseVO vo) {
-		ModelAndView mav = new ModelAndView();
-		
-		return mav;
-	}
+   @Inject
+   MypageService mypageService;
+   
+   
+   @RequestMapping(value="/mypage")
+   public String mypage() {
+      return "mypage/mypage00Intro";
+   }
+   
+   //내정보수정
+   @RequestMapping(value="/editMyInfo", method=RequestMethod.POST)
+   @ResponseBody 
+   public MemberBaseVO editMyInfo(MemberBaseVO vo) {
+      MemberBaseVO resultVo = mypageService.MyMemberView(vo);
+      return resultVo;
+   }
+    //순찬 수정
+    @RequestMapping(value="/editMyInfoUpdate", method=RequestMethod.POST)
+   public ModelAndView editMyInfoUpdate(MemberBaseVO vo) {
+       ModelAndView mav = new ModelAndView(); 
+       System.out.println("갓현태 위대함 짱짱짱맨 이어폰 안가져와도 집가는대 20분도 안걸리면서 참으세열~~~~~"); 
+       System.out.println(":"+vo.getM_email()+":"+vo.getM_addr()+":"+vo.getM_addrdetail()+":"+vo.getM_info()+":"+vo.getM_tag()+":"+vo.getM_seq());
+       int cnt=0;
+       cnt =mypageService.editMyInfoUpdate(vo);
+       System.out.println(cnt);
+       
+        mav.setViewName("redirect:mypage"); 
+       
+     return mav; 
+     }
+  //순찬 수정
+   
 	//내가 쓴 글--------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypagePostList")
-	public ModelAndView myPostList(MemberBaseVO vo, HttpSession ses) {
+	public ModelAndView myPostList(BoardVO vo, HttpSession ses) {
 		ModelAndView mav = new ModelAndView();
-		vo.setM_seq((Integer)ses.getAttribute("logseq"));
-		
-		mav.addObject("replyList", mypageService.mypagePostList(vo));
+		int m_seq=Integer.parseInt(ses.getAttribute("logseq").toString());
+		List<BoardVO> result = mypageService.mypagePostList(m_seq);
+		mav.addObject("list", result);
 		mav.setViewName("mypage/mypage01Post");
 		return mav;
 	}
@@ -66,8 +85,13 @@ public class MypageController {
 	}
 	//구독--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageSubscribe")
-	public String mypageSubscribe() {
-		return "mypage/mypage05Subscribe";
+	public ModelAndView mypageSubscribe(HttpSession ses) {
+		ModelAndView mav = new ModelAndView();
+		int m_seq = Integer.parseInt(ses.getAttribute("logseq").toString());
+		
+		mav.addObject("subList", mypageService.mypageSubscribeList(m_seq));
+		mav.setViewName("mypage/mypage05Subscribe");
+		return mav;
 	}
 	//차단--------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypageCutout")
@@ -78,8 +102,7 @@ public class MypageController {
 	
 	
 	@RequestMapping("/mypageQnA")
-	public String mypageQnA(Model model,HttpSession session)
-	{
+	public String mypageQnA(Model model,HttpSession session){
 		System.out.println(Integer.parseInt(session.getAttribute("logseq").toString()));
 		int seq=Integer.parseInt(session.getAttribute("logseq").toString());
 		System.out.println("갓순찬은 해날것이다 나로인햐");

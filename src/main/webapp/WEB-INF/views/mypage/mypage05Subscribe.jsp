@@ -16,10 +16,15 @@
 	</div>
 	<div>
 		<ul class='content'>
-			<li>노래하는 가물치</li>
-			<li><a href='#'>수영을 좋아하는 남자입니다.</a><br /></li>
-			<li><span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-			<li><input type='button' name='cancleSubscribe' value='구독취소' /></li>
+			<c:forEach var="vo" items="${subList}">
+				<li>${vo.m_nickname}</li>
+				<li><a href='#'>${vo.m_info}</a><br /></li>
+				<li><span>${vo.m_tag }</span></li>
+				<li>
+					<input type='button' name='viewList' value='글보기' onclick="location.href='/itda/writeList?m_nickname=${vo.m_nickname}'"/>
+					<input type='button' name='cancleSubscribe' value='구독취소' onclick="location.href=''"/>
+				</li>
+			</c:forEach>
 		</ul>
 	</div>
 </div>

@@ -10,6 +10,17 @@
     width: 100%;
     overflow:auto;
 }
+#searchAndCalendar a{
+	float: right;
+    border: 2px solid #00376b;
+    border-radius: 3px;
+    color:#00376b;
+    font-weight:bold;
+    width: 50px;
+    text-align: center;
+    padding: 7px;
+    cursor: pointer;
+}
 #searchAndCalendar input[name=searchText], input[name=searchText]:focus{
 	border:none;
 	height:30px;
@@ -208,7 +219,7 @@ section>section{
 }
 /* 매칭페이징 */
 #matchingPagingUl {
-    width: 40%;
+    width: 22%;
     margin: 0 auto;
     border-radius: 15px;
     display: -webkit-flex;
