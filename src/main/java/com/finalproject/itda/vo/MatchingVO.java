@@ -24,6 +24,7 @@ public class MatchingVO {
 	private String thumbImg;
 	private String i_url;
 	private String m_name;
+	private String m_img;
 	
 	private int board_prev_seq;
 	private int board_next_seq;
@@ -290,5 +291,11 @@ public class MatchingVO {
 	}
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
+	}
+	public String getM_img() {
+		return m_img;
+	}
+	public void setM_img(String m_img) {
+		this.m_img = m_img;
 	}
 }

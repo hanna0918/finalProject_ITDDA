@@ -17,7 +17,7 @@ public interface QuestionDAO {
 	
 	//QnA View
 	@Select({" <script> ",
-		" select * from (select a.board_seq, board_subject, b_content, to_char(board_writedate,'YYYY-MM-DD') board_writedate, m_nickname, m_userid, b_goodhit, board_call, board_hit, ",
+		" select * from (select a.board_seq, board_subject, b_content, to_char(board_writedate,'YYYY-MM-DD') board_writedate, m_nickname, m_userid, b_goodhit, board_call, board_hit, nvl(m_img,'img/user.png') m_img, ",
 		" (select count(board_seq) from board_comment e where a.board_seq=e.board_seq) replyCount, ",
 		" lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq, ",
 		" lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject, ",

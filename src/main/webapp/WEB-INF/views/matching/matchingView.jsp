@@ -7,7 +7,7 @@
             주최자 소개<br />
         </div>
         <div id="hostPhoto">
-            <img src="/itda/img/cheeze.jpg" alt="강아지">
+            <img src="${vo.m_img}" alt="강아지">
         </div>
         <div id="hostUserid">
             <b>${vo.m_nickname}</b><br />
@@ -64,7 +64,7 @@
                 <div>${vo.board_subject}</div>	
             </div>
             <div class='contentWriter'><!-- 작성자 -->
-                <div><img src='/itda/img/user.png' name='profileShot' /></div><!-- 프로필이미지 -->
+                <div><img src='${vo.m_img}' name='profileShot' width="40px" height="40px" style="border-radius: 20px;"/></div><!-- 프로필이미지 -->
                 <div>
                     <div id='matchingWriter'>${vo.m_nickname}(${vo.m_userid})</div>
                     <div>

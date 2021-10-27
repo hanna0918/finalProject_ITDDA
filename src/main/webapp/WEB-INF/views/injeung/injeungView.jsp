@@ -9,7 +9,7 @@
 				<div>${vo.board_subject}</div>
 			</div>
 			<div class='contentWriter'><!-- 작성자 -->
-				<div><img src='img/circle.png' name='profileShot' /></div><!-- 프로필이미지 -->
+				<div><img src='${vo.m_img}' name='profileShot' /></div><!-- 프로필이미지 -->
 				<div>
 					<div class='postWriterNick'>${vo.m_nickname }</div>
 					<div>

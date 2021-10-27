@@ -45,7 +45,7 @@ public interface BoardDAO {
 	
 	//글내용보기 
 
-		 @Select(" select m_nickname, m_userid, board_code, board_seq, b.m_seq, board_subject, b_content, board_hit, b_goodhit  "
+		 @Select(" select m_nickname, m_userid, board_code, board_seq, b.m_seq, board_subject, b_content, board_hit, b_goodhit, nvl(m_img,'img/user.png') m_img  "
 		  + " from boardbase b join memberbase mb on b.m_seq= mb.m_seq where board_code=5 and board_seq=${param1} ") //board_code=5;
 		 public BoardVO freeView(int board_seq); 
 		 

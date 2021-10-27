@@ -107,6 +107,7 @@ public interface RecommendDAO {
 			+ "           , board_call "
 			+ "           , b_content "
 			+ "           , board_select "
+			+ "			  , nvl(m_img,'img/user.png') m_img "
 			+ "           , lag(a.board_seq, 1) over(order by a.board_seq) board_prev_seq "
 			+ "           , lag(board_subject, 1, '이전글이 없습니다.') over(order by a.board_seq) board_prev_subject "
 			+ "           , lag(board_select, 1) over(order by a.board_seq) board_prev_select "

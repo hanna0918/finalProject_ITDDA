@@ -13,7 +13,7 @@
     </div>
     <div class="contentWriter">
       <!-- 작성자 -->
-      <div><img src="/itda/img/user.png" name="profileShot" /></div>
+      <div><img src="${vo.m_img}" name="profileShot" /></div>
       <!-- 프로필이미지 -->
       <div>
         <div class="postWirterNick">${vo.m_nickname}(${vo.m_userid})</div>
