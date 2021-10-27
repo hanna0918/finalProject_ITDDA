@@ -67,7 +67,6 @@
 		    	reader.onload = function(data) {
 		    		console.log(data.target.result+ 'dddddddd나오냐이미지');
 		    		$("#profilePic").attr("src", data.target.result);
-		    		$("#m_img").val(data.target.result);
 	    		}
 	    		reader.readAsDataURL(this.files[0]);
 				//reader.readAsText(this.files[0]);
