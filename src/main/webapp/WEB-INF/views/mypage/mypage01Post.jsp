@@ -9,7 +9,7 @@
 	<h3 class="mypageH2">내가 쓴 글</h3>
 	<div class='list'>
 		<ul id='title'>
-			<li>카테고리</li>
+			<li style="width:15%;">카테고리</li>
 			<li>제목</li>
 			<li>등록일</li>
 			<li>조회수</li>
@@ -20,7 +20,7 @@
 	<div class='list'>
 		<ul class='content'>
 			<c:forEach var="vo" items="${list}">
-				<li class='selectList' style="width:15%;">${vo.board_content}</li>
+				<li class='selectList'>${vo.board_content}</li>
 				<c:choose>
 					<c:when test="${vo.board_code==1 }">
 						<li><a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>
