@@ -36,7 +36,7 @@ public interface AdminDAO {
 	/*게시판 블럭 처리 확인 블럭 처리 업데이트*/
 	
 	/*신고자 게시판*/
-	@Select("select b.board_seq,bc.board_content,b.board_subject,b.b_content,bc.board_select,m.m_nickname,b.board_call ,to_char(board_writedate,'YY-MM-DD') board_writedate from boardbase b JOIN memberbase m on b.m_seq = m.m_seq join board_code bc on b.board_code = bc.board_code join board_content bc on b.board_seq = bc.board_seq where board_block=0 and board_call>=10")
+	@Select("select b.board_seq,bc.board_content,b.board_subject,b.b_content,bc.board_select,m.m_nickname,b.board_call ,to_char(board_writedate,'YY-MM-DD') board_writedate from boardbase b JOIN memberbase m on b.m_seq = m.m_seq join board_code bc on b.board_code = bc.board_code join board_content bc on b.board_seq = bc.board_seq where board_block=0 and board_call>=1")
 	public List<BoardVO> BoardcallList();
 	
 	@Select("select b.board_seq, b.board_subject,bc.board_content,m.m_nickname,b.b_content, bt.Board_select from boardbase b join memberbase m on b.m_seq = m.m_seq join board_code bc on bc.board_code = b.board_code join Board_content bt on bt.board_seq =b.board_seq where b.board_seq = #{m_seq}")

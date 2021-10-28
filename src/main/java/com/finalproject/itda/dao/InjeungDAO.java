@@ -16,6 +16,7 @@ public interface InjeungDAO {
 				" from boardbase b join memberbase m on b.m_seq=m.m_seq ",
 				" join board_image i on b.board_seq=i.board_seq ",
 				" where b.board_code=3 ",
+				" and board_block in (0, 2) ",
 //				" <if test='m_seq!=null and m_seq!=\"\"'> ",
 //				" and c.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
 //				" </if> ",
