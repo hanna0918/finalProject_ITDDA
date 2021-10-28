@@ -123,7 +123,7 @@ $(function(){
 				var tag = "";
 				result.each(function(idx, vo){
 					tag += "<div class='replyDiv'>";
-					tag += "<div><img src='/itda/img/user.png' name='profileShot'></div>";
+					tag += "<div><img src='" + vo.m_img + "' name='profileShot'></div>";
 					tag += `<div>`;
 					tag += `<div id='matchingWriter'>${vo.m_nickname}(${vo.m_userid}) <span>${vo.br_writedate}</span></div>`;
 					tag += `<div class='replyView'>${vo.br_content}</div>`;
