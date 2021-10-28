@@ -7,6 +7,7 @@ public class BoardCommentVO {
 	private String br_content;
 	private String br_writedate;
 	private String m_userid;
+	private String m_img;
 	
 	//湲��젣紐�
 	private String board_subject;
@@ -69,6 +70,12 @@ public class BoardCommentVO {
 	}
 	public void setBr_id_Array(int[] br_id_Array) {
 		this.br_id_Array = br_id_Array;
+	}
+	public String getM_img() {
+		return m_img;
+	}
+	public void setM_img(String m_img) {
+		this.m_img = m_img;
 	}
 	
 	

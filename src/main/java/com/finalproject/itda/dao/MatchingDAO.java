@@ -243,7 +243,7 @@ public interface MatchingDAO {
 	public List<MatchingVO> matchingUser(int board_seq);
 	
 	// 댓글 불러오기
-	@Select(" select board_seq, br_id, m_nickname, m_userid, a.m_seq, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate "
+	@Select(" select board_seq, br_id, m_nickname, m_userid, a.m_seq, br_content, to_char(br_writedate, 'YYYY-MM-DD HH24:MI') br_writedate, nvl(m_img, 'img/circle.png') m_img "
 			+ " from board_comment a join memberbase b on a.m_seq=b.m_seq where board_seq=${param1} "
 			+ " order by br_writedate asc ")
 	public List<BoardCommentVO> matchingReply(int board_seq);
