@@ -20,7 +20,7 @@
 	<div class='list'>
 		<ul class='content'>
 			<c:forEach var="vo" items="${list}">
-				<li class='selectList'>${vo.board_content}</li>
+				<li class='selectList' style="width:15%;">${vo.board_content}</li>
 				<c:choose>
 					<c:when test="${vo.board_code==1 }">
 						<li><a href="/itda/recommendView?board_seq=${vo.board_seq}">${vo.board_subject}</a></li>

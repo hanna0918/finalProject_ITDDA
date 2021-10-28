@@ -51,7 +51,7 @@ public interface AdminDAO {
 	
 	
 	/*블랙 게시판*/
-	@Select("select b.board_seq,bc.board_content,b.board_subject,b.b_content,m.m_nickname,b.board_call ,to_char(board_writedate,'YY-MM-DD') board_writedate from boardbase b JOIN memberbase m on b.m_seq = m.m_seq join board_code bc on b.board_code = bc.board_code join board_content bc on b.board_seq = bc.board_seq where board_block=1")
+	@Select("select b.board_seq,bc.board_content,b.board_subject,b.b_content,m.m_nickname,b.board_call ,to_char(board_writedate,'YY-MM-DD') board_writedate from boardbase b JOIN memberbase m on b.m_seq = m.m_seq join board_code bc on b.board_code = bc.board_code join board_content bc on b.board_seq = bc.board_seq where board_block=1 order by board_seq desc")
 	public List<BoardVO> BlackBoardList();
 	/*블랙 게시판*/
 	

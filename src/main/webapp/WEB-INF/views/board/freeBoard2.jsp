@@ -469,9 +469,9 @@ select, input[type="text"] {
                
                   <!-- ---------------------------------------------------------------------- -->
                   <div id="myDropdown${vo.m_nickname}" class="dropdown-content">
-                     <a class="profil" name="${vo.m_nickname}">프로필</a> <a
-                        class="chadan" name="${vo.m_nickname}">차단하기</a> <a class="gudok"
-                        name="${vo.m_nickname}">구독하기</a> <a class="sendMail"
+                     <a class="profil" name="${vo.m_nickname}">프로필</a> 
+                     <!-- <a class="chadan" name="${vo.m_nickname}">차단하기</a> --> 
+                     <a class="gudok"  name="${vo.m_nickname}">구독하기</a> <a class="sendMail"
                         name="${vo.m_nickname}">쪽지보내기</a> <a
                         href="/itda/writeList?m_nickname=${vo.m_nickname}&m_name=${vo.m_name}"
                         name="${vo.m_nickname}">게시글보기</a>
