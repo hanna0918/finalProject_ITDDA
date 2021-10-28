@@ -776,7 +776,6 @@ select, input[type="text"] {
                                        }
 
                                     });////////////////3 ajax
-                                    $("#profileImg").attr("src", result[0].m_img).width(100).height(100);
 
                               nickname = "";
                               console.log("초기화후:" + nickname);
