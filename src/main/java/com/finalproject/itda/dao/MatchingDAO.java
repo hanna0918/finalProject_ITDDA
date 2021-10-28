@@ -139,9 +139,7 @@ public interface MatchingDAO {
 	@Select({" <script> ",
 			"select b.board_seq, to_char(mc_start_date,'YYYY-MM-DD') \"start\", ",
 			" board_subject \"title\" from boardbase b inner join mc_table m on b.board_seq=m.board_seq",
-			" <if test='m_seq!=null and m_seq!=\"\"'> ",
-			" where b.m_seq not in (select m_seq_ban from user_ban where m_seq=${m_seq}) ",
-			" </if> ",
+			" where board_block in (0, 2)  ",
 			" </script>"})
 	public List<CalendarVO> dataForJson(MatchingPagingVO pVo);
 	
