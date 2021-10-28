@@ -80,7 +80,7 @@ public class MatchingController {
 	public ModelAndView matchingWriteOk(MatchingVO vo, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 		String[] image = vo.getB_content().split("<img");
-		String[] imageSplit = image[1].split("style");
+		String[] imageSplit = image[1].split(">");
 		String thumbnail = "<img" + imageSplit[0];
 		vo.setThumbImg(thumbnail);
 		

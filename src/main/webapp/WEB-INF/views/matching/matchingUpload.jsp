@@ -39,9 +39,9 @@
 			                <label for="mc_state2">정기모임</label>
 			            </div>
 			        </div>
-			         <div>
+			        <div>
 							<label class="input-file-button" for="input-file">썸네일</label> 
-							<input type="file" id="input-file" />
+							<input type="file" id="input-file" name="input-file"/>
 							<input type="hidden" name="i_url" id="i_url"/>
 					</div>
 					
@@ -54,12 +54,15 @@
 						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
 						    		$("#thumbnail").attr("src", data.target.result).width(500);
 					    		}
-// 					    		reader.readAsDataURL(this.files[0]);
+					    		reader.readAsDataURL(this.files[0]);
 								//reader.readAsText(this.files[0]);
 								//console.log(reader.readAsText(this.files[0]));
 								fileCheck();
 					    	}
 				    	});
+// 					    		reader.readAsDataURL(this.files[0]);
+								//reader.readAsText(this.files[0]);
+								//console.log(reader.readAsText(this.files[0]));
 						function fileCheck() {
 							//input file 태그.
 							var file = document.getElementById('input-file');
