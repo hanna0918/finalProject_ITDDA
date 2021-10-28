@@ -13,7 +13,7 @@
 		    <h2>MATCHING</h2>
 		    <h4>나와 다른사람을 이어보세요!</h4>
 	  	</div>
-	    <form method="post" action="/itda/matchingWriteOk" id="matchingUploadForm" action="/itda/matchingWriteOk" onsubmit="return false">
+	    <form enctype="multipart/form-data" method="post" action="/itda/matchingWriteOk" id="matchingUploadForm"  onsubmit="return false">
 	    	<div id="matchingBasicInfoArea">
 	            <div>
 	                <div id="titleAndMap">
@@ -41,7 +41,7 @@
 			        </div>
 			         <div>
 							<label class="input-file-button" for="input-file">썸네일</label> 
-							<input type="file" id="input-file" name="input-file"/>
+							<input type="file" id="input-file" />
 							<input type="hidden" name="i_url" id="i_url"/>
 					</div>
 					
@@ -54,7 +54,7 @@
 						    		console.log(data.target.result+ 'dddddddd나오냐이미지');
 						    		$("#thumbnail").attr("src", data.target.result).width(500);
 					    		}
-					    		reader.readAsDataURL(this.files[0]);
+// 					    		reader.readAsDataURL(this.files[0]);
 								//reader.readAsText(this.files[0]);
 								//console.log(reader.readAsText(this.files[0]));
 								fileCheck();
