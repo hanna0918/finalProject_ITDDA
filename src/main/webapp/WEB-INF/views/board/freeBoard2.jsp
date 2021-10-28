@@ -695,16 +695,11 @@ select, input[type="text"] {
                console.log("-----------------");
                console.log("jj:" + nickname);
 
-               $('.profil')
-                     .click(
-                           function() { ////////////////////////2
-                              $('.profilDataInputModal').css(
-                                    'display', 'block');
-                              $('.profilJoinModal').css('display',
-                                    'block');
+               $('.profil').click(function() { ////////////////////////2
+                              $('.profilDataInputModal').css('display', 'block');
+                              $('.profilJoinModal').css('display','block');
 
-                              $
-                                    .ajax({ /////////////////////////////////3
+                              $.ajax({ /////////////////////////////////3
                                        url : '/itda/freeBoardmodal',
                                        data : nickname1,
                                        type : 'POST',
@@ -712,21 +707,15 @@ select, input[type="text"] {
                                           var result = $(result);
                                           console.log(result);
                                           var tag = "";
-
+                                          console.log(result[0].m_img);
                                           tag += `<h4 id='profileTop'> 🍊 프로필 </h4>`;
                                           tag += `<form>`;
                                           tag += `<div class="profileinfo">`;
                                           tag += `<div style='width:100px; height:100px; margin:0 auto;'>`;
+                                          tag += `<label class='input-file-button' style='text-align: center' for='input-files'><img  style='width: 100px;height: 100px;border-radius: 50px;' id='profilePic' /></label>`;
                                           tag += `</div>`;
-
-                                          tag += "<div>"
-                                                + "닉네임 : "
-                                                + result[0].m_nickname
-                                                + "</div>";
-                                          tag += "<div>"
-                                                + "F:"
-                                                + result[0].m_gender
-                                                + "</div>";
+                                          tag += "<div>"+ "닉네임 : "+ result[0].m_nickname + "</div>";
+                                          tag += "<div>"+ "F:"+ result[0].m_gender+ "</div>";
                                           tag += "<div>"
                                                 + result[0].m_name
                                                 + "</div>";
@@ -787,6 +776,8 @@ select, input[type="text"] {
                                        }
 
                                     });////////////////3 ajax
+                                    $("#profileImg").attr("src", result[0].m_img).width(100).height(100);
+
                               nickname = "";
                               console.log("초기화후:" + nickname);
 
@@ -817,7 +808,6 @@ select, input[type="text"] {
                                        var openDropdown = dropdowns[i];
                                        if (openDropdown.classList
                                              .contains('show')) {
-                                          check++;
                                           openDropdown.classList
                                                 .remove('show');
                                        }

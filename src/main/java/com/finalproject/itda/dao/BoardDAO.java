@@ -73,10 +73,15 @@ public interface BoardDAO {
 	
 	// 프로필 모달창 
 		
-		@Select("select b.m_nickname, b.m_gender, r.m_name, b.m_info, b.m_tag from memberbase b join member_rank r on r.m_rank= b.m_rank where m_nickname=#{m_nickname}")
-		/* @Select("select * from memberbase where m_nickname = #{m_nickname}") */
-		 public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo);
+//		@Select("select b.m_nickname, b.m_gender, r.m_name, b.m_info, b.m_tag from memberbase b join member_rank r on r.m_rank= b.m_rank where m_nickname=#{m_nickname}")
+//		/* @Select("select * from memberbase where m_nickname = #{m_nickname}") */
+//		 public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo);
 	
+		  // 프로필 모달창 
+	      
+	      @Select("select b.m_nickname, b.m_gender, r.m_name, nvl(b.m_info, '아직 등록된 인사말이 없습니다.') m_info, nvl(b.m_tag, '아직 등록된 태그가 없습니다') m_tag , nvl(b.m_img,'img/circle.png') m_img from memberbase b join member_rank r on r.m_rank= b.m_rank where m_nickname=#{m_nickname}")
+	       public MemberBaseVO freeBoardmodal(MemberBaseVO mbVo);
+		
 	//차단 모달창
 		@Insert("insert into user_ban(m_seq,b_note,m_seq_ban) values (${m_seq},#{b_note},(select m_seq from memberbase where m_nickname=#{m_nickname})) ")
 		public int freeBoardmodalChadanOk(MemberBaseVO mbVo);   
