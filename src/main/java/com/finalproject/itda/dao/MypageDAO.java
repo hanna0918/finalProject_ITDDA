@@ -52,7 +52,7 @@ public interface MypageDAO {
 	@Update("update memberbase set m_email=#{m_email},m_addr=#{m_addr},m_addrdetail=#{m_addrdetail},m_info =#{m_info},m_tag=#{m_tag},m_img=#{m_img} where m_seq= #{m_seq}")
 	public int editMyInfoUpdate(MemberBaseVO vo);
 	//援щ룆援щ룆援щ룆
-	@Select("select distinct m_nickname, m_info, m_tag from memberbase where m_seq in "
+	@Select("select distinct m_nickname, nvl(m_info, '아직 등록된 소개가 없습니다') m_info , nvl(m_tag,'아직 등록된 태그가 없습니다.') m_tag from memberbase where m_seq in "
 			+ " (select m_seq_sub from memberbase m join user_sub us on m.m_seq=us.m_seq_sub where us.m_seq='${param1}')")
 	public List<MemberBaseVO> mypageSubscribeList(int m_seq);
 	
