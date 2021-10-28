@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/inc/mypageTop.jspf"%>
+
 <!-- ----------------------- 내가 쓴 글 ----------------------- -->
 <div id='myBoardList'>
 	<h3 class="mypageH2">내가 쓴 글</h3>

@@ -19,49 +19,16 @@
 	<div class='list'>
 		<form>
 			<ul class='content'>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
-					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
-					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
-					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
-					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
-					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
-					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				<li>1</li>
-				<li><a href='#'>산에서 곰을 만났을때 어떻게 해야하나요..?</a><br /> 
-					<span><a href='#'>#곰</a><a href='#'>#살려쥬</a></span></li>
-				<li><a href='#'>위기탈출넘버원</a></li>
-				<li>2021-07-01</li>
-				<li><input type='button' name='ratingBtn' value='평가' /></li>
-				
+				<c:forEach var="mcVo" items="${matchingList}">
+					<li>${mcVo.board_seq}</li>
+					<li>
+						${mcVo.board_subject}<br/>
+						<span><c:forEach var="tag" items="${mcVo.tags}">#${tag}</c:forEach></span>						
+					</li>
+					<li>${mcVo.m_nickname}</li>
+					<li>${mcVo.board_writedate}</li>
+					<li><input type='button' name='ratingBtn' value='글보기' onclick="location.href='/itda/matchingView?board_seq=${mcVo.board_seq}'" /></li>
+				</c:forEach>
 			</ul>
 		</form>
 	</div>
